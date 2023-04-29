@@ -2,7 +2,7 @@
 #include "TexturesLib.hpp"
 
 Player::Player(string texture_file_down, int maxHP = MAXHP_PLAYER) {
-    _ort_textures.insert({ 'D', TexturesLib::assignTexture(texture_file_down) });
+    _ort_textures.insert({ 'D', _texturesLib.assignTexture(texture_file_down) });
 
     _sprite.setTexture(*_ort_textures['D']);
 
@@ -17,16 +17,16 @@ Player::Player(string texture_file_down, int maxHP = MAXHP_PLAYER) {
 
 Player::Player(string texture_file_up, string texture_file_down, string texture_file_left,
     string texture_file_right, string attack_file_up, string attack_file_down,
-    string attack_file_left, string attack_file_right, int maxHP = MAXHP_PLAYER) {
-    _ort_textures.insert({ 'U', TexturesLib::assignTexture(texture_file_up) });
-    _ort_textures.insert({ 'D', TexturesLib::assignTexture(texture_file_down) });
-    _ort_textures.insert({ 'L', TexturesLib::assignTexture(texture_file_left) });
-    _ort_textures.insert({ 'R', TexturesLib::assignTexture(texture_file_right) });
+    string attack_file_left, string attack_file_right, int maxHP = MAXHP_PLAYER) {// code changé , comme la classe herite de object elle à un attribut de classe _texturelib , qui fait appel à ces focntions
+    _ort_textures.insert({ 'U', _texturesLib.assignTexture(texture_file_up) });
+    _ort_textures.insert({ 'D', _texturesLib.assignTexture(texture_file_down) });
+    _ort_textures.insert({ 'L', _texturesLib.assignTexture(texture_file_left) });
+    _ort_textures.insert({ 'R', _texturesLib.assignTexture(texture_file_right) });
 
-    _attack_textures.insert({ 'U', TexturesLib::assignTexture(attack_file_up) });
-    _attack_textures.insert({ 'D', TexturesLib::assignTexture(attack_file_down) });
-    _attack_textures.insert({ 'L', TexturesLib::assignTexture(attack_file_left) });
-    _attack_textures.insert({ 'R', TexturesLib::assignTexture(attack_file_right) });
+    _attack_textures.insert({ 'U', _texturesLib.assignTexture(attack_file_up) });
+    _attack_textures.insert({ 'D', _texturesLib.assignTexture(attack_file_down) });
+    _attack_textures.insert({ 'L', _texturesLib.assignTexture(attack_file_left) });
+    _attack_textures.insert({ 'R', _texturesLib.assignTexture(attack_file_right) });
 
     _sprite.setTexture(*_ort_textures['D']);
 
@@ -138,16 +138,15 @@ void Player::heal(int hp) {
     if (_hp > _maxHP)   _hp = _maxHP;
 }
 
-char Player::inRange(const sf::Vector2f pos){
+char Player::inRange(const sf::Vector2f pos){ // j'ai implementé cette fontion , afin que si la target se situe dans un carreau a coté on retourne la direction du carreeau
 
     int posx, posy;
     posx = pos.x;
     posy = pos.y;
     int difx = _posX - posx;
     int dify = _posY - posy;
-    if ((abs(difx) > 48 || abs(dify) > 48) || (difx!=0 && dify!=0) ) {
+    if ((abs(difx) > 64 || abs(dify) > 64 ) || (difx!=0 && dify!=0) ) {
         return 'N';
-
     }
     else if (dify < 0 && difx == 0) {
         return 'D';

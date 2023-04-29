@@ -269,10 +269,8 @@ std::vector <sf::Text> DrawInterface::getDrawingText(void) const {
     return vectorText;
 }
 
-//autre methode
+void Game::allDrawWindow(void) {
 
-
-void DrawInterface::allDrawWindow(void) {
     vectorSprite.clear();
     vectorText.clear();
 
@@ -286,8 +284,8 @@ void DrawInterface::allDrawWindow(void) {
     //drawChestGain();
 
     // Element Mobile
-    m_vectorsprite.push_back(m_Mob1.getSprite()); // Monster
-    m_vectorsprite.push_back(m_Player.getSprite()); // Player
+    vectorSprite.push_back(monster.getSprite()); // Monster
+    vectorSprite.push_back(player.getSprite()); // Player
 
     // Over all
     drawSword(); // Sword
@@ -318,7 +316,7 @@ void DrawInterface::drawRubis(void) {
 }
 
 void DrawInterface::drawMap(void) {
-    extractSpriteFromVector(m_Bloc.getListSprite());
+    /*extractSpriteFromVector(m_Bloc.getListSprite());
     extractSpriteFromVector(m_Cavern.getListSprite());
     extractSpriteFromVector(m_Tree.getListSprite());
     extractSpriteFromVector(m_Ground.getListSprite());
@@ -329,12 +327,12 @@ void DrawInterface::drawMap(void) {
     extractSpriteFromVector(m_GreyGround.getListSprite());
     extractSpriteFromVector(m_Rock.getListSprite());
     extractSpriteFromVector(m_RedRock.getListSprite());
-    extractSpriteFromVector(m_WhiteRock.getListSprite());
+    extractSpriteFromVector(m_WhiteRock.getListSprite());*/
 }
 
 void DrawInterface::extractSpriteFromVector(std::vector <sf::Sprite> vector) {
     for (int number = 0; number < vector.size(); number++) {
-        m_vectorsprite.push_back(vector[number]);
+        vectorSprite.push_back(vector[number]);
     }
 }
 
@@ -343,29 +341,29 @@ void DrawInterface::extractSpriteFromVector(std::vector <sf::Sprite> vector) {
 
 
 void Game::setMapUpdate(void) {
-    map.generateMap();
+    _map.generateMap();
     setBackground(); // met en place le decor
     makeListMonster(); //
 }
 
 void Game::switchMap(void) {
     if (player.position().x < 0) {
-        map.setMapLeft();
+        _map.setMapLeft();
         setMapUpdate();
         player.setPositionLeft();
     }
     else if (player.position().x > 1024) {
-        map.setMapRight();
+        _map.setMapRight();
         setMapUpdate();
         player.setPositionRight();
     }
     else if (player.position().y < 64) {
-        map.setMapUp();
+       _map.setMapUp();
         setMapUpdate();
         player.setPositionUp();
     }
     else if (player.position().y > 768) {
-        map.setMapDown();
+        _map.setMapDown();
         setMapUpdate();
         player.setPositionDown();
     }
@@ -373,9 +371,9 @@ void Game::switchMap(void) {
 
 void Game::setBackground(void) {
 
-    classicTree.setPositionVector(map.getListPosition(*classicTree_c)); // getListPosition renvoie un veceur de veteur2f ( vecteur de position ) , dont la cl� dans HashMap est le const char*  "classicTree_c"  ensuite setPositionVector met sur la map tout les arbres necessaire au positions adequates
-    classicRock.setPositionVector(map.getListPosition(*classicRock_c));
-    classicGrass.setPositionVector(map.getListPosition(*classicGrass_c));
+    classicTree.setPositionVector(_map.getListPosition(*classicTree_c)); // getListPosition renvoie un veceur de veteur2f ( vecteur de position ) , dont la cl� dans HashMap est le const char*  "classicTree_c"  ensuite setPositionVector met sur la map tout les arbres necessaire au positions adequates
+    classicRock.setPositionVector(_map.getListPosition(*classicRock_c));
+    classicGrass.setPositionVector(_map.getListPosition(*classicGrass_c));
 }
 
 void Game::gainChest(void) {

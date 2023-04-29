@@ -56,8 +56,8 @@ private:
     Monster monster;
 
     //Class Wall
-    // Wall classicTree,
-    //     classicRock;
+    //Wall classicTree,
+         //classicRock;
 
     /// Class Ground
     Ground classicGrass;
@@ -70,6 +70,8 @@ private:
     Sword sword;
 
     ////////////////////////////////////////
+
+    //void allDrawWindow(void);
 
     /// Call all function for create a new map
     void setMapUpdate(void);
@@ -91,6 +93,7 @@ private:
     /// Afflict damage at the mob in conatct with the sword
     /// \param mob position in the vector
     void monsterReceveAttack(int monster);
+
 
     ////////////////////////////////////////
 

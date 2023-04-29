@@ -1,18 +1,18 @@
 #include "GameWindow.hpp"
+#include "Object.hpp"
 
 int main(void) {
     __cplusplus;
-    GameWindow Window;
+    GameWindow _window;
+    Object o("object.png");
+    std::vector<sf::Sprite> sprites;
+    sprites.push_back(o.getSprite());
 
-    /*Window.limitFramerate(60);
-    std::cout << "Window \e[33mOpen" << std::endl;*/
-
-    while (Window.isRunning()) {
-        Window.controlWindow();
+    while (_window.isRunning()) {
+        _window.controlWindow();
+        _window.updateWindow();
         // Window.verificationWindow();
-        // Window.updateWindow();
+   
     }
-
-    std::cout << "\033[0mWindow \x1B[33mClose" << std::endl;
     return EXIT_SUCCESS;
 }

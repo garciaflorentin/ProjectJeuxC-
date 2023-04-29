@@ -8,14 +8,17 @@
     <Filter Include="MainFolder">
       <UniqueIdentifier>{f5362931-db55-4cfc-a898-e86437a0d17f}</UniqueIdentifier>
     </Filter>
-    <Filter Include="ImmovableObject">
+    <Filter Include="Object">
+      <UniqueIdentifier>{c810ce2a-4295-49e4-8307-46fc1df0085b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Object\MovableObject">
+      <UniqueIdentifier>{716d7aa7-8df0-4892-90f5-8d72bd115456}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Object\ImmovableObject">
       <UniqueIdentifier>{c64aebdf-fe93-4d6f-a5f0-315eb9bd6cdd}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Items">
+    <Filter Include="Object\Items">
       <UniqueIdentifier>{26656613-1fb0-4cd2-a1e5-41c461f89f23}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="MovableObject">
-      <UniqueIdentifier>{716d7aa7-8df0-4892-90f5-8d72bd115456}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -46,36 +49,31 @@
       <Filter>MainFolder</Filter>
     </ClInclude>
     <ClInclude Include="Ground.hpp">
-      <Filter>ImmovableObject</Filter>
+      <Filter>Object\ImmovableObject</Filter>
     </ClInclude>
     <ClInclude Include="Sword.hpp">
-      <Filter>Items</Filter>
-    </ClInclude>
-    <ClInclude Include="Character.hpp">
-      <Filter>MovableObject</Filter>
-    </ClInclude>
-    <ClInclude Include="Monster.hpp">
-      <Filter>MovableObject</Filter>
+      <Filter>Object\Items</Filter>
     </ClInclude>
     <ClInclude Include="Player.hpp">
-      <Filter>MovableObject</Filter>
+      <Filter>Object\MovableObject</Filter>
+    </ClInclude>
+    <ClInclude Include="Object.hpp">
+      <Filter>Object</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="GameWindow.cpp">
       <Filter>MainFolder</Filter>
     </ClCompile>
-    <ClCompile Include="Game.cpp">
-      <Filter>MainFolder</Filter>
-    </ClCompile>
     <ClCompile Include="TexturesLib.cpp">
       <Filter>MainFolder</Filter>
     </ClCompile>
     <ClCompile Include="Player.cpp">
-      <Filter>MovableObject</Filter>
+      <Filter>Object\MovableObject</Filter>
     </ClCompile>
-    <ClCompile Include="main.cpp">
-      <Filter>MainFolder</Filter>
+    <ClCompile Include="Object.cpp">
+      <Filter>Object</Filter>
     </ClCompile>
+    <ClCompile Include="main.cpp" />
   </ItemGroup>
 </Project>

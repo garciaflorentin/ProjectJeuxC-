@@ -11,7 +11,7 @@
 
 class DrawInterface {
 
-private:
+public:
 
 	//police d'ecriture
 	const char* font = "font/SuperLegendBoy.ttf";
@@ -22,8 +22,6 @@ private:
 	/// Vector text for draw in the window
 	std::vector <sf::Text> vectorText;
 
-
-public:
 
 	/// \return drawing srite
 	std::vector <sf::Sprite> getDrawingSprite(void) const;

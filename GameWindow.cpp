@@ -74,12 +74,12 @@ void GameWindow::limitFrameRate(int frame) { //limite le nombre de FPS
     this->window->setFramerateLimit(frame);
 }
 
-/*void GameWindow::updateWindow(void) { // met a jour la fentre en utilisation des methodes priv�s
+void GameWindow::updateWindow(std::vector<sf::Sprite> _sprites, std::vector<sf::Text> _texts) { // met a jour la fentre en utilisation des methodes priv�s
     this->window->clear();
-    this->drawVectorSprite(this->Game.getDrawingSprite());
-    this->drawVectorText(this->Game.getDrawingText());
+    this->drawVectorSprite(_sprites);//this->drawVectorSprite(this->_game.getDrawingSprite());
+    this->drawVectorText(_texts);//this->_game.getDrawingText())
     this->window->display();
-}*/
+}
 
 /*void GameWindow::verificationWindow(void) { // regarde dans quel etat doit se trouver la fenetre
     this->Game.executionGame();

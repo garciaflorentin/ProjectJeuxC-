@@ -4,14 +4,14 @@
 #include <SFML/Graphics.hpp>
 
 #include "Character.hpp"
-
+#include "Object.hpp"
 #include "Sword.hpp"
 
 #define MAXHP_PLAYER 10    // vie max par defaut
 
 using namespace std;
 
-class Player : public Character {
+class Player : public Character, public Object {
 private:
     map<char, sf::Texture*> _ort_textures;    // textures pour les differentes orientations 
     map<char, sf::Texture*> _attack_textures; // pareil pais pour une attaque 
@@ -68,6 +68,11 @@ public:
     void updateRubis(int rubis) { _rubis += rubis; };
 
     char inRange(const sf::Vector2f pos);
+
+    //getterur de _alive
+    bool isAlive() {
+        return _alive;
+    }
 };
 
 #endif
