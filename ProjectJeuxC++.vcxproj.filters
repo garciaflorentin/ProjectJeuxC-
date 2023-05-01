@@ -30,7 +30,7 @@
     <ClInclude Include="GameWindow.hpp">
       <Filter>MainFolder</Filter>
     </ClInclude>
-    <ClInclude Include="Game.hpp">
+    <ClInclude Include="Games.hpp">
       <Filter>MainFolder</Filter>
     </ClInclude>
     <ClInclude Include="ColisionInterface.hpp">
@@ -54,11 +54,11 @@
     <ClInclude Include="Sword.hpp">
       <Filter>Object\Items</Filter>
     </ClInclude>
-    <ClInclude Include="Player.hpp">
-      <Filter>Object\MovableObject</Filter>
-    </ClInclude>
     <ClInclude Include="Object.hpp">
       <Filter>Object</Filter>
+    </ClInclude>
+    <ClInclude Include="GameGestion.hpp">
+      <Filter>MainFolder</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -68,12 +68,12 @@
     <ClCompile Include="TexturesLib.cpp">
       <Filter>MainFolder</Filter>
     </ClCompile>
-    <ClCompile Include="Player.cpp">
-      <Filter>Object\MovableObject</Filter>
-    </ClCompile>
     <ClCompile Include="Object.cpp">
       <Filter>Object</Filter>
     </ClCompile>
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="GameGestion.cpp">
+      <Filter>MainFolder</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>

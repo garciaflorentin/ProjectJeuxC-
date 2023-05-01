@@ -16,6 +16,7 @@ private:
     const char* name;
     const sf::Vector2f objectDim = { 48,48 };
     bool use;
+    sf::Vector2f position;
 
     bool loadTexture(const char* spriteName);//focntion finalement inutile , je vais la virrer 
     
@@ -27,7 +28,7 @@ public:
 
     //constructeurs
     Object();
-    Object(const char* nameObject);
+    Object(const char* nameObject, sf::Vector2f initPos);
 
     //chargement textures sur le sprites
     bool loadSprite(const char* nameSprite, sf::Vector2f initPos);
@@ -43,6 +44,7 @@ public:
     sf::Sprite& getSprite(){
         return _sprite;
     }
+
        
 
 };

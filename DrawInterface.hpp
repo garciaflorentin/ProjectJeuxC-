@@ -1,4 +1,4 @@
-#ifndef _DRAWINTERFACE_H_
+/*#ifndef _DRAWINTERFACE_H_
 #define _DRAWINTERFACE_H_
 
 /// Special library
@@ -46,4 +46,4 @@ public:
 	virtual void extractSpriteFromVector(std::vector <sf::Sprite> vector) = 0;
 
 };
-#endif
+#endif*/

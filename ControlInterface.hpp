@@ -1,4 +1,4 @@
-#ifndef _CONTROLINTERFACE_H_
+/*#ifndef _CONTROLINTERFACE_H_
 #define _CONTROLINTERFACE_H_
 
 /// Special library
@@ -19,4 +19,4 @@ public:
     //Key event
     void key(const char* keyType);
 };
-#endif
+#endif*/

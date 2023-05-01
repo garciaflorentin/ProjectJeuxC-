@@ -2,28 +2,38 @@
 #define TEXTURESLIB_HPP
 
 #include <SFML/Graphics.hpp>
+#include <iostream>
 
 using namespace std;
 
 class TexturesLib {
-public:
-    //j'ai rendu _textures public afin d'y acceder directement, plus facile
-    //bibliotheque des textures classee par nom du fichier
+
+private:
     static map<string, sf::Texture*> _textures;
 
+public:
 
-    /* Accesseurs */
-    const bool addTexture(string filename, sf::Texture* texture);// fonction inutile.
+
+    ~TexturesLib() {
+        while (!_textures.empty())
+        {
+            auto it = _textures.begin(); // Obtenir l'itérateur du premier élément
+            delete it->second; // Supprimer la texture pointée par la valeur de la paire clé-valeur
+            _textures.erase(it); // Supprimer la paire clé-valeur
+        }
+    }
+
+    map<string, sf::Texture*>& getTextures() {
+        return _textures;
+    }
 
     //focntions assignTexture , sur-chargé mais faisant la meme chose avec differents attributs
 
-    bool assignTexture(string filename, sf::Texture* _texture);
+    int assignTexture(string filename, sf::Texture* _texture);
 
     sf::Texture* assignTexture(string filename);
 
-    map<string, sf::Texture*>& getTexturesMap() const{
-        return _textures;
-    }
+
 
    
 };

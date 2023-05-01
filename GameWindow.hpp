@@ -7,7 +7,7 @@
 #include <iostream>
 #include <stdlib.h>
 
-#include "Game.hpp"
+#include "GameGestion.hpp"
 
 /// Window class and start the game
 class GameWindow {
@@ -18,9 +18,9 @@ private:
     sf::Event event;
     sf::VideoMode videoMode; //VideoMode defines a video mode (width, height, bpp) 
 
-   // Game _game;
+   GameGestion _game;
 
-    void pollEvent(void);// declaration d'un event
+   void pollEvent();// declaration d'un event
 
     void drawSprite(sf::Sprite sprite); //dessine un sprites sur la main window
 
@@ -41,6 +41,7 @@ public:
     /// Destructor
     ~GameWindow(void);
 
+    GameGestion& getGame();
 
 
     ////////////////////////////////////////
@@ -58,7 +59,24 @@ public:
     void controlWindow(void); //check les event
 
     void updateWindow(void);// fais la maj de la windwow a chaquqe fps
-    void updateWindow(std::vector<sf::Sprite> _sprites, std::vector<sf::Text> _texts);
+
+    void updateWindow(std::vector<sf::Sprite> _sprites);
+
+    void clearWindow() const{
+        window->clear();
+    }
+
+    void DisplayTile(std::vector<sf::Sprite> v);
+
+    void draw();// draw tout les sprites
+
+    sf::RenderWindow* getWindow() {
+        return window;
+    }
+
+    void display() {
+        window->display();
+    }
 
     //void verificationWindow(void);
 };

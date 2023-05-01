@@ -1,4 +1,4 @@
-#ifndef _COLISIONINTERFACE_H_
+/*#ifndef _COLISIONINTERFACE_H_
 #define _COLISIONINTERFACE_H_
 
 /// Special library
@@ -57,3 +57,4 @@ public:
 
 };
 #endif
+*/

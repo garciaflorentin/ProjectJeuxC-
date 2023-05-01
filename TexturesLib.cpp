@@ -5,16 +5,18 @@ map<string, sf::Texture*> TexturesLib::_textures = *(new map<string, sf::Texture
 
 /* Charge une texture dans la map si elle est pas deja dedans et renvoie la texture
 demandee*/
-bool TexturesLib::assignTexture(string filename,sf::Texture* _texture) {
+int TexturesLib::assignTexture(string filename,sf::Texture* _texture) {
     if (_textures.count(filename) == 0) {
         _textures.insert({ filename, new sf::Texture });
-        if (!_textures[filename]->loadFromFile(filename))    //charger le fichier
-            throw runtime_error("Couldn't load texture from file " + filename);
+        if (!_textures[filename]->loadFromFile(filename)) { //charger le fichier
+            std::cout << "erreur dans le chargement de l'image [methode TexturesLib::assignTexture]" << std::endl;
+            return EXIT_FAILURE;
+        }
         _texture = _textures[filename];
-        return true;
+        return 2;
     }
 
-    return false;;
+    return 3;
 }
 
 sf::Texture* TexturesLib::assignTexture(string filename) {

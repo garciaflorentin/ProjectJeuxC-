@@ -1,5 +1,5 @@
-#ifndef _GAME_HPP_
-#define _GAME_HPP_
+/*#ifndef _GAMES_HPP_
+#define _GAMES_HPP_
 
 /// Special library
 #include <SFML/Graphics.hpp>
@@ -118,3 +118,4 @@ public:
 };
 
 #endif
+*/
