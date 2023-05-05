@@ -3,6 +3,7 @@
 
 #include <SFML/Graphics.hpp>
 #include <iostream>
+#include <cstring>
 #include "TexturesLib.hpp"
 
 using namespace std;
@@ -10,9 +11,8 @@ using namespace std;
 class Object {
 
 private:
-
-    sf::Sprite _sprite;
-    sf::Texture _texture;
+    sf::Texture* _texture;
+    sf::Sprite* _sprite;
     const char* name;
     const sf::Vector2f objectDim = { 48,48 };
     bool use;
@@ -31,7 +31,7 @@ public:
     Object(const char* nameObject, sf::Vector2f initPos);
 
     //chargement textures sur le sprites
-    bool loadSprite(const char* nameSprite, sf::Vector2f initPos);
+    const int loadSprite(const char* nameSprite, sf::Vector2f initPos);
 
     //getteur de use
     const bool isUse() const{
@@ -41,8 +41,12 @@ public:
     //setteur
     void setPosition(sf::Vector2f& newPos);
 
-    sf::Sprite& getSprite(){
+    sf::Sprite* getSprite(){
         return _sprite;
+    }
+
+    void setSprite(sf::Sprite& sprite) {
+        _sprite = &sprite;
     }
 
        

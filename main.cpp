@@ -14,7 +14,6 @@ sf::Sprite _sprite;
 int main(void) {
     
     GameWindow _window;// cree la fenetre
-    
 
    /* switch (_texture.loadFromFile("object.png"))
     {
@@ -25,11 +24,11 @@ int main(void) {
     _texture.setSmooth(true);
     _sprite.setTexture(_texture);*/
     
-    _window.getGame().setPlayer1(&_sprite);
+    _window.getGame()->setPlayer(_window.getGame()->getPlayerSprite());// decoupe le sprite en ses differentes orientation , l'ajoute au vecteur de sprite de GameGestion et initialise le vecteur de mouvement.
  
     
     while (_window.getWindow()->isOpen()) {
-        _window.draw();
+        _window.draw();// dessine tout les sprites que contient la GameGestion
         _window.controlWindow();
         _window.display();
         _window.clearWindow();

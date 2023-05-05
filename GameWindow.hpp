@@ -18,7 +18,7 @@ private:
     sf::Event event;
     sf::VideoMode videoMode; //VideoMode defines a video mode (width, height, bpp) 
 
-   GameGestion _game;
+   GameGestion* _game;
 
    void pollEvent();// declaration d'un event
 
@@ -41,7 +41,7 @@ public:
     /// Destructor
     ~GameWindow(void);
 
-    GameGestion& getGame();
+    GameGestion* getGame();
 
 
     ////////////////////////////////////////

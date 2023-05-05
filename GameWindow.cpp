@@ -3,10 +3,12 @@
 // Constructor
 GameWindow::GameWindow(void) {
     // Window size : (16* 64) * ((10 * 64) + 64) = 1024 * 704
-    this->window = nullptr; // initialisation � nullptr par mesure de securit�
-    this->window = new sf::RenderWindow(sf::VideoMode(windoWwidth, windowHeight), "Game"); // creation de la fenetre
+    window = nullptr; // initialisation � nullptr par mesure de securit�
+    window = new sf::RenderWindow(sf::VideoMode(windoWwidth, windowHeight), "Game"); // creation de la fenetre
     window->setPosition(sf::Vector2i(100, 100));
     std::cout << "window create " << this << std::endl;
+    _game = new GameGestion();
+    std::cout << "GameWindow Constructeur" << std::endl;
 }
 
 
@@ -14,6 +16,7 @@ GameWindow::GameWindow(void) {
 // Destructor
 GameWindow::~GameWindow(void) {
     delete[] window;
+    delete[] _game;
     std::cout << "window delete " << this << std::endl;
 }
 
@@ -26,10 +29,10 @@ void GameWindow::pollEvent() {
         }
         else if(this->event.type == sf::Event::KeyPressed){// regarde si une touche du clavier à été pressé
             std::cout << " key " << std::endl;
-            _game.keyEvent(this->event);// fait appel à la fonction move
+            _game->keyEvent(this->event);// fait appel à la fonction move
 
-            if (_game.getAnimVector().x * _game.getPlayerSize() >= _game.getPlayerSize() * 3) { _game.getAnimVector().x = 0; }
-            _game.getPlayer1()->setTextureRect(sf::IntRect(_game.getAnimVector().x * _game.getPlayerSize()+3, _game.getAnimVector().y * _game.getPlayerSize()+3, 48, 48));
+            if (_game->getAnimVector().x * _game->getPlayerSize() >= _game->getPlayerSize() * 3) { _game->getAnimVector().x = 0; }
+            _game->getPlayerSprite()->setTextureRect(sf::IntRect(_game->getAnimVector().x * _game->getPlayerSize()+3, _game->getAnimVector().y * _game->getPlayerSize()+3, 48, 48));
 
         }
 
@@ -88,11 +91,11 @@ void GameWindow::controlWindow(void) {
     this->pollEvent();
 }
 
-GameGestion& GameWindow::getGame() {
+GameGestion* GameWindow::getGame() {
     return _game;
 }
 
 void GameWindow::draw() {
-    for (int i = 0; i < _game.getSpriteVector().size(); i++)
-        window->draw(*_game.getSpriteVector()[i]);
+    for (int i = 0; i < _game->getSpriteVector().size(); i++)
+        window->draw(*_game->getSpriteVector()[i]);
 }
