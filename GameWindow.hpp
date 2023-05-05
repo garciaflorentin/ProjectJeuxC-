@@ -12,12 +12,15 @@
 /// Window class and start the game
 class GameWindow {
 private:
-    const int windoWwidth = 1024, windowHeight = 768;
-
+    const float windowWidth = 1024.0, windowHeight = 768.0;
     sf::RenderWindow* window;
-    sf::Event event;
+    sf::Event* event;
     sf::VideoMode videoMode; //VideoMode defines a video mode (width, height, bpp) 
+    sf::View* _view;
+    std::vector<sf::Vector2i>* currentWindowPos;
+    sf::Vector2f positionCentre;
 
+    //class
    GameGestion* _game;
 
    void pollEvent();// declaration d'un event
@@ -31,7 +34,6 @@ private:
     void drawVectorText(std::vector <sf::Text> vector);
 
 
-
 public:
     ////////////////////////////////////////
 
@@ -42,6 +44,15 @@ public:
     ~GameWindow(void);
 
     GameGestion* getGame();
+
+    //view
+
+    sf::Vector2f& getWindowDim() {
+        sf::Vector2f dim = { windowWidth,windowHeight };
+        return dim;
+    }
+
+    void setScrollingView();
 
 
     ////////////////////////////////////////

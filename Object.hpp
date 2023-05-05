@@ -14,7 +14,7 @@ private:
     sf::Texture* _texture;
     sf::Sprite* _sprite;
     const char* name;
-    const sf::Vector2f objectDim = { 48,48 };
+    const int objectDim = 48;
     bool use;
     sf::Vector2f position;
 
@@ -29,9 +29,15 @@ public:
     //constructeurs
     Object();
     Object(const char* nameObject, sf::Vector2f initPos);
+    //destructeur
+    ~Object();
 
     //chargement textures sur le sprites
     const int loadSprite(const char* nameSprite, sf::Vector2f initPos);
+
+    const int getBlockSize() const {
+        return objectDim;
+    }
 
     //getteur de use
     const bool isUse() const{

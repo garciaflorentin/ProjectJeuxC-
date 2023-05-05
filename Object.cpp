@@ -6,6 +6,8 @@ TexturesLib Object ::_texturesLib;
 
 
 bool Object::loadTexture(const char* spriteName) {// inutile surrement
+    
+
     if (!_texture->loadFromFile(spriteName)) {
 
         std::cout << "error image " << spriteName << std::endl;
@@ -18,11 +20,17 @@ bool Object::loadTexture(const char* spriteName) {// inutile surrement
 // constructeurs
 
 Object::Object() : use(false){
+
+    _texture = new sf::Texture();
+    _sprite = new sf::Sprite();
     name = nullptr;
     _texturesLib = TexturesLib();
 }
 
 Object::Object(const char* nameObject, sf::Vector2f initPos) : use(false){
+    _texture = new sf::Texture();
+    _sprite = new sf::Sprite();
+
     std::cout << "Object Constructeur" << std::endl;
     //nom
     name = nameObject;
@@ -39,6 +47,11 @@ Object::Object(const char* nameObject, sf::Vector2f initPos) : use(false){
     }
 
 
+}
+
+Object::~Object() {
+    delete _texture;
+    delete _sprite;
 }
 
 const int Object::loadSprite(const char* nameSprite, sf::Vector2f initPos) { // return false si la texture à deja etait chargé , recupere la texture et l'assigne au sprite de l'object et return true sinon charge la textures et assigne la texture au sprite de l'object.
@@ -67,6 +80,8 @@ const int Object::loadSprite(const char* nameSprite, sf::Vector2f initPos) { // 
     }
     
 }
+
+
 
 void Object::setPosition(sf::Vector2f& newPos){
     _sprite->setPosition(newPos);

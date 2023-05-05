@@ -16,11 +16,11 @@
 class GameGestion{
 private:
 
-	const int playerSize = 48;
 	//sf::Sprite* player1; //sprite du joueur
 	sf::Vector2i anim;
 	std::vector< sf::Sprite*> spriteVector;
 	Object* player;
+	sf::Clock time;
 
 
 public:
@@ -32,7 +32,7 @@ public:
 	}
 
 	~GameGestion() {
-		delete[] player;
+		delete player;
 	}
 
 
@@ -40,8 +40,8 @@ public:
 
 	sf::Sprite* getPlayerSprite() const;// retourne le sprites du joueur
 
-	const int getPlayerSize() const {
-		return playerSize;
+	const int getObjectSize() const {
+		return player->getBlockSize();
 	}
 
 	std::vector< sf::Sprite*>& getSpriteVector() {
