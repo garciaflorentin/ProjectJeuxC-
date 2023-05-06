@@ -3,7 +3,10 @@
 
 
 enum class EnumOrientation {
-	Down, Left, Right, Up
+	Down, 
+	Left,
+	Right,
+	Up
 };
 
 #endif

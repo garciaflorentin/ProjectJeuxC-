@@ -20,6 +20,15 @@
     <Filter Include="Object\Items">
       <UniqueIdentifier>{26656613-1fb0-4cd2-a1e5-41c461f89f23}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Windows">
+      <UniqueIdentifier>{e1992f7f-ffb1-45e2-bdd9-ab70e4c148ff}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game">
+      <UniqueIdentifier>{8f49e053-251f-46d6-8bf4-1edf72bd6d8d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Texture">
+      <UniqueIdentifier>{23c0a82d-17f4-4676-aa1d-3ba396b6ff36}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <Image Include="..\Nouveau dossier\diagramUML_Final.png">
@@ -27,13 +36,7 @@
     </Image>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="GameWindow.hpp">
-      <Filter>MainFolder</Filter>
-    </ClInclude>
     <ClInclude Include="Games.hpp">
-      <Filter>MainFolder</Filter>
-    </ClInclude>
-    <ClInclude Include="ColisionInterface.hpp">
       <Filter>MainFolder</Filter>
     </ClInclude>
     <ClInclude Include="ControlInterface.hpp">
@@ -45,56 +48,80 @@
     <ClInclude Include="MapGenerator.hpp">
       <Filter>MainFolder</Filter>
     </ClInclude>
-    <ClInclude Include="TexturesLib.hpp">
-      <Filter>MainFolder</Filter>
-    </ClInclude>
     <ClInclude Include="Ground.hpp">
       <Filter>Object\ImmovableObject</Filter>
     </ClInclude>
     <ClInclude Include="Sword.hpp">
       <Filter>Object\Items</Filter>
     </ClInclude>
-    <ClInclude Include="Object.hpp">
-      <Filter>Object</Filter>
-    </ClInclude>
-    <ClInclude Include="GameGestion.hpp">
-      <Filter>MainFolder</Filter>
-    </ClInclude>
     <ClInclude Include="Character.hpp">
       <Filter>Object\MovableObject</Filter>
     </ClInclude>
-    <ClInclude Include="EnumOrientation.hpp">
-      <Filter>MainFolder</Filter>
+    <ClInclude Include="Chest.hpp">
+      <Filter>Object\Items</Filter>
     </ClInclude>
-    <ClInclude Include="Heart.hpp">
-      <Filter>MainFolder</Filter>
+    <ClInclude Include="Player.hpp">
+      <Filter>Object\MovableObject</Filter>
+    </ClInclude>
+    <ClInclude Include="Object.hpp">
+      <Filter>Object\MovableObject</Filter>
     </ClInclude>
     <ClInclude Include="LifeWindow.hpp">
-      <Filter>MainFolder</Filter>
+      <Filter>Windows</Filter>
+    </ClInclude>
+    <ClInclude Include="GameWindow.hpp">
+      <Filter>Windows</Filter>
+    </ClInclude>
+    <ClInclude Include="Heart.hpp">
+      <Filter>Object\Items</Filter>
+    </ClInclude>
+    <ClInclude Include="GameGestion.hpp">
+      <Filter>Game</Filter>
+    </ClInclude>
+    <ClInclude Include="ColisionInterface.hpp">
+      <Filter>Game</Filter>
+    </ClInclude>
+    <ClInclude Include="TexturesLib.hpp">
+      <Filter>Texture</Filter>
+    </ClInclude>
+    <ClInclude Include="EnumOrientation.hpp">
+      <Filter>Object\MovableObject</Filter>
+    </ClInclude>
+    <ClInclude Include="Gain.hpp">
+      <Filter>Object\Items</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="GameWindow.cpp">
-      <Filter>MainFolder</Filter>
-    </ClCompile>
-    <ClCompile Include="TexturesLib.cpp">
-      <Filter>MainFolder</Filter>
-    </ClCompile>
-    <ClCompile Include="Object.cpp">
-      <Filter>Object</Filter>
-    </ClCompile>
     <ClCompile Include="main.cpp" />
-    <ClCompile Include="GameGestion.cpp">
-      <Filter>MainFolder</Filter>
-    </ClCompile>
-    <ClCompile Include="Heart.cpp">
-      <Filter>MainFolder</Filter>
-    </ClCompile>
-    <ClCompile Include="Source.cpp">
-      <Filter>MainFolder</Filter>
+    <ClCompile Include="Object.cpp">
+      <Filter>Object\MovableObject</Filter>
     </ClCompile>
     <ClCompile Include="LifeWindow.cpp">
-      <Filter>MainFolder</Filter>
+      <Filter>Windows</Filter>
+    </ClCompile>
+    <ClCompile Include="GameWindow.cpp">
+      <Filter>Windows</Filter>
+    </ClCompile>
+    <ClCompile Include="Heart.cpp">
+      <Filter>Object\Items</Filter>
+    </ClCompile>
+    <ClCompile Include="GameGestion.cpp">
+      <Filter>Game</Filter>
+    </ClCompile>
+    <ClCompile Include="TexturesLib.cpp">
+      <Filter>Texture</Filter>
+    </ClCompile>
+    <ClCompile Include="Character.cpp">
+      <Filter>Object\MovableObject</Filter>
+    </ClCompile>
+    <ClCompile Include="Player.cpp">
+      <Filter>Object\MovableObject</Filter>
+    </ClCompile>
+    <ClCompile Include="Chest.cpp">
+      <Filter>Object\Items</Filter>
+    </ClCompile>
+    <ClCompile Include="Gain.cpp">
+      <Filter>Object\Items</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>
