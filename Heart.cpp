@@ -22,6 +22,52 @@ Heart::Heart(): numberOfQuarter(12) {
 	initlife();
 }
 
+Heart::Heart(const Heart& other)
+{
+	// Copie les textures
+	_textures = new std::vector<sf::Texture*>(*other._textures);
+
+	// Copie les sprites
+	_sprites = new std::vector<sf::Sprite*>(*other._sprites);
+
+	// Copie les vies
+	life = new std::vector<sf::Sprite*>(*other.life);
+
+	// Copie le nombre de quartiers
+	numberOfQuarter = other.numberOfQuarter;
+}
+
+Heart& Heart::operator=(const Heart& other)
+{
+	if (this != &other)
+	{
+		// Supprime les anciennes textures
+		delete _textures;
+
+		// Copie les textures
+		_textures = new std::vector<sf::Texture*>(*other._textures);
+
+		// Supprime les anciens sprites
+		delete _sprites;
+
+		// Copie les sprites
+		_sprites = new std::vector<sf::Sprite*>(*other._sprites);
+
+		// Supprime les anciennes vies
+		delete life;
+
+		// Copie les vies
+		life = new std::vector<sf::Sprite*>(*other.life);
+
+		// Copie le nombre de quartiers
+		numberOfQuarter = other.numberOfQuarter;
+	}
+
+	return *this;
+}
+
+
+
 Heart::~Heart() {
 	for (auto it = _textures->begin(); it != _textures->end(); ++it) {
 		delete* it;

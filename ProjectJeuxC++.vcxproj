@@ -152,6 +152,7 @@
     <ClInclude Include="GameWindow.hpp" />
     <ClInclude Include="Ground.hpp" />
     <ClInclude Include="Heart.hpp" />
+    <ClInclude Include="LifeWindow.hpp" />
     <ClInclude Include="MapGenerator.hpp" />
     <ClInclude Include="Object.hpp" />
     <ClInclude Include="Sword.hpp" />
@@ -161,8 +162,10 @@
     <ClCompile Include="GameGestion.cpp" />
     <ClCompile Include="GameWindow.cpp" />
     <ClCompile Include="Heart.cpp" />
+    <ClCompile Include="LifeWindow.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Object.cpp" />
+    <ClCompile Include="Source.cpp" />
     <ClCompile Include="TexturesLib.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

@@ -13,6 +13,9 @@ GameWindow::GameWindow(void) {
     std::cout << "window create " << this << std::endl;
     _game = new GameGestion();
     std::cout << "GameWindow Constructeur" << std::endl;
+    Heart* test = new Heart();
+    _lifeWindow = new LifeWindow(test);
+    
 }
 
 
@@ -24,6 +27,8 @@ GameWindow::~GameWindow(void) {
     delete event;
     delete _view;
     delete currentWindowPos;
+    delete _lifeWindow;
+    delete test;
     std::cout << "window delete " << this << std::endl;
 }
 
@@ -134,3 +139,18 @@ void GameWindow::draw() {
     for (int i = 0; i < _game->getSpriteVector().size(); i++)
         window->draw(*_game->getSpriteVector()[i]);
 }
+
+
+void GameWindow::display() {
+
+   setLifeView();
+   displayLifeWindow();
+
+   setScrollingView();
+   draw();// dessine tout les sprites que contient la GameGestion
+
+
+   window->display();
+   clearWindow();
+}
+

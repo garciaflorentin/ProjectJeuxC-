@@ -6,12 +6,17 @@
 #include <stdio.h>
 #include <iostream>
 #include <stdlib.h>
-
+#include "LifeWindow.hpp"
 #include "GameGestion.hpp"
+#include "Heart.hpp"
+
+
 
 /// Window class and start the game
 class GameWindow {
 private:
+
+
     const float windowWidth = 1024.0, windowHeight = 768.0;
     sf::RenderWindow* window;
     sf::Event* event;
@@ -19,11 +24,13 @@ private:
     sf::View* _view;
     std::vector<sf::Vector2i>* currentWindowPos;
     sf::Vector2f positionCentre;
+    Heart* test;
 
     //class
-   GameGestion* _game;
+    GameGestion* _game;
+    LifeWindow* _lifeWindow;
 
-   void pollEvent();// declaration d'un event
+    void pollEvent();// declaration d'un event
 
     void drawSprite(sf::Sprite sprite); //dessine un sprites sur la main window
 
@@ -33,6 +40,9 @@ private:
 
     void drawVectorText(std::vector <sf::Text> vector);
 
+    void displayLifeWindow() {
+        _lifeWindow->drawTo(this->getWindow());
+    }
 
 public:
     ////////////////////////////////////////
@@ -43,7 +53,14 @@ public:
     /// Destructor
     ~GameWindow(void);
 
+
+    //getteur
+
     GameGestion* getGame();
+
+    sf::RenderWindow* getWindow() {
+        return window;
+    }
 
     //view
 
@@ -52,28 +69,35 @@ public:
         return dim;
     }
 
-    void setScrollingView();
+    void setLifeView() {
+        window->setView(*_lifeWindow->getLifeView());
+    }
+
+    sf::View* getViewWindow() {
+        return _view;
+    }
 
 
-    ////////////////////////////////////////
+    // control
 
     /// \return true if the window is open
     bool isRunning(void);
+    void controlWindow(void); //check les event
 
-    ////////////////////////////////////////
 
     /// Limit FPS
     /// \param frame FPS number
     void limitFrameRate(int frame);
 
-    ///
-    void controlWindow(void); //check les event
+
+
+    // affichage
 
     void updateWindow(void);// fais la maj de la windwow a chaquqe fps
 
     void updateWindow(std::vector<sf::Sprite> _sprites);
 
-    void clearWindow() const{
+    void clearWindow() const {
         window->clear();
     }
 
@@ -81,15 +105,11 @@ public:
 
     void draw();// draw tout les sprites
 
-    sf::RenderWindow* getWindow() {
-        return window;
-    }
+    void display();
 
-    void display() {
-        window->display();
-    }
-
+    void setScrollingView();
     //void verificationWindow(void);
-};
 
+
+};
 #endif

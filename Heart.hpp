@@ -20,7 +20,8 @@ public:
 	//constructeur et destructeur
 	Heart();
 	~Heart();
-
+	Heart(const Heart& other);
+	Heart& operator=(const Heart& other);
 	
 	void removeLife();
 	void addLife();

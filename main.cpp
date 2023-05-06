@@ -8,14 +8,12 @@
 #include <SFML/Graphics.hpp>
 #include "Heart.hpp"
 sf::Texture* _texture = new sf::Texture();
-sf::Sprite* _sprite = new sf::Sprite;
-sf::Texture* _texture2 = new sf::Texture();
-sf::Sprite* _sprite2 = new sf::Sprite;
+sf::Sprite* _sprite = new sf::Sprite();
+
+
 
 
 int main(void) {
-
-    Heart* _life = new Heart();
 
     if (!_texture->loadFromFile(("object.png"), sf::IntRect(153,3,48,48))) {
         std::cout << "error image "<< std::endl;
@@ -30,21 +28,19 @@ int main(void) {
     
     while (_window.isRunning()) {
 
-        for (int i = 0; i < 3; i++) {
-            _window.getWindow()->draw(*(*_life->getLife())[i]);
-        }
-        _window.setScrollingView();
-        _window.controlWindow();
-        _window.draw();// dessine tout les sprites que contient la GameGestion
+  
+ 
         _window.getWindow()->draw(*_sprite);
+        _window.controlWindow();
         _window.display();
-        _window.clearWindow();
+
 
     }
 
     delete _sprite;
     delete _texture;
-    //delete _life;
+   
+  
 
     return EXIT_SUCCESS;
 };
