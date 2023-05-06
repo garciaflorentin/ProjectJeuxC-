@@ -60,6 +60,15 @@
     <ClInclude Include="GameGestion.hpp">
       <Filter>MainFolder</Filter>
     </ClInclude>
+    <ClInclude Include="Character.hpp">
+      <Filter>Object\MovableObject</Filter>
+    </ClInclude>
+    <ClInclude Include="EnumOrientation.hpp">
+      <Filter>MainFolder</Filter>
+    </ClInclude>
+    <ClInclude Include="Heart.hpp">
+      <Filter>MainFolder</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="GameWindow.cpp">
@@ -73,6 +82,9 @@
     </ClCompile>
     <ClCompile Include="main.cpp" />
     <ClCompile Include="GameGestion.cpp">
+      <Filter>MainFolder</Filter>
+    </ClCompile>
+    <ClCompile Include="Heart.cpp">
       <Filter>MainFolder</Filter>
     </ClCompile>
   </ItemGroup>

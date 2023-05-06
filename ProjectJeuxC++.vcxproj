@@ -142,13 +142,16 @@
     <Image Include="..\Nouveau dossier\diagramUML_Final.png" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Character.hpp" />
     <ClInclude Include="ColisionInterface.hpp" />
     <ClInclude Include="ControlInterface.hpp" />
     <ClInclude Include="DrawInterface.hpp" />
+    <ClInclude Include="EnumOrientation.hpp" />
     <ClInclude Include="GameGestion.hpp" />
     <ClInclude Include="Games.hpp" />
     <ClInclude Include="GameWindow.hpp" />
     <ClInclude Include="Ground.hpp" />
+    <ClInclude Include="Heart.hpp" />
     <ClInclude Include="MapGenerator.hpp" />
     <ClInclude Include="Object.hpp" />
     <ClInclude Include="Sword.hpp" />
@@ -157,6 +160,7 @@
   <ItemGroup>
     <ClCompile Include="GameGestion.cpp" />
     <ClCompile Include="GameWindow.cpp" />
+    <ClCompile Include="Heart.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Object.cpp" />
     <ClCompile Include="TexturesLib.cpp" />

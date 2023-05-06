@@ -15,7 +15,7 @@ private:
     sf::Sprite* _sprite;
     const char* name;
     const int objectDim = 48;
-    bool use;
+    bool _isUse;
     sf::Vector2f position;
 
     bool loadTexture(const char* spriteName);//focntion finalement inutile , je vais la virrer 
@@ -40,8 +40,8 @@ public:
     }
 
     //getteur de use
-    const bool isUse() const{
-        return use;
+    const bool isUse() const {
+        return _isUse;
     }
 
     //setteur

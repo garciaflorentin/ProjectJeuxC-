@@ -19,15 +19,16 @@ bool Object::loadTexture(const char* spriteName) {// inutile surrement
 
 // constructeurs
 
-Object::Object() : use(false){
+Object::Object(){
 
+    _isUse = false;
     _texture = new sf::Texture();
     _sprite = new sf::Sprite();
     name = nullptr;
     _texturesLib = TexturesLib();
 }
 
-Object::Object(const char* nameObject, sf::Vector2f initPos) : use(false){
+Object::Object(const char* nameObject, sf::Vector2f initPos) : _isUse(false){
     _texture = new sf::Texture();
     _sprite = new sf::Sprite();
 
