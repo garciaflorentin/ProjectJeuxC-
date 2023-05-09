@@ -13,6 +13,7 @@
 #include "Character.hpp"
 #include "Chest.hpp"
 #include "Ground.hpp"
+#include "TypeGround.hpp"
 
 class Map {
 
@@ -20,7 +21,7 @@ private:
 
 	std::vector<Object*>* toDraw;
 	std::vector<Object*>* _map;
-	
+
 
 public:
 
