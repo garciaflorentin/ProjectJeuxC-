@@ -155,11 +155,14 @@
     <ClInclude Include="Ground.hpp" />
     <ClInclude Include="Heart.hpp" />
     <ClInclude Include="LifeWindow.hpp" />
+    <ClInclude Include="Map.hpp" />
     <ClInclude Include="MapGenerator.hpp" />
     <ClInclude Include="Object.hpp" />
     <ClInclude Include="Player.hpp" />
     <ClInclude Include="Sword.hpp" />
     <ClInclude Include="TexturesLib.hpp" />
+    <ClInclude Include="Tile.hpp" />
+    <ClInclude Include="Wall.hpp" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Character.cpp" />
@@ -170,6 +173,7 @@
     <ClCompile Include="Heart.cpp" />
     <ClCompile Include="LifeWindow.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="Map.cpp" />
     <ClCompile Include="Object.cpp" />
     <ClCompile Include="Player.cpp" />
     <ClCompile Include="TexturesLib.cpp" />

@@ -11,7 +11,7 @@
 
 class Character : public Object {
 
-private:
+protected:
 	int damageAttack;
 	double speed;
 	EnumOrientation _enumOrientation;

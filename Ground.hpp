@@ -5,8 +5,16 @@
 
 #include <iostream>
 #include <vector>
-//#include "MakeSprite.h"
+#include "Tile.hpp"
 
-class Ground {
+class Ground: public Tile {
+
+public:
+
+	Ground() : Tile() {
+
+		passable = true;
+
+	}
 };
 #endif

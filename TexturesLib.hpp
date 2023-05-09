@@ -12,6 +12,13 @@ private:
     static map<string, sf::Texture*>* _textures;
 
 public:
+    enum EnumTile
+    {
+        Grass,
+        Rock,
+        tree
+
+    };
 
     TexturesLib() {
         _textures = new map<string, sf::Texture*>;
@@ -35,8 +42,9 @@ public:
 
     int assignTexture(string filename, sf::Texture* _texture);
 
-    sf::Texture* assignTexture(string filename);
+    static  sf::Texture* assignTexture(string filename);
 
+    static sf::Texture* findTexture(int i, int typeEnum);
 
 
    

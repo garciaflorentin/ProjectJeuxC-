@@ -10,13 +10,12 @@ using namespace std;
 
 class Object {
 
-private:
+protected:
     sf::Texture* _texture;
     sf::Sprite* _sprite;
     const char* name;
-    const int objectDim = 48;
+    int OBJECT_SIZE = 48;
     bool _isUse;
-    sf::Vector2f position;
 
     bool loadTexture(const char* spriteName);//focntion finalement inutile , je vais la virrer 
     
@@ -36,7 +35,7 @@ public:
     const int loadSprite(const char* nameSprite, sf::Vector2f initPos);
 
     const int getBlockSize() const {
-        return objectDim;
+        return OBJECT_SIZE;
     }
 
     //getteur de use
@@ -49,6 +48,10 @@ public:
 
     sf::Sprite* getSprite(){
         return _sprite;
+    }
+
+    sf::Vector2f getPosition() {
+        return _sprite->getPosition();
     }
 
     void setSprite(sf::Sprite& sprite) {
