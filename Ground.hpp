@@ -11,7 +11,7 @@ class Ground: public Tile {
 
 public:
 
-	Ground() : Tile() {
+	Ground(const char* nameObject, sf::Vector2f initPos) : Tile(nameObject,initPos) {
 
 		passable = true;
 
