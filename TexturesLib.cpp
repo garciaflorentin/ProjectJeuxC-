@@ -31,3 +31,36 @@ sf::Texture* TexturesLib::assignTexture(string filename) {
 
     return (*_textures)[filename];
 }
+
+sf::Texture* TexturesLib::findTexture(int i, int typeEnum) {
+    if (typeEnum == 1) {//tile
+
+        switch (i) {
+
+        case 1:
+
+            return (*_textures)["Grass.png"];
+            break;
+        case 2:
+            return (*_textures)["Rock.png"];
+            break;
+        case 3:
+            return (*_textures)["Tree.png"];
+            break;
+
+        }
+    }
+    else if (typeEnum == 2) {//monster
+
+    }
+    else if (typeEnum == 3) {//chest
+
+        switch (i) {
+
+        case 1: return (*_textures)["Chest.png"];
+            break;
+
+        }
+    }
+
+}

@@ -4,22 +4,34 @@
 #include <SFML/Graphics.hpp>
 #include <iostream>
 #include <cstring>
+#include <cstdlib>
+#include <ctime>
+//class
+#include "TexturesLib.hpp"
 
 class Gain{
 
 private:
 
+
+    int GAIN_SIZE;
     sf::Sprite* _sprite;
     sf::Texture* _texture;
-    const int _gain;
-    void setGain();
-
+    int _gain;
+   
 public:
 
     Gain();
     ~Gain();
-    int getGain();
+    
+    const int getGain() const{
 
+        return _gain;
+    }
+
+    sf::Sprite* getSpriteGain() {
+        return _sprite;
+    }
 
 };
 

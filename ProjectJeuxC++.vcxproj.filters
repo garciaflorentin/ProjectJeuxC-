@@ -90,6 +90,15 @@
     <ClInclude Include="Gain.hpp">
       <Filter>Object\Items</Filter>
     </ClInclude>
+    <ClInclude Include="Map.hpp">
+      <Filter>Game</Filter>
+    </ClInclude>
+    <ClInclude Include="Tile.hpp">
+      <Filter>Object\ImmovableObject</Filter>
+    </ClInclude>
+    <ClInclude Include="Wall.hpp">
+      <Filter>Object\ImmovableObject</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp" />
@@ -122,6 +131,9 @@
     </ClCompile>
     <ClCompile Include="Gain.cpp">
       <Filter>Object\Items</Filter>
+    </ClCompile>
+    <ClCompile Include="Map.cpp">
+      <Filter>Game</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

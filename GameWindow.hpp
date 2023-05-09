@@ -17,7 +17,7 @@ class GameWindow {
 private:
 
 
-    const float windowWidth = 1024.0, windowHeight = 768.0;
+    float windowWidth = 1024.0, windowHeight = 768.0;
     sf::RenderWindow* window;
     sf::Event* event;
     sf::VideoMode videoMode; //VideoMode defines a video mode (width, height, bpp) 

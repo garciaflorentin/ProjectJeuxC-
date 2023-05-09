@@ -7,18 +7,37 @@
 #include <iostream>
 #include <cstring>
 #include "Player.hpp"
+#include "Gain.hpp"
+#include "TexturesLib.hpp"
 
 class Chest {
 
 private:
-    bool isOpen;
+    
+    int CHEST_SIZE;
+    sf::Sprite* _sprite;
+    bool _isOpen;
+    Gain* _gain;
+    sf::Vector2i chestAnim;
+
 public:
 
     Chest();
     ~Chest();
-    bool isOpen();
+  
     int open(Player* player);
 
+    sf::Sprite* getSpriteChest() {
+        return _sprite;
+    }
+
+    sf::Vector2f getPosition() {
+        return _sprite->getPosition();
+    }
+
+    bool isOpen() {
+        return _isOpen;
+    }
 };
 
 #endif
