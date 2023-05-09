@@ -1,6 +1,6 @@
 #include "Character.hpp"
 
-Character::Character() {
+Character::Character(): Object(nameObject, initPos) {
 	anim.x = 1;
 	anim.y = Down;
 	life = new Heart();

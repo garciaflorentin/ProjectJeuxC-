@@ -5,6 +5,7 @@ Map::Map() {
 toDraw = new std::vector<Object*>;
 _map = new std::vector<Object*>;
 
+
 }
 
 Map::~Map() {
@@ -48,7 +49,29 @@ void Map::addObject(Object* o) {
 
 	sf::Vector2f pos = o->getPosition();
 
-	if(getObject(pos) != nullptr
+	if (getObject(pos) != nullptr) {
 
-	_map->push_back(o);
+		removeObject(getObject(pos));
+		_map->push_back(o);
+	}
+}
+
+void Map::removeObject(Object* o) {
+
+	sf::Vector2f pos = o->getPosition();
+	int i = 0;
+	while ((*_map)[i]->getPosition().x != pos.x && (*_map)[i]->getPosition().y != pos.y) {
+		i++;
+	}
+	delete (*_map)[i]; // supprimer l'objet pointé
+	(*_map)[i] = nullptr; // définir le pointeur à null
+	_map->erase(_map->begin() + i); // enlever l'élément du vecteur
+
+}
+
+void Map::createMap(){
+
+
+	
+
 }
