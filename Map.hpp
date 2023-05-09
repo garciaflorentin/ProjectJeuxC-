@@ -11,7 +11,8 @@
 #include "Tile.hpp"
 #include "Object.hpp"
 #include "Character.hpp"
-#include "chest.hpp"
+#include "Chest.hpp"
+#include "Ground.hpp"
 
 class Map {
 
