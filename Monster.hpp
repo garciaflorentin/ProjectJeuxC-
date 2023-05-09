@@ -13,6 +13,8 @@ class Monster : public Character {
         void goToPlayer();
         bool playerInRange() const;
 
+        //std::vector<Object*>* _map;
+
     public :
         Monster() : Character() {};
         Monster(const char* nameObject, sf::Vector2f initPos, string name="meat", int dmg=1, int ar=1, int vf=5) :

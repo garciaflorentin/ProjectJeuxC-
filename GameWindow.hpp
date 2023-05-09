@@ -64,7 +64,7 @@ public:
 
     //view
 
-    sf::Vector2f& getWindowDim() {
+    sf::Vector2f getWindowDim() {
         sf::Vector2f dim = { windowWidth,windowHeight };
         return dim;
     }

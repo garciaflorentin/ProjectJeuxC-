@@ -63,4 +63,5 @@ sf::Texture* TexturesLib::findTexture(int i, int typeEnum) {
         }
     }
 
+    return nullptr;
 }

@@ -1,6 +1,6 @@
 #include "Object.hpp"
 
-// définition de l'attribut de classe texturesLib, commun à tout les objects.
+// dï¿½finition de l'attribut de classe texturesLib, commun ï¿½ tout les objects.
 TexturesLib Object ::_texturesLib;
 
 
@@ -41,10 +41,10 @@ Object::Object(const char* nameObject, sf::Vector2f initPos) : _isUse(false){
 
     case 1: cout << "une erreur c'est produit lors du chargement l'initialisation de l'object " << name << endl; break;
     case 2:
-        cout << "Nouvelle texture chargé et "<<name<<" sprite créé " << endl; break;
+        cout << "Nouvelle texture chargï¿½ et "<<name<<" sprite crï¿½ï¿½ " << endl; break;
     
     case 3:
-        cout << "Texture deja connu. Texture telechargé et une copie de" << name <<" crée" << endl;
+        cout << "Texture deja connu. Texture telechargï¿½ et une copie de" << name <<" crï¿½e" << endl;
     }
 
 
@@ -55,13 +55,13 @@ Object::~Object() {
     delete _sprite;
 }
 
-const int Object::loadSprite(const char* nameSprite, sf::Vector2f initPos) { // return false si la texture à deja etait chargé , recupere la texture et l'assigne au sprite de l'object et return true sinon charge la textures et assigne la texture au sprite de l'object.
+const int Object::loadSprite(const char* nameSprite, sf::Vector2f initPos) { // return false si la texture ï¿½ deja etait chargï¿½ , recupere la texture et l'assigne au sprite de l'object et return true sinon charge la textures et assigne la texture au sprite de l'object.
     std::cout << "loadsprite()" << std::endl;
     switch (_texturesLib.assignTexture(nameSprite, _texture))
     {
     case 1: return 1; break;
     case 2:
-        // si jamais chargé
+        // si jamais chargï¿½
         _texture->setSmooth(true);
         _sprite->setTexture(*_texture);
         setPosition(initPos);
@@ -70,7 +70,7 @@ const int Object::loadSprite(const char* nameSprite, sf::Vector2f initPos) { // 
         break;
     
     case 3:
-        //si deja chargé ( il est dans _textures )
+        //si deja chargï¿½ ( il est dans _textures )
         //sf::Texture* texture = _texturesLib.getTextures()[nameSprite];
         _texture->setSmooth(true);
         _sprite->setTexture(*_texture);
@@ -80,14 +80,12 @@ const int Object::loadSprite(const char* nameSprite, sf::Vector2f initPos) { // 
 
     }
     
+    return 0;
 }
 
 
 
 void Object::setPosition(sf::Vector2f& newPos){
     _sprite->setPosition(newPos);
-    position.x = newPos.x;
-    position.y = newPos.y;
-    
 }
 
