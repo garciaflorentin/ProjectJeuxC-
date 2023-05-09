@@ -74,7 +74,9 @@ void Map::removeObject(Object* o) {
 
 void Map::createMap(){
 
-	addObject(new Ground("World.png", {100,100}) );
+	addObject(new Ground("World.png", {100,100}, TypeGround::grass) );
+	addObject(new Ground("World.png", {200,200}, TypeGround::ice) );
+
 	
 
 }
