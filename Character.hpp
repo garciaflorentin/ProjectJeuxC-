@@ -19,7 +19,7 @@ protected:
 	bool _isAlive;
 
 	sf::Vector2i anim;
-	virtual void setDamage() = 0;
+	void setDamage();	//methode commune a tous les personnages 
 	Heart* life;
 
 public:
@@ -27,13 +27,16 @@ public:
 	Character();
 	Character(const char* nameObject, sf::Vector2f initPos) : Object(nameObject, initPos) {};
 
+	~Character();	//Declarer un destructeur
+
 	void takeDamage(int heartQuarters);
 	virtual void attack(Character* target) = 0;
-	virtual void moveTo(sf::Vector2i nextPos) = 0;
+	void moveTo(sf::Vector2f nextPos);	//methode non virtuelle 
 	const bool isAlive() const{
 		return _isAlive;
 	}
 
+	
 
 };
 #endif

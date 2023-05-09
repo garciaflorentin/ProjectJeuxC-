@@ -19,10 +19,10 @@ Object* Map::getObject(sf::Vector2f pos){
 	
 	for (auto it = _map->begin(); it != _map->end(); ++it) {
 
-		// Vérifier si le pointeur n'est pas nul
+		// Vï¿½rifier si le pointeur n'est pas nul
 		if (*it) {
 
-			// Accéder à l'objet pointé
+			// Accï¿½der ï¿½ l'objet pointï¿½
 			Object* obj = *it;
 
 			if (obj->getPosition().x == pos.x && obj->getPosition().y == pos.y) {
@@ -32,9 +32,10 @@ Object* Map::getObject(sf::Vector2f pos){
 		}
 	}
 
+	return nullptr;	//faut bien retourner quelque chose s'il y a un type de retour 
 }
 
-const std::vector<Object*>& Map::objectToDraw(std::vector<sf::Vector2i> currentWindow) {
+void Map::objectToDraw(std::vector<sf::Vector2i> currentWindow) {	//retourne rien, modifie un attribut
 
 	for (int _x = currentWindow[1].x; _x < currentWindow[2].x; _x+=48) {
 		for (int _y = currentWindow[1].y; _y < currentWindow[2].y; _y+=48) {
@@ -63,9 +64,9 @@ void Map::removeObject(Object* o) {
 	while ((*_map)[i]->getPosition().x != pos.x && (*_map)[i]->getPosition().y != pos.y) {
 		i++;
 	}
-	delete (*_map)[i]; // supprimer l'objet pointé
-	(*_map)[i] = nullptr; // définir le pointeur à null
-	_map->erase(_map->begin() + i); // enlever l'élément du vecteur
+	delete (*_map)[i]; // supprimer l'objet pointï¿½
+	(*_map)[i] = nullptr; // dï¿½finir le pointeur ï¿½ null
+	_map->erase(_map->begin() + i); // enlever l'ï¿½lï¿½ment du vecteur
 
 }
 

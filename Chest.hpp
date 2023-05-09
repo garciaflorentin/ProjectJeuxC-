@@ -25,7 +25,7 @@ public:
     Chest();
     ~Chest();
   
-    int open(Player* player);
+    int open(); //pas besoin de Player
 
     sf::Sprite* getSpriteChest() {
         return _sprite;

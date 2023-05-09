@@ -11,7 +11,7 @@
 #include "Tile.hpp"
 #include "Object.hpp"
 #include "Character.hpp"
-#include "chest.hpp"
+#include "Chest.hpp"	//attention aux inclusions en boucle
 
 class Map {
 
@@ -26,7 +26,7 @@ public:
 	Map();
 	~Map();
 
-	const std::vector<Object*>& objectToDraw(std::vector<sf::Vector2i> currentWindow);
+	void objectToDraw(std::vector<sf::Vector2i> currentWindow);	//retourne rien
 
 	void addObject(Object* o);
 	void removeObject(Object* o);

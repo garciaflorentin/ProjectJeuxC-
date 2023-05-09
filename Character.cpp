@@ -1,6 +1,6 @@
 #include "Character.hpp"
 
-Character::Character(): Object(nameObject, initPos) {
+Character::Character(): Object() {	//sans arguments pour l'instant
 	anim.x = 1;
 	anim.y = Down;
 	life = new Heart();
@@ -8,7 +8,7 @@ Character::Character(): Object(nameObject, initPos) {
 }
 
 Character::~Character() {
-	delete life;
+	delete[] life;	//des crochets oublies
 }
 
 void Character::takeDamage(int NOQ) {
@@ -23,4 +23,8 @@ void Character::takeDamage(int NOQ) {
 			life->removeLife();
 		}
 	}
+}
+
+void Character::moveTo(sf::Vector2f nextPos) {	//redefinition d'une methode virtuelle pure 
+	_sprite->setPosition(nextPos);				//a revoir si elle est a declarer dans Objet
 }

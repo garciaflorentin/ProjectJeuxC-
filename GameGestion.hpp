@@ -13,6 +13,9 @@
 //#include "Player.hpp"
 #include "Object.hpp"
 
+#include "Map.hpp"
+
+
 class GameGestion{
 private:
 
@@ -22,6 +25,7 @@ private:
 	Object* player;
 	sf::Clock time;
 
+	Map* _map;
 
 public:
 
@@ -29,6 +33,7 @@ public:
 		player = new Object("object.png", {0,0});
 		std::cout << "GameGestion Constructeur" << std::endl;
 
+		_map = new Map();	//je rajoute pour tester Monster
 	}
 
 	~GameGestion() {
@@ -57,6 +62,6 @@ public:
 
 	void keyEvent(sf::Event e);//focntion interaction 
 
-
+	Map* getMap() { return _map; }	//a des fins educatifs
 };
 #endif
