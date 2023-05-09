@@ -50,7 +50,7 @@ public:
         return _sprite;
     }
 
-    sf::Vector2f getPosition() {
+    sf::Vector2f getPosition() const {
         return _sprite->getPosition();
     }
 
