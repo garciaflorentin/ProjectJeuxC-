@@ -1,5 +1,11 @@
 #include "Monster.hpp"
 
-Monster::Monster(const char* nameObject, sf::Vector2f initPos, string name="meat", int dmg=1, int ar=1, int vf=5){
+void Monster::hitPlayer(Character& target) {
+    if (playerInRange()) {
+
+    }
+}
+
+bool Monster::playerInRange() const {
     
 }

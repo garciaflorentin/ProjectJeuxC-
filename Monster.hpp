@@ -9,17 +9,18 @@ class Monster : public Character {
         int _attack_radius;
         int _vision_field;
 
-        void hitPlayer();
+        void hitPlayer(Character& target);
         void goToPlayer();
-        bool playerInRange();
+        bool playerInRange() const;
 
     public :
         Monster() : Character() {};
         Monster(const char* nameObject, sf::Vector2f initPos, string name="meat", int dmg=1, int ar=1, int vf=5) :
-            Character(nameObject, initPos),  {};
+            Character(nameObject, initPos),  _damage(dmg), _attack_radius(ar), _vision_field(vf) {};
         
-        void attackPlayer(Character* target);
+        void attackPlayer(Character& target);
         void moveTo(sf::Vector2i nextPos);
+        void update();
 };
 
 #endif
