@@ -25,6 +25,8 @@ protected:
 public:
 
 	Character();
+	Character(const char* nameObject, sf::Vector2f initPos) : Object(nameObject, initPos) {};
+
 	void takeDamage(int heartQuarters);
 	virtual void attack(Character* target) = 0;
 	virtual void moveTo(sf::Vector2i nextPos) = 0;

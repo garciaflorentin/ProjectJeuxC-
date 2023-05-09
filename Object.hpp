@@ -22,7 +22,7 @@ protected:
 
 public:
 
-    // attributs de classe , commun à tout les objets.
+    // attributs de classe , commun ï¿½ tout les objets.
     static TexturesLib _texturesLib;
 
     //constructeurs
@@ -58,8 +58,7 @@ public:
         _sprite = &sprite;
     }
 
-       
-
+    //virtual void virtual_temporal_method_do_not_touch();
 };
 
 #endif
