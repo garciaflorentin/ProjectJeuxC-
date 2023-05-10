@@ -7,6 +7,9 @@
 #include <string>
 #include <SFML/Graphics.hpp>
 #include "Heart.hpp"
+
+#include "Monster.hpp"  //a des fins educatifs
+
 sf::Texture* _texture = new sf::Texture();
 sf::Sprite* _sprite = new sf::Sprite();
 
@@ -25,6 +28,8 @@ int main(void) {
     GameWindow _window;// cree la fenetre
     _window.getGame()->setPlayer(_window.getGame()->getPlayerVector()[0]->getSprite());// decoupe le sprite en ses differentes orientation , l'ajoute au vecteur de sprite de GameGestion et initialise le vecteur de mouvement.
  
+    /* Code degueulasse juste pour tester - a reecrire comme il faut apres */
+    _window.getGame()->getMap()->addObject(new Monster());
     
     while (_window.isRunning()) {
 

@@ -28,7 +28,7 @@ public:
 	Map();
 	~Map();
 
-	std::vector<Object*>* objectToDraw(std::vector<sf::Vector2i> currentWindow);
+	void objectToDraw(std::vector<sf::Vector2i> currentWindow);	//retourne rien
 
 	void addObject(Object* o);
 	void removeObject(Object* o);

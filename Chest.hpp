@@ -24,11 +24,7 @@ public:
     Chest();
     ~Chest();
   
-int open(){
-	chestAnim.y = 3;
-	_sprite->setTextureRect(sf::IntRect(chestAnim.x * CHEST_SIZE , chestAnim.y * CHEST_SIZE, CHEST_SIZE, CHEST_SIZE));
-	return _gain->getGain();
-}
+    int open(); //pas besoin de Player
 
     sf::Sprite* getSpriteChest() {
         return _sprite;

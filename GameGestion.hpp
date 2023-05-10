@@ -12,7 +12,9 @@
 /// Header create
 #include "Player.hpp"
 #include "Object.hpp"
+
 #include "Map.hpp"
+
 
 class GameGestion{
 private:
@@ -23,11 +25,20 @@ private:
 	sf::Clock time;
 	Map* _map;
 
+	Map* _map;
+
 public:
 
 	GameGestion();
 
 	~GameGestion();
+		_map = new Map();	//je rajoute pour tester Monster
+	}
+
+	~GameGestion() {
+		delete player;
+	}
+
 
 	enum Orientation { Down, Left, Right, Up };
 
@@ -50,5 +61,6 @@ public:
 
 
 
+	Map* getMap() { return _map; }	//a des fins educatifs
 };
 #endif

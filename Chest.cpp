@@ -13,5 +13,9 @@ Chest::~Chest() {
 	delete _gain;
 }
 
-
+int Chest::open() {	//pas besoin de player ici, faut juste retourner la valeur de ce qu'il y a dedans
+	chestAnim.y = 3;
+	_sprite->setTextureRect(sf::IntRect(chestAnim.x * CHEST_SIZE , chestAnim.y * CHEST_SIZE, CHEST_SIZE, CHEST_SIZE));
+	return _gain->getGain();
+}
 

@@ -20,50 +20,26 @@ protected:
 	int OBJECT_SIZE = 48;
 
 
-	sf::Vector2i* anim;
+	sf::Vector2i anim;
+	void setDamage();	//methode commune a tous les personnages 
 	Heart* life;
     virtual void setDamage(Character* target) = 0;
 	
 public:
 
-Character(const char* nameObject, sf::Vector2f initPos): Object(nameObject, initPos) {
-	std::cout<<"character_constructeur"<< std::endl;
+	Character();
+	Character(const char* nameObject, sf::Vector2f initPos) : Object(nameObject, initPos) {};
 
-	anim->x = 1;
-	anim->y = Down;
-	life = new Heart();
-	_isAlive = true;
-}
-
-~Character() {
-	delete life;
-}
-
+	~Character();	//Declarer un destructeur
 
 	void takeDamage(int heartQuarters);
 	virtual void attack(Character* target) = 0;
-	virtual void move(sf::Vector2i deplacement) = 0;
+	void moveTo(sf::Vector2f nextPos);	//methode non virtuelle 
 	const bool isAlive() const{
 		return _isAlive;
 	}
 
-	sf::Vector2i* getAnim(){
-		return anim;
-	}
-
-	Heart* getlife() const {
-		return life;
-	}
-
-	void setAnim(int i,int y);
-
-	void setUpCharacter();
-
-	void updateSprite();
-
-	 const int getBlockSize() override;
-
-
+	
 
 };
 #endif

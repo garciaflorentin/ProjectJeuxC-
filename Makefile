@@ -32,7 +32,28 @@ Character.o: Character.cpp Object.hpp EnumOrientation.hpp Heart.hpp
 Player.o: Player.cpp Character.cpp Object.hpp EnumOrientation.hpp Heart.hpp Chest.hpp
 	$(CPP) $(CPPFLAGS) -c Player.cpp 
 
-GameGestion.o: GameGestion.cpp Object.hpp Player.hpp 
+Sword.o: Sword.cpp
+	$(CPP) $(CPPFLAGS) -c Sword.cpp
+
+Player.o: Player.cpp Character.hpp Sword.hpp Chest.hpp
+	$(CPP) $(CPPFLAGS) -c Player.cpp
+
+Gain.o: Gain.cpp TexturesLib.hpp
+	$(CPP) $(CPPFLAGS) -c Gain.cpp
+
+Tile.o: Tile.cpp Object.hpp 
+	$(CPP) $(CPPFLAGS) -c Tile.cpp
+
+Character.o: Character.cpp Object.hpp EnumOrientation.hpp Heart.hpp
+	$(CPP) $(CPPFLAGS) -c Character.cpp
+
+Chest.o : Chest.cpp Player.hpp Gain.hpp TexturesLib.hpp 
+	$(CPP) $(CPPFLAGS) -c Chest.cpp
+
+Map.o: Map.cpp Player.hpp Gain.hpp TexturesLib.hpp Tile.hpp Object.hpp Character.hpp Chest.hpp
+	$(CPP) $(CPPFLAGS) -c Map.cpp
+
+GameGestion.o: GameGestion.cpp Object.hpp Map.hppPlayer.hpp 
 	$(CPP) $(CPPFLAGS) -c GameGestion.cpp 
 
 Map.o: Map.cpp Object.hpp Player.hpp Gain.hpp TexturesLib.hpp Tile.hpp Object.hpp Character.hpp Chest.hpp Ground.hpp TypeGround.hpp
@@ -49,4 +70,4 @@ jeu_de_base: main.o Heart.o LifeWindow.o GameWindow.o TexturesLib.o Object.o Gam
 
 
 clean:
-	rm -f *.o all
+	rm -f *.o jeu_de_base

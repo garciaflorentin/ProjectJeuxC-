@@ -34,10 +34,10 @@ Object* Map::getObject(sf::Vector2f pos){
 
 		}
 	}
-	return nullptr;
+
 }
 
-std::vector<Object*>* Map::objectToDraw(std::vector<sf::Vector2i> currentWindow) {
+const std::vector<Object*>& Map::objectToDraw(std::vector<sf::Vector2i> currentWindow) {
 
 	for (int _x = currentWindow[1].x; _x < currentWindow[2].x; _x+=48) {
 		for (int _y = currentWindow[1].y; _y < currentWindow[2].y; _y+=48) {
