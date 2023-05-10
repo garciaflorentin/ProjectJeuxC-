@@ -14,6 +14,8 @@ private:
 	
 	//Sword* _sword;
 
+	Heart* _heart;
+
 public:
 
 Player(const char* nameObject, sf::Vector2f initPos): Character(nameObject,initPos) {
@@ -29,11 +31,11 @@ std::cout<<"player_constructeur"<< std::endl;
 }
 
 	void openChest(Chest* chest);
-	virtual void setDamage(Character* target) override;
+	virtual void setDamage(Character* target);
 	virtual void attack(Character* target) override;
-	virtual void move(sf::Vector2i deplacement) override;
+	virtual void move(sf::Vector2i deplacement);
 
-
+	Heart* getLife() { return _heart; };
 
 };
 #endif

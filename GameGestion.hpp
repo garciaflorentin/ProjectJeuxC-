@@ -25,18 +25,12 @@ private:
 	sf::Clock time;
 	Map* _map;
 
-	Map* _map;
-
 public:
 
 	GameGestion();
 
-	~GameGestion();
-		_map = new Map();	//je rajoute pour tester Monster
-	}
-
 	~GameGestion() {
-		delete player;
+		delete[] player;
 	}
 
 

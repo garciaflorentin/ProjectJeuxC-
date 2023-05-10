@@ -16,7 +16,7 @@ class Ground: public Tile {
 
 public:
 
-	virtual const int getBlockSize() override{
+	virtual const int getBlockSize() {
 		return TILE_SIZE;
 	}
 

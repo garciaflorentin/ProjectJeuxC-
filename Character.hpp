@@ -23,7 +23,7 @@ protected:
 	sf::Vector2i anim;
 	void setDamage();	//methode commune a tous les personnages 
 	Heart* life;
-    virtual void setDamage(Character* target) = 0;
+    void setDamage(Character* target);
 	
 public:
 

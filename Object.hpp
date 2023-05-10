@@ -33,7 +33,7 @@ public:
     //chargement textures sur le sprites
     const int loadSprite(const char* nameSprite, sf::Vector2f initPos);
 
-    virtual const int getBlockSize() =0;
+    virtual const int getBlockSize();
 
     //getteur de use
     const bool isUse() const {
