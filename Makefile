@@ -59,4 +59,4 @@ jeu_de_base: main.o Heart.o LifeWindow.o GameWindow.o TexturesLib.o Object.o Gam
 
 
 clean:
-	rm -f *.o all
+	rm -f *.o jeu_de_base

@@ -12,7 +12,7 @@ protected:
 	bool passable;
 public:
 
-	Tile() : Object(){}
+	Tile(const char* nameObject, sf::Vector2f initPos) : Object(nameObject,initPos){}
 
 };
 #endif

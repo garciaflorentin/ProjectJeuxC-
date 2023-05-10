@@ -16,7 +16,7 @@ private:
 
 public:
 
-	Player();
+	Player(const char* nameObject, sf::Vector2f initPos): Character(nameObject, initPos){}
 	~Player();
 	void openChest(Chest* chest);
 

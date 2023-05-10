@@ -4,6 +4,9 @@ Map::Map() {
 
 toDraw = new std::vector<Object*>;
 _map = new std::vector<Object*>;
+for(int i= 0; i<1000 ;i++){
+	_map->push_back(nullptr);
+}
 
 
 }
@@ -65,13 +68,15 @@ void Map::removeObject(Object* o) {
 		i++;
 	}
 	delete (*_map)[i]; // supprimer l'objet point�
-	(*_map)[i] = nullptr; // d�finir le pointeur � null
+	(*_map)[i] = nullptr; // définir le pointeur � null
 	_map->erase(_map->begin() + i); // enlever l'�l�ment du vecteur
 
 }
 
 void Map::createMap(){
 
+	addObject(new Ground("World.png", {100,100}, TypeGround::grass) );
+	addObject(new Ground("World.png", {200,200}, TypeGround::ice) );
 
 	
 
