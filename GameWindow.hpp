@@ -44,6 +44,14 @@ private:
         _lifeWindow->drawTo(this->getWindow());
     }
 
+
+    void setCurrentWindowPos(){
+        sf::Vector2i windowTopLeft = window->getPosition();
+        sf::Vector2i windowBottomRight = window->getPosition() + sf::Vector2i(window->getSize().x, window->getSize().y);
+        currentWindowPos->push_back(windowTopLeft);
+        currentWindowPos->push_back(windowBottomRight);
+    }
+
 public:
     ////////////////////////////////////////
 
@@ -67,6 +75,11 @@ public:
     sf::Vector2f getWindowDim() {
         sf::Vector2f dim = { windowWidth,windowHeight };
         return dim;
+    }
+
+    std::vector<sf::Vector2i>* getCurrentWindowPos(){
+        setCurrentWindowPos();
+        return currentWindowPos;
     }
 
     void setLifeView() {

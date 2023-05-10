@@ -23,7 +23,7 @@ int main(void) {
 
 
     GameWindow _window;// cree la fenetre
-    _window.getGame()->setPlayer(_window.getGame()->getPlayerSprite());// decoupe le sprite en ses differentes orientation , l'ajoute au vecteur de sprite de GameGestion et initialise le vecteur de mouvement.
+    _window.getGame()->setPlayer(_window.getGame()->getPlayerVector()[0]->getSprite());// decoupe le sprite en ses differentes orientation , l'ajoute au vecteur de sprite de GameGestion et initialise le vecteur de mouvement.
  
     
     while (_window.isRunning()) {

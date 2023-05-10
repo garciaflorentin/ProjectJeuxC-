@@ -1,15 +1,7 @@
 #include "Character.hpp"
 
-Character::Character(): Object(nameObject, initPos) {
-	anim.x = 1;
-	anim.y = Down;
-	life = new Heart();
-	_isAlive = true;
-}
 
-Character::~Character() {
-	delete life;
-}
+
 
 void Character::takeDamage(int NOQ) {
 	if (NOQ < 0) {
@@ -23,4 +15,26 @@ void Character::takeDamage(int NOQ) {
 			life->removeLife();
 		}
 	}
+}
+
+void Character::setUpCharacter(){
+	anim->x=1;
+	anim->y=Down;
+	_sprite->setTextureRect(sf::IntRect(anim->x * OBJECT_SIZE + 3, anim->y * OBJECT_SIZE + 3, OBJECT_SIZE, OBJECT_SIZE));
+		//a modifier playerVector.push_back(player);
+
+}
+
+const int Character::getBlockSize(){
+	return OBJECT_SIZE;
+}
+
+void Character::setAnim(int x ,int y){
+	anim->x = x;
+	anim->y = y;
+}
+
+void Character::updateSprite(){
+	if(anim->x*OBJECT_SIZE >= OBJECT_SIZE*3){anim->x=0;}
+	_sprite->setTextureRect(sf::IntRect(anim->x*OBJECT_SIZE + 3, anim->y*OBJECT_SIZE + 3, OBJECT_SIZE, OBJECT_SIZE));
 }

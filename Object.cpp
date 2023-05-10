@@ -41,10 +41,10 @@ Object::Object(const char* nameObject, sf::Vector2f initPos) : _isUse(false){
 
     case 1: cout << "une erreur c'est produit lors du chargement l'initialisation de l'object " << name << endl; break;
     case 2:
-        cout << "Nouvelle texture charg� et "<<name<<" sprite cr�� " << endl; break;
+        cout << "Nouvelle texture charge et "<<name<<" sprite cree " << endl; break;
     
     case 3:
-        cout << "Texture deja connu. Texture telecharg� et une copie de" << name <<" cr�e" << endl;
+        cout << "Texture deja connu. Texture telecharg� et une copie de" << name <<" cree" << endl;
     }
 
 

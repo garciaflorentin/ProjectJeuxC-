@@ -10,7 +10,10 @@ class Tile: public Object {
 
 protected:
 	bool passable;
+	int TILE_SIZE;
 public:
+
+
 
 	Tile(const char* nameObject, sf::Vector2f initPos) : Object(nameObject,initPos){}
 

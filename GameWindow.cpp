@@ -14,7 +14,7 @@ GameWindow::GameWindow(void) {
     _game = new GameGestion();
     std::cout << "GameWindow Constructeur" << std::endl;
     Heart* test = new Heart();
-    _lifeWindow = new LifeWindow(test);
+    _lifeWindow = new LifeWindow(_game->getPlayerVector()[0]->getlife());
     
 }
 
@@ -38,8 +38,8 @@ void GameWindow::setScrollingView() {
 
     _view->reset(sf::FloatRect(0,0,getWindowDim().x,getWindowDim().y)); // coordoné du coin haut gauche et du coin bas droit
    positionCentre = { getWindowDim().x / 2, getWindowDim().y / 2 };// coordoné du centre de l'ecran
-   positionCentre.x= _game->getPlayerSprite()->getPosition().x + (_game->getObjectSize()/2) - (getWindowDim().x / 2);// si le perso passe la moitié de l'ecran selon x je change la position du centre 
-   positionCentre.y = _game->getPlayerSprite()->getPosition().y + (_game->getObjectSize() / 2) - (getWindowDim().y / 2);// si le perso passe la moitié de l'ecran selon y je change la position du centre 
+   positionCentre.x= _game->getPlayerVector()[0]->getPosition().x + (_game->getPlayerVector()[0]->getBlockSize()/2) - (getWindowDim().x / 2);// si le perso passe la moitié de l'ecran selon x je change la position du centre 
+   positionCentre.y = _game->getPlayerVector()[0]->getPosition().y + (_game->getPlayerVector()[0]->getBlockSize() / 2) - (getWindowDim().y / 2);// si le perso passe la moitié de l'ecran selon y je change la position du centre 
    //on ne peut pas filmer en dehors de la map  
    if (positionCentre.x < 0) {
        positionCentre.x = 0;
@@ -70,10 +70,8 @@ void GameWindow::pollEvent() {
         else if(event->type == sf::Event::KeyPressed){// regarde si une touche du clavier à été pressé
             //std::cout << " key " << std::endl;
             _game->keyEvent(*event);// fait appel à la fonction move des sprites
-
-            if (_game->getAnimVector().x * _game->getObjectSize() >= _game->getObjectSize() * 3) { _game->getAnimVector().x = 0; }
-            _game->getPlayerSprite()->setTextureRect(sf::IntRect(_game->getAnimVector().x * _game->getObjectSize()+3, _game->getAnimVector().y * _game->getObjectSize()+3, _game->getObjectSize(), _game->getObjectSize()));
-
+            _game->getPlayerVector()[0]->updateSprite();
+            //_game->getPlayerVector()[1]->updateSprite();
         }
 
     }
@@ -136,8 +134,16 @@ GameGestion* GameWindow::getGame() {
 }
 
 void GameWindow::draw() {
-    for (int i = 0; i < _game->getSpriteVector().size(); i++)
-        window->draw(*_game->getSpriteVector()[i]);
+    for (int i = 0; i < _game->getPlayerVector().size(); i++)
+        window->draw(*_game->getPlayerVector()[i]->getSprite());
+
+    for (int i = 0; i < _game->toDrawUpdate(*getCurrentWindowPos())->size() ; i++){
+       Object* o = (*_game->toDrawUpdate(*getCurrentWindowPos()))[i];
+       window->draw(*o->getSprite());
+
+    }
+        
+
 }
 
 
@@ -147,7 +153,7 @@ void GameWindow::display() {
    displayLifeWindow();
 
    setScrollingView();
-   draw();// dessine tout les sprites que contient la GameGestion
+   draw();// dessine tout les sprites contenut dans la fenetre courante
 
 
    window->display();

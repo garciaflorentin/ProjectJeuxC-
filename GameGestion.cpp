@@ -1,46 +1,66 @@
 #include "GameGestion.hpp"
 
+
+GameGestion::GameGestion() {
+		std::cout<<"a"<<std::endl;
+		player = new Player("object.png", {0,0});
+		std::cout<<"a"<<std::endl;
+		_map= new Map();
+		//_map->createMap();
+		playerVector[0]=player;
+		playerVector[1]=nullptr;
+		std::cout << "GameGestion Constructeur" << std::endl;
+
+	}
+
+	GameGestion::~GameGestion() {
+		delete player;
+		delete _map;
+	}
+
+
+	std::vector<Object*>* GameGestion::toDrawUpdate(std::vector<sf::Vector2i> currentWindow){
+		return _map->objectToDraw(currentWindow);
+	}
+
+
 void GameGestion::keyEvent(sf::Event e) {
-	if (time.getElapsedTime().asMilliseconds() >= 50) { // si le temps qui c'est ecoulé est plus grand que 50 ms on fait le move
+	if (time.getElapsedTime().asMilliseconds() >= 50) { // si le temps qui c'est ecoulï¿½ est plus grand que 50 ms on fait le move
 		if (e.key.code == sf::Keyboard::Down) {
 			//std::cout << " D " << std::endl;
-			anim.x++;
-			anim.y = Down;
-			player->getSprite()->move(0, 5);
+			player->getAnim()->x++;
+			player->getAnim()->y = Down;
+			player->move({0,5});
 		}
 		else if ((e.key.code == sf::Keyboard::Up)) {
 			//std::cout << " U " << std::endl;
-			anim.x++;
-			anim.y = Up;
-			player->getSprite()->move(0, -5);
+			player->getAnim()->x++;
+			player->getAnim()->y = Up;
+			player->move({0,-5});
 		}
 		else if ((e.key.code == sf::Keyboard::Right)) {
 			//std::cout << " R " << std::endl;
-			anim.x++;
-			anim.y = Right;
-			player->getSprite()->move(5, 0);
+			player->getAnim()->x++;
+			player->getAnim()->y = Right;
+			player->move({5,0});
 		}
 		else if ((e.key.code == sf::Keyboard::Left)) {
 			//std::cout << " L " << std::endl;
-			anim.x++;
-			anim.y = Left;
-			player->getSprite()->move(-5, 0);
+			player->getAnim()->x++;
+			player->getAnim()->y = Left;
+			player->move({5,0});
 		}
 	}
 
-	std::cout << "x =" << player->getSprite()->getPosition().x << std::endl;
-	std::cout << "y =" << player->getSprite()->getPosition().y<< std::endl;
+	std::cout << "x =" << player->getPosition().x<< std::endl;
+	std::cout << "y =" << player->getPosition().y<< std::endl;
 
 }
 
-	sf::Sprite* GameGestion::getPlayerSprite() const{
-		return player->getSprite();
-	}
+
 
 	void GameGestion::setPlayer(sf::Sprite* sprite) {
-		//player->setSprite(*sprite);
-		anim.x = 1;
-		anim.y = Down;
-		sprite->setTextureRect(sf::IntRect(anim.x * getObjectSize() + 3, anim.y * getObjectSize() + 3, 48, 48));
-		spriteVector.push_back(player->getSprite());
+		playerVector[0]->setUpCharacter();
+		playerVector[1]->setUpCharacter();
+
 	}
