@@ -19,7 +19,7 @@ class Map {
 
 private:
 
-	std::vector<Object*>* toDraw;
+	std::vector<Object*>* _toDraw;
 	std::vector<Object*>* _map;
 
 
@@ -28,13 +28,15 @@ public:
 	Map();
 	~Map();
 
-	void objectToDraw(std::vector<sf::Vector2i> currentWindow);	//retourne rien
+	std::vector<Object*>* objectToDraw(std::vector<sf::Vector2i> currentWindow);
 
 	void addObject(Object* o);
 	void removeObject(Object* o);
 	
 	void createMap();
 
+	void putObjectToDraw(sf::Vector2i pos);
+	
 	Object* getObject(sf::Vector2f pos);
 
 	std::vector<Object*>* getMap() {

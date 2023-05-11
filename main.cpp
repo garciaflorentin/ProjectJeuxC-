@@ -25,19 +25,23 @@ int main(void) {
     _sprite->setPosition(100, 100);
 
 
-    GameWindow _window;// cree la fenetre
-    _window.getGame()->setPlayer(_window.getGame()->getPlayerSprite());// decoupe le sprite en ses differentes orientation , l'ajoute au vecteur de sprite de GameGestion et initialise le vecteur de mouvement.
- 
+    GameWindow window;// cree la fenetre
+
+    GameGestion* g=window.getGame();
+    Player* p= (*g->getPlayerVector())[0];
+    sf::Sprite* sp= p->getSprite();
+    g->setPlayer(sp);// decoupe le sprite en ses differentes orientation , l'ajoute au vecteur de sprite de GameGestion et initialise le vecteur de mouvement.
+
     /* Code degueulasse juste pour tester - a reecrire comme il faut apres */
-    _window.getGame()->getMap()->addObject(new Monster());
+    window.getGame()->getMap()->addObject(new Monster());
     
-    while (_window.isRunning()) {
+    while (window.isRunning()) {
 
   
  
-        _window.getWindow()->draw(*_sprite);
-        _window.controlWindow();
-        _window.display();
+        window.getWindow()->draw(*_sprite);
+        window.controlWindow();
+        window.display();
 
 
     }

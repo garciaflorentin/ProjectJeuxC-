@@ -54,8 +54,8 @@ Monster.o: Monster.cpp Monster.hpp Character.hpp Player.hpp
 	$(CPP) $(CPPFLAGS) -c Monster.cpp
 
 
-jeu_de_base: main.o Heart.o LifeWindow.o GameWindow.o TexturesLib.o Object.o GameGestion.o Map.o Character.o Monster.o 
-	$(LD) $(LDFLAGS) main.o Heart.o LifeWindow.o GameWindow.o TexturesLib.o Object.o GameGestion.o  Map.o Character.o Monster.o -o jeu_de_base $(LIBS)
+jeu_de_base: main.o Heart.o LifeWindow.o GameWindow.o TexturesLib.o Object.o GameGestion.o Map.o Character.o Monster.o  Player.o
+	$(LD) $(LDFLAGS) main.o Heart.o LifeWindow.o GameWindow.o TexturesLib.o Object.o GameGestion.o  Map.o Character.o Monster.o Player.o -o jeu_de_base $(LIBS)
 
 
 clean:

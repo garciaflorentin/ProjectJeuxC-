@@ -13,7 +13,7 @@ class Object {
 protected:
     sf::Texture* _texture;
     sf::Sprite* _sprite;
-    const char* name;
+    const char* _name;
     int OBJECT_SIZE = 48;
     bool _isUse;
 
@@ -34,7 +34,7 @@ public:
     //chargement textures sur le sprites
     const int loadSprite(const char* nameSprite, sf::Vector2f initPos);
 
-    const int getBlockSize() const {
+    virtual const int getBlockSize() const {
         return OBJECT_SIZE;
     }
 

@@ -1,44 +1,50 @@
 ﻿#include "LifeWindow.hpp"
 
 LifeWindow::LifeWindow(Heart* HeartPlayer) {
-
-	lifePlayer = new Heart();
-	lifePlayer = HeartPlayer;
-	lifeTexture = new sf::RenderTexture();
-	lifeTexture->create(1500, 80);
-	lifeSprite = new sf::Sprite(lifeTexture->getTexture());
-	lifeView = new sf::View(sf::FloatRect(-0.5f, -0.5f, 1000.0f, 200.f));
-	lifeView->setViewport(sf::FloatRect(0.f, 0.f, 1, 1));
-	lifeTexture->setView(*lifeView);
+	    
+	_lifePlayer = new Heart();
+	
+	_lifePlayer = HeartPlayer;
+	    
+	_lifeTexture = new sf::RenderTexture();
+	
+	_lifeTexture->create(1500, 80);
+	
+	_lifeSprite = new sf::Sprite(_lifeTexture->getTexture());
+	
+	_lifeView = new sf::View(sf::FloatRect(-0.5f, -0.5f, 1000.0f, 200.f));
+	
+	_lifeView->setViewport(sf::FloatRect(0.f, 0.f, 1, 1));
+	
+	_lifeTexture->setView(*_lifeView);
 		
 }
 
 
 LifeWindow::~LifeWindow() {
-	delete lifePlayer;
-	delete lifeSprite;
-	delete lifeTexture;
-	delete lifeView;
+	delete[] _lifePlayer;
+	delete[] _lifeSprite;
+	delete[] _lifeTexture;
+	delete[] _lifeView;
 }
 
 void LifeWindow::drawTo(sf::RenderWindow* target) {
 
 	updateWindow();
-	target->draw(*lifeSprite);
-
+	target->draw(*_lifeSprite);
 
 }
 
 void LifeWindow::updateWindow() {
 
 	// dessiner la vue de la fenêtre de vie sur la render texture de la fenêtre de vie
-	lifeTexture->setView(*lifeView);
+	_lifeTexture->setView(*_lifeView);
 	for (int i = 0; i < 3; i++) {
-		lifeTexture->draw(*(*lifePlayer->getLife())[i]);
+		_lifeTexture->draw(*(*_lifePlayer->getLife())[i]);
 	}
 	// dessiner les éléments de la fenêtre de vie
-	lifeTexture->display();
-	lifeSprite->setTexture(lifeTexture->getTexture());
+	_lifeTexture->display();
+	_lifeSprite->setTexture(_lifeTexture->getTexture());
 
 }
 

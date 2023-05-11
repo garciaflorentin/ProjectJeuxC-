@@ -16,7 +16,7 @@ public:
     {
         Grass,
         Rock,
-        tree
+        Tree
 
     };
 
@@ -27,9 +27,9 @@ public:
     ~TexturesLib() {
         while (!_textures->empty())
         {
-            auto it = _textures->begin(); // Obtenir l'itérateur du premier élément
-            delete it->second; // Supprimer la texture pointée par la valeur de la paire clé-valeur
-            _textures->erase(it); // Supprimer la paire clé-valeur
+            auto it = _textures->begin(); // Obtenir l'itï¿½rateur du premier ï¿½lï¿½ment
+            delete[] it->second; // Supprimer la texture pointï¿½e par la valeur de la paire clï¿½-valeur
+            _textures->erase(it); // Supprimer la paire clï¿½-valeur
         }
 
     }
@@ -38,7 +38,7 @@ public:
         return _textures;
     }
 
-    //focntions assignTexture , sur-chargé mais faisant la meme chose avec differents attributs
+    //focntions assignTexture , sur-chargï¿½ mais faisant la meme chose avec differents attributs
 
     int assignTexture(string filename, sf::Texture* _texture);
 

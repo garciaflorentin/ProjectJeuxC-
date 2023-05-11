@@ -16,9 +16,15 @@ class Ground: public Tile {
 
 public:
 
-	Ground(const char* nameObject, sf::Vector2f initPos, TypeGround _typeGround) : Tile(nameObject,initPos) {
+	virtual const int getBlockSize() {
+		return TILE_SIZE;
+	}
 
-		passable = true;
+	Ground(const char* nameObject, sf::Vector2f initPos, TypeGround _typeGround) : Tile(nameObject,initPos) {
+		std::cout<<"Ground_Constructor"<<std::endl;
+
+		TILE_SIZE=64;
+		_passable = true;
 		int t = static_cast<int>(_typeGround);
 		_sprite->setTextureRect(sf::IntRect(t * 64+ 3, t * 96+ 3, 64, 64));
 

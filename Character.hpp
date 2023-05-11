@@ -12,32 +12,51 @@
 class Character : public Object {
 
 protected:
-	int damageAttack;
-	double speed;
+	int _damageAttack;
+	double _speed;
 	EnumOrientation _enumOrientation;
 	enum Orientation { Down, Left, Right, Up };
 	bool _isAlive;
 
-	sf::Vector2i anim;
-	void setDamage();	//methode commune a tous les personnages 
-	Heart* life;
+	int OBJECT_SIZE = 48;
+
+	sf::Vector2i* _anim;
+	//virtual void setDamage(Character* target) = 0;
+	Heart* _life;
 
 public:
 
 	Character();
-	Character(const char* nameObject, sf::Vector2f initPos) : Object(nameObject, initPos) {};
+	Character(const char* nameObject, sf::Vector2f initPos);
 
-	~Character();	//Declarer un destructeur
+	~Character() {
+		delete[] _life;
+	};	//Declarer un destructeur
 
 	void takeDamage(int heartQuarters);
 	virtual void attack(Character* target) = 0;
-	void moveTo(sf::Vector2f nextPos);	//methode non virtuelle 
+	void move(sf::Vector2f nextPos);	//methode non virtuelle 
 	const bool isAlive() const{
 		return _isAlive;
 	}
 
-	
+	sf::Vector2i* getAnim(){
+		return _anim;
+	}
 
+	Heart* getlife() const {
+		    cout << "ici" << endl;
+		return _life;
+	}
+
+	void setAnim(int i,int y);
+
+	void setUpCharacter();
+
+	void updateSprite();
+
+	const int getBlockSize();
 };
+
 #endif
 

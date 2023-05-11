@@ -13,10 +13,10 @@ class LifeWindow {
 private:
 
 	const float windowWidth = 1024.0, windowHeight = 55;
-	sf::View* lifeView;
-	sf::RenderTexture* lifeTexture;
-	sf::Sprite* lifeSprite;
-	Heart* lifePlayer;
+	sf::View* _lifeView;
+	sf::RenderTexture* _lifeTexture;
+	sf::Sprite* _lifeSprite;
+	Heart* _lifePlayer;
 
 public:
 
@@ -25,7 +25,7 @@ public:
 	void drawTo(sf::RenderWindow* target);
 	void updateWindow();
 	sf::View* getLifeView() {
-		return lifeView;
+		return _lifeView;
 	}
 
 

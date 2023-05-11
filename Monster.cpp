@@ -41,7 +41,7 @@ void Monster::goToPlayer() {
         if (dist_x < dist_y)    np.y++;
         else                    np.x++;
 
-        moveTo(np);
+        move(np);
     }
 }
 

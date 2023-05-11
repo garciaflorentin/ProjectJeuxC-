@@ -18,13 +18,13 @@ private:
 
 
     float windowWidth = 1024.0, windowHeight = 768.0;
-    sf::RenderWindow* window;
-    sf::Event* event;
-    sf::VideoMode videoMode; //VideoMode defines a video mode (width, height, bpp) 
+    sf::RenderWindow* _window;
+    sf::Event* _event;
+    sf::VideoMode _videoMode; //VideoMode defines a video mode (width, height, bpp) 
     sf::View* _view;
-    std::vector<sf::Vector2i>* currentWindowPos;
-    sf::Vector2f positionCentre;
-    Heart* test;
+    std::vector<sf::Vector2i>* _currentWindowPos;
+    sf::Vector2f _positionCentre;
+    Heart* _test;
 
     //class
     GameGestion* _game;
@@ -44,6 +44,20 @@ private:
         _lifeWindow->drawTo(this->getWindow());
     }
 
+    void setCurrentWindowPos(){
+            /*sf::Vector2i windowTopLeft = window->getPosition();
+            sf::Vector2i windowBottomRight = window->getPosition() + sf::Vector2i(window->getSize().x, window->getSize().y);
+            currentWindowPos->push_back(windowBottomRight);
+            currentWindowPos->push_back(windowTopLeft);
+            */
+        sf::FloatRect viewport = _window->getView().getViewport();
+        sf::Vector2i viewTopLeft(viewport.left * _window->getSize().x, viewport.top * _window->getSize().y);
+        sf::Vector2i viewBottomRight((viewport.left + viewport.width) * _window->getSize().x, (viewport.top + viewport.height) * _window->getSize().y);
+        _currentWindowPos->push_back(viewBottomRight);
+        _currentWindowPos->push_back(viewTopLeft);
+
+    }
+
 public:
     ////////////////////////////////////////
 
@@ -59,7 +73,7 @@ public:
     GameGestion* getGame();
 
     sf::RenderWindow* getWindow() {
-        return window;
+        return _window;
     }
 
     //view
@@ -69,8 +83,13 @@ public:
         return dim;
     }
 
+    std::vector<sf::Vector2i>* getCurrentWindowPos(){
+        setCurrentWindowPos();
+        return _currentWindowPos;
+    }
+
     void setLifeView() {
-        window->setView(*_lifeWindow->getLifeView());
+        _window->setView(*_lifeWindow->getLifeView());
     }
 
     sf::View* getViewWindow() {
@@ -98,7 +117,7 @@ public:
     void updateWindow(std::vector<sf::Sprite> _sprites);
 
     void clearWindow() const {
-        window->clear();
+        _window->clear();
     }
 
     void DisplayTile(std::vector<sf::Sprite> v);

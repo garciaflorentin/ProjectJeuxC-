@@ -6,13 +6,16 @@
 #include <cstring>
 //#include "TexturesLib.hpp"
 
+using namespace std;
+
 class Heart {
 private:
 
 	std::vector<sf::Texture*>* _textures ;
 	std::vector<sf::Sprite*>* _sprites;
-	std::vector<sf::Sprite*>* life;
-	int numberOfQuarter;
+	std::vector<sf::Sprite*>* _life;
+	int _numberOfQuarter;
+
 	void initlife();
 	void changelife(int i);
 
@@ -27,7 +30,7 @@ public:
 	void addLife();
 
 	const int getNOQ() const{
-		return numberOfQuarter;
+		return _numberOfQuarter;
 	}
 
 	sf::Sprite getHeart(int NOQ) const {
@@ -38,7 +41,7 @@ public:
 
 	std::vector<sf::Sprite*>* getLife() const {
 
-		return life;
+		return _life;
 
 	}
 

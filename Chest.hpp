@@ -18,14 +18,18 @@ private:
     sf::Sprite* _sprite;
     bool _isOpen;
     Gain* _gain;
-    sf::Vector2i chestAnim;
+    sf::Vector2i _chestAnim;
 
 public:
 
     Chest();
     ~Chest();
   
-    int open(); //pas besoin de Player
+    int open() {
+        _chestAnim.y = 3;
+        _sprite->setTextureRect(sf::IntRect(_chestAnim.x * CHEST_SIZE , _chestAnim.y * CHEST_SIZE, CHEST_SIZE, CHEST_SIZE));
+        return _gain->getGain();
+    }; //pas besoin de Player
 
     sf::Sprite* getSpriteChest() {
         return _sprite;

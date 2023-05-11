@@ -11,10 +11,12 @@ class Wall: public Tile {
 
 public:
 
-	Wall() : Tile() {
+	Wall() {
 
-		passable = false;
-	}
+		_passable = false;
+		TILE_SIZE = 48;
+
+	};
 
 };
 #endif

@@ -24,7 +24,7 @@ Object::Object(){
     _isUse = false;
     _texture = new sf::Texture();
     _sprite = new sf::Sprite();
-    name = nullptr;
+    _name = nullptr;
     _texturesLib = TexturesLib();
 }
 
@@ -34,25 +34,23 @@ Object::Object(const char* nameObject, sf::Vector2f initPos) : _isUse(false){
 
     std::cout << "Object Constructeur" << std::endl;
     //nom
-    name = nameObject;
+    _name = nameObject;
     _texturesLib = TexturesLib();
     //on charge la textures sur le sprite
     switch(loadSprite(nameObject, initPos)) {
 
-    case 1: cout << "une erreur c'est produit lors du chargement l'initialisation de l'object " << name << endl; break;
-    case 2:
-        cout << "Nouvelle texture charg� et "<<name<<" sprite cr�� " << endl; break;
-    
-    case 3:
-        cout << "Texture deja connu. Texture telecharg� et une copie de" << name <<" cr�e" << endl;
+        case 1: cout << "une erreur c'est produit lors du chargement l'initialisation de l'object " << _name << endl; break;
+        case 2:
+            cout << "Nouvelle texture charge et "<<_name<<" sprite cree " << endl; break;
+        
+        case 3:
+            cout << "Texture deja connu. Texture telechargï¿½ et une copie de" << _name <<" cree" << endl; break;
     }
-
-
 }
 
 Object::~Object() {
-    delete _texture;
-    delete _sprite;
+    delete[] _texture;
+    delete[] _sprite;
 }
 
 const int Object::loadSprite(const char* nameSprite, sf::Vector2f initPos) { // return false si la texture � deja etait charg� , recupere la texture et l'assigne au sprite de l'object et return true sinon charge la textures et assigne la texture au sprite de l'object.

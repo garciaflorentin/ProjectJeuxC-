@@ -21,6 +21,8 @@ class Monster : public Character {
 
         //std::vector<Object*>* _map;
 
+        //virtual void setDamage(Character* target);
+
     public :
         Monster() : Character() {};
         Monster(const char* nameObject, sf::Vector2f initPos, string name="meat", int dmg=1, int ar=1, int vf=5) :

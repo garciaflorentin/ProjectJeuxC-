@@ -11,7 +11,7 @@ Gain::Gain(){
 }
 
 Gain::~Gain() {
-	delete _sprite;
+	delete[] _sprite;
 }
 
 

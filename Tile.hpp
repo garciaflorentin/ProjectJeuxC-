@@ -9,10 +9,12 @@
 class Tile: public Object {
 
 protected:
-	bool passable;
+	bool _passable;
+	int TILE_SIZE;
 public:
-
-	Tile(const char* nameObject, sf::Vector2f initPos) : Object(nameObject,initPos){}
-
+	Tile();
+	Tile(const char* nameObject, sf::Vector2f initPos) : Object(nameObject,initPos){
+		std::cout<<"Tile_Constructor"<<std::endl;
+	}
 };
 #endif
