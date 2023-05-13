@@ -15,7 +15,7 @@ protected:
     sf::Sprite* _sprite;
     const char* name;
     bool _isUse;
-
+    bool passable;
     bool loadTexture(const char* spriteName);//focntion finalement inutile , je vais la virrer 
     
 
@@ -57,6 +57,9 @@ public:
     }
 
     //virtual void virtual_temporal_method_do_not_touch();
+    virtual bool isPassable(){
+	return passable;
+	}
 };
 
 #endif

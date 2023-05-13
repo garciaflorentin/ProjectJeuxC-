@@ -18,7 +18,7 @@ bool Object::loadTexture(const char* spriteName) {// inutile surrement
 // constructeurs
 
 Object::Object(){
-
+    passable=false;
     _isUse = false;
     _texture = new sf::Texture();
     _sprite = new sf::Sprite();

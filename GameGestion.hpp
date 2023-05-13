@@ -13,8 +13,9 @@
 #include "Player.hpp"
 #include "Object.hpp"
 #include "Map.hpp"
+#include "ColisionInterface.hpp"
 
-class GameGestion{
+class GameGestion : public ColisionInterface{
 private:
 
 	//sf::Sprite* player1; //sprite du joueur
@@ -48,7 +49,20 @@ public:
 
 	std::vector<Object*>* toDrawUpdate(std::vector<sf::Vector2f>* currentWindow);
 
+//interface colision
+std::vector<Object*>& getWallMap(){
+	std::vector<Object*> wallList;
+	for(int i=0;i< _map->getMap()->size();i++){
+		if(!(*_map->getMap())[i]->isPassable()){
+			wallList.push_back((*_map->getMap())[i]);
+		}
+	}
+	return wallList;
+}
 
+int collidePosition(Object* object1, Object* object2);
+
+std::vector<int>& collideWall(Character* c, std::vector <Object*>& wallList);
 
 };
 #endif

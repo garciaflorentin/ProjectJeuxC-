@@ -47,6 +47,13 @@ void GameGestion::keyEvent(sf::Event e) {
 			player->move({-5,0});
 		}
 	}
+	if(collideWall(player,getWallMap())[0]!= -1 && collideWall(player,getWallMap())[1]!= -1){
+		switch ((collideWall(player,getWallMap())[1])){//orientatioj de la colision
+			case 1:// colision du joueur allant vers le haut
+			sf::Vector2f newpos(player->getPosition().x,getWallMap()[collideWall(player,getWallMap())[0]]->getPosition().y - 48);
+			player->setPosition(newpos);
+		}
+	}
 
 	std::cout << "x =" << player->getPosition().x<< std::endl;
 	std::cout << "y =" << player->getPosition().y<< std::endl;
@@ -55,7 +62,50 @@ void GameGestion::keyEvent(sf::Event e) {
 
 
 
-	void GameGestion::setPlayer(sf::Sprite* sprite) {
+void GameGestion::setPlayer(sf::Sprite* sprite) {
 		(*playerVector)[0]->setUpCharacter();
 		//(*playerVector)[1]->setUpCharacter();
-	}
+}
+
+//interface colision
+
+int GameGestion::collidePosition(Object* object1, Object* object2){;
+
+int SPRITE_SIZE = object1->getBlockSize();
+
+    float sprite1x = object1->getPosition().x;
+    float sprite1y = object1->getPosition().y;
+	float sprite2x = object2->getPosition().x;
+    float sprite2y = object2->getPosition().y;
+
+    if (sprite1x < sprite2x + SPRITE_SIZE && sprite1x + SPRITE_SIZE > sprite2x && sprite1y < sprite2y + SPRITE_SIZE &&
+        sprite1y + SPRITE_SIZE > sprite2y) {
+        return 1; //up collide
+    } else if (sprite1x < sprite2x + SPRITE_SIZE && sprite1x + SPRITE_SIZE > sprite2x + SPRITE_SIZE &&
+               sprite1y + SPRITE_SIZE > sprite2y && sprite1y + SPRITE_SIZE < sprite2y + SPRITE_SIZE) {
+        return 2;//LEFT_COLLIDE; o2 tape sur la gauche de o1
+    } else if (sprite1x < sprite2x && sprite1x + SPRITE_SIZE > sprite2x && sprite1y < sprite2y + SPRITE_SIZE &&
+               sprite1y + SPRITE_SIZE > sprite2y) {
+        return 3;//RIGHT_COLLIDE;
+    } else if (sprite1x < sprite2x + SPRITE_SIZE && sprite1x + SPRITE_SIZE > sprite2x &&
+               sprite1y + SPRITE_SIZE > sprite2y && sprite1y + SPRITE_SIZE < sprite2y + SPRITE_SIZE) {
+        return 4;//DOWN_COLLIDE;
+    }
+    return 0;//NO_COLLIDE;
+}
+
+std::vector<int>& GameGestion::collideWall(Character* c, std::vector <Object*>& wallList) {
+    for (int x = 0; x < wallList.size(); x++) {
+		int colision =collidePosition(c, (wallList)[x]);
+        if (colision!=0) {
+			std::vector<int> info;
+			info.push_back(x);
+			info.push_back(colision);
+            return info;
+        }
+    }
+    std::vector<int> info;
+			info.push_back(-1);
+			info.push_back(-1);
+            return info;
+}
