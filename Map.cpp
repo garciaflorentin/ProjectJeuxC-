@@ -27,10 +27,8 @@ void Map::putObjectToDraw(sf::Vector2f pos){
 
 			// Acc�der � l'objet point�*
 			Object* obj = *it;
-			/*std::cout<<"obj->getPosition.x="<<obj->getPosition().x<<std::endl;
-			std::cout<<"obj->getPosition.y="<<obj->getPosition().y<<std::endl;*/
+
 			if (obj->getPosition().x == pos.x && obj->getPosition().y == pos.y) {
-				std::cout<<"toDraw++"<<std::endl;
 				toDraw->push_back(obj);
 			}
 
@@ -50,10 +48,8 @@ void Map::putObjectToDraw2(std::vector<sf::Vector2f>* pos){
 
 			// Acc�der � l'objet point�*
 			Object* obj = *it;
-			/*std::cout<<"obj->getPosition.x="<<obj->getPosition().x<<std::endl;
-			std::cout<<"obj->getPosition.y="<<obj->getPosition().y<<std::endl;*/
+
 			if ((obj->getPosition().x >= ((*pos)[0].x - 50) && obj->getPosition().y >= ((*pos)[0].y)-50) && (obj->getPosition().x <= ((*pos)[1].x+50) && obj->getPosition().y < ((*pos)[1].y)+50) )  {
-				std::cout<<"toDraw++"<<std::endl;
 				toDraw->push_back(obj);
 			}
 
@@ -84,27 +80,15 @@ Object* Map::getObject(sf::Vector2f pos){
 
 
 std::vector<Object*>* Map::objectToDraw(std::vector<sf::Vector2f>* currentWindow) {
-	/*std::cout<<"currentWindow[0].x=="<<(*currentWindow)[0].x<<std::endl;	
-	std::cout<<"currentWindow[0].y=="<<(*currentWindow)[0].y<<std::endl;
-	std::cout<<"currentWindow[1].x=="<<(*currentWindow)[1].x<<std::endl;
-	std::cout<<"currentWindow[1].y=="<<(*currentWindow)[1].y<<std::endl;
-	*/
 	toDraw->clear();
-
-	/*for (int _x = (*currentWindow)[0].x; _x < (*currentWindow)[1].x; _x=_x+48) {
-		for (int _y = (*currentWindow)[0].y; _y < (*currentWindow)[1].y; _y=_y+48) {
-			putObjectToDraw(sf::Vector2i(_x, _y));
-		}
-	}*/
 	putObjectToDraw2(currentWindow);
-	std::cout<<"toDraw->size()=="<<toDraw->size()<<std::endl;
+	//std::cout<<"toDraw->size()=="<<toDraw->size()<<std::endl;
 	return toDraw;	
 
 
 }
 
 void Map::addObject(Object* o) {
-	std::cout<<"addObject()"<< std::endl;
 
 	sf::Vector2f pos = o->getPosition();
 /*
@@ -130,18 +114,8 @@ void Map::removeObject(Object* o) {
 }
 
 void Map::createMap(){
-/*for (float i = 0 ; i<22 ;i++){
-	for(float j=0;j<16;j++){
-		addObject(new Ground("World2.png", {i,j}, TypeGround::ice));
 
-	}
-}
-for (float i = 0 ; i<22 ;i++){
-	for(float j=-16;j<0;j++){
-		addObject(new Ground("World2.png", {i,j}, TypeGround::grass));
-
-	}
-}*/
+//creation du sol
 for (int x = 0; x < 300; x++) {
     for (int y = 0; y < 300; y++) {
         if (x < 150) {
@@ -155,7 +129,7 @@ for (int x = 0; x < 300; x++) {
                 if (rand() % 20 == 0) {
                     addObject(new Ground("World2.png",{x, y}, TypeGround::stone));
                 }
-            } else {
+            	} else {
                 // Monde 2 : montagnes
                 if (rand() % 5 == 0) {
                     addObject(new Ground("World2.png", {x, y}, TypeGround::Rock));
@@ -191,6 +165,22 @@ for (int x = 0; x < 300; x++) {
         }
     }
 }
+
+//creation des murs
+for (int x = 0; x < 300; x++) {
+    for (int y = 0; y < 300; y++) {
+        if (x < 150) {
+            if (y <150) {
+				if (rand() % 20 == 0) {
+    				addObject(new Wall("World2.png",{x, y}, TypeWall::GrandSapin)); 
+				}
+			}
+		}
+	}
+}
+
+//addObject(new Wall("World2.png",{3, 3}, TypeWall::GrandSapin)); 
+
 
 
 }

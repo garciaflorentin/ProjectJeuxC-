@@ -3,14 +3,9 @@
 
 
 enum class TypeWall {
-	Rock,
-	brick,
-	cobblestone,
-	cobblestone2,
-	stone,
-	floorTile,
-	grass,
-	ice
+	GrandSapin,
+	GrosseBranche
+	
 };
 
 #endif
