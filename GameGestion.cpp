@@ -47,13 +47,7 @@ void GameGestion::keyEvent(sf::Event e) {
 			player->move({-5,0});
 		}
 	}
-	if(collideWall(player,getWallMap())[0]!= -1 && collideWall(player,getWallMap())[1]!= -1){
-		switch ((collideWall(player,getWallMap())[1])){//orientatioj de la colision
-			case 1:// colision du joueur allant vers le haut
-			sf::Vector2f newpos(player->getPosition().x,getWallMap()[collideWall(player,getWallMap())[0]]->getPosition().y - 48);
-			player->setPosition(newpos);
-		}
-	}
+	collideGestion();
 
 	std::cout << "x =" << player->getPosition().x<< std::endl;
 	std::cout << "y =" << player->getPosition().y<< std::endl;
@@ -108,4 +102,39 @@ std::vector<int>& GameGestion::collideWall(Character* c, std::vector <Object*>& 
 			info.push_back(-1);
 			info.push_back(-1);
             return info;
+}
+
+std::vector<Object*>& GameGestion::getWallMap(){
+	std::vector<Object*> wallList;
+	for(int i=0;i< _map->getMap()->size();i++){
+		if(!(*_map->getMap())[i]->isPassable()){
+			wallList.push_back((*_map->getMap())[i]);
+		}
+	}
+	return wallList;
+}
+
+void GameGestion::collideGestion(){
+	 if(collideWall(player,getWallMap())[0]!= -1 && collideWall(player,getWallMap())[1]!= -1){
+		switch ((collideWall(player,getWallMap())[1])){//orientatioj de la colision
+			case 0:break;
+
+			case 1:// colision du joueur allant vers le haut
+			//on empeche le joueur de traverser le Wall
+			sf::Vector2f newpos(player->getPosition().x,getWallMap()[collideWall(player,getWallMap())[0]]->getPosition().y - 48);
+			player->setPosition(newpos);
+			break;
+			case 2:// colision du joueur allant vers la gauche
+			sf::Vector2f newpos(getWallMap()[collideWall(player,getWallMap())[0]]->getPosition().x + 48,player->getPosition().y);
+			player->setPosition(newpos);
+			break;
+			case 3:// colision du joueur allant vers la droite
+			sf::Vector2f newpos(getWallMap()[collideWall(player,getWallMap())[0]]->getPosition().x + 48,player->getPosition().y);
+			player->setPosition(newpos);
+			case 4:// colision du joueur allant vers le bas
+			sf::Vector2f newpos(player->getPosition().x,getWallMap()[collideWall(player,getWallMap())[0]]->getPosition().y);
+			player->setPosition(newpos);
+			break;
+		}
+	}
 }

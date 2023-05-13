@@ -57,9 +57,14 @@ public:
     }
 
     //virtual void virtual_temporal_method_do_not_touch();
+
+    //collide
+
     virtual bool isPassable(){
 	return passable;
 	}
+
+    void collide(GameGestion* gg);
 };
 
 #endif
