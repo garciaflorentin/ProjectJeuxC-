@@ -47,7 +47,7 @@ void GameGestion::keyEvent(sf::Event e) {
 			player->move({-5,0});
 		}
 	}
-	collideWallGestion();
+	//collideWallGestion();
 	//LimitMap();
 
 	std::cout << "x =" << player->getPosition().x<< std::endl;
@@ -118,6 +118,7 @@ void GameGestion::getWallMap(std::vector<Object*>& wallList){
 void GameGestion::LimitMap(){
 std::vector<int> limit;
 _map->getLimitMap(limit);
+
    if(player->getPosition().x< limit[3]){
 	sf::Vector2f newpos(limit[3],player->getPosition().y);
 	player->setPosition(newpos);
