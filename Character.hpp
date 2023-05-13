@@ -62,7 +62,7 @@ Character(const char* nameObject, sf::Vector2f initPos): Object(nameObject, init
 
 	void updateSprite();
 
-	 const int getBlockSize() override;
+	const int getBlockSize();
 
 
 

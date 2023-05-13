@@ -5,6 +5,7 @@
 #include <iostream>
 #include <cstring>
 #include "TexturesLib.hpp"
+//#include "GameGestion.hpp"
 
 using namespace std;
 
@@ -64,7 +65,7 @@ public:
 	return passable;
 	}
 
-    void collide(GameGestion* gg);
+    //void collide(GameGestion* gg);
 };
 
 #endif

@@ -50,13 +50,14 @@ void GameWindow::setScrollingView() {
    if (positionCentre.x < 0) {
        positionCentre.x = 0;
    }
-   else if (positionCentre.y < 0) {
-       positionCentre.y = 0;
+   else if (positionCentre.y < -14400) {
+       positionCentre.y = -14400;
    }
-   else if (positionCentre.x > 10000)// 10000 au pif pour le moment
-       positionCentre.x = 10000;
-   else if (positionCentre.y > 10000)
-       positionCentre.y = 10000;
+   else if (positionCentre.x > 14400)
+       positionCentre.x = 14400;
+   else if (positionCentre.y > 14400)
+       positionCentre.y = 14400;
+       
 
    // on met a jour la vu en changeant la position du coin haut gauche
    _view->reset(sf::FloatRect(positionCentre.x, positionCentre.y, getWindowDim().x, getWindowDim().y));

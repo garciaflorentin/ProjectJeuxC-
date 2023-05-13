@@ -24,12 +24,21 @@ private:
 
 	std::vector<Object*>* toDraw;
 	std::vector<Object*>* _map;
+	int LIMITE_Xneg= 0;
+	int LIMITE_Y=14400;
+	int LIMITE_X= 14400;
+	int LIMITE_Yneg=-14400;
+
 
 
 public:
 
 	Map();
 	~Map();
+
+	void getLimitMap(std::vector<int>& limit){
+		limit={LIMITE_X,LIMITE_Y,LIMITE_Xneg,LIMITE_Yneg};
+	}
 
 	std::vector<Object*>* objectToDraw(std::vector<sf::Vector2f>* currentWindow);
 
