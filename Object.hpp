@@ -14,7 +14,6 @@ protected:
     sf::Texture* _texture;
     sf::Sprite* _sprite;
     const char* name;
-    int OBJECT_SIZE = 48;
     bool _isUse;
 
     bool loadTexture(const char* spriteName);//focntion finalement inutile , je vais la virrer 
@@ -34,9 +33,7 @@ public:
     //chargement textures sur le sprites
     const int loadSprite(const char* nameSprite, sf::Vector2f initPos);
 
-    const int getBlockSize() const {
-        return OBJECT_SIZE;
-    }
+    virtual const int getBlockSize() =0;
 
     //getteur de use
     const bool isUse() const {
@@ -45,6 +42,7 @@ public:
 
     //setteur
     void setPosition(sf::Vector2f& newPos);
+    void setPositionInBox(sf::Vector2f& newPos);
 
     sf::Sprite* getSprite(){
         return _sprite;

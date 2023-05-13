@@ -10,17 +10,23 @@
 
 class Ground: public Tile {
 
-	protected:
+protected:
 
 
 
 public:
 
-	Ground(const char* nameObject, sf::Vector2f initPos, TypeGround _typeGround) : Tile(nameObject,initPos) {
+	const int getBlockSize(){
+		return TILE_SIZE;
+	}
 
+	Ground(const char* nameObject, sf::Vector2f initPos, TypeGround _typeGround) : Tile(nameObject,initPos) {
+		std::cout<<"Ground_Constructor"<<std::endl;
+
+		TILE_SIZE=64;
 		passable = true;
 		int t = static_cast<int>(_typeGround);
-		_sprite->setTextureRect(sf::IntRect(t * 64+ 3, t * 96+ 3, 64, 64));
+		_sprite->setTextureRect(sf::IntRect( 2*t*48+2+48, 14 * 48+ 6, 48, 48));
 
 	}
 

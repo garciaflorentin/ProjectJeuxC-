@@ -1,8 +1,8 @@
-#ifndef TYPE_GROUND_HPP
-#define TYPE_GROUND_HPP
+#ifndef TYPE_WALL_HPP
+#define TYPE_WALL_HPP
 
 
-enum class TypeGround {
+enum class TypeWall {
 	Rock,
 	brick,
 	cobblestone,
@@ -10,8 +10,7 @@ enum class TypeGround {
 	stone,
 	floorTile,
 	grass,
-	ice,
-	sand
+	ice
 };
 
 #endif

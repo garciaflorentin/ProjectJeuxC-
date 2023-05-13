@@ -23,18 +23,15 @@ int main(void) {
 
 
     GameWindow _window;// cree la fenetre
-    _window.getGame()->setPlayer(_window.getGame()->getPlayerSprite());// decoupe le sprite en ses differentes orientation , l'ajoute au vecteur de sprite de GameGestion et initialise le vecteur de mouvement.
- 
-    
+    GameGestion* g=_window.getGame();
+    Player* p= (*g->getPlayerVector())[0];
+    sf::Sprite* sp= p->getSprite();
+    g->setPlayer(sp);// decoupe le sprite en ses differentes orientation , l'ajoute au vecteur de sprite de GameGestion et initialise le vecteur de mouvement.
+    _window.limitFrameRate(100);
     while (_window.isRunning()) {
-
-  
- 
         _window.getWindow()->draw(*_sprite);
         _window.controlWindow();
         _window.display();
-
-
     }
 
     delete _sprite;

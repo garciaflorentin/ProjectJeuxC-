@@ -22,7 +22,7 @@ private:
     sf::Event* event;
     sf::VideoMode videoMode; //VideoMode defines a video mode (width, height, bpp) 
     sf::View* _view;
-    std::vector<sf::Vector2i>* currentWindowPos;
+    std::vector<sf::Vector2f>* currentWindowPos;
     sf::Vector2f positionCentre;
     Heart* test;
 
@@ -44,6 +44,8 @@ private:
         _lifeWindow->drawTo(this->getWindow());
     }
 
+
+    void setCurrentWindowPos();
 public:
     ////////////////////////////////////////
 
@@ -67,6 +69,11 @@ public:
     sf::Vector2f getWindowDim() {
         sf::Vector2f dim = { windowWidth,windowHeight };
         return dim;
+    }
+
+    std::vector<sf::Vector2f>* getCurrentWindowPos(){
+        setCurrentWindowPos();
+        return currentWindowPos;
     }
 
     void setLifeView() {

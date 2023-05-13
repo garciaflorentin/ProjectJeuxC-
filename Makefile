@@ -26,12 +26,26 @@ TexturesLib.o: TexturesLib.cpp
 Object.o: Object.cpp TexturesLib.hpp 
 	$(CPP) $(CPPFLAGS) -c Object.cpp
 
-GameGestion.o: GameGestion.cpp Object.hpp 
+Character.o: Character.cpp Object.hpp EnumOrientation.hpp Heart.hpp
+	$(CPP) $(CPPFLAGS) -c Character.cpp
+
+Player.o: Player.cpp Character.cpp Object.hpp EnumOrientation.hpp Heart.hpp Chest.hpp
+	$(CPP) $(CPPFLAGS) -c Player.cpp 
+
+GameGestion.o: GameGestion.cpp Object.hpp Player.hpp 
 	$(CPP) $(CPPFLAGS) -c GameGestion.cpp 
 
+Map.o: Map.cpp Object.hpp Player.hpp Gain.hpp TexturesLib.hpp Tile.hpp Object.hpp Character.hpp Chest.hpp Ground.hpp TypeGround.hpp
+	$(CPP) $(CPPFLAGS) -c Map.cpp 
 
-jeu_de_base: main.o Heart.o LifeWindow.o GameWindow.o TexturesLib.o Object.o GameGestion.o
-	$(LD) $(LDFLAGS) main.o Heart.o LifeWindow.o GameWindow.o TexturesLib.o Object.o GameGestion.o -o jeu_de_base $(LIBS)
+
+
+
+
+
+
+jeu_de_base: main.o Heart.o LifeWindow.o GameWindow.o TexturesLib.o Object.o GameGestion.o Character.o Player.o Map.o
+	$(LD) $(LDFLAGS) main.o Heart.o LifeWindow.o GameWindow.o TexturesLib.o Object.o GameGestion.o Character.o Player.o Map.o -o jeu_de_base $(LIBS)
 
 
 clean:

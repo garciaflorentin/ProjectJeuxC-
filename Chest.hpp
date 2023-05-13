@@ -1,4 +1,3 @@
-
 #ifndef CHEST_HPP
 #define CHEST_HPP
 
@@ -25,7 +24,11 @@ public:
     Chest();
     ~Chest();
   
-    int open(Player* player);
+int open(){
+	chestAnim.y = 3;
+	_sprite->setTextureRect(sf::IntRect(chestAnim.x * CHEST_SIZE , chestAnim.y * CHEST_SIZE, CHEST_SIZE, CHEST_SIZE));
+	return _gain->getGain();
+}
 
     sf::Sprite* getSpriteChest() {
         return _sprite;
@@ -38,6 +41,6 @@ public:
     bool isOpen() {
         return _isOpen;
     }
+    
 };
-
 #endif
