@@ -16,22 +16,16 @@ private:
 
 public:
 
-Player(const char* nameObject, sf::Vector2f initPos): Character(nameObject,initPos) {
-std::cout<<"player_constructeur"<< std::endl;
-	speed = 3;
-	damageAttack = 3;
-	//_sword = new Sword();
+	Player(const char* nameObject, sf::Vector2f initPos);
 
-}
-
-~Player() {
-	//delete _sword;
-}
+	~Player() {
+		//delete _sword;
+	};
 
 	void openChest(Chest* chest);
 	virtual void setDamage(Character* target) override;
 	virtual void attack(Character* target) override;
-	virtual void move(sf::Vector2i deplacement) override;
+	void move(sf::Vector2i deplacement);
 
 
 

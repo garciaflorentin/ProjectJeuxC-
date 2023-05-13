@@ -1,7 +1,19 @@
 #include "Character.hpp"
 
 
+Character::Character(const char* nameObject, sf::Vector2f initPos): Object(nameObject, initPos) {
+	anim = new sf::Vector2i; // probleme du segmentation fault
+	anim->x = 1;
+	anim->y = Down;
 
+	life = new Heart();
+
+	_isAlive = true;
+}
+
+ Character::~Character() {
+		delete[] life;
+}
 
 void Character::takeDamage(int NOQ) {
 	if (NOQ < 0) {
@@ -36,4 +48,9 @@ void Character::setAnim(int x ,int y){
 void Character::updateSprite(){
 	if(anim->x*OBJECT_SIZE >= OBJECT_SIZE*3){anim->x=0;}
 	_sprite->setTextureRect(sf::IntRect(anim->x*OBJECT_SIZE + 3, anim->y*OBJECT_SIZE + 3, OBJECT_SIZE, OBJECT_SIZE));
+}
+
+void Character::move(sf::Vector2i deplacement){
+	_sprite->move(deplacement.x,deplacement.y);
+
 }
