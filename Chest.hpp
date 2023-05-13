@@ -5,7 +5,7 @@
 #include <SFML/Graphics.hpp>
 #include <iostream>
 #include <cstring>
-#include "Player.hpp"
+//#include "Player.hpp"
 #include "Gain.hpp"
 #include "TexturesLib.hpp"
 

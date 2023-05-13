@@ -1,5 +1,12 @@
 #include "Player.hpp"
 
+Player::Player(const char* nameObject, sf::Vector2f initPos): Character(nameObject,initPos) {
+	std::cout<<"player_constructeur"<< std::endl;
+	speed = 3;
+	damageAttack = 3;
+	//_sword = new Sword();
+
+}
 
 void Player::openChest(Chest* chest) {
 	if (!chest->isOpen()) {

@@ -11,7 +11,7 @@
 
 /// Header create
 #include "Player.hpp"
-#include "Object.hpp"
+//#include "Object.hpp"
 #include "Map.hpp"
 
 class GameGestion{

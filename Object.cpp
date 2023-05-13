@@ -1,7 +1,7 @@
 #include "Object.hpp"
 
 // d�finition de l'attribut de classe texturesLib, commun � tout les objects.
-TexturesLib Object ::_texturesLib;
+TexturesLib Object::_texturesLib;
 
 bool Object::loadTexture(const char* spriteName) {// inutile surrement
     

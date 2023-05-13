@@ -26,35 +26,25 @@ protected:
 	
 public:
 
-Character(const char* nameObject, sf::Vector2f initPos): Object(nameObject, initPos) {
-	anim = new sf::Vector2i; // probleme du segmentation fault
-	anim->x = 1;
-	anim->y = Down;
+	Character(const char* nameObject, sf::Vector2f initPos);
 
-	life = new Heart();
-
-	_isAlive = true;
-}
-
-~Character() {
-	delete life;
-}
+	virtual ~Character();
 
 
 	void takeDamage(int heartQuarters);
 	virtual void attack(Character* target) = 0;
-	virtual void move(sf::Vector2i deplacement) = 0;
+	virtual void move(sf::Vector2i deplacement);
 	const bool isAlive() const{
 		return _isAlive;
-	}
+	};
 
 	sf::Vector2i* getAnim(){
 		return anim;
-	}
+	};
 
 	Heart* getlife() const {
 		return life;
-	}
+	};
 
 	void setAnim(int i,int y);
 
@@ -62,7 +52,7 @@ Character(const char* nameObject, sf::Vector2f initPos): Object(nameObject, init
 
 	void updateSprite();
 
-	 const int getBlockSize() override;
+	const int getBlockSize() override;
 
 
 
