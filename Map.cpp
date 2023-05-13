@@ -192,8 +192,10 @@ for (int x = 0; x < 50; x++) {
     for (int y = -25; y < 25; y++) {
         if (x < 50) {
             if (y <0) {
-				if (rand() % 20 == 0) {
-    				addObject(new Wall("World2.png",{x, y}, TypeWall::GrandSapin)); 
+				if (rand() % 60 == 0) {
+    				addObject(new Wall("World2.png",{x, y}, TypeWall::GrosseBranche)); 
+				}else if(rand()%40==0){
+					addObject(new Wall("World2.png",{x, y}, TypeWall::GrandSapin));
 				}
 			}
 		}

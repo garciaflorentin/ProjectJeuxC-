@@ -63,6 +63,13 @@ public:
 
     virtual bool isPassable()=0;
 	
+    float largeur(){
+		return _sprite->getGlobalBounds().width;
+	}
+
+    float hauteur(){
+		return _sprite->getGlobalBounds().height;
+	}
 
     //void collide(GameGestion* gg);
 };

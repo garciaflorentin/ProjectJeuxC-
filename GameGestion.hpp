@@ -66,5 +66,6 @@ void collideWall(Character* c, std::vector <Object*>& wallList,std::vector<int>&
 
 void LimitMap();
 
+int collidePosition2(Object* object1, Object* object2);
 };
 #endif

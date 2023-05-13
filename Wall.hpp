@@ -12,12 +12,14 @@ class Wall: public Tile {
 
 public:
 
-	bool isPassable(){
+bool isPassable(){
 		return passable;
 	}
 	const int getBlockSize(){
 		return TILE_SIZE;
 	}
+
+	
 
 	Wall(const char* nameObject, sf::Vector2f initPos, TypeWall _typeWall) : Tile(nameObject,initPos) {
 		std::cout<<"Wall_Constructor"<<std::endl;
