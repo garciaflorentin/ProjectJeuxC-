@@ -158,24 +158,15 @@ void GameWindow::draw() {
 
 
 void GameWindow::display() {
-            
-    std::cout<<"debut GameWindow::display() "<<std::endl;
+        
 
-
-   setLifeView();
-   displayLifeWindow();
-    std::cout<<"etape1"<<std::endl;
 
    setScrollingView();
-    std::cout<<"etape2"<<std::endl;
    draw();// dessine tout les sprites contenut dans la fenetre courante
-    std::cout<<"etape3"<<std::endl;
-
-
+   setLifeView();
+   displayLifeWindow();
    window->display();
    clearWindow();
-
-       std::cout<<"fin GameWindow::display() "<<std::endl;
 
 }
 

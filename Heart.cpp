@@ -95,7 +95,7 @@ std::cout<<"entré initlife()"<< std::endl;
 		sf::Sprite* sprite = new sf::Sprite();
 		*sprite = getHeart(4);
 		life->push_back(sprite);
-		sprite->setPosition(i * 48.0, 0);
+		sprite->setPosition(i * 32, 0);
 	}
 	numberOfQuarter = 12;
 	std::cout<<"sortie initlife()"<< std::endl;
