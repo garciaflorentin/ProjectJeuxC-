@@ -52,7 +52,7 @@ void Map::putObjectToDraw2(std::vector<sf::Vector2f>* pos){
 			Object* obj = *it;
 			/*std::cout<<"obj->getPosition.x="<<obj->getPosition().x<<std::endl;
 			std::cout<<"obj->getPosition.y="<<obj->getPosition().y<<std::endl;*/
-			if ((obj->getPosition().x >= (*pos)[0].x && obj->getPosition().y >= (*pos)[0].y) && (obj->getPosition().x < (*pos)[1].x && obj->getPosition().y < (*pos)[1].y) )  {
+			if ((obj->getPosition().x >= ((*pos)[0].x - 50) && obj->getPosition().y >= ((*pos)[0].y)-50) && (obj->getPosition().x <= ((*pos)[1].x+50) && obj->getPosition().y < ((*pos)[1].y)+50) )  {
 				std::cout<<"toDraw++"<<std::endl;
 				toDraw->push_back(obj);
 			}
