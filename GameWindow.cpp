@@ -2,7 +2,6 @@
 
 // Constructor
 GameWindow::GameWindow(void) {
-std::cout << "debut GameWindow Constructeur" << std::endl;
     _view = new sf::View();
     event = new sf::Event();
     currentWindowPos = new std::vector<sf::Vector2f>(2);
@@ -15,11 +14,9 @@ std::cout << "debut GameWindow Constructeur" << std::endl;
     window = nullptr; // initialisation � nullptr par mesure de securit�
     window = new sf::RenderWindow(sf::VideoMode(static_cast<int>(windowWidth), static_cast<int>(windowHeight)), "Game"); // creation de la fenetre
     window->setPosition(sf::Vector2i(100, 100));
-    std::cout << "window create " << this << std::endl;
     _game = new GameGestion();
     Heart* test = new Heart();
     _lifeWindow = new LifeWindow((*_game->getPlayerVector())[0]->getlife());
-std::cout << "fin GameWindow Constructeur" << std::endl;    
 }
 
 
@@ -33,7 +30,6 @@ GameWindow::~GameWindow(void) {
     delete currentWindowPos;
     delete _lifeWindow;
     delete test;
-    std::cout << "window delete " << this << std::endl;
 }
 
 // view
@@ -44,19 +40,20 @@ void GameWindow::setScrollingView() {
    positionCentre = { getWindowDim().x / 2, getWindowDim().y / 2 };// coordoné du centre de l'ecran
    positionCentre.x= (*_game->getPlayerVector())[0]->getPosition().x + ((*_game->getPlayerVector())[0]->getBlockSize()/2) - (getWindowDim().x / 2);// si le perso passe la moitié de l'ecran selon x je change la position du centre 
    positionCentre.y = (*_game->getPlayerVector())[0]->getPosition().y + ((*_game->getPlayerVector())[0]->getBlockSize() / 2) - (getWindowDim().y / 2);// si le perso passe la moitié de l'ecran selon y je change la position du centre 
-  
+  std::vector<int> limitMap;
+  _game->getMap()->getLimitMap(limitMap);
 
    //on ne peut pas filmer en dehors de la map  
-   if (positionCentre.x < 0) {
-       positionCentre.x = 0;
+   if (positionCentre.x < limitMap[2]) {
+       positionCentre.x = limitMap[2];
    }
-   else if (positionCentre.y < -14400) {
-       positionCentre.y = -14400;
+   else if (positionCentre.y < limitMap[3]) {
+       positionCentre.y = limitMap[3];
    }
-   else if (positionCentre.x > 14400)
-       positionCentre.x = 14400;
-   else if (positionCentre.y > 14400)
-       positionCentre.y = 14400;
+   else if (positionCentre.x > limitMap[0])
+       positionCentre.x = limitMap[0];
+   else if (positionCentre.y > limitMap[1])
+       positionCentre.y = limitMap[1];
        
 
    // on met a jour la vu en changeant la position du coin haut gauche

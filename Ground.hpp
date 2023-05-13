@@ -30,6 +30,10 @@ public:
 
 	}
 
+	bool isPassable(){
+		return passable;
+	}
+
 
 };
 #endif

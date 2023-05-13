@@ -47,8 +47,8 @@ void GameGestion::keyEvent(sf::Event e) {
 			player->move({-5,0});
 		}
 	}
-	//collideWallGestion();
-	//LimitMap();
+	collideWallGestion();
+	LimitMap();
 
 	std::cout << "x =" << player->getPosition().x<< std::endl;
 	std::cout << "y =" << player->getPosition().y<< std::endl;
@@ -65,6 +65,7 @@ void GameGestion::setPlayer(sf::Sprite* sprite) {
 //interface colision
 
 int GameGestion::collidePosition(Object* object1, Object* object2){;
+std::cout<<"collidePosition"<<std::endl;
 
 int SPRITE_SIZE = object1->getBlockSize();
 
@@ -90,7 +91,7 @@ int SPRITE_SIZE = object1->getBlockSize();
 }
 
 void GameGestion::collideWall(Character* c, std::vector <Object*>& wallList,std::vector<int>& info) {
-
+std::cout<<"collideWall"<<std::endl;
     for (int x = 0; x < wallList.size(); x++) {
 
 		int colision =collidePosition(c, (wallList)[x]);
@@ -107,40 +108,50 @@ void GameGestion::collideWall(Character* c, std::vector <Object*>& wallList,std:
 }
 
 
-void GameGestion::getWallMap(std::vector<Object*>& wallList){
+/*void GameGestion::getWallMap(std::vector<Object*>& wallList){
+	std::cout<<"getWallMap"<<std::endl;
+
 	for(int i=0;i< _map->getMap()->size();i++){
-		if(!(*_map->getMap())[i]->isPassable()){
+
+		if((*_map->getMap())[i]->isPassable()==false){
+
 			wallList.push_back((*_map->getMap())[i]);
+
 		}
 	}
-}
+}*/
 
 void GameGestion::LimitMap(){
 std::vector<int> limit;
 _map->getLimitMap(limit);
+sf::Vector2f newpos;
 
-   if(player->getPosition().x< limit[3]){
-	sf::Vector2f newpos(limit[3],player->getPosition().y);
+   if(player->getPosition().x < limit[2]){
+	newpos= {limit[2],player->getPosition().y};
 	player->setPosition(newpos);
-   }else if(player->getPosition().x > limit[0]){
-		sf::Vector2f newpos( limit[0],player->getPosition().y);
+   }else if(player->getPosition().x >= limit[0]){
+		newpos={ limit[0],player->getPosition().y};
 		player->setPosition(newpos);
-   }else if(player->getPosition().y > limit[2]){
-		sf::Vector2f newpos(player->getPosition().x,limit[2]);
+   }else if(player->getPosition().y > limit[1]){
+		newpos={player->getPosition().x,limit[1]};
 		player->setPosition(newpos);
    }
-   else if(player->getPosition().y < limit[4]){
-		sf::Vector2f newpos(player->getPosition().x,limit[4]);
+   else if(player->getPosition().y < limit[3]){
+		newpos={player->getPosition().x,limit[3]};
 		player->setPosition(newpos);
    }
 
 }
 
 void GameGestion::collideWallGestion(){
+	std::cout<<"collideWallGestion"<<std::endl;
+
 	sf::Vector2f newpos;
 	std::vector<int> info;
 	std::vector<Object*> wallList;
+	wallList = *_map->getWallList();
 	collideWall(player,wallList,info);
+
 	int indice=info[0];
 	int typeCollide =info[1];
 

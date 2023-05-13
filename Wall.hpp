@@ -12,7 +12,9 @@ class Wall: public Tile {
 
 public:
 
-
+	bool isPassable(){
+		return passable;
+	}
 	const int getBlockSize(){
 		return TILE_SIZE;
 	}

@@ -2,6 +2,7 @@
 
 Map::Map() {
 toDraw = new std::vector<Object*>;
+_wallList =new std::vector<Object*>;
 _map = new std::vector<Object*>(10);
 for(int i= 0; i<10 ;i++){
 	_map->push_back(nullptr);
@@ -13,6 +14,7 @@ for(int i= 0; i<10 ;i++){
 Map::~Map() {
 	delete toDraw;
 	delete _map;
+	delete _wallList;
 
 }
 
@@ -49,7 +51,7 @@ void Map::putObjectToDraw2(std::vector<sf::Vector2f>* pos){
 			// Acc�der � l'objet point�*
 			Object* obj = *it;
 
-			if ((obj->getPosition().x >= ((*pos)[0].x - 50) && obj->getPosition().y >= ((*pos)[0].y)-50) && (obj->getPosition().x <= ((*pos)[1].x+50) && obj->getPosition().y < ((*pos)[1].y)+50) )  {
+			if ((obj->getPosition().x >= ((*pos)[0].x - 200) && obj->getPosition().y >= ((*pos)[0].y)-200) && (obj->getPosition().x <= ((*pos)[1].x+50) && obj->getPosition().y < ((*pos)[1].y)+50) )  {
 				toDraw->push_back(obj);
 			}
 
@@ -88,15 +90,28 @@ std::vector<Object*>* Map::objectToDraw(std::vector<sf::Vector2f>* currentWindow
 
 }
 
-void Map::addObject(Object* o) {
+void Map::addObject(Ground* g) {
 
-	sf::Vector2f pos = o->getPosition();
+	sf::Vector2f pos = g->getPosition();
 /*
 	if (getObject(pos) != nullptr) {
 		std::cout<<"erreur"<<std::endl;
 		removeObject(getObject(pos));
 	}*/
-	_map->push_back(o);
+	_map->push_back(g);
+
+}
+
+void Map::addObject(Wall* w) {
+
+	sf::Vector2f pos = w->getPosition();
+/*
+	if (getObject(pos) != nullptr) {
+		std::cout<<"erreur"<<std::endl;
+		removeObject(getObject(pos));
+	}*/
+	_map->push_back(w);
+	_wallList->push_back(w);
 
 }
 
@@ -113,13 +128,19 @@ void Map::removeObject(Object* o) {
 
 }
 
+
+std::vector<Object*>* Map::getWallList(){
+	return _wallList;
+}
+	
+
 void Map::createMap(){
 
 //creation du sol
-for (int x = 0; x < 300; x++) {
-    for (int y = 0; y < 300; y++) {
-        if (x < 150) {
-            if (y <150) {
+for (int x = 0; x < 50; x++) {
+    for (int y = -25; y < 25; y++) {
+        if (x < 50) {
+            if (y <0) {
                 // Monde 1 : forêt
                 if (rand() % 10 == 0) {
                     addObject(new Ground("World2.png", {x, y}, TypeGround::floorTile));
@@ -141,7 +162,7 @@ for (int x = 0; x < 300; x++) {
                 }
             }
         } else {
-            if (y < 150) {
+            if (y < 0) {
                 // Monde 3 : plage
                 if (rand() % 10 == 0) {
                     addObject(new Ground("World2.png",{x, y}, TypeGround::sand));
@@ -167,10 +188,10 @@ for (int x = 0; x < 300; x++) {
 }
 
 //creation des murs
-for (int x = 0; x < 300; x++) {
-    for (int y = 0; y < 300; y++) {
-        if (x < 150) {
-            if (y <150) {
+for (int x = 0; x < 50; x++) {
+    for (int y = -25; y < 25; y++) {
+        if (x < 50) {
+            if (y <0) {
 				if (rand() % 20 == 0) {
     				addObject(new Wall("World2.png",{x, y}, TypeWall::GrandSapin)); 
 				}
@@ -179,7 +200,6 @@ for (int x = 0; x < 300; x++) {
 	}
 }
 
-//addObject(new Wall("World2.png",{3, 3}, TypeWall::GrandSapin)); 
 
 
 

@@ -32,7 +32,9 @@ public:
 
 	enum Orientation { Down, Left, Right, Up };
 
-
+	Map* getMap(){
+		return _map;
+	}
 
 	const int getObjectSize() const {
 		return player->getBlockSize();

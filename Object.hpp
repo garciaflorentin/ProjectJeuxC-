@@ -61,9 +61,8 @@ public:
 
     //collide
 
-    virtual bool isPassable(){
-	return passable;
-	}
+    virtual bool isPassable()=0;
+	
 
     //void collide(GameGestion* gg);
 };

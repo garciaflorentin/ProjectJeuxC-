@@ -5,6 +5,7 @@ Character::Character(const char* nameObject, sf::Vector2f initPos): Object(nameO
 	anim = new sf::Vector2i; // probleme du segmentation fault
 	anim->x = 1;
 	anim->y = Down;
+	passable = false;
 
 	life = new Heart();
 
@@ -53,4 +54,8 @@ void Character::updateSprite(){
 void Character::move(sf::Vector2i deplacement){
 	_sprite->move(deplacement.x,deplacement.y);
 
+}
+
+bool Character::isPassable(){
+	return passable;
 }
