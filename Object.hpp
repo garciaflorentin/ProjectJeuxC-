@@ -5,6 +5,7 @@
 #include <iostream>
 #include <cstring>
 #include "TexturesLib.hpp"
+//#include "GameGestion.hpp"
 
 using namespace std;
 
@@ -15,7 +16,6 @@ protected:
     sf::Sprite* _sprite;
     const char* name;
     bool _isUse;
-    bool passable;
     bool loadTexture(const char* spriteName);//focntion finalement inutile , je vais la virrer 
     
 
@@ -59,12 +59,11 @@ public:
     //virtual void virtual_temporal_method_do_not_touch();
 
     //collide
-
-    virtual bool isPassable(){
-	return passable;
-	}
-
-    void collide(GameGestion* gg);
+	
+    virtual void collide(Object* o)=0;
+    /*{
+        std::cout<<"collideObject"<<std::endl;
+    }*/
 };
 
 #endif

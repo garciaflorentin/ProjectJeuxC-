@@ -54,3 +54,4 @@ void Character::move(sf::Vector2i deplacement){
 	_sprite->move(deplacement.x,deplacement.y);
 
 }
+

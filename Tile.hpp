@@ -10,15 +10,13 @@ class Tile: public Object {
 
 protected:
 	
-	int TILE_SIZE;
+	int TILE_SIZE = 48;
 public:
 
-	virtual bool isPassable(){
-	return passable;
-	}
 
 	Tile(const char* nameObject, sf::Vector2f initPos) : Object(nameObject,initPos){
 		std::cout<<"Tile_Constructor"<<std::endl;
+		
 	}
 
 };

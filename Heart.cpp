@@ -118,7 +118,7 @@ void Heart::changelife(int i) { // i = 1 ou i=-1
 	
 	}
 
-		switch(numberOfQuarter/4) {
+		switch(numberOfQuarter%4) {
 		case 0:
 				life->push_back((*_sprites)[numberOfQuarter%4]);
 				life->push_back((*_sprites)[0]);

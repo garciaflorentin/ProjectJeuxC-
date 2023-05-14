@@ -24,6 +24,12 @@ private:
 
 	std::vector<Object*>* toDraw;
 	std::vector<Object*>* _map;
+	std::vector<Object*>* _wallList;
+	int LIMITE_Xneg= 0;
+	int LIMITE_Y=14350/2;
+	int LIMITE_X= 14350;
+	int LIMITE_Yneg=-14350/2;
+
 
 
 public:
@@ -31,9 +37,16 @@ public:
 	Map();
 	~Map();
 
+	void getLimitMap(std::vector<int>& limit){
+		limit={LIMITE_X,LIMITE_Y,LIMITE_Xneg,LIMITE_Yneg};
+	}
+
 	std::vector<Object*>* objectToDraw(std::vector<sf::Vector2f>* currentWindow);
 
-	void addObject(Object* o);
+	void addObject(Wall* w);
+	void addObject(Chest* c);
+	void addObject(Ground* g);
+
 	void removeObject(Object* o);
 	
 	void createMap();
@@ -47,7 +60,9 @@ public:
 		return _map;
 	}
 
+	std::vector<Object*>* getWallList();
 
+	
 	
 };
 #endif

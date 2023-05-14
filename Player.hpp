@@ -7,6 +7,7 @@
 #include "Character.hpp"
 //#include "Sword.hpp"
 #include "Chest.hpp"
+class Chest;
 
 class Player : public Character {
 
@@ -27,6 +28,8 @@ public:
 	virtual void attack(Character* target) override;
 	void move(sf::Vector2i deplacement);
 
+	void collide(Object* o){}
+	
 
 
 };

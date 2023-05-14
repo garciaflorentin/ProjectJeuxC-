@@ -47,7 +47,8 @@ void GameGestion::keyEvent(sf::Event e) {
 			player->move({-5,0});
 		}
 	}
-	collideGestion();
+	collideWallGestion();
+	LimitMap();
 
 	std::cout << "x =" << player->getPosition().x<< std::endl;
 	std::cout << "y =" << player->getPosition().y<< std::endl;
@@ -64,7 +65,6 @@ void GameGestion::setPlayer(sf::Sprite* sprite) {
 //interface colision
 
 int GameGestion::collidePosition(Object* object1, Object* object2){;
-
 int SPRITE_SIZE = object1->getBlockSize();
 
     float sprite1x = object1->getPosition().x;
@@ -74,71 +74,147 @@ int SPRITE_SIZE = object1->getBlockSize();
 
     if (sprite1x < sprite2x + SPRITE_SIZE && sprite1x + SPRITE_SIZE > sprite2x && sprite1y < sprite2y + SPRITE_SIZE &&
         sprite1y + SPRITE_SIZE > sprite2y) {
+			std::cout<<"up"<<std::endl;
         return 1; //up collide
     } else if (sprite1x < sprite2x + SPRITE_SIZE && sprite1x + SPRITE_SIZE > sprite2x + SPRITE_SIZE &&
                sprite1y + SPRITE_SIZE > sprite2y && sprite1y + SPRITE_SIZE < sprite2y + SPRITE_SIZE) {
+							std::cout<<"left"<<std::endl;
+
         return 2;//LEFT_COLLIDE; o2 tape sur la gauche de o1
     } else if (sprite1x < sprite2x && sprite1x + SPRITE_SIZE > sprite2x && sprite1y < sprite2y + SPRITE_SIZE &&
                sprite1y + SPRITE_SIZE > sprite2y) {
+							std::cout<<"right"<<std::endl;
+
         return 3;//RIGHT_COLLIDE;
     } else if (sprite1x < sprite2x + SPRITE_SIZE && sprite1x + SPRITE_SIZE > sprite2x &&
                sprite1y + SPRITE_SIZE > sprite2y && sprite1y + SPRITE_SIZE < sprite2y + SPRITE_SIZE) {
+							std::cout<<"down"<<std::endl;
+
         return 4;//DOWN_COLLIDE;
     }
-    return 0;//NO_COLLIDE;
+	std::cout<<"rien"<<std::endl;
+    return -1;//NO_COLLIDE;
 }
 
-std::vector<int>& GameGestion::collideWall(Character* c, std::vector <Object*>& wallList) {
-    for (int x = 0; x < wallList.size(); x++) {
-		int colision =collidePosition(c, (wallList)[x]);
-        if (colision!=0) {
-			std::vector<int> info;
-			info.push_back(x);
-			info.push_back(colision);
-            return info;
+int GameGestion::collidePosition2(Object* object1, Object* object2) {
+	sf::Sprite sprite1=*object1->getSprite();
+	sf::Sprite sprite2=*object2->getSprite();
+
+    sf::FloatRect rect1 = sprite1.getGlobalBounds();
+    sf::FloatRect rect2 = sprite2.getGlobalBounds();
+    
+    if (!rect1.intersects(rect2)) {
+        return -1;
+    }
+
+    float overlapX = std::min(rect1.left + rect1.width, rect2.left + rect2.width) - std::max(rect1.left, rect2.left);
+    float overlapY = std::min(rect1.top + rect1.height, rect2.top + rect2.height) - std::max(rect1.top, rect2.top);
+
+    if (overlapX + 24 > overlapY) {
+        if (rect1.top< rect2.top) {std::cout<<"up"<<std::endl;
+            return 1;
+        } else {							std::cout<<"down"<<std::endl;
+
+            return 2;
+        }
+    } else {
+        if (rect1.left < rect2.left) {							std::cout<<"left"<<std::endl;
+
+            return 3;
+        } else {							std::cout<<"right"<<std::endl;
+
+            return 4;
         }
     }
-    std::vector<int> info;
-			info.push_back(-1);
-			info.push_back(-1);
-            return info;
 }
 
-std::vector<Object*>& GameGestion::getWallMap(){
-	std::vector<Object*> wallList;
-	for(int i=0;i< _map->getMap()->size();i++){
-		if(!(*_map->getMap())[i]->isPassable()){
-			wallList.push_back((*_map->getMap())[i]);
-		}
+void GameGestion::collideWall(Character* c, std::vector <Object*>& wallList,std::vector<int>& info) {
+	std::cout<<"collideWall"<<std::endl;
+	bool collide =false;
+
+    for (int x = 0; x < wallList.size(); x++) {
+
+		int colision =collidePosition2(c, (wallList)[x]);
+
+        if (colision!=-1) {
+			info.push_back(x);
+			info.push_back(colision);
+			collide=true;
+            
+        }
+    }
+	if(!collide){
+		info.push_back(-1);
+		info.push_back(-1);
 	}
-	return wallList;
+    std::cout<<"info size= "<<info.size()<<std::endl;
 }
 
-void GameGestion::collideGestion(){
-	 if(collideWall(player,getWallMap())[0]!= -1 && collideWall(player,getWallMap())[1]!= -1){
-		switch ((collideWall(player,getWallMap())[1])){//orientatioj de la colision
-			case 0:break;
 
-			case 1:// colision du joueur allant vers le haut
+void GameGestion::LimitMap(){
+std::vector<int> limit;
+_map->getLimitMap(limit);
+sf::Vector2f newpos;
+
+   if(player->getPosition().x < limit[2]){
+	newpos= {limit[2],player->getPosition().y};
+	player->setPosition(newpos);
+   }else if(player->getPosition().x >= limit[0]){
+		newpos={ limit[0],player->getPosition().y};
+		player->setPosition(newpos);
+   }else if(player->getPosition().y > limit[1]){
+		newpos={player->getPosition().x,limit[1]};
+		player->setPosition(newpos);
+   }
+   else if(player->getPosition().y < limit[3]){
+		newpos={player->getPosition().x,limit[3]};
+		player->setPosition(newpos);
+   }
+
+}
+
+void GameGestion::collideWallGestion(){
+	std::cout<<"collideWallGestion"<<std::endl;
+
+	sf::Vector2f newpos;
+	std::vector<int> info;
+	std::vector<Object*> wallList;
+	wallList = *_map->getWallList();
+	collideWall(player,wallList,info);
+
+	int indice=info[0];
+	int typeCollide =info[1];
+
+	 if(indice!= -1 && typeCollide!= -1){
+		switch (typeCollide){//orientation de la colision
+			case -1:break;
+
+			case 1:// colision du joueur allant vers le bas
 			//on empeche le joueur de traverser le Wall
-			sf::Vector2f newpos(player->getPosition().x,getWallMap()[collideWall(player,getWallMap())[0]]->getPosition().y - 48);
+			newpos=  {player->getPosition().x,wallList[indice]->getPosition().y-48};
 			player->setPosition(newpos);
 			break;
-			case 2:// colision du joueur allant vers la gauche
-			sf::Vector2f newpos(getWallMap()[collideWall(player,getWallMap())[0]]->getPosition().x + 48,player->getPosition().y);
+			case 2:// colision du joueur allant vers la haut
+			newpos= {player->getPosition().x,wallList[indice]->getPosition().y+wallList[indice]->getSprite()->getGlobalBounds().height};
 			player->setPosition(newpos);
 			break;
 			case 3:// colision du joueur allant vers la droite
-			sf::Vector2f newpos(getWallMap()[collideWall(player,getWallMap())[0]]->getPosition().x + 48,player->getPosition().y);
+			newpos=  {wallList[indice]->getPosition().x-48,player->getPosition().y};
 			player->setPosition(newpos);
-			case 4:// colision du joueur allant vers le bas
-			sf::Vector2f newpos(player->getPosition().x,getWallMap()[collideWall(player,getWallMap())[0]]->getPosition().y);
+			break;
+			case 4:// colision du joueur allant vers le gauche
+			newpos=  {wallList[indice]->getPosition().x+48,player->getPosition().y};
 			player->setPosition(newpos);
 			break;
 		}
+		collideVisitor(player,wallList[indice]);
 	}
 }
 
+void GameGestion::collideVisitor(Object* player,Object * o){
+	std::cout<<"collideVisitor"<<std::endl;
+	o->collide(player);
+}
 
 
 /* Code de test */

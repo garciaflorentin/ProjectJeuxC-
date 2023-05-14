@@ -33,8 +33,8 @@ public:
     /// Check if the sprite is in contact with a list of sprite
     /// \param user The sprite Checked
     /// \param wall List of sprite
-    /// \return un vecteur indiquant le type de colide ([1]) et l'indice du mur concerné ([0])
-    virtual std::vector<int>& collideWall(Character* c, std::vector <Object*>& wallList) = 0;
+    /// \param info est  un vecteur indiquant le type de colide ([1]) et l'indice du mur concerné ([0])
+    virtual void collideWall(Character* c, std::vector <Object*>& wallList,std::vector<int>& info) = 0;
 
     /// Check if the next move is possible
     /// \param user The sprite who will move
@@ -44,9 +44,7 @@ public:
 
     /// Check if the sprite will go out the map
     /// \param user The sprite Check
-    /// \param move His deplacement
-    /// \return True if he go out the map
-    virtual bool previewLimitMap(sf::Vector2f user, sf::Vector2f move) = 0;
+    virtual void LimitMap() = 0;
 
     ///
     //virtual void collideMonster(Player& player, Monster& monster) = 0;

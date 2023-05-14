@@ -14,6 +14,8 @@
 //#include "Object.hpp"
 #include "Map.hpp"
 #include "ColisionInterface.hpp"
+#include "Character.hpp"
+#include "Monster.hpp"
 
 #include "Monster.hpp"
 
@@ -34,7 +36,9 @@ public:
 
 	enum Orientation { Down, Left, Right, Up };
 
-
+	Map* getMap(){
+		return _map;
+	}
 
 	const int getObjectSize() const {
 		return player->getBlockSize();
@@ -52,20 +56,20 @@ public:
 	std::vector<Object*>* toDrawUpdate(std::vector<sf::Vector2f>* currentWindow);
 
 //interface colision
-std::vector<Object*>& getWallMap(){
-	std::vector<Object*> wallList;
-	for(int i=0;i< _map->getMap()->size();i++){
-		if(!(*_map->getMap())[i]->isPassable()){
-			wallList.push_back((*_map->getMap())[i]);
-		}
-	}
-	return wallList;
-}
+void getWallMap(std::vector<Object*>& wallList);
+
+void collideVisitor(Object* player,Object * o);
+
+
+void collideWallGestion();
 
 int collidePosition(Object* object1, Object* object2);
 
-std::vector<int>& collideWall(Character* c, std::vector <Object*>& wallList);
+void collideWall(Character* c, std::vector <Object*>& wallList,std::vector<int>& info) ;
 
+void LimitMap();
+
+int collidePosition2(Object* object1, Object* object2);
 
 	/* Code de test */
     void addMonster(Monster& mst);    

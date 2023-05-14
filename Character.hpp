@@ -52,7 +52,8 @@ public:
 
 	void updateSprite();
 
-	const int getBlockSize() override;
+	const int getBlockSize();
+
 
 
 

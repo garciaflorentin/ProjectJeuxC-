@@ -1,17 +1,15 @@
 #include "Chest.hpp"
 
-Chest::Chest(): _isOpen(false) {
-	CHEST_SIZE = 48;
-	_gain = new Gain();
-	_sprite = new sf::Sprite();
-	_sprite->setTexture(*TexturesLib::assignTexture("chest.png"));
-	chestAnim.x = 1;
-	chestAnim.y = 0;
-	_sprite->setTextureRect(sf::IntRect(chestAnim.x * CHEST_SIZE , chestAnim.y* CHEST_SIZE , CHEST_SIZE, CHEST_SIZE));
-}
-Chest::~Chest() {
-	delete _gain;
+void Chest::collide(Object* o){
+        Player* p=dynamic_cast<Player*>(o);
+        p->openChest(this);
+        _gain->collide(o);
 }
 
-
-
+int Chest::open(){
+        std::cout<<"chestOpen"<<std::endl;
+	chestAnim->x = 1;
+        _sprite->setTextureRect(sf::IntRect(chestAnim->x * 48 , chestAnim->y * CHEST_SIZE, CHEST_SIZE, CHEST_SIZE));
+        _isOpen=true;
+	return _gain->getGain();
+}
