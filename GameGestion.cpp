@@ -104,13 +104,13 @@ int GameGestion::collidePosition2(Object* object1, Object* object2) {
     sf::FloatRect rect2 = sprite2.getGlobalBounds();
     
     if (!rect1.intersects(rect2)) {
-        return -1;std::cout<<"no"<<std::endl;
+        return -1;
     }
 
     float overlapX = std::min(rect1.left + rect1.width, rect2.left + rect2.width) - std::max(rect1.left, rect2.left);
     float overlapY = std::min(rect1.top + rect1.height, rect2.top + rect2.height) - std::max(rect1.top, rect2.top);
 
-    if (overlapX > overlapY) {
+    if (overlapX + 24 > overlapY) {
         if (rect1.top< rect2.top) {std::cout<<"up"<<std::endl;
             return 1;
         } else {							std::cout<<"down"<<std::endl;
@@ -195,7 +195,8 @@ void GameGestion::collideWallGestion(){
 			player->setPosition(newpos);
 			break;
 			case 2:// colision du joueur allant vers la haut
-			newpos= {player->getPosition().x,wallList[indice]->getPosition().y+48};
+			newpos= {player->getPosition().x,wallList[indice]->getPosition().y+wallList[indice]->getSprite()->getGlobalBounds().height};
+			player->setPosition(newpos);
 			break;
 			case 3:// colision du joueur allant vers la droite
 			newpos=  {wallList[indice]->getPosition().x-48,player->getPosition().y};
