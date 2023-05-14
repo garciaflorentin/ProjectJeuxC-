@@ -10,13 +10,18 @@ Player::Player(const char* nameObject, sf::Vector2f initPos): Character(nameObje
 
 void Player::openChest(Chest* chest) {
 	std::cout<<"openChest"<<std::endl;
+	std::cout<<"life avant="<<life->getNOQ()<<std::endl;
+
 	if (!chest->isOpen()) {
 		std::cout<<"coffrePasOuvert"<<std::endl;
 		int gain= chest->open();
+		std::cout<<"gain = "<<gain<<std::endl;
 		for (int i = 0; i < gain; i++) {
 			life->addLife();
 		}
 	}
+	std::cout<<"gain = "<<chest->getGain()->getGain()<<std::endl;
+	std::cout<<"life apres="<<life->getNOQ()<<std::endl;
 }
 
 void Player::setDamage(Character* target){
