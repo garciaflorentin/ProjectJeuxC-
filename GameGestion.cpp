@@ -138,3 +138,11 @@ void GameGestion::collideGestion(){
 		}
 	}
 }
+
+
+
+/* Code de test */
+void GameGestion::addMonster(Monster& mst) {
+	_map->addObject(&mst);
+} 
+/* -------------*/

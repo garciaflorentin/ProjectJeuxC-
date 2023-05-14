@@ -39,7 +39,7 @@ void Monster::goToPlayer() {
     np.x = this_pos.x;
     np.y = this_pos.y;
 
-    if ((dist_y > 1)||(dist_x > 1)) {
+    if ((dist_y > _attack_radius)||(dist_x > _attack_radius)) {
         if (dist_x < dist_y)    np.y++;
         else                    np.x++;
 

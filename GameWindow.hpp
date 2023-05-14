@@ -12,6 +12,7 @@
 
 
 
+
 /// Window class and start the game
 class GameWindow {
 private:
@@ -117,6 +118,8 @@ public:
     void setScrollingView();
     //void verificationWindow(void);
 
+
+    
 
 };
 #endif
