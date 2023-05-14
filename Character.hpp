@@ -37,7 +37,6 @@ public:
 	const bool isAlive() const{
 		return _isAlive;
 	};
-	bool isPassable();
 
 	sf::Vector2i* getAnim(){
 		return anim;
@@ -54,6 +53,7 @@ public:
 	void updateSprite();
 
 	const int getBlockSize();
+
 
 
 

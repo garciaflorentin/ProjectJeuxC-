@@ -207,6 +207,11 @@ void GameGestion::collideWallGestion(){
 			player->setPosition(newpos);
 			break;
 		}
-		//collideVisitor(getWallMap()[indice]);
+		collideVisitor(player,wallList[indice]);
 	}
+}
+
+void GameGestion::collideVisitor(Player* c,Object * o){
+	std::cout<<"collideVisitor"<<std::endl;
+	o->collide(c);
 }

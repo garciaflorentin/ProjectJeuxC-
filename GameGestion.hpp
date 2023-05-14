@@ -14,6 +14,7 @@
 //#include "Object.hpp"
 #include "Map.hpp"
 #include "ColisionInterface.hpp"
+#include "Character.hpp"
 
 class GameGestion : public ColisionInterface{
 private:
@@ -54,9 +55,8 @@ public:
 //interface colision
 void getWallMap(std::vector<Object*>& wallList);
 
-/*void collideVisitor(Object * o){
-	o->collide(this);
-}*/
+void collideVisitor(Player* c,Object * o);
+
 
 void collideWallGestion();
 

@@ -102,16 +102,16 @@ void Map::addObject(Ground* g) {
 
 }
 
-void Map::addObject(Wall* w) {
+void Map::addObject(Tile* t) {
 
-	sf::Vector2f pos = w->getPosition();
+	sf::Vector2f pos = t->getPosition();
 /*
 	if (getObject(pos) != nullptr) {
 		std::cout<<"erreur"<<std::endl;
 		removeObject(getObject(pos));
 	}*/
-	_map->push_back(w);
-	_wallList->push_back(w);
+	_map->push_back(t);
+	_wallList->push_back(t);
 
 }
 
@@ -196,6 +196,8 @@ for (int x = 0; x < 50; x++) {
     				addObject(new Wall("World2.png",{x, y}, TypeWall::GrosseBranche)); 
 				}else if(rand()%40==0){
 					addObject(new Wall("World2.png",{x, y}, TypeWall::GrandSapin));
+				}else if ( rand()%200==0){
+					addObject(new Chest("Chests.png",{x,y}));
 				}
 			}
 		}

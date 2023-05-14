@@ -16,7 +16,6 @@ protected:
     sf::Sprite* _sprite;
     const char* name;
     bool _isUse;
-    bool passable;
     bool loadTexture(const char* spriteName);//focntion finalement inutile , je vais la virrer 
     
 
@@ -60,18 +59,10 @@ public:
     //virtual void virtual_temporal_method_do_not_touch();
 
     //collide
-
-    virtual bool isPassable()=0;
 	
-    float largeur(){
-		return _sprite->getGlobalBounds().width;
-	}
-
-    float hauteur(){
-		return _sprite->getGlobalBounds().height;
-	}
-
-    //void collide(GameGestion* gg);
+    virtual void collide(Object* o){
+        std::cout<<"collideObject"<<std::endl;
+    }
 };
 
 #endif

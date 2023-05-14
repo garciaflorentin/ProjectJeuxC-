@@ -12,20 +12,22 @@ class Wall: public Tile {
 
 public:
 
-bool isPassable(){
-		return passable;
-	}
+
 	const int getBlockSize(){
 		return TILE_SIZE;
 	}
 
-	
+	void collide(Object* o){
+		        std::cout<<"collideWall"<<std::endl;
+
+	}
+
+
 
 	Wall(const char* nameObject, sf::Vector2f initPos, TypeWall _typeWall) : Tile(nameObject,initPos) {
 		std::cout<<"Wall_Constructor"<<std::endl;
 
 		TILE_SIZE=48;
-		passable = false;
 		int t = static_cast<int>(_typeWall);
 		switch(t){
 			case 0:
