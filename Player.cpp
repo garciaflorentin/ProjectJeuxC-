@@ -9,7 +9,9 @@ Player::Player(const char* nameObject, sf::Vector2f initPos): Character(nameObje
 }
 
 void Player::openChest(Chest* chest) {
+	std::cout<<"openChest"<<std::endl;
 	if (!chest->isOpen()) {
+		std::cout<<"coffrePasOuvert"<<std::endl;
 		int gain= chest->open();
 		for (int i = 0; i < gain; i++) {
 			life->addLife();

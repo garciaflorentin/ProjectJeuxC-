@@ -43,7 +43,8 @@ public:
 
 	std::vector<Object*>* objectToDraw(std::vector<sf::Vector2f>* currentWindow);
 
-	void addObject(Tile* t);
+	void addObject(Wall* w);
+	void addObject(Chest* c);
 	void addObject(Ground* g);
 
 	void removeObject(Object* o);

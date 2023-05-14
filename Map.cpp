@@ -3,6 +3,7 @@
 Map::Map() {
 toDraw = new std::vector<Object*>;
 _wallList =new std::vector<Object*>;
+
 _map = new std::vector<Object*>(10);
 for(int i= 0; i<10 ;i++){
 	_map->push_back(nullptr);
@@ -102,16 +103,18 @@ void Map::addObject(Ground* g) {
 
 }
 
-void Map::addObject(Tile* t) {
+void Map::addObject(Wall* w) {
+	_map->push_back(w);
+	_wallList->push_back(w);
+}
 
-	sf::Vector2f pos = t->getPosition();
-/*
-	if (getObject(pos) != nullptr) {
-		std::cout<<"erreur"<<std::endl;
-		removeObject(getObject(pos));
-	}*/
-	_map->push_back(t);
-	_wallList->push_back(t);
+void Map::addObject(Chest* c) {
+	
+	_map->push_back(c->getGain());
+	//_wallList->push_back(c);
+	_map->push_back(c);
+	_wallList->push_back(c);
+
 
 }
 
@@ -137,8 +140,8 @@ std::vector<Object*>* Map::getWallList(){
 void Map::createMap(){
 
 //creation du sol
-for (int x = 0; x < 50; x++) {
-    for (int y = -25; y < 25; y++) {
+for (float x = 0; x < 50; x++) {
+    for (float y = -25; y < 25; y++) {
         if (x < 50) {
             if (y <0) {
                 // Monde 1 : forêt
@@ -188,15 +191,15 @@ for (int x = 0; x < 50; x++) {
 }
 
 //creation des murs
-for (int x = 0; x < 50; x++) {
-    for (int y = -25; y < 25; y++) {
+for (float x = 0; x < 50; x++) {
+    for (float y = -25; y < 25; y++) {
         if (x < 50) {
             if (y <0) {
-				if (rand() % 60 == 0) {
+				if (rand() % 63 == 0) {
     				addObject(new Wall("World2.png",{x, y}, TypeWall::GrosseBranche)); 
 				}else if(rand()%40==0){
 					addObject(new Wall("World2.png",{x, y}, TypeWall::GrandSapin));
-				}else if ( rand()%200==0){
+				}else if ( rand()%201==0){
 					addObject(new Chest("Chests.png",{x,y}));
 				}
 			}
@@ -205,6 +208,6 @@ for (int x = 0; x < 50; x++) {
 }
 
 
-
+addObject(new Chest("Chests.png",{4,-50}));
 
 }

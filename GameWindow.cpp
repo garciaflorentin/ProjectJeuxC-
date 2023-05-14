@@ -157,8 +157,6 @@ void GameWindow::draw() {
 
 void GameWindow::display() {
         
-
-
    setScrollingView();
    draw();// dessine tout les sprites contenut dans la fenetre courante
    setLifeView();

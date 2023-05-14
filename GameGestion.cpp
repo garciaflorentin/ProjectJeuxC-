@@ -211,7 +211,7 @@ void GameGestion::collideWallGestion(){
 	}
 }
 
-void GameGestion::collideVisitor(Player* c,Object * o){
+void GameGestion::collideVisitor(Object* player,Object * o){
 	std::cout<<"collideVisitor"<<std::endl;
-	o->collide(c);
+	o->collide(player);
 }

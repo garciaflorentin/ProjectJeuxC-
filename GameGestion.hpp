@@ -55,7 +55,7 @@ public:
 //interface colision
 void getWallMap(std::vector<Object*>& wallList);
 
-void collideVisitor(Player* c,Object * o);
+void collideVisitor(Object* player,Object * o);
 
 
 void collideWallGestion();

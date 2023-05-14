@@ -60,9 +60,10 @@ public:
 
     //collide
 	
-    virtual void collide(Object* o){
+    virtual void collide(Object* o)=0;
+    /*{
         std::cout<<"collideObject"<<std::endl;
-    }
+    }*/
 };
 
 #endif

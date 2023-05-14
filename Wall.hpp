@@ -18,7 +18,7 @@ public:
 	}
 
 	void collide(Object* o){
-		        std::cout<<"collideWall"<<std::endl;
+		std::cout<<"collideWall"<<std::endl;
 
 	}
 
