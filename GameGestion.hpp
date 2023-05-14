@@ -15,6 +15,9 @@
 #include "Map.hpp"
 #include "ColisionInterface.hpp"
 #include "Character.hpp"
+#include "Monster.hpp"
+
+#include "Monster.hpp"
 
 class GameGestion : public ColisionInterface{
 private:
@@ -67,5 +70,10 @@ void collideWall(Character* c, std::vector <Object*>& wallList,std::vector<int>&
 void LimitMap();
 
 int collidePosition2(Object* object1, Object* object2);
+
+	/* Code de test */
+    void addMonster(Monster& mst);    
+	/* -------------*/
+
 };
 #endif

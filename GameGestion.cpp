@@ -215,3 +215,10 @@ void GameGestion::collideVisitor(Object* player,Object * o){
 	std::cout<<"collideVisitor"<<std::endl;
 	o->collide(player);
 }
+
+
+/* Code de test */
+void GameGestion::addMonster(Monster& mst) {
+	_map->addObject(&mst);
+} 
+/* -------------*/

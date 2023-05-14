@@ -1,7 +1,7 @@
 #ifndef MONSTER_HPP
 #define MONSTER_HPP
 
-#include "Character.hpp"
+//#include "Character.hpp"
 #include "Player.hpp"
 
 #define SPRITE_SIZE 48
@@ -30,8 +30,7 @@ class Monster : public Character {
         void attack(Character* target);
         void move(sf::Vector2i deplacement);
         
-        void update(Player& pl);
-        
+        void update(Player& pl);        
 };
 
 #endif

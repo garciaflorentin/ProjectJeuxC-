@@ -22,7 +22,7 @@ protected:
 
 	sf::Vector2i* anim;
 	Heart* life;
-    virtual void setDamage(Character* target) = 0;
+    void setDamage(Character* target);
 	
 public:
 
