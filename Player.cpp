@@ -8,6 +8,8 @@ Player::Player(const char* nameObject, sf::Vector2f initPos): Character(nameObje
 
 }
 
+Player::~Player() {}
+
 void Player::openChest(Chest* chest) {
 	std::cout<<"openChest"<<std::endl;
 	if (!chest->isOpen()) {

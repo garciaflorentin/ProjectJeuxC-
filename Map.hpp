@@ -16,6 +16,7 @@
 #include "TypeGround.hpp"
 #include "Wall.hpp"
 #include "TypeWall.hpp"
+#include "Monster.hpp"
 
 
 class Map {
@@ -46,6 +47,8 @@ public:
 	void addObject(Wall* w);
 	void addObject(Chest* c);
 	void addObject(Ground* g);
+
+	void addObject(Monster* m);
 
 	void removeObject(Object* o);
 	

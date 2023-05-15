@@ -22,13 +22,13 @@ protected:
 
 	sf::Vector2i* anim;
 	Heart* life;
-    void setDamage(Character* target);
+    virtual void setDamage(Character* target) = 0;
 	
 public:
 
 	Character(const char* nameObject, sf::Vector2f initPos);
 
-	virtual ~Character();
+	~Character();
 
 
 	void takeDamage(int heartQuarters);

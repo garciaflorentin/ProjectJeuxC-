@@ -4,6 +4,11 @@
 
 Player* Monster::_player = nullptr;
 
+Monster::Monster(const char* nameObject, sf::Vector2f initPos, string name, int dmg, int ar, int vf) :
+            Character(nameObject, initPos),  _damage(dmg), _attack_radius(ar*SPR_SIZE), _vision_field(vf*SPR_SIZE) {}
+
+Monster::~Monster() {}
+
 bool Monster::playerSeen() const {
     sf::Vector2f player_pos = _player->getPosition();
     sf::Vector2f this_pos = this->getPosition();

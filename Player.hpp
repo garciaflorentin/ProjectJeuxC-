@@ -19,13 +19,11 @@ public:
 
 	Player(const char* nameObject, sf::Vector2f initPos);
 
-	~Player() {
-		//delete _sword;
-	};
+	~Player();
 
 	void openChest(Chest* chest);
-	virtual void setDamage(Character* target) override;
-	virtual void attack(Character* target) override;
+	void setDamage(Character* target);
+	void attack(Character* target) ;
 	void move(sf::Vector2i deplacement);
 
 	void collide(Object* o){}

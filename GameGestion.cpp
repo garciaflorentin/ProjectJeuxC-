@@ -216,9 +216,3 @@ void GameGestion::collideVisitor(Object* player,Object * o){
 	o->collide(player);
 }
 
-
-/* Code de test */
-void GameGestion::addMonster(Monster& mst) {
-	_map->addObject(&mst);
-} 
-/* -------------*/

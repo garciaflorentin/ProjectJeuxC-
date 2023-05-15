@@ -11,8 +11,8 @@ Character::Character(const char* nameObject, sf::Vector2f initPos): Object(nameO
 	_isAlive = true;
 }
 
- Character::~Character() {
-		delete[] life;
+Character::~Character() {
+	delete[] life;
 }
 
 void Character::takeDamage(int NOQ) {
