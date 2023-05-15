@@ -7,7 +7,7 @@ LifeWindow::LifeWindow(Heart* HeartPlayer) {
 	lifeTexture = new sf::RenderTexture();
 	lifeTexture->create(1500, 80);
 	lifeSprite = new sf::Sprite(lifeTexture->getTexture());
-	lifeView = new sf::View(sf::FloatRect(-0.5f, -0.5f, 1000.0f, 200.f));
+	lifeView = new sf::View(sf::FloatRect(0.f, 0.f, 1000.0f, 200.f));
 	lifeView->setViewport(sf::FloatRect(0.f, 0.f, 1, 1));
 	lifeTexture->setView(*lifeView);
 		
@@ -22,7 +22,7 @@ LifeWindow::~LifeWindow() {
 }
 
 void LifeWindow::drawTo(sf::RenderWindow* target) {
-
+	
 	updateWindow();
 	target->draw(*lifeSprite);
 
@@ -30,6 +30,10 @@ void LifeWindow::drawTo(sf::RenderWindow* target) {
 }
 
 void LifeWindow::updateWindow() {
+	/*lifeTexture->create(1500,80);
+	sf::View newlifeview(sf::FloatRect(0.f, 0.f, 1000.0f, 200.f));
+	newlifeview.setViewport(sf::FloatRect(0.f, 0.f, 1, 1));
+	lifeTexture->setView(newlifeview);*/
 
 	// dessiner la vue de la fenêtre de vie sur la render texture de la fenêtre de vie
 	lifeTexture->setView(*lifeView);

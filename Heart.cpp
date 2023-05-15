@@ -103,7 +103,7 @@ std::cout<<"entré initlife()"<< std::endl;
 }
 
 void Heart::changelife(int i) { // i = 1 ou i=-1
-
+	getLife()->clear();
 	if (i > 0) {
 
 		if (numberOfQuarter < 12)
@@ -117,8 +117,7 @@ void Heart::changelife(int i) { // i = 1 ou i=-1
 		
 	
 	}
-
-		switch(numberOfQuarter%4) {
+		switch(numberOfQuarter/4) {
 		case 0:
 				life->push_back((*_sprites)[numberOfQuarter%4]);
 				life->push_back((*_sprites)[0]);
@@ -145,9 +144,10 @@ void Heart::changelife(int i) { // i = 1 ou i=-1
 		}
 
 		for (int i = 0; i < 3; i++) {
-			(*life)[i]->setPosition(i*48.0,0);
+			(*life)[i]->setPosition(i*32.0,0);
 		}
 }
+
 
 void Heart::removeLife() {
 	changelife(-1);
