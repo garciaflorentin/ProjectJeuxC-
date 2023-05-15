@@ -50,8 +50,8 @@ void GameGestion::keyEvent(sf::Event e) {
 	collideWallGestion();
 	LimitMap();
 
-	std::cout << "x =" << player->getPosition().x<< std::endl;
-	std::cout << "y =" << player->getPosition().y<< std::endl;
+	//std::cout << "x =" << player->getPosition().x<< std::endl;
+	//std::cout << "y =" << player->getPosition().y<< std::endl;
 
 }
 
@@ -129,7 +129,7 @@ int GameGestion::collidePosition2(Object* object1, Object* object2) {
 }
 
 void GameGestion::collideWall(Character* c, std::vector <Object*>& wallList,std::vector<int>& info) {
-	std::cout<<"collideWall"<<std::endl;
+	//std::cout<<"collideWall"<<std::endl;
 	bool collide =false;
 
     for (int x = 0; x < wallList.size(); x++) {
@@ -147,7 +147,7 @@ void GameGestion::collideWall(Character* c, std::vector <Object*>& wallList,std:
 		info.push_back(-1);
 		info.push_back(-1);
 	}
-    std::cout<<"info size= "<<info.size()<<std::endl;
+    //std::cout<<"info size= "<<info.size()<<std::endl;
 }
 
 
@@ -174,7 +174,7 @@ sf::Vector2f newpos;
 }
 
 void GameGestion::collideWallGestion(){
-	std::cout<<"collideWallGestion"<<std::endl;
+	//std::cout<<"collideWallGestion"<<std::endl;
 
 	sf::Vector2f newpos;
 	std::vector<int> info;
@@ -216,3 +216,8 @@ void GameGestion::collideVisitor(Object* player,Object * o){
 	o->collide(player);
 }
 
+void GameGestion::updateMobs() {
+	if (time.getElapsedTime().asMilliseconds() >= 500) {
+		_map->updateObjects(player);
+	}
+}

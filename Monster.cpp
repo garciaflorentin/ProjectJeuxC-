@@ -37,16 +37,29 @@ void Monster::goToPlayer() {
     sf::Vector2f player_pos = _player->getPosition();
     sf::Vector2f this_pos = this->getPosition();
 
+    //cout << "current position : " << this_pos.x << ", " << this_pos.y << endl;
+
     float dist_x = player_pos.x - this_pos.x;
     float dist_y = player_pos.y - this_pos.y;
 
-    sf::Vector2i np;
-    np.x = this_pos.x;
-    np.y = this_pos.y;
+    sf::Vector2f np;
+    np.x = 0;
+    np.y = 0;
 
-    if ((dist_y > _attack_radius)||(dist_x > _attack_radius)) {
-        if (dist_x < dist_y)    np.y++;
-        else                    np.x++;
+    if ((abs(dist_y) > _attack_radius-10)||(abs(dist_x) > _attack_radius-10)) {
+        if ((dist_x > 0)&&(dist_y > 0)) {
+            if (dist_x > dist_y)    np.x++;
+            else                    np.y++;
+        } else if ((dist_x < 0)&&(dist_y < 0)) {
+            if (dist_x < dist_y)    np.x--;
+            else                    np.y--;
+        } else if ((dist_x > 0)&&(dist_y < 0)) {
+            if (abs(dist_x) > abs(dist_y))  np.x++;
+            else                            np.y--;
+        } else if ((dist_x < 0)&&(dist_y > 0)) {
+            if (abs(dist_x) > abs(dist_y))  np.x--;
+            else                            np.y++;
+        }
 
         move(np);
     }
@@ -54,6 +67,7 @@ void Monster::goToPlayer() {
 
 void Monster::attack(Character* target) {
     target->takeDamage(_damage);
+    cout << "attack !" << endl;
 }
 
 void Monster::update(Player& pl) {
@@ -63,7 +77,7 @@ void Monster::update(Player& pl) {
     if (playerInRange())    attack(&pl);
 }
 
-void Monster::move(sf::Vector2i deplacement){
+void Monster::move(sf::Vector2f deplacement){
 	_sprite->move(deplacement.x,deplacement.y);
 
 }

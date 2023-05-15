@@ -91,3 +91,16 @@ void Object::setPosition(sf::Vector2f& newPos){
 void Object::setPositionInBox(sf::Vector2f& newPos){
     _sprite->setPosition({newPos.x*48,newPos.y*48});
 }
+
+// string Object::getName() const {
+//     cout << "string conversion started" << endl;
+
+//     if (name != 0) {
+//         cout << "calling string constructor" << endl;
+//         string* ret_name = new string(name);
+//         cout << "string conversion ended" << endl;
+//         return *ret_name;
+//     }
+     
+//     else return "no_name";
+// }

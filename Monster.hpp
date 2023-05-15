@@ -28,7 +28,7 @@ class Monster : public Character {
         ~Monster();
         
         void attack(Character* target);
-        void move(sf::Vector2i deplacement);
+        void move(sf::Vector2f deplacement);
         
         void update(Player& pl);      
 

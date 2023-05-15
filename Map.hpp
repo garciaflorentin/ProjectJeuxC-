@@ -18,6 +18,7 @@
 #include "TypeWall.hpp"
 #include "Monster.hpp"
 
+using namespace std;
 
 class Map {
 
@@ -26,6 +27,9 @@ private:
 	std::vector<Object*>* toDraw;
 	std::vector<Object*>* _map;
 	std::vector<Object*>* _wallList;
+
+	std::vector<Monster*>* _monsterList;
+	
 	int LIMITE_Xneg= 0;
 	int LIMITE_Y=14350/2;
 	int LIMITE_X= 14350;
@@ -65,7 +69,7 @@ public:
 
 	std::vector<Object*>* getWallList();
 
-	
+	void updateObjects(Player* player);	
 	
 };
 #endif
