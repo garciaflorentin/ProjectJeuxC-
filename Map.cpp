@@ -189,7 +189,6 @@ for (float x = 0; x < 50; x++) {
         }
     }
 }
-
 //creation des murs
 for (float x = 0; x < 50; x++) {
     for (float y = -25; y < 25; y++) {
@@ -206,7 +205,6 @@ for (float x = 0; x < 50; x++) {
 		}
 	}
 }
-
 
 addObject(new Chest("Chests.png",{4,-50}));
 

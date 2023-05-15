@@ -71,9 +71,9 @@ void LimitMap();
 
 int collidePosition2(Object* object1, Object* object2);
 
-	/* Code de test */
+	/* Code de test 
     void addMonster(Monster& mst);    
-	/* -------------*/
+	 -------------*/
 
 };
 #endif

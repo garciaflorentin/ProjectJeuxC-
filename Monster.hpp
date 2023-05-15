@@ -1,10 +1,10 @@
-#ifndef MONSTER_HPP
+/*#ifndef MONSTER_HPP
 #define MONSTER_HPP
 
 //#include "Character.hpp"
 #include "Player.hpp"
 
-#define SPRITE_SIZE 48
+//#define SPRITE_SIZE 48;
 
 class Monster : public Character {
     private :
@@ -34,3 +34,4 @@ class Monster : public Character {
 };
 
 #endif
+*/

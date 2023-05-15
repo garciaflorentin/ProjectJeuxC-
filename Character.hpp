@@ -17,7 +17,7 @@ protected:
 	EnumOrientation _enumOrientation;
 	enum Orientation { Down, Left, Right, Up };
 	bool _isAlive;
-	int OBJECT_SIZE = 48;
+	int OBJECT_SIZE = 32;
 
 
 	sf::Vector2i* anim;

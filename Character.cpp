@@ -4,7 +4,9 @@
 Character::Character(const char* nameObject, sf::Vector2f initPos): Object(nameObject, initPos) {
 	anim = new sf::Vector2i; // probleme du segmentation fault
 	anim->x = 1;
-	anim->y = Down;
+	anim->y = 0;
+	//_sprite->setTextureRect(sf::IntRect(anim->x * OBJECT_SIZE , anim->y * OBJECT_SIZE , OBJECT_SIZE, OBJECT_SIZE));
+	//_sprite->scale(1.5,1.5);
 
 	life = new Heart();
 
@@ -30,9 +32,10 @@ void Character::takeDamage(int NOQ) {
 }
 
 void Character::setUpCharacter(){
-	anim->x=1;
-	anim->y=Down;
-	_sprite->setTextureRect(sf::IntRect(anim->x * OBJECT_SIZE + 3, anim->y * OBJECT_SIZE + 3, OBJECT_SIZE, OBJECT_SIZE));
+anim->x = 1;
+	anim->y = 0;
+	_sprite->setTextureRect(sf::IntRect(anim->x * OBJECT_SIZE , anim->y * OBJECT_SIZE , OBJECT_SIZE, OBJECT_SIZE));
+	_sprite->scale(1.5,1.5);
 
 }
 
@@ -46,8 +49,9 @@ void Character::setAnim(int x ,int y){
 }
 
 void Character::updateSprite(){
-	if(anim->x*OBJECT_SIZE >= OBJECT_SIZE*3){anim->x=0;}
-	_sprite->setTextureRect(sf::IntRect(anim->x*OBJECT_SIZE + 3, anim->y*OBJECT_SIZE + 3, OBJECT_SIZE, OBJECT_SIZE));
+	if(anim->x*OBJECT_SIZE >= OBJECT_SIZE*4){anim->x=1;}
+	_sprite->setTextureRect(sf::IntRect(anim->x*OBJECT_SIZE, anim->y*OBJECT_SIZE, OBJECT_SIZE, OBJECT_SIZE));
+
 }
 
 void Character::move(sf::Vector2i deplacement){

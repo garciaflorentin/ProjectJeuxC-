@@ -30,6 +30,7 @@ Chest(const char* nameObject, sf::Vector2f initPos) : Tile(nameObject,initPos), 
 	chestAnim->x = 0;
 	chestAnim->y = 1;
 	_sprite->setTextureRect(sf::IntRect(chestAnim->x * CHEST_SIZE , chestAnim->y* CHEST_SIZE , CHEST_SIZE, CHEST_SIZE));
+    //_sprite->scale(1.5,1.5);
 }
 ~Chest() {
 	delete _gain;

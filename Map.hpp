@@ -25,10 +25,10 @@ private:
 	std::vector<Object*>* toDraw;
 	std::vector<Object*>* _map;
 	std::vector<Object*>* _wallList;
-	int LIMITE_Xneg= 0;
-	int LIMITE_Y=14350/2;
-	int LIMITE_X= 14350;
-	int LIMITE_Yneg=-14350/2;
+	float LIMITE_Xneg= 0;
+	float LIMITE_Y=14350/2;
+	float LIMITE_X= 14350;
+	float LIMITE_Yneg=-14350/2;
 
 
 
@@ -37,7 +37,7 @@ public:
 	Map();
 	~Map();
 
-	void getLimitMap(std::vector<int>& limit){
+	void getLimitMap(std::vector<float>& limit){
 		limit={LIMITE_X,LIMITE_Y,LIMITE_Xneg,LIMITE_Yneg};
 	}
 

@@ -2,7 +2,7 @@
 
 
 GameGestion::GameGestion() {
-		player = new Player("object.png", {0,0});
+		player = new Player("player1.png", {0,0});
 		_map= new Map();
 		_map->createMap();
 		playerVector = new std::vector<Player*>{ player, nullptr };
@@ -21,32 +21,38 @@ GameGestion::GameGestion() {
 
 
 void GameGestion::keyEvent(sf::Event e) {
-	if (time.getElapsedTime().asMilliseconds() >= 50) { // si le temps qui c'est ecoul� est plus grand que 50 ms on fait le move
+
 		if (e.key.code == sf::Keyboard::Down) {
 			//std::cout << " D " << std::endl;
 			player->getAnim()->x++;
-			player->getAnim()->y = Down;
+			player->getAnim()->y = 0;
 			player->move({0,5});
 		}
 		else if ((e.key.code == sf::Keyboard::Up)) {
 			//std::cout << " U " << std::endl;
 			player->getAnim()->x++;
-			player->getAnim()->y = Up;
+			player->getAnim()->y = 4;
 			player->move({0,-5});
 		}
 		else if ((e.key.code == sf::Keyboard::Right)) {
 			//std::cout << " R " << std::endl;
 			player->getAnim()->x++;
-			player->getAnim()->y = Right;
+			player->getAnim()->y = 2;
 			player->move({5,0});
 		}
 		else if ((e.key.code == sf::Keyboard::Left)) {
 			//std::cout << " L " << std::endl;
 			player->getAnim()->x++;
-			player->getAnim()->y = Left;
+			player->getAnim()->y = 6;
 			player->move({-5,0});
 		}
-	}
+		(*getPlayerVector())[0]->updateSprite();
+
+		if ((e.key.code == sf::Keyboard::Space)) {
+
+			player->useSword();
+		}
+
 	collideWallGestion();
 	LimitMap();
 
@@ -110,7 +116,7 @@ int GameGestion::collidePosition2(Object* object1, Object* object2) {
     float overlapX = std::min(rect1.left + rect1.width, rect2.left + rect2.width) - std::max(rect1.left, rect2.left);
     float overlapY = std::min(rect1.top + rect1.height, rect2.top + rect2.height) - std::max(rect1.top, rect2.top);
 
-    if (overlapX + 24 > overlapY) {
+    if (overlapX + 16 > overlapY) {
         if (rect1.top< rect2.top) {std::cout<<"up"<<std::endl;
             return 1;
         } else {							std::cout<<"down"<<std::endl;
@@ -152,7 +158,7 @@ void GameGestion::collideWall(Character* c, std::vector <Object*>& wallList,std:
 
 
 void GameGestion::LimitMap(){
-std::vector<int> limit;
+std::vector<float> limit;
 _map->getLimitMap(limit);
 sf::Vector2f newpos;
 
@@ -172,6 +178,8 @@ sf::Vector2f newpos;
    }
 
 }
+
+
 
 void GameGestion::collideWallGestion(){
 	std::cout<<"collideWallGestion"<<std::endl;
@@ -217,8 +225,8 @@ void GameGestion::collideVisitor(Object* player,Object * o){
 }
 
 
-/* Code de test */
+/*
 void GameGestion::addMonster(Monster& mst) {
 	_map->addObject(&mst);
 } 
-/* -------------*/
+*/
