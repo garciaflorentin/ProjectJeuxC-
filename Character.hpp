@@ -8,7 +8,7 @@
 #include "EnumOrientation.hpp"
 #include "Heart.hpp"
 #include "Chest.hpp"
-
+class Chest;
 
 class Character : public Object {
 

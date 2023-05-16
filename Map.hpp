@@ -30,10 +30,10 @@ private:
 
 	std::vector<Monster*>* _monsterList;
 	
-	int LIMITE_Xneg= 0;
-	int LIMITE_Y=14350/2;
-	int LIMITE_X= 14350;
-	int LIMITE_Yneg=-14350/2;
+	float LIMITE_Xneg= 0.f;
+	float LIMITE_Y=7175.f;
+	float LIMITE_X= 14350.f;
+	float LIMITE_Yneg=-7175.f;
 
 
 

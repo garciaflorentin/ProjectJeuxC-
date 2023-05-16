@@ -12,6 +12,7 @@
 #include "Character.hpp"
 class Gain;
 class Player;
+class Character;
 
 class Chest : public Tile{
 

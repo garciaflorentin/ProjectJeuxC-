@@ -5,12 +5,12 @@ Player::Player(const char* nameObject, sf::Vector2f initPos): Character(nameObje
 	speed = 3;
 	damageAttack = 3;
 
-	_canOpenChest = true;
-	attackSimple=new sf::Music;
-	 if (!attackSimple->openFromFile("/home/garcia/Bureau/ProjetC++  (travail)/ProjectJeuxC-/bruit/attackSimple.wav"))
+	//_canOpenChest = true;
+	//attackSimple=new sf::Music;
+	/*/ if (!attackSimple->openFromFile("/home/garcia/Bureau/ProjetC++  (travail)/ProjectJeuxC-/bruit/attackSimple.wav"))
     {
         std::cout<<"erreur de chargement de attackSimple"<<std::endl;
-    }
+    }*/
 }
 
 Player::~Player() {}
@@ -38,8 +38,8 @@ void Player::attack(Character* target){
 
 void Player::useSword(){
 	_sprite->setTextureRect(sf::IntRect(6*OBJECT_SIZE, anim->y*OBJECT_SIZE, OBJECT_SIZE, OBJECT_SIZE));
-	attackSimple->stop();
-	attackSimple->play();
+	//attackSimple->stop();
+	//attackSimple->play();
 
 }
 
