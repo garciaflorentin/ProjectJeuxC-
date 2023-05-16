@@ -7,6 +7,7 @@
 #include "Object.hpp"
 #include "EnumOrientation.hpp"
 #include "Heart.hpp"
+#include "Chest.hpp"
 
 
 class Character : public Object {
@@ -22,13 +23,15 @@ protected:
 
 	sf::Vector2i* anim;
 	Heart* life;
-    void setDamage(Character* target);
+    virtual void setDamage(Character* target) = 0;
+
+	bool _canOpenChest = false;
 	
 public:
 
 	Character(const char* nameObject, sf::Vector2f initPos);
 
-	virtual ~Character();
+	~Character();
 
 
 	void takeDamage(int heartQuarters);
@@ -54,7 +57,8 @@ public:
 
 	const int getBlockSize();
 
-
+	bool canOpenChest() const { return _canOpenChest; };
+	virtual void openChest(Chest* chest)=0;
 
 
 };

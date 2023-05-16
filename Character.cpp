@@ -13,11 +13,12 @@ Character::Character(const char* nameObject, sf::Vector2f initPos): Object(nameO
 	_isAlive = true;
 }
 
- Character::~Character() {
-		delete[] life;
+Character::~Character() {
+	delete[] life;
 }
 
 void Character::takeDamage(int NOQ) {
+	cout << "Starting takeDamage()" << endl;
 	if (NOQ < 0) {
 		return;
 	}
@@ -26,6 +27,7 @@ void Character::takeDamage(int NOQ) {
 	}
 	else {
 		for (int i = 0; i < NOQ; i++) {
+			cout << "calling removeLife()" << endl;
 			life->removeLife();
 		}
 	}

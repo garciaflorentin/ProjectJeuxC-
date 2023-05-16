@@ -15,6 +15,10 @@ private:
 	
 	sf::Music* attackSimple;
 
+	bool _canOpenChest = true;
+
+	bool _canOpenChest = true;
+
 public:
 
 	Player(const char* nameObject, sf::Vector2f initPos);
@@ -24,8 +28,8 @@ public:
 	};
 
 	void openChest(Chest* chest);
-	virtual void setDamage(Character* target);
-	virtual void attack(Character* target) override;
+	void setDamage(Character* target);
+	void attack(Character* target) ;
 	void move(sf::Vector2i deplacement);
 
 	void collide(Object* o){}

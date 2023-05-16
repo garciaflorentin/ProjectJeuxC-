@@ -18,6 +18,8 @@
 #include "Monster.hpp"
 #include "Monster.hpp"
 
+using namespace std;
+
 class GameGestion : public ColisionInterface{
 private:
 
@@ -58,25 +60,25 @@ public:
 
 	std::vector<Object*>* toDrawUpdate(std::vector<sf::Vector2f>* currentWindow);
 
-//interface colision
-void getWallMap(std::vector<Object*>& wallList);
+	//interface colision
+	void getWallMap(std::vector<Object*>& wallList);
 
-void collideVisitor(Object* player,Object * o);
+	void collideVisitor(Object* player,Object * o);
 
 
-void collideWallGestion();
+	void collideWallGestion();
 
-int collidePosition(Object* object1, Object* object2);
+	int collidePosition(Object* object1, Object* object2);
 
-void collideWall(Character* c, std::vector <Object*>& wallList,std::vector<int>& info) ;
+	void collideWall(Character* c, std::vector <Object*>& wallList,std::vector<int>& info) ;
 
-void LimitMap();
+	void LimitMap();
 
-int collidePosition2(Object* object1, Object* object2);
+	int collidePosition2(Object* object1, Object* object2);
 
-	/* Code de test 
-    void addMonster(Monster& mst);    
-	 -------------*/
+
+	//mise a jour des monstres (et autres objets qui bougent eventuellement)
+	void updateMobs();
 
 
 //musique gestion
