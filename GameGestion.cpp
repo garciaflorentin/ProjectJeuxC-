@@ -6,12 +6,20 @@ GameGestion::GameGestion() {
 		_map= new Map();
 		_map->createMap();
 		playerVector = new std::vector<Player*>{ player, nullptr };
+		forestMusic = new sf::Music;
+		/*if (!forestMusic->openFromFile("/home/garcia/Bureau/ProjetC++  (travail)/ProjectJeuxC-/Music/forestMusic.wav"))
+    {
+        std::cout<<"erreur de chargement de forestMusic"<<std::endl;
+    }*/
+
+
 
 	}
 
 	GameGestion::~GameGestion() {
 		delete player;
 		delete _map;
+		delete forestMusic;
 	}
 
 
@@ -116,7 +124,7 @@ int GameGestion::collidePosition2(Object* object1, Object* object2) {
     float overlapX = std::min(rect1.left + rect1.width, rect2.left + rect2.width) - std::max(rect1.left, rect2.left);
     float overlapY = std::min(rect1.top + rect1.height, rect2.top + rect2.height) - std::max(rect1.top, rect2.top);
 
-    if (overlapX + 16 > overlapY) {
+    if (overlapX  > overlapY) {
         if (rect1.top< rect2.top) {std::cout<<"up"<<std::endl;
             return 1;
         } else {							std::cout<<"down"<<std::endl;
@@ -230,3 +238,32 @@ void GameGestion::addMonster(Monster& mst) {
 	_map->addObject(&mst);
 } 
 */
+
+//musique Gestion
+/*
+void GameGestion::musicGestion(){
+	float _x=player->getPosition().x;
+	float _y=player->getPosition().y;
+	std::vector<float> limitMap;
+	_map->getLimitMap(limitMap);
+
+	if(_y <= (limitMap[1]/2)){
+		if(_x<=limitMap[0]/2){
+			forestMusic->stop();
+			forestMusic->play();
+		}
+		else{forestMusic->stop();
+
+
+		}
+	}else if(_x<=limitMap[0]/2){
+		if(_x<=limitMap[0]/2){
+			forestMusic->stop();
+
+		}
+		else{
+			forestMusic->stop();
+
+		}
+	}
+}*/
