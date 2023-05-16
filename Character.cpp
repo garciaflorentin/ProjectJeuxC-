@@ -16,6 +16,7 @@ Character::~Character() {
 }
 
 void Character::takeDamage(int NOQ) {
+	cout << "Starting takeDamage()" << endl;
 	if (NOQ < 0) {
 		return;
 	}
@@ -24,6 +25,7 @@ void Character::takeDamage(int NOQ) {
 	}
 	else {
 		for (int i = 0; i < NOQ; i++) {
+			cout << "calling removeLife()" << endl;
 			life->removeLife();
 		}
 	}

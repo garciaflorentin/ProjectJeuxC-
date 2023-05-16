@@ -15,6 +15,8 @@ private:
 	
 	//Sword* _sword;
 
+	bool _canOpenChest = true;
+
 public:
 
 	Player(const char* nameObject, sf::Vector2f initPos);

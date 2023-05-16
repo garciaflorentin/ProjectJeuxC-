@@ -4,6 +4,8 @@ Player::Player(const char* nameObject, sf::Vector2f initPos): Character(nameObje
 	std::cout<<"player_constructeur"<< std::endl;
 	speed = 3;
 	damageAttack = 3;
+
+	_canOpenChest = true;
 	//_sword = new Sword();
 
 }

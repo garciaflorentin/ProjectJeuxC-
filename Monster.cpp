@@ -5,7 +5,7 @@
 Player* Monster::_player = nullptr;
 
 Monster::Monster(const char* nameObject, sf::Vector2f initPos, string name, int dmg, int ar, int vf) :
-            Character(nameObject, initPos),  _damage(dmg), _attack_radius(ar*SPR_SIZE), _vision_field(vf*SPR_SIZE) {}
+            Character(nameObject, initPos),  _damage(dmg), _attack_radius(ar*SPR_SIZE), _vision_field(vf*SPR_SIZE), _canOpenChest(false) {}
 
 Monster::~Monster() {}
 
@@ -70,14 +70,21 @@ void Monster::attack(Character* target) {
     cout << "attack !" << endl;
 }
 
-void Monster::update(Player& pl) {
-    this->_player = &pl;
+void Monster::update(Player* pl) {
+    this->_player = pl;
 
     if (playerSeen())       goToPlayer();
-    if (playerInRange())    attack(&pl);
+    if (_upd.getElapsedTime().asMilliseconds()%1000 == 0) {
+        if (playerInRange())    attack(pl);
+    }
 }
+    
 
 void Monster::move(sf::Vector2f deplacement){
 	_sprite->move(deplacement.x,deplacement.y);
 
 }
+
+// bool Monster::fireball() {
+//     /* Lance une boule de feu en direction du joueur */
+// }

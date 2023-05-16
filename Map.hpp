@@ -68,6 +68,7 @@ public:
 	}
 
 	std::vector<Object*>* getWallList();
+	std::vector<Monster*>* getMonsters();
 
 	void updateObjects(Player* player);	
 	

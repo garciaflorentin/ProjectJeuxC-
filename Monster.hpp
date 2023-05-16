@@ -23,16 +23,24 @@ class Monster : public Character {
 
         void setDamage(Character* target) {};
 
+        sf::Clock _upd;
+
+        bool _canOpenChest = false;
+
     public :
-        Monster(const char* nameObject, sf::Vector2f initPos, string name="meat", int dmg=1, int ar=1, int vf=5);
+        Monster(const char* nameObject, sf::Vector2f initPos, string name="meat", int dmg=1, int ar=3, int vf=6);
         ~Monster();
         
         void attack(Character* target);
         void move(sf::Vector2f deplacement);
         
-        void update(Player& pl);      
+        void update(Player* pl);      
 
         void collide(Object* o) {};  
+
+        void openChest(Chest* chest) {};
+        
+        //bool fireball();
 };
 
 #endif

@@ -143,6 +143,10 @@ void Map::removeObject(Object* o) {
 std::vector<Object*>* Map::getWallList(){
 	return _wallList;
 }
+
+std::vector<Monster*>* Map::getMonsters(){
+	return _monsterList;
+}
 	
 
 void Map::createMap(){
@@ -233,6 +237,6 @@ void Map::createMap(){
 
 void Map::updateObjects(Player* player) {
 	for (Monster* mnt : *_monsterList) {
-		mnt->update(*player);
+		mnt->update(player);
 	}
 }
