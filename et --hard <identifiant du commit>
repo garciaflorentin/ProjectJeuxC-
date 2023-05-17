@@ -1,0 +1,407 @@
+[33mcommit 5c8326c60ea72147fb2eb6936f9ecc028d98ca30[m[33m ([m[1;36mHEAD -> [m[1;32mcode-13/05[m[33m)[m
+Author: Florentin Garcia <florentin.grc@gmail.com>
+Date:   Mon May 15 19:00:35 2023 +0200
+
+    a
+
+[33mcommit 072bd9ab1e117c8bcfb5579b6f5acad6b9d1606b[m
+Author: Florentin Garcia <florentin.grc@gmail.com>
+Date:   Mon May 15 19:00:22 2023 +0200
+
+    coup d'epee du player + soundeffects
+
+[33mcommit 0fba1259a0b383a708944685ff92287ea1fcd0b3[m
+Merge: ea5134e 13885c4
+Author: Florentin Garcia <florentin.grc@gmail.com>
+Date:   Sun May 14 22:26:36 2023 +0200
+
+    Merge branch 'code-13/05' of https://github.com/garciaflorentin/ProjectJeuxC- into code-13/05
+
+[33mcommit ea5134e78ef480fdec3ba16279d680bdcdd5ad3b[m
+Author: Florentin Garcia <florentin.grc@gmail.com>
+Date:   Sun May 14 22:26:34 2023 +0200
+
+    commit chest + gain ok , sauf sprites gain
+
+[33mcommit 13885c472b777a810dbfe42dff90a37c1dc0639b[m
+Merge: b91c60f be25193
+Author: PoloYaoman <unrememberedarcher@gmail.com>
+Date:   Sun May 14 21:34:15 2023 +0200
+
+    Merge branch 'code-13/05' of https://github.com/garciaflorentin/ProjectJeuxC- into code-13/05
+
+[33mcommit b91c60f1a7926fee1ed67a824875f3658617c397[m
+Author: PoloYaoman <unrememberedarcher@gmail.com>
+Date:   Sun May 14 21:31:24 2023 +0200
+
+    fonctions de test
+
+[33mcommit be25193b2d50fad16327f89d91c97a77c86a4eb3[m
+Author: Florentin Garcia <florentin.grc@gmail.com>
+Date:   Sun May 14 21:08:32 2023 +0200
+
+    chest ok
+
+[33mcommit ef322416d65df97084e8df3e484c8663f21c419b[m
+Author: Florentin Garcia <florentin.grc@gmail.com>
+Date:   Sun May 14 14:40:59 2023 +0200
+
+    essaye mise en place chest , non reussite
+
+[33mcommit 124388b9e5e7e52e6027257332f7037e49e9ed74[m
+Author: Florentin Garcia <florentin.grc@gmail.com>
+Date:   Sun May 14 12:22:52 2023 +0200
+
+    commit reglage d'un bug pour les colisions
+
+[33mcommit 23074ca8c5480f8e14ebde351215d1dc89520a2c[m
+Author: Florentin Garcia <florentin.grc@gmail.com>
+Date:   Sat May 13 23:22:33 2023 +0200
+
+    colision ok
+
+[33mcommit 6f85df1fa085f63d16c7ce5886121c4955e8bd35[m
+Author: Florentin Garcia <florentin.grc@gmail.com>
+Date:   Sat May 13 22:03:24 2023 +0200
+
+    commit colision Wall quasi focntionnel
+
+[33mcommit d2304aeef6eee2c17338f9061e68d563c03febd0[m
+Author: Florentin Garcia <florentin.grc@gmail.com>
+Date:   Sat May 13 20:36:27 2023 +0200
+
+    commit
+
+[33mcommit 1f9c6a03ec96998deadafadfbb681489278fc061[m
+Merge: 7adddc8 c1798fb
+Author: Florentin Garcia <florentin.grc@gmail.com>
+Date:   Sat May 13 20:33:50 2023 +0200
+
+    ggg
+
+[33mcommit 7adddc8b5532dafc53c998c5cb5b49ce889f2c29[m
+Author: Florentin Garcia <florentin.grc@gmail.com>
+Date:   Sat May 13 20:28:21 2023 +0200
+
+    essaye colision non conclluant
+
+[33mcommit c1798fb67469a1827e0890f9a1042635fed93cd7[m
+Merge: b05aa99 1b89902
+Author: PoloYaoman <unrememberedarcher@gmail.com>
+Date:   Sat May 13 19:45:13 2023 +0200
+
+    Merge branch 'code-13/05' of https://github.com/garciaflorentin/ProjectJeuxC- into code-13/05
+
+[33mcommit b05aa995974385f90af48b40bd956865ddc6c96e[m
+Merge: 8e50805 c6b0a5c
+Author: PoloYaoman <unrememberedarcher@gmail.com>
+Date:   Sat May 13 19:45:09 2023 +0200
+
+    Merge branch 'code-13/05'
+
+[33mcommit 1b899024132b9fa477d2670e46aa5263ab1824d9[m
+Author: PoloYaoman <105517187+PoloYaoman@users.noreply.github.com>
+Date:   Sat May 13 19:44:33 2023 +0200
+
+    Delete jeu_de_base
+
+[33mcommit 8c373bf07165f8795eb818ecc84f4ecd85a5ab5c[m
+Author: PoloYaoman <105517187+PoloYaoman@users.noreply.github.com>
+Date:   Sat May 13 19:44:18 2023 +0200
+
+    Delete Map.o
+
+[33mcommit a880e1744a58d679214d9ee80b3f8a5cd7b0d48f[m
+Author: PoloYaoman <105517187+PoloYaoman@users.noreply.github.com>
+Date:   Sat May 13 19:43:54 2023 +0200
+
+    Delete main.o
+
+[33mcommit df9e131a7e228181c4f99c8e6e2678342a623f0c[m
+Author: PoloYaoman <105517187+PoloYaoman@users.noreply.github.com>
+Date:   Sat May 13 19:43:25 2023 +0200
+
+    Delete Heart.o
+
+[33mcommit cc39e19f42153892b5d96e34f803bc9da92f203a[m
+Author: PoloYaoman <105517187+PoloYaoman@users.noreply.github.com>
+Date:   Sat May 13 19:43:03 2023 +0200
+
+    Delete GameGestion.o
+
+[33mcommit 22a8643df0328d20fc6dbc8a4dbe8fab7b4ee337[m
+Author: PoloYaoman <105517187+PoloYaoman@users.noreply.github.com>
+Date:   Sat May 13 19:42:48 2023 +0200
+
+    Delete Character.o
+
+[33mcommit 8e5080545615392c5d576071cd20b21426ba3610[m
+Author: PoloYaoman <unrememberedarcher@gmail.com>
+Date:   Sat May 13 19:41:34 2023 +0200
+
+    monster update
+
+[33mcommit c6b0a5ce1614d98b3119abbffbdf1bbb4108de1c[m
+Author: Florentin Garcia <florentin.grc@gmail.com>
+Date:   Sat May 13 19:00:37 2023 +0200
+
+    commit 13/05(3)
+
+[33mcommit 2c532093c4f32341ed293c7b9e5c3b1acc9e7006[m
+Author: Florentin Garcia <florentin.grc@gmail.com>
+Date:   Sat May 13 18:35:32 2023 +0200
+
+    commit 13/05(2)
+
+[33mcommit b1cbad7c19ed7e877b2e8a972ab8cedf36d9fcee[m
+Author: Florentin Garcia <florentin.grc@gmail.com>
+Date:   Sat May 13 12:08:32 2023 +0200
+
+    affichage des coeurs
+
+[33mcommit 6639b0fe05f7f982aeab0d9ad9c9cbfdbdd59369[m
+Author: Florentin Garcia <florentin.grc@gmail.com>
+Date:   Sat May 13 11:59:19 2023 +0200
+
+    reglage probleme sprites sur les bords
+
+[33mcommit b897aee1dffa2317f4c4a2b2e4818cf391a506bd[m
+Author: Florentin Garcia <florentin.grc@gmail.com>
+Date:   Sat May 13 11:50:50 2023 +0200
+
+    gros commit code flo
+
+[33mcommit c67da33800cde0d818cdf10376939731a9d4741b[m[33m ([m[1;32mmaster[m[33m)[m
+Author: Florentin Garcia <florentin.grc@gmail.com>
+Date:   Tue May 9 15:58:29 2023 +0200
+
+    commit 09.05(3)
+
+[33mcommit 0a4121cc323b7e39f2e4b89ef57b6349b3137771[m
+Author: Florentin Garcia <florentin.grc@gmail.com>
+Date:   Tue May 9 15:55:57 2023 +0200
+
+    commit 09/05(3)
+
+[33mcommit 78ce4eca5f92dac62e519b8a0dddaf34875c3c47[m
+Author: Florentin Garcia <florentin.grc@gmail.com>
+Date:   Tue May 9 12:40:26 2023 +0200
+
+    commit
+
+[33mcommit 192fd70e3775c352766e0b01cf75c63fd3514557[m
+Author: Florentin Garcia <florentin.grc@gmail.com>
+Date:   Tue May 9 12:39:16 2023 +0200
+
+    commit 09/05
+
+[33mcommit 23b751d88f065cc69f19b859a337ecc87ac61087[m
+Author: PoloYaoman <unrememberedarcher@gmail.com>
+Date:   Tue May 9 11:59:34 2023 +0200
+
+    oups trop de choses a envoyer
+
+[33mcommit ce3782a503ec0384e6f2f5ea7b754901ce7b294e[m
+Author: PoloYaoman <unrememberedarcher@gmail.com>
+Date:   Tue May 9 11:58:59 2023 +0200
+
+    makefile qui marche
+
+[33mcommit e03418bb65b85d870c69347909958241571b807f[m
+Merge: 022382e 9fdbd77
+Author: PoloYaoman <unrememberedarcher@gmail.com>
+Date:   Tue May 9 11:21:30 2023 +0200
+
+    Merge branch 'master' of https://github.com/garciaflorentin/ProjectJeuxC-
+
+[33mcommit 022382ee7feb87675f5cb607fc1eb4d839ea07af[m
+Author: PoloYaoman <unrememberedarcher@gmail.com>
+Date:   Tue May 9 11:21:26 2023 +0200
+
+    makefile
+
+[33mcommit 9fdbd77cc021b967ef6da88c76ff5c9fb5f2f9ca[m
+Author: florentingarcia <florentin.grc@gmail;com>
+Date:   Tue May 9 10:11:29 2023 +0200
+
+    commit 09/05(1)
+
+[33mcommit bf5ad38115fd428d8536bad0e6d7a042e93c0a35[m
+Author: PoloYaoman <unrememberedarcher@gmail.com>
+Date:   Tue May 9 10:10:17 2023 +0200
+
+    more constructors
+
+[33mcommit 2d3ae10d92b0ac6386d5f4310f44bbe93acbc485[m
+Author: PoloYaoman <unrememberedarcher@gmail.com>
+Date:   Tue May 9 10:09:29 2023 +0200
+
+    commits for constructors
+
+[33mcommit 4824481944e641e0785ff62f977a1ba7c5c39c7c[m
+Merge: 38581c1 41513fa
+Author: PoloYaoman <unrememberedarcher@gmail.com>
+Date:   Tue May 9 09:47:15 2023 +0200
+
+    Merge branch 'master' of https://github.com/garciaflorentin/ProjectJeuxC-
+
+[33mcommit 38581c1a98a9e2630a27d4b9359cea926a46574c[m
+Author: PoloYaoman <unrememberedarcher@gmail.com>
+Date:   Tue May 9 09:47:11 2023 +0200
+
+    monster hpp
+
+[33mcommit 41513fadcb343da05af4603f3e68f2764578f56e[m
+Author: florentingarcia <florentin.grc@gmail;com>
+Date:   Tue May 9 09:46:50 2023 +0200
+
+    commit 09/05(1)
+
+[33mcommit 80f5ff8781ac985001a75fced865554a5b3c6ab1[m
+Merge: a5fb4cd 263590b
+Author: florentingarcia <florentin.grc@gmail;com>
+Date:   Tue May 9 08:41:24 2023 +0200
+
+    commit 08/05
+
+[33mcommit a5fb4cd282cef93034e0d73e00a7e037de095738[m
+Author: florentingarcia <florentin.grc@gmail;com>
+Date:   Tue May 9 08:36:42 2023 +0200
+
+    commit 08/05
+
+[33mcommit 263590b992fef37baf291bdecfca83b834344a0c[m
+Author: garciaflorentin <106597610+garciaflorentin@users.noreply.github.com>
+Date:   Sat May 6 19:58:01 2023 +0200
+
+    Mettre à jour UML04_05.drawio.svg
+
+[33mcommit 776d1e168509f3a22cbce62ba99f3764cced90a2[m
+Author: florentingarcia <florentin.grc@gmail;com>
+Date:   Sat May 6 19:57:44 2023 +0200
+
+    commit 06/05(3)
+
+[33mcommit 6de1b17551766acd059e61d9f77addc3265487bd[m
+Merge: 4f7ac7f c8a9830
+Author: florentingarcia <florentin.grc@gmail;com>
+Date:   Sat May 6 18:32:59 2023 +0200
+
+    Merge branch 'master' of https://github.com/garciaflorentin/ProjectJeuxC-
+
+[33mcommit 4f7ac7fefaf732eaf65642a4107a8710fd85231c[m
+Author: florentingarcia <florentin.grc@gmail;com>
+Date:   Sat May 6 18:32:43 2023 +0200
+
+    commit 06/05(2)
+
+[33mcommit c8a983092140e4990d6944b8a6694452a0e12b0e[m
+Author: garciaflorentin <106597610+garciaflorentin@users.noreply.github.com>
+Date:   Sat May 6 16:39:47 2023 +0200
+
+    Mettre à jour UML04_05.drawio.svg
+
+[33mcommit 0995e56cfd3648801318d7e8e7e33c540cc0cc78[m
+Author: garciaflorentin <106597610+garciaflorentin@users.noreply.github.com>
+Date:   Sat May 6 15:26:07 2023 +0200
+
+    Mettre à jour UML04_05.drawio.svg
+
+[33mcommit 78c535fdd4c4fdc235aa6341427e5416886bba13[m
+Author: garciaflorentin <106597610+garciaflorentin@users.noreply.github.com>
+Date:   Sat May 6 15:13:44 2023 +0200
+
+    Delete UML03_05.png
+
+[33mcommit c7a8f3c3455489a3f2b459b7fed8dc529ac4bf83[m
+Author: garciaflorentin <106597610+garciaflorentin@users.noreply.github.com>
+Date:   Sat May 6 15:13:05 2023 +0200
+
+    Mettre à jour UML04_05.drawio.svg
+
+[33mcommit d30b51aab493107876d57efa0abb86156784d818[m
+Author: garciaflorentin <106597610+garciaflorentin@users.noreply.github.com>
+Date:   Sat May 6 15:05:29 2023 +0200
+
+    Mettre à jour UML04_05.drawio.svg
+
+[33mcommit 70d7a8b88f3dd036ebcec44efc05b20f12821b98[m
+Author: florentingarcia <florentin.grc@gmail;com>
+Date:   Sat May 6 14:53:32 2023 +0200
+
+    commit 06/05
+
+[33mcommit 3b52a4fb16721c9b0ea87480912a979524309bab[m
+Merge: 48f285b 5639078
+Author: florentingarcia <florentin.grc@gmail;com>
+Date:   Fri May 5 15:28:20 2023 +0200
+
+    Merge branch 'master' of https://github.com/garciaflorentin/ProjectJeuxC-
+
+[33mcommit 48f285be2d91aacd77386ad65e6a932acb7b2f4e[m
+Author: florentingarcia <florentin.grc@gmail;com>
+Date:   Fri May 5 15:22:25 2023 +0200
+
+    commit 05/05
+
+[33mcommit b21dba2306fa31e30877a5e4743b0686f181c806[m
+Author: florentingarcia <florentin.grc@gmail;com>
+Date:   Fri May 5 14:40:00 2023 +0200
+
+    commit 05/05
+
+[33mcommit 5639078d3e775e77003ccc81e7673070f70a68ce[m
+Author: garciaflorentin <106597610+garciaflorentin@users.noreply.github.com>
+Date:   Fri May 5 13:27:57 2023 +0200
+
+    Ajouté(e) UML04_05.drawio.svg
+
+[33mcommit 734e5dc8758176cf227229b79ef240dec3a310ba[m
+Author: garciaflorentin <106597610+garciaflorentin@users.noreply.github.com>
+Date:   Fri May 5 13:21:21 2023 +0200
+
+    Add files via upload
+
+[33mcommit 166a8e589ea15934d7581d33a85716cf8caced08[m
+Author: garciaflorentin <106597610+garciaflorentin@users.noreply.github.com>
+Date:   Fri May 5 10:24:09 2023 +0200
+
+    Add files via upload
+    
+    Uml04/05
+
+[33mcommit c01e701af923b34911690174aaeff72d3c8db302[m
+Author: garciaflorentin <106597610+garciaflorentin@users.noreply.github.com>
+Date:   Thu May 4 15:53:02 2023 +0200
+
+    Ajouté(e) UML04_05.png
+
+[33mcommit cc1de38fb6d9ccd6c41011f808304c126d81aa9c[m
+Author: garciaflorentin <106597610+garciaflorentin@users.noreply.github.com>
+Date:   Wed May 3 18:28:24 2023 +0200
+
+    Add files via upload
+
+[33mcommit 362e823349886c73c9d8c079266c1fff3335a5b8[m
+Author: florentingarcia <florentin.grc@gmail;com>
+Date:   Mon May 1 12:12:34 2023 +0200
+
+    comitt 01/05
+
+[33mcommit 8e4ba60423838eb7978cb1276dd5577f2945614e[m
+Author: florentingarcia <florentin.grc@gmail;com>
+Date:   Sat Apr 29 12:37:59 2023 +0200
+
+    29/04
+
+[33mcommit 69146ee9f2834ab86843b7ee1be54e481ba90cf4[m
+Author: florentingarcia <florentin.grc@gmail;com>
+Date:   Thu Apr 27 20:38:32 2023 +0200
+
+    Ajoutez des fichiers projet.
+
+[33mcommit e2e9b57c3a0a83bb75622df45cd623ae844a96aa[m
+Author: florentingarcia <florentin.grc@gmail;com>
+Date:   Thu Apr 27 20:38:26 2023 +0200
+
+    Ajouter .gitattributes et .gitignore

@@ -16,6 +16,7 @@
 #include "TypeGround.hpp"
 #include "Wall.hpp"
 #include "TypeWall.hpp"
+#include "Projectile.hpp"
 
 
 class Map {
@@ -25,6 +26,7 @@ private:
 	std::vector<Object*>* toDraw;
 	std::vector<Object*>* _map;
 	std::vector<Object*>* _wallList;
+	std::vector<Object*>* _projectileList;
 	float LIMITE_Xneg= 0;
 	float LIMITE_Y=14350/2;
 	float LIMITE_X= 14350;
@@ -51,9 +53,7 @@ public:
 	
 	void createMap();
 
-	void putObjectToDraw(sf::Vector2f pos);
-	void putObjectToDraw2(std::vector<sf::Vector2f>* pos);
-	Object* getObject(sf::Vector2f pos);
+	void putObjectToDraw(std::vector<sf::Vector2f>* pos);
 
 
 	std::vector<Object*>* getMap() {

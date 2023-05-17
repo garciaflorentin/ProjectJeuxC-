@@ -69,12 +69,13 @@ void GameWindow::setScrollingView() {
 
 void GameWindow::pollEvent() {
 
-    if (this->window->pollEvent(*event)) { //permet de v�rifier s'il y a un �v�nement en attente dans la file d'attente des �v�nements, si c'st le cas event stock l'evenement
+    if (this->window->pollEvent(*event) || (*_game->getPlayerVector())[0]->useWeapon()|| (*_game->getPlayerVector())[0]->getProjectile()->isShooted()) { 
+        //permet de v�rifier s'il y a un �v�nement en attente dans la file d'attente des �v�nements, si c'st le cas event stock l'evenement
         if (event->type == sf::Event::Closed) { // event=fermeture de la fenetre ?
             window->close();
         }
-        else if(event->type == sf::Event::KeyPressed){// regarde si une touche du clavier à été pressé
-            //std::cout << " key " << std::endl;
+        else if(event->type == sf::Event::KeyPressed || (*_game->getPlayerVector())[0]->useWeapon() || (*_game->getPlayerVector())[0]->getProjectile()->isShooted()){// regarde si une touche du clavier à été pressé
+            std::cout << " key " << std::endl;
             _game->keyEvent(*event);// fait appel à la fonction move des sprites
             //_game->getPlayerVector()[1]->updateSprite();
         }
@@ -146,6 +147,12 @@ void GameWindow::draw() {
         window->draw(*(*_game->getPlayerVector())[i]->getSprite());
     }
    
+   Projectile* projectile= _game->drawProjectile(getCurrentWindowPos());
+   if(projectile!=nullptr){
+    std::cout<<"projectile draw"<<std::endl;
+     window->draw(*projectile->getSprite());
+   }else{   // std::cout<<"projectile nullptr"<<std::endl;
+}
 }
 
 

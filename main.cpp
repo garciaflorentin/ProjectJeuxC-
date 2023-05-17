@@ -7,9 +7,9 @@
 #include <string>
 #include <SFML/Graphics.hpp>
 #include "Heart.hpp"
-
+#include <ctime>
 int main(void) {
-
+    std::srand(std::time(nullptr));
 
     GameWindow _window;// cree la fenetre
     GameGestion* g=_window.getGame();

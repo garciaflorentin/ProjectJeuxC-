@@ -1,13 +1,11 @@
 #include "Heart.hpp"
 
 Heart::Heart(): numberOfQuarter(12) {
-		std::cout<< "Heart_constructor"<<std:: endl;
 
 	_textures = new std::vector<sf::Texture*>();
 	_sprites = new std::vector<sf::Sprite*>();
 	life = new std::vector<sf::Sprite*>();
 
-	std::cout << "j'ai initialisé les vector"<< std::endl;
 	
 	for (int i = 0; i < 5; i++) {
 		sf::Texture* texture = new sf::Texture();
@@ -21,7 +19,6 @@ Heart::Heart(): numberOfQuarter(12) {
 		_sprites->push_back(sprite);
 		//sprite->setPosition(i * 48.0, 0);
 	}
-	std::cout << "coeur entierement cree" << std::endl;
 	initlife();
 }
 
@@ -90,7 +87,6 @@ Heart::~Heart() {
 
 
 void Heart::initlife() {
-std::cout<<"entré initlife()"<< std::endl;
 	for (int i = 0; i < 3;i++){
 		sf::Sprite* sprite = new sf::Sprite();
 		*sprite = getHeart(4);
@@ -98,7 +94,6 @@ std::cout<<"entré initlife()"<< std::endl;
 		sprite->setPosition(i * 32, 0);
 	}
 	numberOfQuarter = 12;
-	std::cout<<"sortie initlife()"<< std::endl;
 
 }
 

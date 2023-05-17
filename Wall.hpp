@@ -24,6 +24,7 @@ public:
 	}
 
 	void collide(Object* o){
+		std::cout<<"wall"<<std::endl;
 		collideMusic->stop();
 		collideMusic->play();
 	}
@@ -36,7 +37,7 @@ public:
 
 	collideMusic=new sf::Music;
 
-	if (!collideMusic->openFromFile("/home/garcia/Bureau/ProjetC++  (travail)/ProjectJeuxC-/FreeSFX/GameSFX/Swoosh/musicCollideWall.wav"))
+	if (!collideMusic->openFromFile("musicCollideWall.wav"))
     {
         std::cout<<"erreur de chargement de collideMusic"<<std::endl;
     }

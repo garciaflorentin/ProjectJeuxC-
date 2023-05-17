@@ -33,12 +33,12 @@ Gain(const char* nameObject, sf::Vector2f initPos) : Object(nameObject,initPos){
 	_gain = rand() % 5;
     _sprite->setScale(0.f,0.f);// rendre le sprite transparent
     musicGain= new sf::Music;
-    if (!musicGain->openFromFile("/home/garcia/Bureau/ProjetC++  (travail)/ProjectJeuxC-/FreeSFX/GameSFX/PickUp/musicGain.wav"))
+    if (!musicGain->openFromFile("musicGain.wav"))
     {
         std::cout<<"erreur de chargement de musicGain"<<std::endl;
     }
     musicNoGain= new sf::Music;
-    if (!musicNoGain->openFromFile("/home/garcia/Bureau/ProjetC++  (travail)/ProjectJeuxC-/FreeSFX/GameSFX/Wrong/musicNoGain.wav"))
+    if (!musicNoGain->openFromFile("01_chest_open_1.wav"))
     {
         std::cout<<"erreur de chargement de musicNoGainOk"<<std::endl;
     }
@@ -55,12 +55,10 @@ Gain(const char* nameObject, sf::Vector2f initPos) : Object(nameObject,initPos){
 
     
 int getGain() const{
-        std::cout<<"getGain"<<std::endl;
         return _gain;
 }
 
 void collide(Object* o){
-    std::cout<<"afficheGain"<<std::endl;
     _sprite->setScale(48.f,48.f);
     if(!gainReaped){
         gainReaped=true;

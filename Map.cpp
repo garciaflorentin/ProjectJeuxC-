@@ -3,6 +3,7 @@
 Map::Map() {
 toDraw = new std::vector<Object*>;
 _wallList =new std::vector<Object*>;
+_projectileList = new std::vector<Object*>;
 
 _map = new std::vector<Object*>(10);
 for(int i= 0; i<10 ;i++){
@@ -16,31 +17,13 @@ Map::~Map() {
 	delete toDraw;
 	delete _map;
 	delete _wallList;
+	delete _projectileList;
 
 }
 
-void Map::putObjectToDraw(sf::Vector2f pos){
 
-	
-	for (auto it = _map->begin(); it != _map->end(); ++it) {
-		
 
-		// V�rifier si le pointeur n'est pas nul
-		if (*it) {
-
-			// Acc�der � l'objet point�*
-			Object* obj = *it;
-
-			if (obj->getPosition().x == pos.x && obj->getPosition().y == pos.y) {
-				toDraw->push_back(obj);
-			}
-
-		}
-	}
-	
-}
-
-void Map::putObjectToDraw2(std::vector<sf::Vector2f>* pos){
+void Map::putObjectToDraw(std::vector<sf::Vector2f>* pos){
 
 	
 	for (auto it = _map->begin(); it != _map->end(); ++it) {
@@ -61,30 +44,9 @@ void Map::putObjectToDraw2(std::vector<sf::Vector2f>* pos){
 	
 }
 
-Object* Map::getObject(sf::Vector2f pos){
-
-	
-	for (auto it = _map->begin(); it != _map->end(); ++it) {
-
-		// V�rifier si le pointeur n'est pas nul
-		if (*it) {
-
-			// Acc�der � l'objet point�*
-			Object* obj = *it;
-
-			if (obj->getPosition().x == pos.x && obj->getPosition().y == pos.y) {
-				return obj;
-			}
-
-		}
-	}
-	return nullptr;	
-}
-
-
 std::vector<Object*>* Map::objectToDraw(std::vector<sf::Vector2f>* currentWindow) {
 	toDraw->clear();
-	putObjectToDraw2(currentWindow);
+	putObjectToDraw(currentWindow);
 	//std::cout<<"toDraw->size()=="<<toDraw->size()<<std::endl;
 	return toDraw;	
 
@@ -110,10 +72,9 @@ void Map::addObject(Wall* w) {
 
 void Map::addObject(Chest* c) {
 	
-	_map->push_back(c->getGain());
-	//_wallList->push_back(c);
 	_map->push_back(c);
 	_wallList->push_back(c);
+	_map->push_back(c->getGain());
 
 
 }
