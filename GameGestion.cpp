@@ -150,7 +150,7 @@ int GameGestion::collidePosition(Object* object1, Object* object2) {
     }
 }
 
-void GameGestion::collideWall(Character* c, std::vector <Object*>& wallList,std::vector<int>& info) {
+void GameGestion::collideWall(Object* o, std::vector <Object*>& wallList,std::vector<int>& info) {
 	//std::cout<<"collideWall"<<std::endl;
 	bool collide =false;
 

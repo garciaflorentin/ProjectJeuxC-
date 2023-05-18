@@ -1,7 +1,7 @@
 #ifndef MONSTER_HPP
 #define MONSTER_HPP
 
-//#include "Character.hpp"
+#include "Character.hpp"
 #include "Player.hpp"
 
 #define SPR_SIZE 48

@@ -28,13 +28,11 @@ private:
 	std::vector<Object*>* toDraw;
 	std::vector<Object*>* _map;
 	std::vector<Object*>* _wallList;
-
 	std::vector<Monster*>* _monsterList;
-	
-	int LIMITE_Xneg= 0;
-	int LIMITE_Y=14350/2;
-	int LIMITE_X= 14350;
-	int LIMITE_Yneg=-14350/2;
+	float LIMITE_Xneg= 0;
+	float LIMITE_Y= 7125.f;
+	float LIMITE_X= 14350;
+	float LIMITE_Yneg=-7125.f;
 
 
 

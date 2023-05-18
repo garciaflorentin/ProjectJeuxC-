@@ -45,11 +45,15 @@ Projectile.o: Projectile.cpp Object.hpp Player.hpp TexturesLib.hpp
 	$(CPP) $(CPPFLAGS) -c Projectile.cpp 
 
 
+Monster.o: Monster.cpp Player.hpp
+	$(CPP) $(CPPFLAGS) -c Monster.cpp 
 
 
 
-jeu_de_base: main.o Projectile.o Heart.o TexturesLib.o Object.o LifeWindow.o Character.o Player.o Map.o GameGestion.o GameWindow.o Chest.o
-	$(LD) $(LDFLAGS) Projectile.o Chest.o Heart.o TexturesLib.o Object.o LifeWindow.o Character.o Player.o Map.o GameGestion.o GameWindow.o main.o -o jeu_de_base $(LIBS)
+
+
+jeu_de_base: main.o Monster.o Projectile.o Heart.o TexturesLib.o Object.o LifeWindow.o Character.o Player.o Map.o GameGestion.o GameWindow.o Chest.o
+	$(LD) $(LDFLAGS) Monster.o Projectile.o Chest.o Heart.o TexturesLib.o Object.o LifeWindow.o Character.o Player.o Map.o GameGestion.o GameWindow.o main.o -o jeu_de_base $(LIBS)
 
 
 clean:
