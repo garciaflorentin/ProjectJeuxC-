@@ -11,7 +11,6 @@ void Chest::collide(Object* o){
 }
 
 int Chest::open(){
-        std::cout<<"chestOpen"<<std::endl;
 	chestAnim->x = 1;
         _sprite->setTextureRect(sf::IntRect(chestAnim->x * 48 , chestAnim->y * CHEST_SIZE, CHEST_SIZE, CHEST_SIZE));
         _isOpen=true;

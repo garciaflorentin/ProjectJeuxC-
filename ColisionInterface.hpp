@@ -34,7 +34,7 @@ public:
     /// \param user The sprite Checked
     /// \param wall List of sprite
     /// \param info est  un vecteur indiquant le type de colide ([1]) et l'indice du mur concerné ([0])
-    virtual void collideWall(Character* c, std::vector <Object*>& wallList,std::vector<int>& info) = 0;
+    virtual void collideWall(Object* o, std::vector <Object*>& wallList,std::vector<int>& info) = 0;
 
     /// Check if the next move is possible
     /// \param user The sprite who will move

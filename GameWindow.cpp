@@ -69,12 +69,13 @@ void GameWindow::setScrollingView() {
 
 void GameWindow::pollEvent() {
 
-    if (this->window->pollEvent(*event)) { //permet de v�rifier s'il y a un �v�nement en attente dans la file d'attente des �v�nements, si c'st le cas event stock l'evenement
+
+    if (this->window->pollEvent(*event)) { 
+        //permet de v�rifier s'il y a un �v�nement en attente dans la file d'attente des �v�nements, si c'st le cas event stock l'evenement
         if (event->type == sf::Event::Closed) { // event=fermeture de la fenetre ?
             window->close();
         }
-        else if(event->type == sf::Event::KeyPressed){// regarde si une touche du clavier à été pressé
-            //std::cout << " key " << std::endl;
+        else if(event->type == sf::Event::KeyPressed ){// regarde si une touche du clavier à été pressé
             _game->keyEvent(*event);// fait appel à la fonction move des sprites
             //_game->getPlayerVector()[1]->updateSprite();
         }
@@ -126,6 +127,8 @@ inline void GameWindow::DisplayTile(std::vector<sf::Sprite> v) {
 
 void GameWindow::controlWindow(void) {
     this->pollEvent();
+    _game->updateGame();
+
 }
 
 GameGestion* GameWindow::getGame() {
@@ -146,6 +149,12 @@ void GameWindow::draw() {
         window->draw(*(*_game->getPlayerVector())[i]->getSprite());
     }
    
+   if(_game->drawProjectile(getCurrentWindowPos())){
+
+        std::cout<<"projectile draw"<<std::endl;
+        window->draw(*(*_game->getPlayerVector())[0]->getProjectile()->getSprite());
+        
+   }
 }
 
 

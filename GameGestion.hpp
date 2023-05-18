@@ -16,6 +16,7 @@
 #include "ColisionInterface.hpp"
 #include "Character.hpp"
 #include "Monster.hpp"
+#include "Projectile.hpp"
 #include "Monster.hpp"
 
 using namespace std;
@@ -59,22 +60,25 @@ public:
 	void keyEvent(sf::Event e);//focntion interaction 
 
 	std::vector<Object*>* toDrawUpdate(std::vector<sf::Vector2f>* currentWindow);
+	bool drawProjectile(std::vector<sf::Vector2f>* currentWindow);
 
-	//interface colision
-	void getWallMap(std::vector<Object*>& wallList);
+	void updateGame();
+
+//interface colision
 
 	void collideVisitor(Object* player,Object * o);
 
 
 	void collideWallGestion();
 
-	int collidePosition(Object* object1, Object* object2);
+void collideProjectileGestion();
 
-	void collideWall(Character* c, std::vector <Object*>& wallList,std::vector<int>& info) ;
+int collidePosition(Object* object1, Object* object2);
+
+void collideWall(Object* o, std::vector <Object*>& wallList,std::vector<int>& info) ;
 
 	void LimitMap();
 
-	int collidePosition2(Object* object1, Object* object2);
 
 
 	//mise a jour des monstres (et autres objets qui bougent eventuellement)

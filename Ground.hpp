@@ -24,7 +24,6 @@ public:
 
 
 	Ground(const char* nameObject, sf::Vector2f initPos, TypeGround _typeGround) : Tile(nameObject,initPos) {
-		std::cout<<"Ground_Constructor"<<std::endl;
 
 		TILE_SIZE=48;
 		int t = static_cast<int>(_typeGround);

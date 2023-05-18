@@ -29,7 +29,6 @@ Object::Object(const char* nameObject, sf::Vector2f initPos) : _isUse(false){
     _texture = new sf::Texture();
     _sprite = new sf::Sprite();
 
-    std::cout << "Object Constructeur" << std::endl;
     //nom
     name = nameObject;
     //_texturesLib = TexturesLib();
@@ -37,12 +36,6 @@ Object::Object(const char* nameObject, sf::Vector2f initPos) : _isUse(false){
     switch(loadSprite(nameObject, initPos)) {
 
     case 1: cout << "une erreur c'est produit lors du chargement l'initialisation de l'object " << name << endl; break;
-    case 2:
-        cout << "Nouvelle texture charge et "<<name<<" sprite cree " << endl; break;
-    
-    case 3:
-
-        cout << "Texture deja connu. Texture telecharg� et une copie de" << name <<" cree" << endl;
     }
 
 
@@ -54,7 +47,6 @@ Object::~Object() {
 }
 
 const int Object::loadSprite(const char* nameSprite, sf::Vector2f initPos) { // return false si la texture � deja etait charg� , recupere la texture et l'assigne au sprite de l'object et return true sinon charge la textures et assigne la texture au sprite de l'object.
-    std::cout << "loadsprite()" << std::endl;
     switch (TexturesLib::assignTexture(nameSprite, _texture))
     {
     case 1: return 1; break;
@@ -63,7 +55,6 @@ const int Object::loadSprite(const char* nameSprite, sf::Vector2f initPos) { // 
         _texture->setSmooth(true);
         _sprite->setTexture(*_texture);
         setPositionInBox(initPos);
-        std::cout << "loadsprite() : 2" << std::endl;
         return 2;
         break;
     
@@ -73,7 +64,6 @@ const int Object::loadSprite(const char* nameSprite, sf::Vector2f initPos) { // 
         _texture->setSmooth(true);
         _sprite->setTexture(*_texturesLib.getTexture(nameSprite));
         setPositionInBox(initPos);
-        std::cout << "loadsprite() : 3" << std::endl;
         return 3;
         break;
 

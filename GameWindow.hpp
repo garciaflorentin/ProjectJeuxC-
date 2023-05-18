@@ -9,7 +9,7 @@
 #include "LifeWindow.hpp"
 #include "GameGestion.hpp"
 #include "Heart.hpp"
-
+#include "Projectile.hpp"
 
 
 

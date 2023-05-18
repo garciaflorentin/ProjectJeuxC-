@@ -16,6 +16,7 @@
 #include "TypeGround.hpp"
 #include "Wall.hpp"
 #include "TypeWall.hpp"
+#include "Projectile.hpp"
 #include "Monster.hpp"
 
 using namespace std;
@@ -58,9 +59,7 @@ public:
 	
 	void createMap();
 
-	void putObjectToDraw(sf::Vector2f pos);
-	void putObjectToDraw2(std::vector<sf::Vector2f>* pos);
-	Object* getObject(sf::Vector2f pos);
+	void putObjectToDraw(std::vector<sf::Vector2f>* pos);
 
 
 	std::vector<Object*>* getMap() {

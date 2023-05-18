@@ -9,13 +9,12 @@
 #include <SFML/Audio.hpp>
 #include <ctime>
 #include "Heart.hpp"
-
+#include <ctime>
 using namespace std;
 
 int main(void) {
-
     std::srand(std::time(nullptr));
-    
+
     GameWindow _window;// cree la fenetre
     GameGestion* g=_window.getGame();
     Player* p= (*g->getPlayerVector())[0];
