@@ -4,6 +4,8 @@ Map::Map() {
 toDraw = new std::vector<Object*>;
 _wallList =new std::vector<Object*>;
 
+_monsterList =new std::vector<Monster*>;
+
 _map = new std::vector<Object*>(10);
 for(int i= 0; i<10 ;i++){
 	_map->push_back(nullptr);
@@ -13,10 +15,11 @@ for(int i= 0; i<10 ;i++){
 }
 
 Map::~Map() {
-	delete toDraw;
-	delete _map;
-	delete _wallList;
+	delete[] toDraw;
+	delete[] _map;
+	delete[] _wallList;
 
+	delete[] _monsterList;
 }
 
 void Map::putObjectToDraw(sf::Vector2f pos){
@@ -118,6 +121,11 @@ void Map::addObject(Chest* c) {
 
 }
 
+void Map::addObject(Monster* m) {
+	_map->push_back(m);
+	_monsterList->push_back(m);
+}
+
 void Map::removeObject(Object* o) {
 
 	sf::Vector2f pos = o->getPosition();
@@ -134,6 +142,10 @@ void Map::removeObject(Object* o) {
 
 std::vector<Object*>* Map::getWallList(){
 	return _wallList;
+}
+
+std::vector<Monster*>* Map::getMonsters(){
+	return _monsterList;
 }
 	
 
@@ -206,6 +218,24 @@ for (float x = 0; x < 50; x++) {
 	}
 }
 
-addObject(new Chest("Chests.png",{4,-50}));
+	//creation des monstres
+	for (float x = 0; x < 50; x++) {
+		for (float y = -25; y < 25; y++) {
+			if (x < 50) {
+				if (y <0) {
+					if (rand() % 40 == 0)	addObject(new Monster("crying_cat.png", {x,y}));
+				}
+			}
+		}
+	}
 
+
+	addObject(new Chest("Chests.png",{4,-50}));
+
+}
+
+void Map::updateObjects(Player* player) {
+	for (Monster* mnt : *_monsterList) {
+		mnt->update(player);
+	}
 }

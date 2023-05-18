@@ -16,7 +16,9 @@
 #include "TypeGround.hpp"
 #include "Wall.hpp"
 #include "TypeWall.hpp"
+#include "Monster.hpp"
 
+using namespace std;
 
 class Map {
 
@@ -25,10 +27,13 @@ private:
 	std::vector<Object*>* toDraw;
 	std::vector<Object*>* _map;
 	std::vector<Object*>* _wallList;
-	float LIMITE_Xneg= 0;
-	float LIMITE_Y=14350/2;
-	float LIMITE_X= 14350;
-	float LIMITE_Yneg=-14350/2;
+
+	std::vector<Monster*>* _monsterList;
+	
+	int LIMITE_Xneg= 0;
+	int LIMITE_Y=14350/2;
+	int LIMITE_X= 14350;
+	int LIMITE_Yneg=-14350/2;
 
 
 
@@ -47,6 +52,8 @@ public:
 	void addObject(Chest* c);
 	void addObject(Ground* g);
 
+	void addObject(Monster* m);
+
 	void removeObject(Object* o);
 	
 	void createMap();
@@ -61,8 +68,9 @@ public:
 	}
 
 	std::vector<Object*>* getWallList();
+	std::vector<Monster*>* getMonsters();
 
-	
+	void updateObjects(Player* player);	
 	
 };
 #endif

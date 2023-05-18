@@ -4,12 +4,16 @@ Player::Player(const char* nameObject, sf::Vector2f initPos): Character(nameObje
 	std::cout<<"player_constructeur"<< std::endl;
 	speed = 3;
 	damageAttack = 3;
+
+	_canOpenChest = true;
 	attackSimple=new sf::Music;
 	 if (!attackSimple->openFromFile("/home/garcia/Bureau/ProjetC++  (travail)/ProjectJeuxC-/bruit/attackSimple.wav"))
     {
         std::cout<<"erreur de chargement de attackSimple"<<std::endl;
     }
 }
+
+Player::~Player() {}
 
 void Player::openChest(Chest* chest) {
 

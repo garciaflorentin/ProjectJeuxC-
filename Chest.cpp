@@ -1,9 +1,13 @@
 #include "Chest.hpp"
 
 void Chest::collide(Object* o){
-        Player* p=dynamic_cast<Player*>(o);
-        p->openChest(this);
-        _gain->collide(o);
+        cout << "Chest collistion" << endl;
+        Character* p=dynamic_cast<Character*>(o);
+        if (p->canOpenChest()) {
+                cout << "Can open chest" << endl;
+                p->openChest(this);
+                _gain->collide(o);   
+        }
 }
 
 int Chest::open(){

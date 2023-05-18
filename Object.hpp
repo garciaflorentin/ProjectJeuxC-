@@ -15,7 +15,8 @@ class Object {
 protected:
     sf::Texture* _texture;
     sf::Sprite* _sprite;
-    const char* name;
+    //const char* name;
+    string name;
     bool _isUse;
     bool loadTexture(const char* spriteName);//focntion finalement inutile , je vais la virrer 
     
@@ -56,6 +57,10 @@ public:
     void setSprite(sf::Sprite& sprite) {
         _sprite = &sprite;
     }
+
+    string getName() const { return name; };
+
+    virtual void update(Object& player) {};
 
     //virtual void virtual_temporal_method_do_not_touch();
 

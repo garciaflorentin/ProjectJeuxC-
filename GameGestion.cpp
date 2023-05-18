@@ -6,12 +6,20 @@ GameGestion::GameGestion() {
 		_map= new Map();
 		_map->createMap();
 		playerVector = new std::vector<Player*>{ player, nullptr };
+		forestMusic = new sf::Music;
+		/*if (!forestMusic->openFromFile("/home/garcia/Bureau/ProjetC++  (travail)/ProjectJeuxC-/Music/forestMusic.wav"))
+    {
+        std::cout<<"erreur de chargement de forestMusic"<<std::endl;
+    }*/
+
+
 
 	}
 
 	GameGestion::~GameGestion() {
 		delete player;
 		delete _map;
+		delete forestMusic;
 	}
 
 
@@ -56,8 +64,8 @@ void GameGestion::keyEvent(sf::Event e) {
 	collideWallGestion();
 	LimitMap();
 
-	std::cout << "x =" << player->getPosition().x<< std::endl;
-	std::cout << "y =" << player->getPosition().y<< std::endl;
+	//std::cout << "x =" << player->getPosition().x<< std::endl;
+	//std::cout << "y =" << player->getPosition().y<< std::endl;
 
 }
 
@@ -80,25 +88,25 @@ int SPRITE_SIZE = object1->getBlockSize();
 
     if (sprite1x < sprite2x + SPRITE_SIZE && sprite1x + SPRITE_SIZE > sprite2x && sprite1y < sprite2y + SPRITE_SIZE &&
         sprite1y + SPRITE_SIZE > sprite2y) {
-			std::cout<<"up"<<std::endl;
+			//std::cout<<"up"<<std::endl;
         return 1; //up collide
     } else if (sprite1x < sprite2x + SPRITE_SIZE && sprite1x + SPRITE_SIZE > sprite2x + SPRITE_SIZE &&
                sprite1y + SPRITE_SIZE > sprite2y && sprite1y + SPRITE_SIZE < sprite2y + SPRITE_SIZE) {
-							std::cout<<"left"<<std::endl;
+							//std::cout<<"left"<<std::endl;
 
         return 2;//LEFT_COLLIDE; o2 tape sur la gauche de o1
     } else if (sprite1x < sprite2x && sprite1x + SPRITE_SIZE > sprite2x && sprite1y < sprite2y + SPRITE_SIZE &&
                sprite1y + SPRITE_SIZE > sprite2y) {
-							std::cout<<"right"<<std::endl;
+							//std::cout<<"right"<<std::endl;
 
         return 3;//RIGHT_COLLIDE;
     } else if (sprite1x < sprite2x + SPRITE_SIZE && sprite1x + SPRITE_SIZE > sprite2x &&
                sprite1y + SPRITE_SIZE > sprite2y && sprite1y + SPRITE_SIZE < sprite2y + SPRITE_SIZE) {
-							std::cout<<"down"<<std::endl;
+							//std::cout<<"down"<<std::endl;
 
         return 4;//DOWN_COLLIDE;
     }
-	std::cout<<"rien"<<std::endl;
+	//std::cout<<"rien"<<std::endl;
     return -1;//NO_COLLIDE;
 }
 
@@ -116,18 +124,18 @@ int GameGestion::collidePosition2(Object* object1, Object* object2) {
     float overlapX = std::min(rect1.left + rect1.width, rect2.left + rect2.width) - std::max(rect1.left, rect2.left);
     float overlapY = std::min(rect1.top + rect1.height, rect2.top + rect2.height) - std::max(rect1.top, rect2.top);
 
-    if (overlapX + 16 > overlapY) {
+    if (overlapX  > overlapY) {
         if (rect1.top< rect2.top) {std::cout<<"up"<<std::endl;
             return 1;
-        } else {							std::cout<<"down"<<std::endl;
+        } else {							//std::cout<<"down"<<std::endl;
 
             return 2;
         }
     } else {
-        if (rect1.left < rect2.left) {							std::cout<<"left"<<std::endl;
+        if (rect1.left < rect2.left) {							//std::cout<<"left"<<std::endl;
 
             return 3;
-        } else {							std::cout<<"right"<<std::endl;
+        } else {							//std::cout<<"right"<<std::endl;
 
             return 4;
         }
@@ -135,7 +143,7 @@ int GameGestion::collidePosition2(Object* object1, Object* object2) {
 }
 
 void GameGestion::collideWall(Character* c, std::vector <Object*>& wallList,std::vector<int>& info) {
-	std::cout<<"collideWall"<<std::endl;
+	//std::cout<<"collideWall"<<std::endl;
 	bool collide =false;
 
     for (int x = 0; x < wallList.size(); x++) {
@@ -147,13 +155,14 @@ void GameGestion::collideWall(Character* c, std::vector <Object*>& wallList,std:
 			info.push_back(colision);
 			collide=true;
             
+			//cout << "Collide = true" << endl;
         }
     }
 	if(!collide){
 		info.push_back(-1);
 		info.push_back(-1);
 	}
-    std::cout<<"info size= "<<info.size()<<std::endl;
+    //std::cout<<"info size= "<<info.size()<<std::endl;
 }
 
 
@@ -182,7 +191,7 @@ sf::Vector2f newpos;
 
 
 void GameGestion::collideWallGestion(){
-	std::cout<<"collideWallGestion"<<std::endl;
+	//std::cout<<"collideWallGestion"<<std::endl;
 
 	sf::Vector2f newpos;
 	std::vector<int> info;
@@ -220,13 +229,54 @@ void GameGestion::collideWallGestion(){
 }
 
 void GameGestion::collideVisitor(Object* player,Object * o){
-	std::cout<<"collideVisitor"<<std::endl;
+	//std::cout<<"collideVisitor"<<std::endl;
 	o->collide(player);
 }
 
+void GameGestion::updateMobs() {
+	if (time.getElapsedTime().asMilliseconds() >= 1000) {
+		_map->updateObjects(player);
 
-/*
-void GameGestion::addMonster(Monster& mst) {
-	_map->addObject(&mst);
-} 
-*/
+		
+		std::vector<Object*> wallList;
+		std::vector<Monster*> monsters;
+		wallList = *_map->getWallList();
+		monsters = *_map->getMonsters();
+
+		for (Monster* mnt : monsters) {
+			sf::Vector2f newpos;
+			std::vector<int> info;
+
+			collideWall(mnt,wallList,info);
+
+			int indice=info[0];
+			int typeCollide =info[1];
+
+			if(indice!= -1 && typeCollide!= -1){
+				switch (typeCollide){//orientation de la colision
+					case -1:
+						break;
+
+					case 1:// colision du joueur allant vers le bas
+						//on empeche le joueur de traverser le Wall
+						newpos = {mnt->getPosition().x,wallList[indice]->getPosition().y-48};
+						mnt->setPosition(newpos);
+						break;
+					case 2:// colision du joueur allant vers la haut
+						newpos = {mnt->getPosition().x,wallList[indice]->getPosition().y+wallList[indice]->getSprite()->getGlobalBounds().height};
+						mnt->setPosition(newpos);
+						break;
+					case 3:// colision du joueur allant vers la droite
+						newpos = {wallList[indice]->getPosition().x-48,mnt->getPosition().y};
+						mnt->setPosition(newpos);
+						break;
+					case 4:// colision du joueur allant vers le gauche
+						newpos =  {wallList[indice]->getPosition().x+48,mnt->getPosition().y};
+						mnt->setPosition(newpos);
+						break;
+				}
+				collideVisitor(mnt,wallList[indice]);
+			}
+		}
+	}
+}

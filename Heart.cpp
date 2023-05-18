@@ -103,6 +103,8 @@ std::cout<<"entré initlife()"<< std::endl;
 }
 
 void Heart::changelife(int i) { // i = 1 ou i=-1
+	cout << "i from changeLife() : " << i << endl;
+	cout << "NOQ = " << numberOfQuarter << endl;
 	getLife()->clear();
 	if (i > 0) {
 
@@ -112,6 +114,7 @@ void Heart::changelife(int i) { // i = 1 ou i=-1
 	}
 	else if (i < 0) {
 		if (numberOfQuarter > 0) {
+			cout << "Taken damage" << endl;
 			numberOfQuarter--;
 		}
 		

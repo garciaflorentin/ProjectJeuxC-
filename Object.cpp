@@ -49,8 +49,8 @@ Object::Object(const char* nameObject, sf::Vector2f initPos) : _isUse(false){
 }
 
 Object::~Object() {
-    delete _texture;
-    delete _sprite;
+    delete[] _texture;
+    delete[] _sprite;
 }
 
 const int Object::loadSprite(const char* nameSprite, sf::Vector2f initPos) { // return false si la texture � deja etait charg� , recupere la texture et l'assigne au sprite de l'object et return true sinon charge la textures et assigne la texture au sprite de l'object.
@@ -91,3 +91,16 @@ void Object::setPosition(sf::Vector2f& newPos){
 void Object::setPositionInBox(sf::Vector2f& newPos){
     _sprite->setPosition({newPos.x*48,newPos.y*48});
 }
+
+// string Object::getName() const {
+//     cout << "string conversion started" << endl;
+
+//     if (name != 0) {
+//         cout << "calling string constructor" << endl;
+//         string* ret_name = new string(name);
+//         cout << "string conversion ended" << endl;
+//         return *ret_name;
+//     }
+     
+//     else return "no_name";
+// }

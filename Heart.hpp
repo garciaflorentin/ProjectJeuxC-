@@ -6,6 +6,8 @@
 #include <cstring>
 //#include "TexturesLib.hpp"
 
+using namespace std;
+
 class Heart {
 private:
 
