@@ -19,14 +19,18 @@ class Projectile: public Object{
     Player* player;
     bool _isShooted;
     int direction;
+    int distance;
 
     public:
 
     Projectile(const char* nameObject, sf::Vector2f initPos,Player* player);
-    ~Projectile(){
-    }
+    ~Projectile(){}
+    Projectile(const Projectile& other);
+    Projectile& operator=(const Projectile& other);
 
-    void goTo(int dir);
+
+
+    void goTo();
 
     void initProjectile();
 
@@ -49,11 +53,20 @@ class Projectile: public Object{
         direction=_direction;
     }
 
-    void updateProjectile(){
-        this->goTo(getDirection());
+    int getDistance(){
+        return distance;
     }
 
+    void incrementeDistance(){
+        distance++;
+        
+    }
 
+    void setDistance(int i){
+        distance=i;
+    }
+
+    void arrowOutOfBounds();
     
 
 };

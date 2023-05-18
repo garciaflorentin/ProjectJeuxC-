@@ -8,6 +8,13 @@ Player::Player(const char* nameObject, sf::Vector2f initPos): Character(nameObje
 	orientation= Down;
 }
 
+Player::~Player() {
+		delete SwordAttack;
+		delete bowAttack;
+		delete wandAttack;
+		//delete projectile;
+	};
+
 void Player::openChest(Chest* chest) {
 
 
@@ -29,7 +36,7 @@ void Player::attack(Character* target){
 	setDamage(target);
 }
 
-bool Player::useWeapon(){
+bool Player::WeaponIsUsed(){
 		return ( bowAnim!=0 || swordAnim!=0 || wandAnim!=0);
 	}
 
@@ -55,13 +62,12 @@ void Player::useSword(){
 void Player::useBow(){
 	if(bowAnim>=1){
 
-		if(bowAnim==20){
+		if(bowAnim==20 && !projectile->isShooted()){
 			bowAttack->stop();
 			bowAttack->play();
+			projectile->setDirection(orientation);
 			projectile->setIsShooted(true);
 			projectile->initProjectile();
-			projectile->setDirection(orientation);
-			//shoot();
 			_sprite->setTextureRect(sf::IntRect(9*OBJECT_SIZE, anim->y*OBJECT_SIZE, OBJECT_SIZE, OBJECT_SIZE));
 			bowAnim=0;
 		}else if(bowAnim<20){bowAnim++;}
@@ -113,12 +119,6 @@ void Player::initWeapon(){
         std::cout<<"erreur de chargement de wandAttack"<<std::endl;
     }
 }
-
-void Player::shoot(){
-	projectile->goTo(orientation);
-}
-
-
 
 
 void Player::move(sf::Vector2i deplacement){

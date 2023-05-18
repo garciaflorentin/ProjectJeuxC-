@@ -54,7 +54,9 @@ public:
 	void keyEvent(sf::Event e);//focntion interaction 
 
 	std::vector<Object*>* toDrawUpdate(std::vector<sf::Vector2f>* currentWindow);
-	Projectile* drawProjectile(std::vector<sf::Vector2f>* currentWindow);
+	bool drawProjectile(std::vector<sf::Vector2f>* currentWindow);
+
+	void updateGame();
 
 //interface colision
 

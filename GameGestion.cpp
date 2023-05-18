@@ -1,5 +1,5 @@
 #include "GameGestion.hpp"
-
+#include <memory>
 
 GameGestion::GameGestion() {
 		player = new Player("player1.png", {0,0});
@@ -19,72 +19,84 @@ GameGestion::GameGestion() {
 		return _map->objectToDraw(currentWindow);
 	}
 
-	Projectile* GameGestion::drawProjectile(std::vector<sf::Vector2f>* currentWindow){
+	bool GameGestion::drawProjectile(std::vector<sf::Vector2f>* currentWindow){
 			Projectile* _projectile= (*playerVector)[0]->getProjectile();
+			if(_projectile->isShooted()){
+			std::cout<<"projX="<<(*playerVector)[0]->getProjectile()->getPosition().x<<std::endl;
+			std::cout<<"projY="<<(*playerVector)[0]->getProjectile()->getPosition().y<<std::endl;
+			}
 			if (_projectile->isShooted() && (_projectile->getPosition().x >= ((*currentWindow)[0].x - 200) && _projectile->getPosition().y >= ((*currentWindow)[0].y)-200) && (_projectile->getPosition().x <= ((*currentWindow)[1].x+50) && _projectile->getPosition().y < ((*currentWindow)[1].y)+50) )  {
-					return _projectile;
-				}else{return nullptr;}
+					return !((*playerVector)[0]->getProjectile()==nullptr);
+			}else{return false;}
 	}
 
 
 void GameGestion::keyEvent(sf::Event e) {
-	std::cout<<"keyevent"<<std::endl;
-	if(!player->useWeapon()){
-		std::cout<<"deplacement"<<std::endl;
-		if (e.key.code == sf::Keyboard::Down) {
-			//std::cout << " D " << std::endl;
-			player->getAnim()->x++;
-			player->getAnim()->y = 0;
-			player->setOrientation(Down);
-			player->move({0,5});
-		}
-		else if ((e.key.code == sf::Keyboard::Up)) {
-			//std::cout << " U " << std::endl;
-			player->getAnim()->x++;
-			player->getAnim()->y = 4;
-			player->setOrientation(Up);
-			player->move({0,-5});
-		}
-		else if ((e.key.code == sf::Keyboard::Right)) {
-			//std::cout << " R " << std::endl;
-			player->getAnim()->x++;
-			player->getAnim()->y = 2;
-			player->setOrientation(Right);
-			player->move({5,0});
-		}
-		else if ((e.key.code == sf::Keyboard::Left)) {
-			//std::cout << " L " << std::endl;
-			player->getAnim()->x++;
-			player->getAnim()->y = 6;
-			player->setOrientation(Left);
-			player->move({-5,0});
-		}
-		(*getPlayerVector())[0]->updateSprite();
-	}
-	
-		if ((e.key.code == sf::Keyboard::A || player->swordIsUsed())) 
-		{
-			player->useSword();
-		}else if ((e.key.code == sf::Keyboard::Z || player->bowIsUsed())) 
-		{
-			player->useBow();
-		}else if ((e.key.code == sf::Keyboard::E|| player->wandIsUsed())) 
-		{
-			player->useWand();
-		}
 
-while((*playerVector)[0]->getProjectile()->isShooted()){
+if(time.getElapsedTime().asMilliseconds()>= 100){
+		if(!player->WeaponIsUsed()){
+			if (e.key.code == sf::Keyboard::Down) {
+				//std::cout << " D " << std::endl;
+				player->getAnim()->x++;
+				player->getAnim()->y = 0;
+				player->setOrientation(2);
+				player->move({0,5});
+			}
+			else if ((e.key.code == sf::Keyboard::Up)) {
+				//std::cout << " U " << std::endl;
+				player->getAnim()->x++;
+				player->getAnim()->y = 4;
+				player->setOrientation(0);
+				player->move({0,-5});
+			}
+			else if ((e.key.code == sf::Keyboard::Right)) {
+				//std::cout << " R " << std::endl;
+				player->getAnim()->x++;
+				player->getAnim()->y = 2;
+				player->setOrientation(3);
+				player->move({5,0});
+			}
+			else if ((e.key.code == sf::Keyboard::Left)) {
+				//std::cout << " L " << std::endl;
+				player->getAnim()->x++;
+				player->getAnim()->y = 6;
+				player->setOrientation(1);
+				player->move({-5,0});
+			}
+			(*getPlayerVector())[0]->updateSprite();
+
+		}
+		
+			if ((e.key.code == sf::Keyboard::A )) 
+			{
+				player->useSword();
+			}else if ((e.key.code == sf::Keyboard::Z)) 
+			{
+				player->useBow();
+			}else if ((e.key.code == sf::Keyboard::E)) 
+			{
+				player->useWand();
+			}
+
+
+
+	}
+}
+
+void GameGestion::updateGame(){
+
+	if(player->WeaponIsUsed()){
+		if(player->swordIsUsed()){player->useSword();}
+		else if(player->bowIsUsed()){player->useBow();}
+		else{player->useWand();}
+		}
+		
+	player->getProjectile()->arrowOutOfBounds();
 	collideProjectileGestion();
-	(*playerVector)[0]->getProjectile()->updateProjectile();
 	collideWallGestion();
 	LimitMap();
+		
 }
-
-	std::cout << "x =" << player->getPosition().x<< std::endl;
-	std::cout << "y =" << player->getPosition().y<< std::endl;
-
-}
-
 
 
 void GameGestion::setPlayer(sf::Sprite* sprite) {
@@ -142,7 +154,6 @@ void GameGestion::collideWall(Object* o, std::vector <Object*>& wallList,std::ve
         }
     }
 	if(!collide){
-		std::cout<<"no collide ;  collideWall"<<std::endl;
 		info.push_back(-1);
 		info.push_back(-1);
 	}
@@ -215,13 +226,12 @@ void GameGestion::collideProjectileGestion(){
 
 	std::vector<int> infoProjectile;
 	std::vector<Object*> wallList;
-	Projectile* _projectile;
-
+	Projectile* _projectile;// = new Projectile(*(*playerVector)[0]->getProjectile());
+	//std::shared_ptr<Projectile> _projectile = std::make_shared<Projectile(*(*playerVector)[0]->getProjectile())>();
 	_projectile=(*playerVector)[0]->getProjectile();
-	std::cout<<(*playerVector)[0]->getProjectile()->getPosition().x<<std::endl;
-	std::cout<<(*playerVector)[0]->getProjectile()->getPosition().y<<std::endl;
 
 	if(_projectile->isShooted()){	
+
 		std::cout<<"projectilTire"<<std::endl;
 		wallList = *_map->getWallList();
 		collideWall(_projectile,wallList,infoProjectile);
@@ -232,8 +242,8 @@ void GameGestion::collideProjectileGestion(){
 
 		if(indice!= -1 && typeCollide!= -1){
 			std::cout<<"colisionProjectile : GameGestion"<<std::endl;
-			_projectile->getSprite()->scale(0,0);
 			collideVisitor(_projectile,wallList[indice]);
+			//delete _projectile;
 
 		}
 }
@@ -245,6 +255,7 @@ void GameGestion::collideVisitor(Object* o1,Object * o2){
 	o1->collide(o2);
 	o2->collide(o1);
 }
+
 
 
 

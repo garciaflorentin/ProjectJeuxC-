@@ -30,12 +30,7 @@ public:
 
 	Player(const char* nameObject, sf::Vector2f initPos);
 
-	~Player() {
-		delete SwordAttack;
-		delete bowAttack;
-		delete wandAttack;
-		//delete projectile;
-	};
+	~Player();
 
 	
 	void openChest(Chest* chest);
@@ -47,7 +42,7 @@ public:
 
 	//weapon
 	void initWeapon();
-	bool useWeapon();
+	bool WeaponIsUsed();
 	void useSword();
 	void useBow();
 	void useWand();
@@ -60,8 +55,6 @@ public:
 	bool wandIsUsed(){
 		return wandAnim!=0;
 	}
-
-	void shoot();
 
 	Projectile* getProjectile(){
 		return projectile;

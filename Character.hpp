@@ -16,7 +16,7 @@ protected:
 	int damageAttack;
 	double speed;
 	EnumOrientation _enumOrientation;
-	enum Orientation { Down, Up, Right, Left };
+	enum Orientation { Up, Left, Down, Right };
 	bool _isAlive;
 	int OBJECT_SIZE = 32;
 	int orientation;
