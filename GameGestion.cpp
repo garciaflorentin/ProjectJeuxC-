@@ -48,28 +48,28 @@ if(time.getElapsedTime().asMilliseconds()>= 100){
 				player->getAnim()->x++;
 				player->getAnim()->y = 0;
 				player->setOrientation(2);
-				player->move({0,5});
+				player->move({0,10});
 			}
 			else if ((e.key.code == sf::Keyboard::Up)) {
 				//std::cout << " U " << std::endl;
 				player->getAnim()->x++;
 				player->getAnim()->y = 4;
 				player->setOrientation(0);
-				player->move({0,-5});
+				player->move({0,-10});
 			}
 			else if ((e.key.code == sf::Keyboard::Right)) {
 				//std::cout << " R " << std::endl;
 				player->getAnim()->x++;
 				player->getAnim()->y = 2;
 				player->setOrientation(3);
-				player->move({5,0});
+				player->move({10,0});
 			}
 			else if ((e.key.code == sf::Keyboard::Left)) {
 				//std::cout << " L " << std::endl;
 				player->getAnim()->x++;
 				player->getAnim()->y = 6;
 				player->setOrientation(1);
-				player->move({-5,0});
+				player->move({-10,0});
 			}
 			(*getPlayerVector())[0]->updateSprite();
 
@@ -91,7 +91,7 @@ if(time.getElapsedTime().asMilliseconds()>= 100){
 	}
 }
 
-void GameGestion::updateGame(){
+int GameGestion::updateGame(){
 
 	if(player->WeaponIsUsed()){
 		if(player->swordIsUsed()){player->useSword();}
@@ -100,10 +100,20 @@ void GameGestion::updateGame(){
 		}
 		
 	player->getProjectile()->arrowOutOfBounds();
+
 	collideProjectileGestion();
+	//if(time.getElapsedTime().asMilliseconds()>= 300){
+	//collideMonsterGestion();
+	//}
+	collideMonsterGestion();
+
 	collideWallGestion();
 	LimitMap();
-
+	if(!player->isAlive()){
+		std::cout<<"MORT"<<std::endl;
+		return 0;
+	}
+	return 1;
 	//std::cout << "x =" << player->getPosition().x<< std::endl;
 	//std::cout << "y =" << player->getPosition().y<< std::endl;
 
@@ -165,6 +175,29 @@ void GameGestion::collideWall(Object* o, std::vector <Object*>& wallList,std::ve
 			collide=true;
             
 			//cout << "Collide = true" << endl;
+        }
+    }
+	if(!collide){
+		info.push_back(-1);
+		info.push_back(-1);
+	}
+    //std::cout<<"info size= "<<info.size()<<std::endl;
+}
+
+void GameGestion::collideMonster(Object* o, std::vector <Monster*>& wallList,std::vector<int>& info) {
+	//std::cout<<"collideWall"<<std::endl;
+	bool collide =false;
+
+    for (int x = 0; x < wallList.size(); x++) {
+
+		int colision =collidePosition(o, (wallList)[x]);
+
+        if (colision!=-1) {
+			std::cout<<"collide: collideMonster"<<"indice="<<x<<std::endl;
+			info.push_back(x);
+			info.push_back(colision);
+			collide=true;
+            
         }
     }
 	if(!collide){
@@ -240,8 +273,12 @@ void GameGestion::collideWallGestion(){
 
 void GameGestion::collideProjectileGestion(){
 
-	std::vector<int> infoProjectile;
+	std::vector<int> infoWall;
+	std::vector<int> infoMonster;
+
 	std::vector<Object*> wallList;
+	std::vector<Monster*> _monsterList;
+
 	Projectile* _projectile;// = new Projectile(*(*playerVector)[0]->getProjectile());
 	//std::shared_ptr<Projectile> _projectile = std::make_shared<Projectile(*(*playerVector)[0]->getProjectile())>();
 	_projectile=(*playerVector)[0]->getProjectile();
@@ -250,27 +287,85 @@ void GameGestion::collideProjectileGestion(){
 
 		//std::cout<<"projectilTire"<<std::endl;
 		wallList = *_map->getWallList();
-		collideWall(_projectile,wallList,infoProjectile);
+		collideWall(_projectile,wallList,infoWall);
+		_monsterList = *_map->getMonsters();
+		collideMonster(_projectile,_monsterList,infoMonster);
 
-		int indice =infoProjectile[0];
-		int typeCollide=infoProjectile[1];
+		int indice =infoWall[0];
+		int typeCollide=infoWall[1];
+		int indiceMonster=infoMonster[0];
+		int TypeCollideMonster=infoMonster[1];
+
 
 
 		if(indice!= -1 && typeCollide!= -1){
 			std::cout<<"colisionProjectile : GameGestion"<<std::endl;
 			collideVisitor(_projectile,wallList[indice]);
 			//delete _projectile;
-
+		}
+		if(indiceMonster!= -1 && TypeCollideMonster!= -1){
+			collideVisitor(_projectile,_monsterList[indiceMonster]);
 		}
 }
 }
 
+void GameGestion::collideMonsterGestion(){
+	//std::cout<<"collideWallGestion"<<std::endl;
+	sf::Vector2f newpos;
+	std::vector<int> infoPlayer;
+	std::vector<Monster*> _MonsterList;
+	_MonsterList = *_map->getMonsters();
+	collideMonster(player,_MonsterList,infoPlayer);
+	int indice=infoPlayer[0];
+	int typeCollide =infoPlayer[1];
+	std::vector<int> MonsterToKill;
+	/*player->targetInRange(_MonsterList,MonsterToKill);
+	for(int i=0;i<MonsterToKill.size();i++){
+		//if(player->swordIsUsed()){
+		_MonsterList[MonsterToKill[i]]->takeDamage(12);
+		//}
+
+	}*/
+
+	
+	 if((indice!= -1 && typeCollide!= -1)){
+	
+		//collideVisitor(player,_MonsterList[indice]);
+		switch (typeCollide){//orientation de la colision
+			case -1:break;
+
+			case 1:// colision du joueur allant vers le bas
+			//on empeche le joueur de traverser le Wall
+			newpos=  {player->getPosition().x,_MonsterList[indice]->getPosition().y-48};
+			player->setPosition(newpos);
+			break;
+			case 2:// colision du joueur allant vers la haut
+			newpos= {player->getPosition().x,_MonsterList[indice]->getPosition().y+_MonsterList[indice]->getSprite()->getGlobalBounds().height};
+			player->setPosition(newpos);
+			break;
+			case 3:// colision du joueur allant vers la droite
+			newpos=  {_MonsterList[indice]->getPosition().x-48,player->getPosition().y};
+			player->setPosition(newpos);
+			break;
+			case 4:// colision du joueur allant vers le gauche
+			newpos=  {_MonsterList[indice]->getPosition().x+48,player->getPosition().y};
+			player->setPosition(newpos);
+			break;
+		}
+		collideVisitor(player,_MonsterList[indice]);
+	 }
+}
+
+
 
 
 void GameGestion::collideVisitor(Object* o1,Object * o2){
-	o1->collide(o2);
+
 	o2->collide(o1);
+	o1->collide(o2);
+
 }
+
 
 void GameGestion::updateMobs() {
 	if (time.getElapsedTime().asMilliseconds() >= 1000) {

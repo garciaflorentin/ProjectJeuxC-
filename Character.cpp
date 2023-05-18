@@ -18,19 +18,16 @@ Character::~Character() {
 }
 
 void Character::takeDamage(int NOQ) {
-	cout << "Starting takeDamage()" << endl;
-	if (NOQ < 0) {
-		return;
-	}
-	else if (NOQ >= 12) {
-		_isAlive = false;
-	}
-	else {
-		for (int i = 0; i < NOQ; i++) {
-			cout << "calling removeLife()" << endl;
+	std::cout<<"Character::takeDamage"<<std::endl;
+	if(0<NOQ<=life->getNOQ()){
+	for (int i = 0; i < NOQ; i++) {
 			life->removeLife();
 		}
 	}
+	if(life->getNOQ()<=0){
+		_isAlive=false;
+	}
+	
 }
 
 void Character::setUpCharacter(){

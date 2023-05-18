@@ -74,13 +74,12 @@ void Map::addObject(Chest* c) {
 	_map->push_back(c);
 	_wallList->push_back(c);
 	_map->push_back(c->getGain());
-
-
 }
 
 void Map::addObject(Monster* m) {
 	_map->push_back(m);
 	_monsterList->push_back(m);
+	//_wallList->push_back(m);
 }
 
 void Map::removeObject(Object* o) {
@@ -180,19 +179,27 @@ for (float x = 0; x < 50; x++) {
 		for (float y = -25; y < 25; y++) {
 			if (x < 50) {
 				if (y <0) {
-					if (rand() % 40 == 0)	addObject(new Monster("crying_cat.png", {x,y}));
+					if (rand() % 200 == 0)	addObject(new Monster("crying_cat.png", {x,y}));
 				}
 			}
 		}
 	}
 
 
-	addObject(new Chest("Chests.png",{4,-50}));
 
 }
 
 void Map::updateObjects(Player* player) {
-	for (Monster* mnt : *_monsterList) {
-		mnt->update(player);
+
+	for (int i=0;i<_monsterList->size();i++)
+	{
+		if (!(*_monsterList)[i]->isAlive())
+		{
+			(*_monsterList)[i]->getSprite()->scale(0, 0);
+		}
+		else
+		{
+			(*_monsterList)[i]->update(player);
+		}
 	}
 }

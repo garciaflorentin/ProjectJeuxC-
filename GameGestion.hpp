@@ -62,20 +62,25 @@ public:
 	std::vector<Object*>* toDrawUpdate(std::vector<sf::Vector2f>* currentWindow);
 	bool drawProjectile(std::vector<sf::Vector2f>* currentWindow);
 
-	void updateGame();
+	int updateGame();
 
 //interface colision
 
 	void collideVisitor(Object* player,Object * o);
 
 
-	void collideWallGestion();
+
+void collideWallGestion();
 
 void collideProjectileGestion();
+
+void collideMonsterGestion();
 
 int collidePosition(Object* object1, Object* object2);
 
 void collideWall(Object* o, std::vector <Object*>& wallList,std::vector<int>& info) ;
+void collideMonster(Object* o, std::vector <Monster*>& wallList,std::vector<int>& info);
+
 
 	void LimitMap();
 

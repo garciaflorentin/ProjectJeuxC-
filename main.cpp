@@ -25,8 +25,12 @@ int main(void) {
     while (_window.isRunning()) {
         g->updateMobs();
         
-        _window.controlWindow();
+        int fin=_window.controlWindow();
         _window.display();
+        if(fin==0){
+            std::cout<<"close"<<std::endl;
+          //  _window.getWindow()->close();
+        }
     }
 
     return EXIT_SUCCESS;

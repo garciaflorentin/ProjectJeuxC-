@@ -9,8 +9,9 @@
 #include "Object.hpp"
 #include "Player.hpp"
 #include "TexturesLib.hpp"
+#include "Monster.hpp"
 class Player;
-
+class Monster;
 
 class Projectile: public Object{
 
@@ -35,6 +36,7 @@ class Projectile: public Object{
     void initProjectile();
 
     void collide(Object* o);
+
     const int getBlockSize(){return 32;}
 
     bool isShooted(){

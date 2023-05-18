@@ -1,4 +1,5 @@
 #include "Player.hpp"
+#include <cmath>
 
 Player::Player(const char* nameObject, sf::Vector2f initPos): Character(nameObject,initPos) {
 	speed = 3;
@@ -18,7 +19,6 @@ Player::~Player() {
 	};
 
 void Player::openChest(Chest* chest) {
-
 
 	if (!chest->isOpen()) {
 		int gain= chest->open();
@@ -129,3 +129,34 @@ void Player::move(sf::Vector2i deplacement){
 }
 
 
+void Player::collide(Object* o){
+	 if(typeid(*o) == typeid(Monster)){
+		Monster* target=dynamic_cast<Monster*>(o);
+		std::cout<<"swordIsUsed()="<<swordIsUsed()<<std::endl;
+		if(swordIsUsed()){
+			std::cout<<"monsterTakeDamage"<<std::endl;
+			std::cout<<"	target->getlife()->getNOQ()="<<target->getlife()->getNOQ()<<std::endl;
+			 target->takeDamage(12);
+		}else{ if(time.getElapsedTime().asMilliseconds()>= 1000){
+			takeDamage(1);
+			}
+						std::cout<<"PlayerTakeDamage"<<std::endl;
+
+		}
+    }
+}
+
+
+void Player::targetInRange(std::vector<Monster*>& targetList,std::vector<int> indiceToKill){
+	float _x1=getPosition().x;
+	float _y1=getPosition().y;
+
+	for(int i=0;i<targetList.size();i++){
+		float _x2=targetList[i]->getPosition().x;
+		float _y2=targetList[i]->getPosition().y;
+		float distance = std::sqrt(std::pow(_x2 - _x1, 2) + std::pow(_y2 - _y1, 2));
+		if(distance<96){
+			indiceToKill.push_back(i);
+		}		
+	}
+}

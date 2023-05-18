@@ -5,16 +5,19 @@
 #include <SFML/Audio.hpp>
 #include <iostream>
 #include <cstring>
+#include <ctime>
 #include "Character.hpp"
 #include "Chest.hpp"
 #include "Projectile.hpp"
+#include "Monster.hpp"
 class Chest;
 class Projectile;
-
+class Monster;
 class Player : public Character {
 
 private:
-	
+	sf::Clock time;
+
 	sf::Music* SwordAttack;
 	sf::Music* bowAttack;
 	sf::Music* wandAttack;
@@ -41,7 +44,7 @@ public:
 	void attack(Character* target) ;
 	void move(sf::Vector2i deplacement);
 
-	void collide(Object* o){};
+	void collide(Object* o);
 
 	//weapon
 	void initWeapon();
@@ -62,6 +65,8 @@ public:
 	Projectile* getProjectile(){
 		return projectile;
 	}
+
+void targetInRange(std::vector<Monster*>& targetList,std::vector<int> indiceToKill);
 
 
 };

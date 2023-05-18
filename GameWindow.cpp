@@ -125,9 +125,13 @@ inline void GameWindow::DisplayTile(std::vector<sf::Sprite> v) {
 }
 
 
-void GameWindow::controlWindow(void) {
+int GameWindow::controlWindow(void) {
     this->pollEvent();
-    _game->updateGame();
+    int fin=_game->updateGame();
+    if(fin==0){
+        return 0;
+    }
+    return 1;
 
 }
 

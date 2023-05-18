@@ -59,13 +59,27 @@ void Projectile::initProjectile(){
 
 
  void Projectile::collide(Object* o){
+    std::cout<<"ProjectileCollideObject"<<std::endl;
+
+   if(typeid(*o) == typeid(Monster)){
+        std::cout<<"ProjectcollideAMonster"<<std::endl;
+        Monster* target=dynamic_cast<Monster*>(o);
+        target->takeDamage(12);
+    }
+
     distance=0;
     _isShooted=false;
-    std::cout<<"ProjectcollideAobject"<<std::endl;
+
  }
 
 
+
+
+ 
+
+
 void Projectile::arrowOutOfBounds(){
+
     if(isShooted() && distance<= 96){
 			goTo();
 			incrementeDistance();

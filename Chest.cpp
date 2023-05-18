@@ -2,13 +2,19 @@
 
 void Chest::collide(Object* o){
         cout << "Chest collistion" << endl;
+        if(typeid(*o) == typeid(Character)){
         Character* p=dynamic_cast<Character*>(o);
         if (p->canOpenChest()) {
                 cout << "Can open chest" << endl;
                 p->openChest(this);
                 _gain->collide(o);   
         }
+        }
 }
+
+
+
+
 
 int Chest::open(){
 	chestAnim->x = 1;

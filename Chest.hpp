@@ -9,7 +9,9 @@
 #include "Tile.hpp"
 #include "Object.hpp"
 #include "Character.hpp"
+//#include "Player.hpp"
 class Gain;
+
 
 class Chest : public Tile{
 
@@ -51,6 +53,7 @@ sf::Vector2f getPosition() {
     }
     
     void collide(Object* o);
+    
     
     const int getBlockSize(){
 		return CHEST_SIZE;

@@ -3,6 +3,8 @@
 
 #include "Character.hpp"
 #include "Player.hpp"
+class Player;
+
 
 #define SPR_SIZE 48
 
@@ -36,11 +38,16 @@ class Monster : public Character {
         
         void update(Player* pl);      
 
-        void collide(Object* o) {};  
+        void collide(Object* o) {
+            std::cout<<"monsterCollide"<<std::endl;
+        };  
 
         void openChest(Chest* chest) {};
         
         //bool fireball();
+
 };
 
 #endif
+
+

@@ -38,10 +38,10 @@ GameGestion.o: GameGestion.cpp Object.hpp Player.hpp Character.hpp
 Map.o: Map.cpp Object.hpp Player.hpp Gain.hpp TexturesLib.hpp Tile.hpp Object.hpp Character.hpp Chest.hpp Ground.hpp TypeGround.hpp Monster.hpp
 	$(CPP) $(CPPFLAGS) -c Map.cpp 
 
-Chest.o: Chest.cpp Gain.hpp Object.hpp Player.hpp Character.hpp Tile.hpp TexturesLib.hpp
+Chest.o: Chest.cpp Gain.hpp Object.hpp Character.hpp Player.hpp  Tile.hpp TexturesLib.hpp
 	$(CPP) $(CPPFLAGS) -c Chest.cpp 
 
-Projectile.o: Projectile.cpp Object.hpp Player.hpp TexturesLib.hpp
+Projectile.o: Projectile.cpp Object.hpp Player.hpp TexturesLib.hpp Monster.hpp
 	$(CPP) $(CPPFLAGS) -c Projectile.cpp 
 
 
