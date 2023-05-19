@@ -22,7 +22,7 @@ int main(void)
     sf::Sprite *sp = p->getSprite();
     g->setPlayer(sp); // decoupe le sprite en ses differentes orientation , l'ajoute au vecteur de sprite de GameGestion et initialise le vecteur de mouvement.
 
-    _window.limitFrameRate(100);
+    _window.limitFrameRate(200);
 
     while (_window.isRunning())
     {
