@@ -3,7 +3,7 @@
 
 /// Special library
 #include <SFML/Graphics.hpp>
-
+#include <SFML/Audio.hpp>
 /// STL
 #include <iostream>
 #include <vector>
@@ -16,7 +16,7 @@
 #include "ColisionInterface.hpp"
 #include "Character.hpp"
 #include "Monster.hpp"
-
+#include "Projectile.hpp"
 #include "Monster.hpp"
 
 using namespace std;
@@ -24,11 +24,15 @@ using namespace std;
 class GameGestion : public ColisionInterface{
 private:
 
-	//sf::Sprite* player1; //sprite du joueur
 	std::vector< Player*>* playerVector;
 	Player* player;
 	sf::Clock time;
 	Map* _map;
+	sf::Music* forestMusic;
+	sf::Music townMusic;
+	sf::Music MountainMusic;
+	sf::Music BeatchMusic;
+
 
 public:
 
@@ -56,26 +60,38 @@ public:
 	void keyEvent(sf::Event e);//focntion interaction 
 
 	std::vector<Object*>* toDrawUpdate(std::vector<sf::Vector2f>* currentWindow);
+	bool drawProjectile(std::vector<sf::Vector2f>* currentWindow);
 
-	//interface colision
-	void getWallMap(std::vector<Object*>& wallList);
+	int updateGame();
+
+//interface colision
 
 	void collideVisitor(Object* player,Object * o);
 
 
-	void collideWallGestion();
 
-	int collidePosition(Object* object1, Object* object2);
+void collideWallGestion();
 
-	void collideWall(Character* c, std::vector <Object*>& wallList,std::vector<int>& info) ;
+void collideProjectileGestion();
+
+void collideMonsterGestion();
+
+int collidePosition(Object* object1, Object* object2);
+
+void collideWall(Object* o, std::vector <Object*>& wallList,std::vector<int>& info) ;
+void collideMonster(Object* o, std::vector <Monster*>& wallList,std::vector<int>& info);
+
 
 	void LimitMap();
 
-	int collidePosition2(Object* object1, Object* object2);
 
 
 	//mise a jour des monstres (et autres objets qui bougent eventuellement)
 	void updateMobs();
 
+
+//musique gestion
+
+void musicGestion();
 };
 #endif

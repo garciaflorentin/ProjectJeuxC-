@@ -16,6 +16,7 @@
 #include "TypeGround.hpp"
 #include "Wall.hpp"
 #include "TypeWall.hpp"
+#include "Projectile.hpp"
 #include "Monster.hpp"
 
 using namespace std;
@@ -27,13 +28,11 @@ private:
 	std::vector<Object*>* toDraw;
 	std::vector<Object*>* _map;
 	std::vector<Object*>* _wallList;
-
 	std::vector<Monster*>* _monsterList;
-	
-	int LIMITE_Xneg= 0;
-	int LIMITE_Y=14350/2;
-	int LIMITE_X= 14350;
-	int LIMITE_Yneg=-14350/2;
+	float LIMITE_Xneg= 0;
+	float LIMITE_Y= 7125.f;
+	float LIMITE_X= 14350;
+	float LIMITE_Yneg=-7125.f;
 
 
 
@@ -42,7 +41,7 @@ public:
 	Map();
 	~Map();
 
-	void getLimitMap(std::vector<int>& limit){
+	void getLimitMap(std::vector<float>& limit){
 		limit={LIMITE_X,LIMITE_Y,LIMITE_Xneg,LIMITE_Yneg};
 	}
 
@@ -58,9 +57,7 @@ public:
 	
 	void createMap();
 
-	void putObjectToDraw(sf::Vector2f pos);
-	void putObjectToDraw2(std::vector<sf::Vector2f>* pos);
-	Object* getObject(sf::Vector2f pos);
+	void putObjectToDraw(std::vector<sf::Vector2f>* pos);
 
 
 	std::vector<Object*>* getMap() {

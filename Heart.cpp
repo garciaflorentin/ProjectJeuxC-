@@ -1,13 +1,11 @@
 #include "Heart.hpp"
 
 Heart::Heart(): numberOfQuarter(12) {
-		std::cout<< "Heart_constructor"<<std:: endl;
 
 	_textures = new std::vector<sf::Texture*>();
 	_sprites = new std::vector<sf::Sprite*>();
-	life = new std::vector<sf::Sprite*>();
+	life = new std::vector<sf::Sprite>();
 
-	std::cout << "j'ai initialisé les vector"<< std::endl;
 	
 	for (int i = 0; i < 5; i++) {
 		sf::Texture* texture = new sf::Texture();
@@ -21,7 +19,6 @@ Heart::Heart(): numberOfQuarter(12) {
 		_sprites->push_back(sprite);
 		//sprite->setPosition(i * 48.0, 0);
 	}
-	std::cout << "coeur entierement cree" << std::endl;
 	initlife();
 }
 
@@ -34,7 +31,7 @@ Heart::Heart(const Heart& other)
 	_sprites = new std::vector<sf::Sprite*>(*other._sprites);
 
 	// Copie les vies
-	life = new std::vector<sf::Sprite*>(*other.life);
+	life = new std::vector<sf::Sprite>(*other.life);
 
 	// Copie le nombre de quartiers
 	numberOfQuarter = other.numberOfQuarter;
@@ -60,7 +57,7 @@ Heart& Heart::operator=(const Heart& other)
 		delete life;
 
 		// Copie les vies
-		life = new std::vector<sf::Sprite*>(*other.life);
+		life = new std::vector<sf::Sprite>(*other.life);
 
 		// Copie le nombre de quartiers
 		numberOfQuarter = other.numberOfQuarter;
@@ -82,23 +79,19 @@ Heart::~Heart() {
 	}
 	delete _sprites;
 
-	for (auto it = life->begin(); it != life->end(); ++it) {
-		delete* it;
-	}
 	delete life;
 }
 
 
 void Heart::initlife() {
-std::cout<<"entré initlife()"<< std::endl;
-	for (int i = 0; i < 3;i++){
-		sf::Sprite* sprite = new sf::Sprite();
-		*sprite = getHeart(4);
-		life->push_back(sprite);
-		sprite->setPosition(i * 32, 0);
+
+	life->push_back(*(*_sprites)[4]);
+	life->push_back(*(*_sprites)[4]);
+	life->push_back(*(*_sprites)[4]);
+	for (int i = 0; i < 3; i++) {
+			(*life)[i].setPosition(i*32.0,0);
 	}
 	numberOfQuarter = 12;
-	std::cout<<"sortie initlife()"<< std::endl;
 
 }
 
@@ -122,32 +115,32 @@ void Heart::changelife(int i) { // i = 1 ou i=-1
 	}
 		switch(numberOfQuarter/4) {
 		case 0:
-				life->push_back((*_sprites)[numberOfQuarter%4]);
-				life->push_back((*_sprites)[0]);
-				life->push_back((*_sprites)[0]);
+				life->push_back(*(*_sprites)[numberOfQuarter%4]);
+				life->push_back(*(*_sprites)[0]);
+				life->push_back(*(*_sprites)[0]);
 			break;
 
 		case 1:
-				life->push_back((*_sprites)[4]);
-				life->push_back((*_sprites)[numberOfQuarter % 4]);
-				life->push_back((*_sprites)[0]);
+				life->push_back(*(*_sprites)[4]);
+				life->push_back(*(*_sprites)[numberOfQuarter % 4]);
+				life->push_back(*(*_sprites)[0]);
 			break;
 
 		case 2:
-				life->push_back((*_sprites)[4]);
-				life->push_back((*_sprites)[4]);
-				life->push_back((*_sprites)[numberOfQuarter % 4]);
+				life->push_back(*(*_sprites)[4]);
+				life->push_back(*(*_sprites)[4]);
+				life->push_back(*(*_sprites)[numberOfQuarter % 4]);
 			break;
 
 		case 3:
-				life->push_back((*_sprites)[4]);
-				life->push_back((*_sprites)[4]);
-				life->push_back((*_sprites)[4]);
+				life->push_back(*(*_sprites)[4]);
+				life->push_back(*(*_sprites)[4]);
+				life->push_back(*(*_sprites)[4]);
 			break;
 		}
 
 		for (int i = 0; i < 3; i++) {
-			(*life)[i]->setPosition(i*32.0,0);
+			(*life)[i].setPosition(i*32.0,0);
 		}
 }
 

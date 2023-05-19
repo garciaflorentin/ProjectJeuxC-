@@ -9,7 +9,7 @@
 #include "LifeWindow.hpp"
 #include "GameGestion.hpp"
 #include "Heart.hpp"
-
+#include "Projectile.hpp"
 
 
 
@@ -90,7 +90,7 @@ public:
 
     /// \return true if the window is open
     bool isRunning(void);
-    void controlWindow(void); //check les event
+    int controlWindow(void); 
 
 
     /// Limit FPS

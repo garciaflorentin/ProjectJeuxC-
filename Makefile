@@ -38,14 +38,22 @@ GameGestion.o: GameGestion.cpp Object.hpp Player.hpp Character.hpp
 Map.o: Map.cpp Object.hpp Player.hpp Gain.hpp TexturesLib.hpp Tile.hpp Object.hpp Character.hpp Chest.hpp Ground.hpp TypeGround.hpp Monster.hpp
 	$(CPP) $(CPPFLAGS) -c Map.cpp 
 
-Chest.o: Chest.cpp Gain.hpp Object.hpp Player.hpp Character.hpp Tile.hpp TexturesLib.hpp
+Chest.o: Chest.cpp Gain.hpp Object.hpp Character.hpp Player.hpp  Tile.hpp TexturesLib.hpp
 	$(CPP) $(CPPFLAGS) -c Chest.cpp 
 
+Projectile.o: Projectile.cpp Object.hpp Player.hpp TexturesLib.hpp Monster.hpp
+	$(CPP) $(CPPFLAGS) -c Projectile.cpp 
+
+
+Monster.o: Monster.cpp Player.hpp
+	$(CPP) $(CPPFLAGS) -c Monster.cpp 
 
 
 
-jeu_de_base: main.o Heart.o TexturesLib.o Object.o LifeWindow.o Character.o Player.o Map.o GameGestion.o GameWindow.o Chest.o Monster.o
-	$(LD) $(LDFLAGS) Chest.o Heart.o TexturesLib.o Object.o LifeWindow.o Character.o Player.o Map.o GameGestion.o GameWindow.o Monster.o main.o -o jeu_de_base $(LIBS)
+
+
+jeu_de_base: main.o Monster.o Projectile.o Heart.o TexturesLib.o Object.o LifeWindow.o Character.o Player.o Map.o GameGestion.o GameWindow.o Chest.o
+	$(LD) $(LDFLAGS) Monster.o Projectile.o Chest.o Heart.o TexturesLib.o Object.o LifeWindow.o Character.o Player.o Map.o GameGestion.o GameWindow.o main.o -o jeu_de_base $(LIBS)
 
 
 clean:

@@ -35,12 +35,13 @@ GameWindow::~GameWindow(void) {
 // view
 
 void GameWindow::setScrollingView() {
-
-    _view->reset(sf::FloatRect(0,0,getWindowDim().x,getWindowDim().y)); // coordoné du coin haut gauche et du coin bas droit
+    float viewX=getWindowDim().x-300;
+    float viewY=getWindowDim().y-225;
+    _view->reset(sf::FloatRect(0,0,viewX,viewY)); // coordoné du coin haut gauche et du coin bas droit
    positionCentre = { getWindowDim().x / 2, getWindowDim().y / 2 };// coordoné du centre de l'ecran
-   positionCentre.x= (*_game->getPlayerVector())[0]->getPosition().x + ((*_game->getPlayerVector())[0]->getBlockSize()/2) - (getWindowDim().x / 2);// si le perso passe la moitié de l'ecran selon x je change la position du centre 
-   positionCentre.y = (*_game->getPlayerVector())[0]->getPosition().y + ((*_game->getPlayerVector())[0]->getBlockSize() / 2) - (getWindowDim().y / 2);// si le perso passe la moitié de l'ecran selon y je change la position du centre 
-  std::vector<int> limitMap;
+   positionCentre.x= (*_game->getPlayerVector())[0]->getPosition().x + ((*_game->getPlayerVector())[0]->getBlockSize()/2) - (viewX/ 2);// si le perso passe la moitié de l'ecran selon x je change la position du centre 
+   positionCentre.y = (*_game->getPlayerVector())[0]->getPosition().y + ((*_game->getPlayerVector())[0]->getBlockSize() / 2) - (viewY/ 2);// si le perso passe la moitié de l'ecran selon y je change la position du centre 
+  std::vector<float> limitMap;
   _game->getMap()->getLimitMap(limitMap);
 
    //on ne peut pas filmer en dehors de la map  
@@ -57,7 +58,7 @@ void GameWindow::setScrollingView() {
        
 
    // on met a jour la vu en changeant la position du coin haut gauche
-   _view->reset(sf::FloatRect(positionCentre.x, positionCentre.y, getWindowDim().x, getWindowDim().y));
+   _view->reset(sf::FloatRect(positionCentre.x, positionCentre.y, viewX, viewY));
    
    // on applique la view a la window
    window->setView(*_view);
@@ -68,14 +69,14 @@ void GameWindow::setScrollingView() {
 
 void GameWindow::pollEvent() {
 
-    if (this->window->pollEvent(*event)) { //permet de v�rifier s'il y a un �v�nement en attente dans la file d'attente des �v�nements, si c'st le cas event stock l'evenement
+
+    if (this->window->pollEvent(*event)) { 
+        //permet de v�rifier s'il y a un �v�nement en attente dans la file d'attente des �v�nements, si c'st le cas event stock l'evenement
         if (event->type == sf::Event::Closed) { // event=fermeture de la fenetre ?
             window->close();
         }
-        else if(event->type == sf::Event::KeyPressed){// regarde si une touche du clavier à été pressé
-            //std::cout << " key " << std::endl;
+        else if(event->type == sf::Event::KeyPressed ){// regarde si une touche du clavier à été pressé
             _game->keyEvent(*event);// fait appel à la fonction move des sprites
-            (*_game->getPlayerVector())[0]->updateSprite();
             //_game->getPlayerVector()[1]->updateSprite();
         }
 
@@ -123,15 +124,15 @@ inline void GameWindow::DisplayTile(std::vector<sf::Sprite> v) {
     window->display();
 }
 
-/*void GameWindow::verificationWindow(void) { // regarde dans quel etat doit se trouver la fenetre
-    this->Game.executionGame();
-    if (!this->Game.playerIsAlive()) {
-        this->window->close();
-    }
-}*/
 
-void GameWindow::controlWindow(void) {
+int GameWindow::controlWindow(void) {
     this->pollEvent();
+    int fin=_game->updateGame();
+    if(fin==0){
+        return 0;
+    }
+    return 1;
+
 }
 
 GameGestion* GameWindow::getGame() {
@@ -152,6 +153,12 @@ void GameWindow::draw() {
         window->draw(*(*_game->getPlayerVector())[i]->getSprite());
     }
    
+   if(_game->drawProjectile(getCurrentWindowPos())){
+
+        std::cout<<"projectile draw"<<std::endl;
+        window->draw(*(*_game->getPlayerVector())[0]->getProjectile()->getSprite());
+        
+   }
 }
 
 

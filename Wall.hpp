@@ -2,13 +2,19 @@
 #define WALL_HPP
 
 #include <SFML/Graphics.hpp>
+#include <SFML/Audio.hpp>
 #include <iostream>
 #include <cstring>
 #include "TexturesLib.hpp"
 #include "Tile.hpp"
 #include "TypeWall.hpp"
 
+
 class Wall: public Tile {
+
+private:
+
+sf::Music* collideMusic;
 
 public:
 
@@ -18,15 +24,23 @@ public:
 	}
 
 	void collide(Object* o){
-		std::cout<<"collideWall"<<std::endl;
-
+		std::cout<<"wall"<<std::endl;
+		collideMusic->stop();
+		collideMusic->play();
 	}
 
-
+	~Wall(){
+		delete collideMusic;
+	}
 
 	Wall(const char* nameObject, sf::Vector2f initPos, TypeWall _typeWall) : Tile(nameObject,initPos) {
-		std::cout<<"Wall_Constructor"<<std::endl;
 
+	collideMusic=new sf::Music;
+
+	if (!collideMusic->openFromFile("musicCollideWall.wav"))
+    {
+        std::cout<<"erreur de chargement de collideMusic"<<std::endl;
+    }
 		TILE_SIZE=48;
 		int t = static_cast<int>(_typeWall);
 		switch(t){

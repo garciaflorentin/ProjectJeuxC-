@@ -2,6 +2,7 @@
 #define CHARACTER_HPP
 
 #include <SFML/Graphics.hpp>
+#include <SFML/Audio.hpp>
 #include <iostream>
 #include <cstring>
 #include "Object.hpp"
@@ -16,9 +17,10 @@ protected:
 	int damageAttack;
 	double speed;
 	EnumOrientation _enumOrientation;
-	enum Orientation { Down, Left, Right, Up };
+	enum Orientation { Up, Left, Down, Right };
 	bool _isAlive;
-	int OBJECT_SIZE = 48;
+	int OBJECT_SIZE = 32;
+	int orientation;
 
 
 	sf::Vector2i* anim;
@@ -33,7 +35,13 @@ public:
 
 	~Character();
 
+	int getOrientation(){
+		return orientation;
+	}
 
+	void setOrientation(int _orientation){
+		orientation=_orientation;
+	}
 	void takeDamage(int heartQuarters);
 	virtual void attack(Character* target) = 0;
 	virtual void move(sf::Vector2i deplacement);

@@ -1,5 +1,4 @@
 #include "Monster.hpp"
-
 #include <math.h>
 
 Player* Monster::_player = nullptr;

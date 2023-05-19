@@ -6,12 +6,14 @@
 #include <cstdlib>
 #include <string>
 #include <SFML/Graphics.hpp>
+#include <SFML/Audio.hpp>
+#include <ctime>
 #include "Heart.hpp"
-
+#include <ctime>
 using namespace std;
 
 int main(void) {
-
+    std::srand(std::time(nullptr));
 
     GameWindow _window;// cree la fenetre
     GameGestion* g=_window.getGame();
@@ -23,8 +25,12 @@ int main(void) {
     while (_window.isRunning()) {
         g->updateMobs();
         
-        _window.controlWindow();
+        int fin=_window.controlWindow();
         _window.display();
+        if(fin==0){
+            std::cout<<"close"<<std::endl;
+          //  _window.getWindow()->close();
+        }
     }
 
     return EXIT_SUCCESS;

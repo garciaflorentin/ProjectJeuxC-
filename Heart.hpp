@@ -13,7 +13,7 @@ private:
 
 	std::vector<sf::Texture*>* _textures ;
 	std::vector<sf::Sprite*>* _sprites;
-	std::vector<sf::Sprite*>* life;
+	std::vector<sf::Sprite>* life;
 	int numberOfQuarter;
 	void initlife();
 	void changelife(int i);
@@ -38,7 +38,7 @@ public:
 
 	}
 
-	std::vector<sf::Sprite*>* getLife() const {
+	std::vector<sf::Sprite>* getLife() const {
 
 		return life;
 

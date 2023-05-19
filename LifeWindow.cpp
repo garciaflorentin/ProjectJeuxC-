@@ -34,11 +34,11 @@ void LifeWindow::updateWindow() {
 	sf::View newlifeview(sf::FloatRect(0.f, 0.f, 1000.0f, 200.f));
 	newlifeview.setViewport(sf::FloatRect(0.f, 0.f, 1, 1));
 	lifeTexture->setView(newlifeview);*/
-
+	lifeTexture->clear(sf::Color::Transparent);
 	// dessiner la vue de la fenêtre de vie sur la render texture de la fenêtre de vie
 	lifeTexture->setView(*lifeView);
 	for (int i = 0; i < 3; i++) {
-		lifeTexture->draw(*(*lifePlayer->getLife())[i]);
+		lifeTexture->draw((*lifePlayer->getLife())[i]);
 	}
 	// dessiner les éléments de la fenêtre de vie
 	lifeTexture->display();

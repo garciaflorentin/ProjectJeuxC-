@@ -15,7 +15,6 @@ public:
 
 
 	Tile(const char* nameObject, sf::Vector2f initPos) : Object(nameObject,initPos){
-		std::cout<<"Tile_Constructor"<<std::endl;
 		
 	}
 

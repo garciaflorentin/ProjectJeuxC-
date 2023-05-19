@@ -7,11 +7,11 @@
 #include "Gain.hpp"
 #include "TexturesLib.hpp"
 #include "Tile.hpp"
-#include "Player.hpp"
 #include "Object.hpp"
 #include "Character.hpp"
+//#include "Player.hpp"
 class Gain;
-class Player;
+
 
 class Chest : public Tile{
 
@@ -26,10 +26,11 @@ public:
 
 Chest(const char* nameObject, sf::Vector2f initPos) : Tile(nameObject,initPos),  _isOpen(false) {
     chestAnim = new sf::Vector2i();
-    _gain=new Gain("gain.png",{getPosition().x+48,getPosition().y+48});
+    _gain=new Gain("Health potion.png",{getPosition().x,getPosition().y});
 	chestAnim->x = 0;
 	chestAnim->y = 1;
 	_sprite->setTextureRect(sf::IntRect(chestAnim->x * CHEST_SIZE , chestAnim->y* CHEST_SIZE , CHEST_SIZE, CHEST_SIZE));
+    //_sprite->scale(1.5,1.5);
 }
 ~Chest() {
 	delete _gain;
@@ -52,6 +53,7 @@ sf::Vector2f getPosition() {
     }
     
     void collide(Object* o);
+    
     
     const int getBlockSize(){
 		return CHEST_SIZE;
