@@ -2,14 +2,15 @@
 
 void Chest::collide(Object* o){
         cout << "Chest collistion" << endl;
-        if(typeid(*o) == typeid(Character)){
+        //if(typeid(*o) == typeid(Character)){
+        //cout << "Character collistion" << endl;
         Character* p=dynamic_cast<Character*>(o);
-        if (p->canOpenChest()) {
+        if (p->getName() == "player1.png") {
                 cout << "Can open chest" << endl;
                 p->openChest(this);
                 _gain->collide(o);   
         }
-        }
+        //}
 }
 
 

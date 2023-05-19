@@ -137,12 +137,13 @@ void Player::collide(Object* o){
 			std::cout<<"monsterTakeDamage"<<std::endl;
 			std::cout<<"	target->getlife()->getNOQ()="<<target->getlife()->getNOQ()<<std::endl;
 			 target->takeDamage(12);
-		}else{ if(time.getElapsedTime().asMilliseconds()>= 1000){
-			takeDamage(1);
-			}
-						std::cout<<"PlayerTakeDamage"<<std::endl;
-
 		}
+		// else{ if(time.getElapsedTime().asMilliseconds()>= 1000){
+		// 	takeDamage(1);
+		// 	}
+		// 				std::cout<<"PlayerTakeDamage"<<std::endl;
+
+		// }
     }
 }
 

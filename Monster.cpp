@@ -33,6 +33,8 @@ bool Monster::playerInRange() const {
 }
 
 void Monster::goToPlayer() {
+    cout << "Player seen" << endl;
+
     sf::Vector2f player_pos = _player->getPosition();
     sf::Vector2f this_pos = this->getPosition();
 
@@ -45,7 +47,7 @@ void Monster::goToPlayer() {
     np.x = 0;
     np.y = 0;
 
-    if ((abs(dist_y) > _attack_radius-10)||(abs(dist_x) > _attack_radius-10)) {
+    if ((abs(dist_y) > _attack_radius-SPR_SIZE)||(abs(dist_x) > _attack_radius-SPR_SIZE)) {
         if ((dist_x > 0)&&(dist_y > 0)) {
             if (dist_x > dist_y)    np.x++;
             else                    np.y++;
@@ -60,6 +62,8 @@ void Monster::goToPlayer() {
             else                            np.y++;
         }
 
+        //cout << "moving by " << np.x << " " << np.y << endl;
+
         move(np);
     }
 }
@@ -70,10 +74,12 @@ void Monster::attack(Character* target) {
 }
 
 void Monster::update(Player* pl) {
+    //cout << "Updating monster" << endl;
     this->_player = pl;
 
     if (playerSeen())       goToPlayer();
-    if (_upd.getElapsedTime().asMilliseconds()%1000 == 0) {
+    if (_upd.getElapsedTime().asMilliseconds()%100 == 0) {
+        cout << "Attack cooldown" << endl;
         if (playerInRange())    attack(pl);
     }
 }
@@ -84,6 +90,6 @@ void Monster::move(sf::Vector2f deplacement){
 
 }
 
-/*bool Monster::fireball() {
-    /* Lance une boule de feu en direction du joueur */
-//}
+// bool Monster::fireball() {
+//     /* Lance une boule de feu en direction du joueur */
+// }
