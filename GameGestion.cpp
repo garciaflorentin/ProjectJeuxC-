@@ -110,7 +110,7 @@ int GameGestion::updateGame(){
 	collideWallGestion();
 	LimitMap();
 	if(!player->isAlive()){
-		std::cout<<"MORT"<<std::endl;
+		//std::cout<<"MORT"<<std::endl;
 		return 0;
 	}
 	return 1;
@@ -169,7 +169,7 @@ void GameGestion::collideWall(Object* o, std::vector <Object*>& wallList,std::ve
 		int colision =collidePosition(o, (wallList)[x]);
 
         if (colision!=-1) {
-			std::cout<<"collide: collideWall"<<std::endl;
+			//std::cout<<"collide: collideWall"<<std::endl;
 			info.push_back(x);
 			info.push_back(colision);
 			collide=true;
@@ -193,7 +193,7 @@ void GameGestion::collideMonster(Object* o, std::vector <Monster*>& wallList,std
 		int colision =collidePosition(o, (wallList)[x]);
 
         if (colision!=-1) {
-			std::cout<<"collide: collideMonster"<<"indice="<<x<<std::endl;
+			//std::cout<<"collide: collideMonster"<<"indice="<<x<<std::endl;
 			info.push_back(x);
 			info.push_back(colision);
 			collide=true;
@@ -368,7 +368,8 @@ void GameGestion::collideVisitor(Object* o1,Object * o2){
 
 
 void GameGestion::updateMobs() {
-	if (time.getElapsedTime().asMilliseconds() >= 1000) {
+	//if (time.getElapsedTime().asMilliseconds() % 5 == 0) {
+		cout << "GameGestion::updateMobs time" << endl;
 		_map->updateObjects(player);
 
 		
@@ -412,5 +413,5 @@ void GameGestion::updateMobs() {
 				collideVisitor(mnt,wallList[indice]);
 			}
 		}
-	}
+	//}
 }

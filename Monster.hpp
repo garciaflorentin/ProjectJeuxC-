@@ -30,7 +30,7 @@ class Monster : public Character {
         bool _canOpenChest = false;
 
     public :
-        Monster(const char* nameObject, sf::Vector2f initPos, string name="meat", int dmg=1, int ar=3, int vf=6);
+        Monster(const char* nameObject, sf::Vector2f initPos, string name="meat", int dmg=1, int ar=2, int vf=5);
         ~Monster();
         
         void attack(Character* target);

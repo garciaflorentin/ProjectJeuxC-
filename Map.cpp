@@ -199,6 +199,7 @@ void Map::updateObjects(Player* player) {
 		}
 		else
 		{
+			//cout << "updating monsters in the list _map" << endl;
 			(*_monsterList)[i]->update(player);
 		}
 	}
