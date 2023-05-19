@@ -85,6 +85,6 @@ void Monster::move(sf::Vector2f deplacement){
 
 }
 
-// bool Monster::fireball() {
-//     /* Lance une boule de feu en direction du joueur */
-// }
+bool Monster::fireball() {
+    /* Lance une boule de feu en direction du joueur */
+}

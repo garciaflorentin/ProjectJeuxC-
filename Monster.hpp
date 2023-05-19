@@ -40,7 +40,7 @@ class Monster : public Character {
 
         void openChest(Chest* chest) {};
         
-        //bool fireball();
+        bool fireball();
 };
 
 #endif
