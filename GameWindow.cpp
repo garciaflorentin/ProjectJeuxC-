@@ -74,7 +74,7 @@ void GameWindow::setScrollingView() {
 
 void GameWindow::pollEvent() {
 
-    if(!ui->isLaunched() || ui->isPaused() ){
+    if(!ui->isLaunched() || ui->isPaused()  || ui->isDead() || ui->getWin()){
         if(!ui->isLaunched()){
             window->setActive(false); // Désactiver la fenêtre principale
             window->setVisible(false);
@@ -89,7 +89,7 @@ void GameWindow::pollEvent() {
             window->setVisible(true);
             window->setActive(true); //activer la fenêtre principale
 
-        }else{
+        }else if(ui->isPaused()){
             window->setActive(false); // Désactiver la fenêtre principale
             window->setVisible(false);
             ui->getWindow()->setActive(true);
@@ -101,10 +101,24 @@ void GameWindow::pollEvent() {
             window->setVisible(true);
             window->setActive(true); // activer la fenêtre principale
 
+        }else if(ui->isDead()){
+            window->setActive(false); // Désactiver la fenêtre principale
+            window->setVisible(false);
+            ui->getWindow()->setVisible(true);
+            ui->getWindow()->setActive(true);
+            ui->getWindow()->setVisible(true);  
+            ui->runDeathWindow();
         }
+        else if(ui->getWin()){ 
+            window->setActive(false); // Désactiver la fenêtre principale
+            window->setVisible(false);
+            ui->getWindow()->setVisible(true);
+            ui->getWindow()->setActive(true);
+            ui->getWindow()->setVisible(true);  
+            ui->runVictoryWindow();}
     }
 
-    if (this->window->pollEvent(*event)) { 
+    if (this->window->pollEvent(*event) ) { 
         //permet de v�rifier s'il y a un �v�nement en attente dans la file d'attente des �v�nements, si c'st le cas event stock l'evenement
         if (event->type == sf::Event::Closed) { // event=fermeture de la fenetre ?
             window->close();
@@ -120,6 +134,7 @@ void GameWindow::pollEvent() {
             }
             _game->keyEvent(*event);// fait appel à la fonction move des sprites
             //_game->getPlayerVector()[1]->updateSprite();
+            
         }
 
     }
@@ -171,6 +186,7 @@ int GameWindow::controlWindow(void) {
     this->pollEvent();
     int fin=_game->updateGame();
     if(fin==0){
+        ui->setIsDead(true);
         return 0;
     }
     return 1;

@@ -19,6 +19,7 @@ class UserInterface{
 	sf::Texture* UiTexture;
 	sf::Texture* UiTexture1;
 	sf::Texture* UiTexture2;
+	sf::Font* police;
 
 
 	sf::Sprite* Background;
@@ -28,7 +29,7 @@ class UserInterface{
 	sf::Sprite *cadre;
 
 
-	bool _isPaused, _isLaunched;
+	bool _isPaused, _isLaunched, _isDead, _win;
 
 
     public:
@@ -49,6 +50,14 @@ class UserInterface{
 		return _isLaunched;
 	}
 
+	bool isDead(){
+		return _isDead;
+	}
+
+	bool getWin(){
+		return _win;
+	}
+
 	void setIsPaused(bool state){
 		_isPaused=state;
 	}
@@ -56,11 +65,21 @@ class UserInterface{
 	void setIsLaunched(bool state){
 		_isLaunched=state;
 	}
+	void setIsDead(bool state){
+		_isDead=state;
+	}
+	void setWin(bool state){
+		_win=state;
+	}
 
     void setStartScreen();
 
 	void runPausedWindow();
 	void runLaunchedWindow();
+	void runDeathWindow();
+	void runVictoryWindow();
+
+
 
 
 	sf::RenderWindow* getWindow(){

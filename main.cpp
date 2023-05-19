@@ -35,8 +35,8 @@ int main(void)
             _window.display();
             if (fin == 0)
             {
-                std::cout << "close" << std::endl;
-                //  _window.getWindow()->close();
+                //sf::sleep(sf::seconds(20));
+              //_window.getWindow()->close();
             }
         }
     }
