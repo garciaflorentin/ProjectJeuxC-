@@ -2,23 +2,57 @@
 
 UserInterface::UserInterface(){
 	
-	UiTexture = new sf::RenderTexture();
-	UiTexture->create(windowWidth, windowHeight);
-    UiSprite=new sf::Sprite(UiTexture->getTexture());
+    event = new sf::Event();
+    window = new sf::RenderWindow(sf::VideoMode(static_cast<int>(windowWidth), static_cast<int>(windowHeight)), "Tales of the Monster Hunter"); 
+	window->setPosition(sf::Vector2i(100, 100));
+    UiTexture1 = new sf::Texture();
+    if (!(UiTexture1->loadFromFile("Uistart.png"))){
+			std::cout<<"probleme dans la creation de l'interface"<<std::endl;
+		}
+    UiTexture2 = new sf::Texture();
+    if (!(UiTexture2->loadFromFile("UiPause.png"))){
+			std::cout<<"probleme dans la creation de l'interface"<<std::endl;
+		}
+    Background=new sf::Sprite();
+    Background->setTexture(*UiTexture1);
+     UiTexture = new sf::Texture();
+    if (!(UiTexture->loadFromFile("GUI.png"))){
+			std::cout<<"probleme dans la creation de l'interface"<<std::endl;
+		}
+    button1= new sf::Sprite();
+    button2= new sf::Sprite();
+    button2->scale(10,8);
+    button3= new sf::Sprite();
+    cadre = new sf::Sprite();
+
+    button1->setTexture(*UiTexture);
+    button2->setTexture(*UiTexture);
+    button3->setTexture(*UiTexture);
+    cadre->setTexture(*UiTexture);
+
 	UiView = new sf::View(sf::FloatRect(0.f, 0.f, windowWidth, windowHeight));
 	UiView->setViewport(sf::FloatRect(0.f, 0.f, 1, 1));
-	UiTexture->setView(*UiView);
+    _isPaused=true;
+    _isLaunched=false;
 		
 }
 
 UserInterface::~UserInterface(){
     delete UiView;
 	delete UiTexture;
-	delete UiSprite;
+	delete Background;
+    delete window;
+    delete event;
+    delete UiTexture1;
+    delete button1;
+    delete button2;
+    delete button3;
+    delete cadre;
+    delete UiTexture2;
 }
 
 
-void UserInterface::setStartScreen() {
+/*void UserInterface::setStartScreen() {
     // Création de l'image de fond
     sf::Texture startBackgroundTexture;
     if (!startBackgroundTexture.loadFromFile("start_background.png")) {
@@ -80,11 +114,93 @@ void UserInterface::setStartScreen() {
             }
         }
     }
-}
-
-void UserInterface::drawTo(sf::RenderWindow* target) {
-	
-	target->draw(*UiSprite);
+}*/
 
 
-}
+
+void UserInterface::runPausedWindow(){
+    bool finish=false;
+sf::Vector2u windowSize = window->getSize();
+        button2->setTextureRect(sf::IntRect(64,142,32,16));
+        button1->setTextureRect(sf::IntRect(112,80,32,16));
+
+        sf::Vector2f TextSize = {button2->getGlobalBounds().width,button2->getGlobalBounds().height};
+        sf::Vector2f buttonSize = {button1->getGlobalBounds().width,button1->getGlobalBounds().height};
+        float spritePosX = (windowSize.x - buttonSize.x) / 2;
+        float spritePosY = (windowSize.y - buttonSize.y) / 2;
+        button1->setPosition(spritePosX,spritePosY-150);
+        sf::Vector2f sprite2Position;
+        sprite2Position.x = spritePosX + (buttonSize.x - TextSize.x) / 2;
+        sprite2Position.y = spritePosY + (buttonSize.y - TextSize.y) / 2;
+        button2->setPosition(sprite2Position.x,sprite2Position.y-165);
+
+		while(window->isOpen()){
+            button1->setTextureRect(sf::IntRect(112,80,32,16));  
+            button2->setColor(sf::Color::White);
+            std::cout<<"appuer sur space pour reprendre"<<std::endl;
+			while(window->pollEvent(*event)){
+                    
+				if (event->type == sf::Event::KeyPressed) {
+                    button1->setTextureRect(sf::IntRect(112,96,32,16));
+                    button2->setColor(sf::Color::Green);
+                    if((event->key.code == sf::Keyboard::Space)) {
+                         button1->setTextureRect(sf::IntRect(112,96,32,16));
+                         button2->setColor(sf::Color::Green);
+                         finish=true;
+                         
+                    }
+                 } 
+			}
+            Background->setTexture(*UiTexture2);
+
+			window->clear(sf::Color::Green);
+            window->draw(*Background);
+            window->draw(*button1);
+            window->draw(*button2);
+			window->display();
+            sf::sleep(sf::seconds(0.05));
+            if(finish==true){return;}
+		}
+	}
+    void UserInterface::runLaunchedWindow(){
+        sf::Vector2u windowSize = window->getSize();
+        cadre->setTextureRect(sf::IntRect(64,142,32,16));
+        cadre->scale(10,8);
+        button1->setTextureRect(sf::IntRect(112,80,32,16));
+        button1->scale(10,8);
+
+        sf::Vector2f TextSize = {cadre->getGlobalBounds().width,cadre->getGlobalBounds().height};
+        sf::Vector2f buttonSize = {button1->getGlobalBounds().width,button1->getGlobalBounds().height};
+        float spritePosX = (windowSize.x - buttonSize.x) / 2;
+        float spritePosY = (windowSize.y - buttonSize.y) / 2;
+        button1->setPosition(spritePosX,spritePosY-150);
+        sf::Vector2f sprite2Position;
+        sprite2Position.x = spritePosX + (buttonSize.x - TextSize.x) / 2;
+        sprite2Position.y = spritePosY + (buttonSize.y - TextSize.y) / 2;
+        cadre->setPosition(sprite2Position.x,sprite2Position.y-165);
+
+		while(window->isOpen()){
+
+			while(window->pollEvent(*event)){
+				if (button1->getGlobalBounds().contains(sf::Mouse::getPosition(*window).x,sf::Mouse::getPosition(*window).y)) {
+                    button1->setTextureRect(sf::IntRect(112,96,32,16));
+                    cadre->setColor(sf::Color::Magenta);
+                    if (event->mouseButton.button == sf::Mouse::Left) {
+                        return;
+                    }
+                 } else {
+                     button1->setTextureRect(sf::IntRect(112,80,32,16));  
+                      cadre->setColor(sf::Color::White);
+                      }
+			}
+
+			window->clear();
+            window->draw(*Background);
+            window->draw(*button1);
+            window->draw(*cadre);
+
+
+
+			window->display();
+		}
+	}

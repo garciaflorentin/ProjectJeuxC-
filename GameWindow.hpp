@@ -10,6 +10,7 @@
 #include "GameGestion.hpp"
 #include "Heart.hpp"
 #include "Projectile.hpp"
+#include "UserInterface.hpp"
 
 
 
@@ -30,6 +31,7 @@ private:
     //class
     GameGestion* _game;
     LifeWindow* _lifeWindow;
+    UserInterface* ui;
 
     void pollEvent();// declaration d'un event
 
@@ -64,6 +66,13 @@ public:
     sf::RenderWindow* getWindow() {
         return window;
     }
+
+    //UI
+    UserInterface* getUi(){
+        return ui;
+    }
+
+  //  void ControlUi();
 
     //view
 
