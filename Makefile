@@ -44,16 +44,24 @@ Chest.o: Chest.cpp Gain.hpp Object.hpp Character.hpp Player.hpp  Tile.hpp Textur
 Projectile.o: Projectile.cpp Object.hpp Player.hpp TexturesLib.hpp Monster.hpp
 	$(CPP) $(CPPFLAGS) -c Projectile.cpp 
 
+Fireball.o: Fireball.cpp Projectile.hpp
+	$(CPP) $(CPPFLAGS) -c Fireball.cpp
 
 Monster.o: Monster.cpp Player.hpp
 	$(CPP) $(CPPFLAGS) -c Monster.cpp 
 
+MeleeMonster.o: MeleeMonster.cpp Monster.hpp
+	$(CPP) $(CPPFLAGS) -c MeleeMonster.cpp
+
+RangedMonster.o: RangedMonster.cpp Player.hpp Fireball.hpp
+	$(CPP) $(CPPFLAGS) -c RangedMonster.cpp
 
 
 
 
-jeu_de_base: main.o Monster.o Projectile.o Heart.o TexturesLib.o Object.o LifeWindow.o Character.o Player.o Map.o GameGestion.o GameWindow.o Chest.o
-	$(LD) $(LDFLAGS) Monster.o Projectile.o Chest.o Heart.o TexturesLib.o Object.o LifeWindow.o Character.o Player.o Map.o GameGestion.o GameWindow.o main.o -o jeu_de_base $(LIBS)
+
+jeu_de_base: main.o Monster.o Projectile.o Heart.o TexturesLib.o Object.o LifeWindow.o Character.o Player.o Map.o GameGestion.o GameWindow.o Chest.o Fireball.o MeleeMonster.o RangedMonster.o
+	$(LD) $(LDFLAGS) Monster.o Projectile.o Chest.o Heart.o TexturesLib.o Object.o LifeWindow.o Character.o Player.o Map.o GameGestion.o GameWindow.o Fireball.o MeleeMonster.o RangedMonster.o main.o -o jeu_de_base $(LIBS)
 
 
 clean:

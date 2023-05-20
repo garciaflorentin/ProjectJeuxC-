@@ -1,31 +1,31 @@
 #ifndef FIREBALL_HPP
 #define FIREBALL_HPP
 
+#include <cmath>
 
-#include "Object.hpp"
+#include "Projectile.hpp"
 
-#define FIREBALL_RANGE  15
-#define SPR_SIZE        48
+#define SPR_SIZE            48
+#define PROJECTILE_SPEED    10.0
 
 
-class Fireball : public Object {
+class Fireball : public Projectile {
     private:
-        sf::Vector2f _targetPos;
-        sf::Vector2f _step;
+        sf::Vector2f _initPos;
+        sf::Vector2f _dirVect;
 
-        int _range_count = SPR_SIZE*FIREBALL_RANGE;
-
-        sf::Clock _upd;
+        int _dmg;
 
     public:
-        Fireball() : Object() {};
-        Fireball(const char* nameObject, sf::Vector2f initPos, sf::Vector2f targetPos);
-        
+        Fireball() : Projectile() {};
+        Fireball(const char* nameObject, sf::Vector2f initPos, Character* player, int dmg = 2);
         ~Fireball() {};
 
         void computeTrajectory();
 
-        void launch();
+        void initProjectile();
+        void goTo();
+        void collide(Object* o);
 };
 
 

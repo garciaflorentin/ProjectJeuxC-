@@ -9,7 +9,7 @@ class Player;
 #define SPR_SIZE 48
 
 class Monster : public Character {
-    private :
+    protected :
         static Player* _player;
         
         int _damage;
@@ -33,7 +33,7 @@ class Monster : public Character {
         Monster(const char* nameObject, sf::Vector2f initPos, string name="meat", int dmg=1, int ar=2, int vf=5);
         ~Monster();
         
-        void attack(Character* target);
+        virtual void attack(Character* target);
         void move(sf::Vector2f deplacement);
         
         void update(Player* pl);      
@@ -43,8 +43,6 @@ class Monster : public Character {
         };  
 
         void openChest(Chest* chest) {};
-        
-        //bool fireball();
 
 };
 
