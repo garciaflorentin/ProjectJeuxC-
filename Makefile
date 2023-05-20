@@ -35,7 +35,7 @@ Player.o: Player.cpp Character.hpp Object.hpp EnumOrientation.hpp Heart.hpp Ches
 GameGestion.o: GameGestion.cpp Object.hpp Player.hpp Character.hpp
 	$(CPP) $(CPPFLAGS) -c GameGestion.cpp 
 
-Map.o: Map.cpp Object.hpp Player.hpp Gain.hpp TexturesLib.hpp Tile.hpp Object.hpp Character.hpp Chest.hpp Ground.hpp TypeGround.hpp Monster.hpp
+Map.o: Map.cpp Object.hpp Player.hpp Gain.hpp TexturesLib.hpp Tile.hpp Object.hpp Character.hpp Chest.hpp Ground.hpp TypeGround.hpp MeleeMonster.hpp RangedMonster.hpp
 	$(CPP) $(CPPFLAGS) -c Map.cpp 
 
 Chest.o: Chest.cpp Gain.hpp Object.hpp Character.hpp Player.hpp  Tile.hpp TexturesLib.hpp
@@ -61,8 +61,8 @@ RangedMonster.o: RangedMonster.cpp Player.hpp Fireball.hpp
 
 
 
-jeu_de_base: main.o UserInterface.o Monster.o Projectile.o Heart.o TexturesLib.o Object.o LifeWindow.o Character.o Player.o Map.o GameGestion.o GameWindow.o Chest.o
-	$(LD) $(LDFLAGS) UserInterface.o Monster.o Projectile.o Chest.o Heart.o TexturesLib.o Object.o LifeWindow.o Character.o Player.o Map.o GameGestion.o GameWindow.o main.o -o jeu_de_base $(LIBS)
+jeu_de_base: main.o UserInterface.o Monster.o Projectile.o Heart.o TexturesLib.o Object.o LifeWindow.o Character.o Player.o Map.o GameGestion.o GameWindow.o Chest.o Fireball.o MeleeMonster.o RangedMonster.o
+	$(LD) $(LDFLAGS) UserInterface.o Monster.o Projectile.o Chest.o Heart.o TexturesLib.o Object.o LifeWindow.o Character.o Player.o Map.o GameGestion.o GameWindow.o Fireball.o MeleeMonster.o RangedMonster.o main.o -o jeu_de_base $(LIBS)
 
 
 clean:

@@ -17,7 +17,10 @@
 #include "Wall.hpp"
 #include "TypeWall.hpp"
 #include "Projectile.hpp"
-#include "Monster.hpp"
+#include "MeleeMonster.hpp"
+#include "RangedMonster.hpp" 
+
+#define SPAWN_FREQUENCY 200
 
 using namespace std;
 
@@ -33,6 +36,11 @@ private:
 	float LIMITE_Y= 7125.f;
 	float LIMITE_X= 14350;
 	float LIMITE_Yneg=-7125.f;
+
+	bool _spf = false;
+	bool _spm = false;
+	bool _spb = false;
+	bool _spt = false;
 
 
 
@@ -68,6 +76,8 @@ public:
 	std::vector<Monster*>* getMonsters();
 
 	void updateObjects(Player* player);	
+
+	void spawnMobs(string area);
 	
 };
 #endif

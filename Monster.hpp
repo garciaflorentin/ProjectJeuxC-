@@ -11,6 +11,10 @@ class Player;
 class Monster : public Character {
     protected :
         static Player* _player;
+
+        static int _serial;
+
+        int _this_serial;
         
         int _damage;
         float _attack_radius;
@@ -39,11 +43,14 @@ class Monster : public Character {
         void update(Player* pl);      
 
         void collide(Object* o) {
-            std::cout<<"monsterCollide"<<std::endl;
+            //std::cout<<"monsterCollide"<<std::endl;
         };  
 
         void openChest(Chest* chest) {};
 
+        float lifetime_secs() { return _upd.getElapsedTime().asSeconds(); };
+
+        int getSerial() { return _this_serial; };
 };
 
 #endif

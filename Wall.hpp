@@ -24,7 +24,7 @@ public:
 	}
 
 	void collide(Object* o){
-		std::cout<<"wall"<<std::endl;
+		//std::cout<<"wall"<<std::endl;
 		//collideMusic->stop();
 		//collideMusic->play();
 	}

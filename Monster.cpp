@@ -2,9 +2,13 @@
 #include <math.h>
 
 Player* Monster::_player = nullptr;
+int Monster::_serial = 0;
 
 Monster::Monster(const char* nameObject, sf::Vector2f initPos, string name, int dmg, int ar, int vf) :
-            Character(nameObject, initPos),  _damage(dmg), _attack_radius(ar*SPR_SIZE), _vision_field(vf*SPR_SIZE), _canOpenChest(false) {}
+            Character(nameObject, initPos),  _damage(dmg), _attack_radius(ar*SPR_SIZE), _vision_field(vf*SPR_SIZE), _canOpenChest(false) {
+                _this_serial = _serial;
+                _serial++;
+            }
 
 Monster::~Monster() {}
 
@@ -33,7 +37,7 @@ bool Monster::playerInRange() const {
 }
 
 void Monster::goToPlayer() {
-    cout << "Player seen" << endl;
+    //cout << "Player seen" << endl;
 
     sf::Vector2f player_pos = _player->getPosition();
     sf::Vector2f this_pos = this->getPosition();
@@ -79,7 +83,7 @@ void Monster::update(Player* pl) {
 
     if (playerSeen())       goToPlayer();
     if (_upd.getElapsedTime().asMilliseconds()%100 == 0) {
-        cout << "Attack cooldown" << endl;
+        //cout << "Attack cooldown" << endl;
         if (playerInRange())    attack(pl);
     }
 }
