@@ -106,11 +106,12 @@ std::vector<Monster*>* Map::getMonsters(){
 	
 
 void Map::createMap(){
-
+int a=rand();
 //creation du sol
-for (float x = 0; x < 50; x++) {
-    for (float y = -25; y < 25; y++) {
-        if (x < 50) {
+for (float x = 0; x < 200; x++) {
+    for (float y = -100; y < 100; y++) {
+        
+        if (x < 100) {
             if (y <0) {
                 // Monde 1 : forêt
                 if (rand() % 10 == 0) {
@@ -158,25 +159,79 @@ for (float x = 0; x < 50; x++) {
     }
 }
 //creation des murs
-for (float x = 0; x < 50; x++) {
-    for (float y = -25; y < 25; y++) {
-        if (x < 50) {
-            if (y <0) {
-				if (rand() % 63 == 0) {
+for (float x = 0; x < 200; x++) {
+    for (float y = -100; y < 100; y++) {
+        if (x < 100) {
+            if (y <0) {//foret
+				if (rand() % 80 == 0) {
     				addObject(new Wall("World2.png",{x, y}, TypeWall::GrosseBranche)); 
-				}else if(rand()%40==0){
+				}else if(rand()%80==0){
 					addObject(new Wall("World2.png",{x, y}, TypeWall::GrandSapin));
-				}else if ( rand()%201==0){
+				}else if ( rand()%200==0){
 					addObject(new Chest("Chests.png",{x,y}));
+				}else if(rand()%150==0){
+					addObject(new Wall("World2.png",{x, y}, TypeWall::LacForest));
+				}else if(rand()%80==0){
+					addObject(new Wall("World2.png",{x, y}, TypeWall::RocherForest));
+				}else if(rand()%80==0){
+					addObject(new Wall("World2.png",{x, y}, TypeWall::DeadTree));
 				}
-			}
-		}
-	}
+		}else {
+                // Monde 2 : montagnes
+                if (rand() % 80 == 0) {
+                    addObject(new Wall("World2.png", {x, y}, TypeWall::SnowTree));
+                } else if(rand() % 200 == 0){
+                    addObject(new Wall("World2.png",{x, y}, TypeWall::MonsterSkeleton));
+                }
+                else if (rand() % 150 == 0) {
+                    addObject(new Wall("World2.png",{x, y}, TypeWall::LacMountain));
+                }
+				else if (rand() % 80 == 0) {
+                    addObject(new Wall("World2.png",{x, y}, TypeWall::TombStone));
+                }
+				else if (rand() % 80 == 0) {
+                    addObject(new Wall("World2.png",{x, y}, TypeWall::DeadTree));
+                }
+                else if (rand() % 150 == 0) {
+                    addObject(new Wall("World2.png",{x, y}, TypeWall::FrozenScarecrow));
+                }
+            }
+        } else {
+            if (y < 0) {
+                // Monde 3 : plage
+                if (rand() % 80 == 0) {
+                    addObject(new Wall("World2.png",{x, y}, TypeWall::RocherBeatch));
+                } else if(rand() % 80 == 0) {
+                    addObject(new Wall("World2.png",{x, y}, TypeWall::CoconutTree));
+                }
+                else if(rand() % 80 == 0) {
+                    addObject(new Wall("World2.png",{x, y}, TypeWall::Barrel));
+                }else if(rand() % 100 == 0) {
+                    addObject(new Wall("World2.png",{x, y}, TypeWall::lacBeatch));
+                }
+            } else {
+                // Monde 4 : ville
+                 if (rand() % 80 == 0) {
+                    addObject(new Wall("World2.png",{x, y}, TypeWall::Well));
+                } else if(rand() % 80 == 0) {
+                    addObject(new Wall("World2.png",{x, y}, TypeWall::sign));
+                }
+                else if(rand() % 80 == 0) {
+                    addObject(new Wall("World2.png",{x, y}, TypeWall::Barrel));
+                }else if(rand() % 150 == 0) {
+                    addObject(new Wall("World2.png",{x, y}, TypeWall::KnightStatue));
+                }
+            }
+        }
+    
+    }
 }
+	
+
 
 	//creation des monstres
-	for (float x = 0; x < 50; x++) {
-		for (float y = -25; y < 25; y++) {
+	for (float x = 0; x < 300; x++) {
+		for (float y = -150; y < 150; y++) {
 			if (x < 50) {
 				if (y <0) {
 					if (rand() % 200 == 0)	addObject(new Monster("crying_cat.png", {x,y}));
@@ -185,9 +240,9 @@ for (float x = 0; x < 50; x++) {
 		}
 	}
 
-
-
 }
+
+
 
 void Map::updateObjects(Player* player) {
 

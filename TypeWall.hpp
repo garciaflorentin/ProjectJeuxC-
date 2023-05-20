@@ -4,8 +4,22 @@
 
 enum class TypeWall {
 	GrandSapin,
-	GrosseBranche
-	
+	GrosseBranche,
+	RocherForest,
+	LacForest,
+	DeadTree,
+	RocherBeatch,
+	SnowTree,
+	MonsterSkeleton,
+	TombStone,
+	LacMountain,
+	FrozenScarecrow,
+	CoconutTree,
+	lacBeatch,
+	Barrel,
+	Well,
+	KnightStatue,
+	sign
 };
 
 #endif

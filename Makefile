@@ -47,6 +47,9 @@ Projectile.o: Projectile.cpp Object.hpp Player.hpp TexturesLib.hpp Monster.hpp
 Fireball.o: Fireball.cpp Projectile.hpp
 	$(CPP) $(CPPFLAGS) -c Fireball.cpp
 
+UserInterface.o: UserInterface.cpp
+	$(CPP) $(CPPFLAGS) -c UserInterface.cpp 
+
 Monster.o: Monster.cpp Player.hpp
 	$(CPP) $(CPPFLAGS) -c Monster.cpp 
 
@@ -58,10 +61,8 @@ RangedMonster.o: RangedMonster.cpp Player.hpp Fireball.hpp
 
 
 
-
-
-jeu_de_base: main.o Monster.o Projectile.o Heart.o TexturesLib.o Object.o LifeWindow.o Character.o Player.o Map.o GameGestion.o GameWindow.o Chest.o Fireball.o MeleeMonster.o RangedMonster.o
-	$(LD) $(LDFLAGS) Monster.o Projectile.o Chest.o Heart.o TexturesLib.o Object.o LifeWindow.o Character.o Player.o Map.o GameGestion.o GameWindow.o Fireball.o MeleeMonster.o RangedMonster.o main.o -o jeu_de_base $(LIBS)
+jeu_de_base: main.o UserInterface.o Monster.o Projectile.o Heart.o TexturesLib.o Object.o LifeWindow.o Character.o Player.o Map.o GameGestion.o GameWindow.o Chest.o
+	$(LD) $(LDFLAGS) UserInterface.o Monster.o Projectile.o Chest.o Heart.o TexturesLib.o Object.o LifeWindow.o Character.o Player.o Map.o GameGestion.o GameWindow.o main.o -o jeu_de_base $(LIBS)
 
 
 clean:

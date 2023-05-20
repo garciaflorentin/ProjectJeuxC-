@@ -369,7 +369,7 @@ void GameGestion::collideVisitor(Object* o1,Object * o2){
 
 void GameGestion::updateMobs() {
 	//if (time.getElapsedTime().asMilliseconds() % 5 == 0) {
-		cout << "GameGestion::updateMobs time" << endl;
+		//cout << "GameGestion::updateMobs time" << endl;
 		_map->updateObjects(player);
 
 		

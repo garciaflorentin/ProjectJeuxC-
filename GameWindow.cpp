@@ -17,6 +17,8 @@ GameWindow::GameWindow(void) {
     _game = new GameGestion();
     Heart* test = new Heart();
     _lifeWindow = new LifeWindow((*_game->getPlayerVector())[0]->getlife());
+        ui =  new UserInterface();
+
 }
 
 
@@ -30,6 +32,7 @@ GameWindow::~GameWindow(void) {
     delete currentWindowPos;
     delete _lifeWindow;
     delete test;
+    delete ui;
 }
 
 // view
@@ -67,17 +70,71 @@ void GameWindow::setScrollingView() {
 
 // gestion clavier et souris 
 
+
+
 void GameWindow::pollEvent() {
 
+    if(!ui->isLaunched() || ui->isPaused()  || ui->isDead() || ui->getWin()){
+        if(!ui->isLaunched()){
+            window->setActive(false); // Désactiver la fenêtre principale
+            window->setVisible(false);
+            ui->getWindow()->setVisible(true);
+            ui->getWindow()->setActive(true);
+            ui->getWindow()->setVisible(true);  
+            ui->runLaunchedWindow();
+            ui->setIsLaunched(true);
+            ui->setIsPaused(false);
+            ui->getWindow()->setVisible(false);
+            ui->getWindow()->setActive(false);
+            window->setVisible(true);
+            window->setActive(true); //activer la fenêtre principale
 
-    if (this->window->pollEvent(*event)) { 
+        }else if(ui->isPaused()){
+            window->setActive(false); // Désactiver la fenêtre principale
+            window->setVisible(false);
+            ui->getWindow()->setActive(true);
+            ui->getWindow()->setVisible(true);
+            ui->runPausedWindow();
+            ui->setIsPaused(false);
+            ui->getWindow()->setVisible(false);
+            ui->getWindow()->setActive(false);
+            window->setVisible(true);
+            window->setActive(true); // activer la fenêtre principale
+
+        }else if(ui->isDead()){
+            window->setActive(false); // Désactiver la fenêtre principale
+            window->setVisible(false);
+            ui->getWindow()->setVisible(true);
+            ui->getWindow()->setActive(true);
+            ui->getWindow()->setVisible(true);  
+            ui->runDeathWindow();
+        }
+        else if(ui->getWin()){ 
+            window->setActive(false); // Désactiver la fenêtre principale
+            window->setVisible(false);
+            ui->getWindow()->setVisible(true);
+            ui->getWindow()->setActive(true);
+            ui->getWindow()->setVisible(true);  
+            ui->runVictoryWindow();}
+    }
+
+    if (this->window->pollEvent(*event) ) { 
         //permet de v�rifier s'il y a un �v�nement en attente dans la file d'attente des �v�nements, si c'st le cas event stock l'evenement
         if (event->type == sf::Event::Closed) { // event=fermeture de la fenetre ?
             window->close();
         }
-        else if(event->type == sf::Event::KeyPressed ){// regarde si une touche du clavier à été pressé
+        else if(event->type == sf::Event::KeyPressed ){
+            // regarde si une touche du clavier à été pressé
+            if((event->key.code == sf::Keyboard::Space)) {
+                if(!ui->isPaused()){
+                    ui->setIsPaused(true);
+                }else{
+                    ui->setIsPaused(false);
+                }
+            }
             _game->keyEvent(*event);// fait appel à la fonction move des sprites
             //_game->getPlayerVector()[1]->updateSprite();
+            
         }
 
     }
@@ -129,6 +186,7 @@ int GameWindow::controlWindow(void) {
     this->pollEvent();
     int fin=_game->updateGame();
     if(fin==0){
+        ui->setIsDead(true);
         return 0;
     }
     return 1;
