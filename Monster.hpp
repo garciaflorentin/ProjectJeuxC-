@@ -38,12 +38,15 @@ class Monster : public Character {
         
         void update(Player* pl);      
 
-        void collide(Object* o) {
-            std::cout<<"monsterCollide"<<std::endl;
-        };  
+        void collide(Object* o);
 
         void openChest(Chest* chest) {};
         
+        void updateSprite(){
+	    if(anim->x*OBJECT_SIZE >= OBJECT_SIZE*3){anim->x=0;}
+	    _sprite->setTextureRect(sf::IntRect(anim->x*OBJECT_SIZE, anim->y*OBJECT_SIZE, OBJECT_SIZE, OBJECT_SIZE));
+
+}
         //bool fireball();
 
 };

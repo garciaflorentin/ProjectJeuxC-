@@ -108,15 +108,21 @@ int GameGestion::updateGame(){
 	collideMonsterGestion();
 
 	collideWallGestion();
-	LimitMap();
+	if((*playerVector)[0]->getIsInTheCave()){
+		LimitMapBoss();
+	}else{
+		LimitMap();
+	}
+	checkLifeMonster(player->getKilledallMobs());
+	std::cout << "x =" << player->getPosition().x<< std::endl;
+	std::cout << "y =" << player->getPosition().y<< std::endl;
+
 	if(!player->isAlive()){
 		//std::cout<<"MORT"<<std::endl;
 		return 0;
 	}
 	return 1;
-	//std::cout << "x =" << player->getPosition().x<< std::endl;
-	//std::cout << "y =" << player->getPosition().y<< std::endl;
-
+	
 }
 
 
@@ -229,6 +235,30 @@ sf::Vector2f newpos;
    }
 
 }
+
+void GameGestion::LimitMapBoss(){
+std::vector<float> limit;
+_map->getLimitMapBoss(limit);
+sf::Vector2f newpos;
+
+   if(player->getPosition().x < limit[0]){
+	newpos= {limit[0],player->getPosition().y};
+	player->setPosition(newpos);}
+   if(player->getPosition().x >= limit[2]){
+		newpos={ limit[2],player->getPosition().y};
+		player->setPosition(newpos);}
+   if(player->getPosition().y > limit[3]){
+		newpos={player->getPosition().x,limit[3]};
+		player->setPosition(newpos);
+   }
+   if(player->getPosition().y < limit[1]){
+	std::cout<<"aa"<<std::endl;
+		newpos={player->getPosition().x,limit[1]};
+		player->setPosition(newpos);
+   }
+
+}
+
 
 
 
@@ -414,4 +444,22 @@ void GameGestion::updateMobs() {
 			}
 		}
 	//}
+}
+
+void GameGestion::checkLifeMonster(std::vector<bool>& control){
+		control={true,true,true,true};
+		std::vector<Monster*> monsters;
+		monsters = *_map->getMonsters();
+		for(int i=0;i<monsters.size();i++){
+			if(monsters[i]->getPosition().x>=0 && monsters[i]->getPosition().x<4800 && monsters[i]->getPosition().y>-4800 &&  monsters[i]->getPosition().y<=0 ){
+				control[0]=false;
+			}else if(monsters[i]->getPosition().x>=0 && monsters[i]->getPosition().x<4800 && monsters[i]->getPosition().y<4800 && monsters[i]->getPosition().y>=0){
+				control[1]=false;
+			}else if(monsters[i]->getPosition().x>=4800 && monsters[i]->getPosition().x<=9600  && monsters[i]->getPosition().y<-4800 && monsters[i]->getPosition().y<=0){
+				control[2]=false;
+			}else if((monsters[i]->getPosition().x>=4800 && monsters[i]->getPosition().x<=9600 && monsters[i]->getPosition().y<4800 && monsters[i]->getPosition().y>=0)){
+				control[3]=false;
+
+			}
+		}
 }

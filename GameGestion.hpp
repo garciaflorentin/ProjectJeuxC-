@@ -83,6 +83,8 @@ void collideMonster(Object* o, std::vector <Monster*>& wallList,std::vector<int>
 
 
 	void LimitMap();
+	void LimitMapBoss();
+
 
 
 
@@ -93,5 +95,8 @@ void collideMonster(Object* o, std::vector <Monster*>& wallList,std::vector<int>
 //musique gestion
 
 void musicGestion();
+
+void checkLifeMonster(std::vector<bool>& control);
+
 };
 #endif

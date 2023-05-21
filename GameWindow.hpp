@@ -7,6 +7,7 @@
 #include <iostream>
 #include <stdlib.h>
 #include "LifeWindow.hpp"
+#include "KeyWindow.hpp"
 #include "GameGestion.hpp"
 #include "Heart.hpp"
 #include "Projectile.hpp"
@@ -31,6 +32,7 @@ private:
     //class
     GameGestion* _game;
     LifeWindow* _lifeWindow;
+    KeyWindow* _keyWindow;
     UserInterface* ui;
 
     void pollEvent();// declaration d'un event
@@ -45,6 +47,10 @@ private:
 
     void displayLifeWindow() {
         _lifeWindow->drawTo(this->getWindow());
+    }
+
+    void displayKeyWindow() {
+        _keyWindow->drawTo(this->getWindow());
     }
 
 
@@ -90,6 +96,10 @@ public:
         window->setView(*_lifeWindow->getLifeView());
     }
 
+    void setKeyView(){
+        window->setView(*_keyWindow->getKeyView());
+    }
+
     sf::View* getViewWindow() {
         return _view;
     }
@@ -125,6 +135,10 @@ public:
     void display();
 
     void setScrollingView();
+
+    void setViewBoss();
+
+
     //void verificationWindow(void);
 
 

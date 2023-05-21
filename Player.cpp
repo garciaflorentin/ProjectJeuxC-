@@ -4,7 +4,7 @@
 Player::Player(const char* nameObject, sf::Vector2f initPos): Character(nameObject,initPos) {
 	speed = 3;
 	damageAttack = 3;
-
+	_isInTheCave=false;
 	_canOpenChest = true;
 	initWeapon();
 	projectile = new Projectile("arrow.png",initPos,this);

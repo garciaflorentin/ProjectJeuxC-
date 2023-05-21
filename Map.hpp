@@ -18,6 +18,8 @@
 #include "TypeWall.hpp"
 #include "Projectile.hpp"
 #include "Monster.hpp"
+#include "GoldenChest.hpp"
+#include "Door.hpp"
 
 using namespace std;
 
@@ -29,21 +31,30 @@ private:
 	std::vector<Object*>* _map;
 	std::vector<Object*>* _wallList;
 	std::vector<Monster*>* _monsterList;
+	Door* door;
 	float LIMITE_Xneg= 0;
-	float LIMITE_Y= 7125.f;
+	float LIMITE_Y= 14350.f;
 	float LIMITE_X= 14350;
 	float LIMITE_Yneg=-7125.f;
-
-
+	float LIMITE_XnegBoss=9472.f;
+	float LIMITE_YnegBoss=9600.f;
+	float LIMITE_XBoss=10456.f;
+	float LIMITE_YBoss=10328.f;
+	
 
 public:
-
+//384
 	Map();
 	~Map();
 
 	void getLimitMap(std::vector<float>& limit){
 		limit={LIMITE_X,LIMITE_Y,LIMITE_Xneg,LIMITE_Yneg};
 	}
+
+	void getLimitMapBoss(std::vector<float>& limit){
+		limit={LIMITE_XnegBoss,LIMITE_YnegBoss,LIMITE_XBoss,LIMITE_YBoss};
+	}
+
 
 	std::vector<Object*>* objectToDraw(std::vector<sf::Vector2f>* currentWindow);
 
@@ -68,6 +79,8 @@ public:
 	std::vector<Monster*>* getMonsters();
 
 	void updateObjects(Player* player);	
+	
+	void updateAnimateObject();
 	
 };
 #endif

@@ -10,12 +10,13 @@
 #include "Object.hpp"
 #include "Character.hpp"
 //#include "Player.hpp"
+//#include "Projectile.hpp"
 class Gain;
 
 
 class Chest : public Tile{
 
-private:
+protected:
     
     int CHEST_SIZE = 35;
     bool _isOpen;
@@ -52,7 +53,7 @@ sf::Vector2f getPosition() {
         return _isOpen;
     }
     
-    void collide(Object* o);
+    virtual void collide(Object* o);
     
     
     const int getBlockSize(){

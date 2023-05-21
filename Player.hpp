@@ -26,10 +26,11 @@ private:
 	int bowAnim;
 	int wandAnim;
 
-
+	bool _isInTheCave;
 	Projectile* projectile;
 
 	bool _canOpenChest = true;
+
 
 
 public:
@@ -38,7 +39,13 @@ public:
 
 	~Player();
 
+	void isInTheCave(bool state){
+		_isInTheCave=state;
+	}
 	
+	bool getIsInTheCave(){
+		return _isInTheCave;
+	}
 	void openChest(Chest* chest);
 	void setDamage(Character* target);
 	void attack(Character* target) ;

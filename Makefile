@@ -41,23 +41,28 @@ Map.o: Map.cpp Object.hpp Player.hpp Gain.hpp TexturesLib.hpp Tile.hpp Object.hp
 Chest.o: Chest.cpp Gain.hpp Object.hpp Character.hpp Player.hpp  Tile.hpp TexturesLib.hpp
 	$(CPP) $(CPPFLAGS) -c Chest.cpp 
 
-Projectile.o: Projectile.cpp Object.hpp Player.hpp TexturesLib.hpp Monster.hpp
+Projectile.o: Projectile.cpp Object.hpp Player.hpp TexturesLib.hpp Monster.hpp Projectile.hpp
 	$(CPP) $(CPPFLAGS) -c Projectile.cpp 
 
 UserInterface.o: UserInterface.cpp
 	$(CPP) $(CPPFLAGS) -c UserInterface.cpp 
 
-
+GoldenChest.o: GoldenChest.cpp Chest.hpp
+	$(CPP) $(CPPFLAGS) -c GoldenChest.cpp 
 
 Monster.o: Monster.cpp Player.hpp
 	$(CPP) $(CPPFLAGS) -c Monster.cpp 
 
+KeyWindow.o: KeyWindow.cpp Player.hpp
+	$(CPP) $(CPPFLAGS) -c KeyWindow.cpp 
+
+Door.o: Door.cpp Wall.hpp Player.hpp
+	$(CPP) $(CPPFLAGS) -c Door.cpp 
 
 
 
-
-jeu_de_base: main.o UserInterface.o Monster.o Projectile.o Heart.o TexturesLib.o Object.o LifeWindow.o Character.o Player.o Map.o GameGestion.o GameWindow.o Chest.o
-	$(LD) $(LDFLAGS) UserInterface.o Monster.o Projectile.o Chest.o Heart.o TexturesLib.o Object.o LifeWindow.o Character.o Player.o Map.o GameGestion.o GameWindow.o main.o -o jeu_de_base $(LIBS)
+jeu_de_base: main.o Door.o KeyWindow.o GoldenChest.o UserInterface.o Monster.o Projectile.o Heart.o TexturesLib.o Object.o LifeWindow.o Character.o Player.o Map.o GameGestion.o GameWindow.o Chest.o
+	$(LD) $(LDFLAGS) Door.o KeyWindow.o GoldenChest.o UserInterface.o Monster.o Projectile.o Chest.o Heart.o TexturesLib.o Object.o LifeWindow.o Character.o Player.o Map.o GameGestion.o GameWindow.o main.o -o jeu_de_base $(LIBS)
 
 
 clean:

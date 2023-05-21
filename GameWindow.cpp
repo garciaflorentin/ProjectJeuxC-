@@ -18,6 +18,7 @@ GameWindow::GameWindow(void) {
     Heart* test = new Heart();
     _lifeWindow = new LifeWindow((*_game->getPlayerVector())[0]->getlife());
         ui =  new UserInterface();
+        _keyWindow= new KeyWindow((*_game->getPlayerVector())[0]);
 
 }
 
@@ -31,6 +32,7 @@ GameWindow::~GameWindow(void) {
     delete _view;
     delete currentWindowPos;
     delete _lifeWindow;
+    delete _keyWindow;
     delete test;
     delete ui;
 }
@@ -67,6 +69,20 @@ void GameWindow::setScrollingView() {
    window->setView(*_view);
 
 }
+
+void GameWindow::setViewBoss(){
+    float viewX=getWindowDim().x;
+    float viewY=getWindowDim().y;
+
+   // on met a jour la vu en changeant la position du coin haut gauche
+   _view->reset(sf::FloatRect(9472,9600, viewX, viewY));
+   
+   // on applique la view a la window
+   window->setView(*_view);
+
+}
+    
+
 
 // gestion clavier et souris 
 
@@ -223,9 +239,14 @@ void GameWindow::draw() {
 void GameWindow::display() {
         
    setScrollingView();
+   if((*_game->getPlayerVector())[0]->getIsInTheCave()){
+    setViewBoss();
+   }
    draw();// dessine tout les sprites contenut dans la fenetre courante
    setLifeView();
    displayLifeWindow();
+   setKeyView();
+   displayKeyWindow();
    window->display();
    clearWindow();
 

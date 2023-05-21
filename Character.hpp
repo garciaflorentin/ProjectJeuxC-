@@ -19,9 +19,10 @@ protected:
 	EnumOrientation _enumOrientation;
 	enum Orientation { Up, Left, Down, Right };
 	bool _isAlive;
-	int OBJECT_SIZE = 32;
+	int OBJECT_SIZE;
 	int orientation;
-
+	int key;
+	std::vector<bool> killedallMobs ={false,false,false,false};
 
 	sf::Vector2i* anim;
 	Heart* life;
@@ -30,6 +31,13 @@ protected:
 	bool _canOpenChest = false;
 	
 public:
+	void updateKilledallMobs(std::vector<bool>& _killedallMobs){
+		killedallMobs=_killedallMobs;
+	}
+	std::vector<bool>& getKilledallMobs(){
+		return killedallMobs;
+	}
+
 
 	Character(const char* nameObject, sf::Vector2f initPos);
 
@@ -68,6 +76,15 @@ public:
 	bool canOpenChest() const { return _canOpenChest; };
 	virtual void openChest(Chest* chest)=0;
 
+	int getKey(){
+		return key;
+	}
+
+	void addKey(){
+		if(key<4){
+			key++;
+		}
+	}
 
 };
 #endif

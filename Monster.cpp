@@ -4,7 +4,11 @@
 Player* Monster::_player = nullptr;
 
 Monster::Monster(const char* nameObject, sf::Vector2f initPos, string name, int dmg, int ar, int vf) :
-            Character(nameObject, initPos),  _damage(dmg), _attack_radius(ar*SPR_SIZE), _vision_field(vf*SPR_SIZE), _canOpenChest(false) {}
+            Character(nameObject, initPos),  _damage(dmg), _attack_radius(ar*SPR_SIZE), _vision_field(vf*SPR_SIZE), _canOpenChest(false) {
+               anim->x = 0;
+	            anim->y = 0;
+                updateSprite();
+            }
 
 Monster::~Monster() {}
 
@@ -49,21 +53,21 @@ void Monster::goToPlayer() {
 
     if ((abs(dist_y) > _attack_radius-SPR_SIZE)||(abs(dist_x) > _attack_radius-SPR_SIZE)) {
         if ((dist_x > 0)&&(dist_y > 0)) {
-            if (dist_x > dist_y)    np.x++;
-            else                    np.y++;
+            if (dist_x > dist_y) {   np.x++; anim->y=2;anim->x++;}
+            else                {    np.y++;anim->y=0;anim->x++;}
         } else if ((dist_x < 0)&&(dist_y < 0)) {
-            if (dist_x < dist_y)    np.x--;
-            else                    np.y--;
+            if (dist_x < dist_y)   { np.x--;anim->y=1;anim->x++;}
+            else                   { np.y--;anim->y=3;anim->x++;}
         } else if ((dist_x > 0)&&(dist_y < 0)) {
-            if (abs(dist_x) > abs(dist_y))  np.x++;
-            else                            np.y--;
+            if (abs(dist_x) > abs(dist_y))  {np.x++;anim->y=2;anim->x++;}
+            else                        {    np.y--;anim->y=3;anim->x++;}
         } else if ((dist_x < 0)&&(dist_y > 0)) {
-            if (abs(dist_x) > abs(dist_y))  np.x--;
-            else                            np.y++;
+            if (abs(dist_x) > abs(dist_y)) { np.x--;anim->y=1;anim->x++;}
+            else                         {   np.y++;anim->y=0;anim->x++;}
         }
 
         //cout << "moving by " << np.x << " " << np.y << endl;
-
+        updateSprite();
         move(np);
     }
 }
@@ -93,3 +97,11 @@ void Monster::move(sf::Vector2f deplacement){
 // bool Monster::fireball() {
 //     /* Lance une boule de feu en direction du joueur */
 // }
+
+ void Monster::collide(Object* o) {
+      
+        //Projectile* p=dynamic_cast<Projectile*>(o);
+       if(typeid(*o) == typeid(Projectile)){
+                getSprite()->scale(0,0); 
+        }
+}

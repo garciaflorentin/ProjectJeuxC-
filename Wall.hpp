@@ -18,6 +18,9 @@ private:
 
 public:
 
+	virtual bool canBeAnimated(){
+		return false;
+	}
 
 	const int getBlockSize(){
 		return TILE_SIZE;
@@ -97,7 +100,42 @@ public:
 			case 16:
 			_sprite->setTextureRect(sf::IntRect( 51, 1786, 48, 48));
 			break;
-			
+			case 17:
+			_sprite->setTextureRect(sf::IntRect( 1029, 1254, 122, 96));
+			break;
+			case 18:
+			_sprite->setTextureRect(sf::IntRect( 1108, 1354, 48, 96));
+			break;
+			case 19:
+			_sprite->setTextureRect(sf::IntRect( 1108, 1450, 48, 48));
+			break;
+			case 20:
+			_sprite->setTextureRect(sf::IntRect( 1108, 1499, 48, 48));
+			break;
+			case 21:
+			_sprite->setTextureRect(sf::IntRect( 822, 1499, 48, 48));
+			break;
+			case 22:
+			_sprite->setTextureRect(sf::IntRect( 1060, 1546, 48, 96));
+			break;
+			case 23:
+			_sprite->setTextureRect(sf::IntRect( 1108, 1546, 48, 96));
+			break;
+			case 24:
+			_sprite->setTextureRect(sf::IntRect( 1112, 1834, 96, 96));
+			break;
+			case 25:
+			_sprite->setTextureRect(sf::IntRect( 1029, 1254, 122, 96));
+			_sprite->rotate(-90);
+			break;
+			case 26:
+			_sprite->setTextureRect(sf::IntRect( 1029, 1254, 122, 96));
+			_sprite->rotate(90);
+			break;
+			case 27:
+			_sprite->setTextureRect(sf::IntRect( 1029, 1254, 122, 96));
+			_sprite->rotate(-180);
+			break;
 		}
 
 	}
