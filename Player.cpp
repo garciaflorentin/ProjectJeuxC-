@@ -64,11 +64,11 @@ void Player::useSword(){
 void Player::useBow(){
 	if(bowAnim>=1){
 
-		if(bowAnim==20 && !projectile->isShooted()){
+		if(bowAnim==20 && !projectile->isShot()){
 			bowAttack->stop();
 			bowAttack->play();
 			projectile->setDirection(orientation);
-			projectile->setIsShooted(true);
+			projectile->setIsShot(true);
 			projectile->initProjectile();
 			_sprite->setTextureRect(sf::IntRect(9*OBJECT_SIZE, anim->y*OBJECT_SIZE, OBJECT_SIZE, OBJECT_SIZE));
 			bowAnim=0;

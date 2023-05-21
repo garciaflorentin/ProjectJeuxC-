@@ -2,8 +2,8 @@
 
 
 Projectile::Projectile(const char* nameObject, sf::Vector2f initPos,Player* player) : Object(nameObject,initPos){
-    this->player = player;
-    _isShooted= false;
+    this->_player = player;
+    _isShot= false;
     distance= 0;
     this->getSprite()->scale(0.25,0.25);
 
@@ -12,8 +12,8 @@ Projectile::Projectile(const char* nameObject, sf::Vector2f initPos,Player* play
 
 Projectile::Projectile(const Projectile& other) : Object(other)
 {
-    player = other.player;
-    _isShooted = other._isShooted;
+    _player = other._player;
+    _isShot = other._isShot;
     distance= 0;
     this->getSprite()->scale(0.25,0.25);
 
@@ -23,8 +23,8 @@ Projectile& Projectile::operator=(const Projectile& other)
 {
     if (this != &other) {
         Object::operator=(other);
-        player = other.player;
-        _isShooted = other._isShooted;
+        _player = other._player;
+        _isShot = other._isShot;
         distance= 0;
         this->getSprite()->scale(0.25,0.25);
 
@@ -54,7 +54,7 @@ void Projectile::goTo(){
 void Projectile::initProjectile(){
     std::cout<<"initprojectile"<<std::endl;
     _sprite->setTextureRect(sf::IntRect(direction*256,0,256,256));
-    _sprite->setPosition(player->getPosition().x,player->getPosition().y);
+    _sprite->setPosition(_player->getPosition().x,_player->getPosition().y);
 }
 
 
@@ -68,7 +68,7 @@ void Projectile::initProjectile(){
     }
 
     distance=0;
-    _isShooted=false;
+    _isShot=false;
 
  }
 
@@ -80,14 +80,14 @@ void Projectile::initProjectile(){
 
 void Projectile::arrowOutOfBounds(){
 
-    if(isShooted() && distance<= 96){
+    if(isShot() && distance<= 96){
 			goTo();
 			incrementeDistance();
 
-	}else if( isShooted() && distance > 96){
+	}else if( isShot() && distance > 96){
 			std:cout<<"destruction projectile"<<std::endl;
 			setDistance(0);
-		    setIsShooted(false);
+		    setIsShot(false);
 
 		}
 

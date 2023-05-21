@@ -70,6 +70,8 @@ public:
     /*{
         std::cout<<"collideObject"<<std::endl;
     }*/
+
+    virtual int getSerial() { return 0; };
 };
 
 #endif

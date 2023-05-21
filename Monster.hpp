@@ -9,8 +9,12 @@ class Player;
 #define SPR_SIZE 48
 
 class Monster : public Character {
-    private :
+    protected :
         static Player* _player;
+
+        static int _serial;
+
+        int _this_serial;
         
         int _damage;
         float _attack_radius;
@@ -33,7 +37,7 @@ class Monster : public Character {
         Monster(const char* nameObject, sf::Vector2f initPos, string name="meat", int dmg=1, int ar=2, int vf=5);
         ~Monster();
         
-        void attack(Character* target);
+        virtual void attack(Character* target);
         void move(sf::Vector2f deplacement);
         
         void update(Player* pl);      
@@ -41,14 +45,15 @@ class Monster : public Character {
         void collide(Object* o);
 
         void openChest(Chest* chest) {};
-        
+
         void updateSprite(){
 	    if(anim->x*OBJECT_SIZE >= OBJECT_SIZE*3){anim->x=0;}
 	    _sprite->setTextureRect(sf::IntRect(anim->x*OBJECT_SIZE, anim->y*OBJECT_SIZE, OBJECT_SIZE, OBJECT_SIZE));
 
 }
-        //bool fireball();
+        float lifetime_secs() { return _upd.getElapsedTime().asSeconds(); };
 
+        int getSerial() { return _this_serial; };
 };
 
 #endif

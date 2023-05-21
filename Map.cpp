@@ -272,32 +272,95 @@ for(int y=-12;y<12;y++){
 
  //addObject(new Monster("MonsterSheet1.png", {20,-10}));
 }
-/*
+
 
 	//creation des monstres
-	for (float x = 0; x < 300; x++) {
-		for (float y = -150; y < 150; y++) {
-			if (x < 50) {
-				if (y <0) {
-					if (rand() % 300 == 0)	addObject(new Monster("MonsterSheet1.png", {x,y}));}}}}}*/
-			/*
-            	}else{ if (rand() % 500 == 0)	addObject(new Monster("MonsterSheet1.png", {x,y}));}
-            }else{
-                if (y <0) {
-					if (rand() % 500 == 0)	addObject(new Monster("MonsterSheet1.png", {x,y}));
-				}else{ if (rand() % 500 == 0)	addObject(new Monster("MonsterSheet1.png", {x,y}));}
-            
-            }
+	// for (float x = 0; x < 200; x++) {
+	// 	for (float y = -150; y < 150; y++) {
+	// 		if (x < 100) {
+	// 			if (y <0) {
+	// 				if (rand() % 100 == 0)	addObject(new MeleeMonster("crying_cat.png", {x,y}));
+	// 			} else {
+    //                 if (rand() % 100 == 0)	addObject(new RangedMonster("standing_cat.png", {x,y}));
+    //             }
+	// 		}
+	// 	}
+	// }
 
-                }
-			}
-		}*/
+
+
+void Map::spawnMobs(string area) {
+    for (int i = 0; i < _monsterList->size(); i++) {
+        auto iter = find(_map->begin(), _map->end(), (*_monsterList)[i]);
+        if (iter != _map->end())    _map->erase(iter);
+    }
+    _monsterList->clear();
+
+    if (area == "forest") {
+        cout << "adding forest monsters" << endl;
+
+        for (float x = 0; x < 100; x++)
+            for (float y = -100; y < 0; y++)
+                if (rand() % SPAWN_FREQUENCY == 0)	addObject(new MeleeMonster("crying_cat.png", {x,y}));
+        _spf = true;
+        _spm = false;
+        _spb = false;
+        _spt = false;
+    } else if (area == "mountain") {
+        cout << "adding mountain monsters" << endl;
+
+        for (float x = 0; x < 100; x++)
+            for (float y = 0; y < 100; y++)
+                if (rand() % SPAWN_FREQUENCY == 0)	addObject(new RangedMonster("standing_cat.png", {x,y}));
+        _spf = false;
+        _spm = true;
+        _spb = false;
+        _spt = false;
+    } else if (area == "beach") {
+        cout << "adding beach monsters" << endl;
+
+        for (float x = 100; x < 200; x++)
+            for (float y = -100; y < 0; y++)
+                if (rand() % SPAWN_FREQUENCY == 0) {}
+        _spf = false;
+        _spm = false;
+        _spb = true;
+        _spt = false;
+    } else if (area == "town") {
+        cout << "adding town monsters" << endl;
+
+        for (float x = 100; x < 200; x++)
+            for (float y = 0; y < 100; y++)
+                if (rand() % SPAWN_FREQUENCY == 0) {}
+        _spf = false;
+        _spm = false;
+        _spb = false;
+        _spt = true;
+    }
+}
 
 
 
 
 
 void Map::updateObjects(Player* player) {
+    sf::Vector2f ppose = player->getPosition();
+    //cout << "player x = " << ppose.x << ", y = " << ppose.y << endl;
+    
+    if ((ppose.x < 100*SPR_SIZE)&&(ppose.y < 0)&&(!_spf)) {
+        cout << "in forest area" << endl;
+        spawnMobs("forest");
+    } else if ((ppose.x < 100*SPR_SIZE)&&(ppose.y > 0)&&(!_spm)) {
+        cout << "in mountain area" << endl;
+        spawnMobs("mountain");
+    } else if ((ppose.x > 100*SPR_SIZE)&&(ppose.y < 0)&&(!_spb)) {
+        cout << "in beach area" << endl;
+        spawnMobs("beach");
+    } else if ((ppose.x > 100*SPR_SIZE)&&(ppose.y>0)&&(!_spt)) {
+        cout << "in town area" << endl;
+        spawnMobs("town");
+    }
+
 	for (int i=0;i<_monsterList->size();i++)
 	{
 		if (!(*_monsterList)[i]->isAlive())
@@ -310,6 +373,15 @@ void Map::updateObjects(Player* player) {
 			//cout << "updating monsters in the list _map" << endl;
 			(*_monsterList)[i]->update(player);
 		}
+
+        // if ((*_monsterList)[i]->lifetime_secs() > 10) { 
+        //     Monster* temp = (*_monsterList)[i];
+        //     _monsterList->erase(next(_monsterList->begin(),i-1));
+        //     for (int j = 0; j < _map->size(); j++) {
+        //         if ((*_map)[j]->getSerial() == temp->getSerial())   _map->erase(next(_map->begin(),j-1));
+        //     }
+        //     delete[] temp;
+        // }
 
 	}
     updateAnimateObject();

@@ -15,15 +15,16 @@ class Monster;
 
 class Projectile: public Object{
 
-    private:
+    protected:
 
-    Player* player;
-    bool _isShooted;
+    Player* _player;
+    bool _isShot;
     int direction;
     int distance;
 
     public:
 
+    Projectile() : Object() {};
     Projectile(const char* nameObject, sf::Vector2f initPos,Player* player);
     ~Projectile(){}
     Projectile(const Projectile& other);
@@ -31,20 +32,20 @@ class Projectile: public Object{
 
 
 
-    void goTo();
+    virtual void goTo();
 
-    void initProjectile();
+    virtual void initProjectile();
 
-    void collide(Object* o);
+    virtual void collide(Object* o);
 
     const int getBlockSize(){return 32;}
 
-    bool isShooted(){
-        return _isShooted;
+    bool isShot(){
+        return _isShot;
     }
 
-    void setIsShooted(bool state){
-        _isShooted=state;
+    void setIsShot(bool state){
+        _isShot=state;
     }
 
     int getDirection(){

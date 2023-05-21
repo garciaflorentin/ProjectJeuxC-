@@ -29,11 +29,11 @@ GameGestion::GameGestion() {
 
 	bool GameGestion::drawProjectile(std::vector<sf::Vector2f>* currentWindow){
 			Projectile* _projectile= (*playerVector)[0]->getProjectile();
-			if(_projectile->isShooted()){
+			if(_projectile->isShot()){
 			std::cout<<"projX="<<(*playerVector)[0]->getProjectile()->getPosition().x<<std::endl;
 			std::cout<<"projY="<<(*playerVector)[0]->getProjectile()->getPosition().y<<std::endl;
 			}
-			if (_projectile->isShooted() && (_projectile->getPosition().x >= ((*currentWindow)[0].x - 200) && _projectile->getPosition().y >= ((*currentWindow)[0].y)-200) && (_projectile->getPosition().x <= ((*currentWindow)[1].x+50) && _projectile->getPosition().y < ((*currentWindow)[1].y)+50) )  {
+			if (_projectile->isShot() && (_projectile->getPosition().x >= ((*currentWindow)[0].x - 200) && _projectile->getPosition().y >= ((*currentWindow)[0].y)-200) && (_projectile->getPosition().x <= ((*currentWindow)[1].x+50) && _projectile->getPosition().y < ((*currentWindow)[1].y)+50) )  {
 					return !((*playerVector)[0]->getProjectile()==nullptr);
 			}else{return false;}
 	}
@@ -313,7 +313,7 @@ void GameGestion::collideProjectileGestion(){
 	//std::shared_ptr<Projectile> _projectile = std::make_shared<Projectile(*(*playerVector)[0]->getProjectile())>();
 	_projectile=(*playerVector)[0]->getProjectile();
 
-	if(_projectile->isShooted()){	
+	if(_projectile->isShot()){	
 
 		//std::cout<<"projectilTire"<<std::endl;
 		wallList = *_map->getWallList();

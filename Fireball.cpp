@@ -1,28 +1,56 @@
 #include "Fireball.hpp"
 
 
-Fireball::Fireball(const char* nameObject, sf::Vector2f initPos, sf::Vector2f targetPos) : Object(nameObject, initPos), _targetPos(targetPos) {
+Fireball::Fireball(const char* nameObject, sf::Vector2f initPos, Character* player, int dmg) {
+    _player = dynamic_cast<Player*>(player);
+    _isShot = false;
+    distance = 0;
+
+    _initPos = initPos;
+
+    _dmg = dmg;
+
     this->computeTrajectory();
+
+    initProjectile();
+
+    // while (!_isShot) {
+    //     goTo;
+    // }
 }
 
 void Fireball::computeTrajectory() {
-    sf::Vector2f curr_pos = this->getPosition();
+    sf::Vector2f targetPos = _player->getPosition();
 
-    float distX = _targetPos.x - curr_pos.x;
-    float distY = _targetPos.y - curr_pos.y;
+    float distX = targetPos.x - this->getPosition().x;
+    float distY = targetPos.y - this->getPosition().y;
 
-    //fireball has a range of 15 blocks --> divide both distances by number of pixels
-    float stepX = distX / float(FIREBALL_RANGE*SPR_SIZE);
-    float stepY = distY / float(FIREBALL_RANGE*SPR_SIZE);
-
-    _step = {stepX, stepY};
+    _dirVect.x = distX / PROJECTILE_SPEED;
+    _dirVect.y = distY / PROJECTILE_SPEED;
 }
 
-void Fireball::launch() {
-    if (_range_count >= 0) {
-        if (_upd.getElapsedTime().asMilliseconds()%50 == 0) {
-            _sprite->move(_step);
-            _range_count++;
-        }
+void Fireball::initProjectile(){
+    std::cout<<"init fireball"<<std::endl;
+    _sprite->setTextureRect(sf::IntRect(0,0,256,256));
+    if (_dirVect.x != 0)    _sprite->rotate(atan(_dirVect.y/_dirVect.x));
+    else                    _sprite->rotate(90);
+
+    _sprite->setPosition(_initPos.x,_initPos.y);
+}
+
+void Fireball::goTo(){
+    this->getSprite()->move(_dirVect);
+}
+
+void Fireball::collide(Object* o){
+    std::cout<<"Fireball CollideObject"<<std::endl;
+
+   if(typeid(*o) == typeid(Player)){
+        std::cout<<"Fireball collide Player"<<std::endl;
+        Monster* target=dynamic_cast<Monster*>(o);
+        target->takeDamage(12);
     }
-}
+
+    distance=0;
+    _isShot=true;
+ }

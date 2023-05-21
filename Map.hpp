@@ -17,9 +17,12 @@
 #include "Wall.hpp"
 #include "TypeWall.hpp"
 #include "Projectile.hpp"
-#include "Monster.hpp"
+#include "MeleeMonster.hpp"
 #include "GoldenChest.hpp"
 #include "Door.hpp"
+#include "RangedMonster.hpp" 
+
+#define SPAWN_FREQUENCY 200
 
 using namespace std;
 
@@ -79,8 +82,10 @@ public:
 	std::vector<Monster*>* getMonsters();
 
 	void updateObjects(Player* player);	
-	
+
 	void updateAnimateObject();
+	
+	void spawnMobs(string area);
 	
 };
 #endif
