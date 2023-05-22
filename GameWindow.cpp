@@ -228,7 +228,6 @@ void GameWindow::draw() {
     }
    
    if(_game->drawProjectile(getCurrentWindowPos())){
-
         std::cout<<"projectile draw"<<std::endl;
         window->draw(*(*_game->getPlayerVector())[0]->getProjectile()->getSprite());
         

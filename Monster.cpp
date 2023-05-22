@@ -6,9 +6,7 @@ int Monster::_serial = 0;
 
 Monster::Monster(const char* nameObject, sf::Vector2f initPos, string name, int dmg, int ar, int vf) :
             Character(nameObject, initPos),  _damage(dmg), _attack_radius(ar*SPR_SIZE), _vision_field(vf*SPR_SIZE), _canOpenChest(false) {
-               anim->x = 0;
-	            anim->y = 0;
-                updateSprite();
+               
             
                 _this_serial = _serial;
                 _serial++;

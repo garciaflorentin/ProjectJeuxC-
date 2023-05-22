@@ -136,8 +136,34 @@ public:
 			_sprite->setTextureRect(sf::IntRect( 1029, 1254, 122, 96));
 			_sprite->rotate(-180);
 			break;
+			case 28:
+			_sprite->setTextureRect(sf::IntRect( 1033, 1740, 112, 96));
+			break;
+			case 29:
+			_sprite->setTextureRect(sf::IntRect( 892, 1644, 112, 96));
+			break;
+			case 30:
+			_sprite->setTextureRect(sf::IntRect( 1033, 1644, 112, 96));
+			break;
+			case 31:
+			_sprite->setTextureRect(sf::IntRect( 892, 1740, 112, 96));
+			break;
+			case 32:
+			_sprite->setTextureRect(sf::IntRect( 918, 1354, 48, 96));
+			break;
+			case 33:
+			_sprite->setTextureRect(sf::IntRect( 820, 1354, 48, 96));
+			break;
+			case 34:
+			_sprite->setTextureRect(sf::IntRect( 1014, 1354, 48, 96));
+			break;
+			case 35:
+			_sprite->setTextureRect(sf::IntRect( 966, 1354, 48, 96));
+			break;
 		}
-
+		
 	}
+
+	
 };
 #endif

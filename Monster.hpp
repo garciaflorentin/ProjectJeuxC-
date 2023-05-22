@@ -46,9 +46,7 @@ class Monster : public Character {
 
         void openChest(Chest* chest) {};
 
-        void updateSprite(){
-	    if(anim->x*OBJECT_SIZE >= OBJECT_SIZE*3){anim->x=0;}
-	    _sprite->setTextureRect(sf::IntRect(anim->x*OBJECT_SIZE, anim->y*OBJECT_SIZE, OBJECT_SIZE, OBJECT_SIZE));
+        virtual void updateSprite(){;
 
 }
         float lifetime_secs() { return _upd.getElapsedTime().asSeconds(); };

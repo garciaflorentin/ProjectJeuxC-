@@ -30,7 +30,15 @@ enum class TypeWall {
 	DragonStatue,
 	BossWallRight,
 	BossWallLeft,
-	BossWallDown
+	BossWallDown,
+	ChestForestBack,
+	ChestTownBack,
+	ChestBeatchBack,
+	ChestMountainBack,
+	ForetsPylone,
+	TownPylone,
+	BeatchPylone,
+	MountainPylone
 
 };
 

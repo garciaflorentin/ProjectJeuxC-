@@ -4,6 +4,10 @@ void RangedMonster::attack(Character* target) {
     Fireball* nfb = new Fireball("fireball.png", this->getPosition(), target);
 }
 
+void RangedMonster::updateSprite(){
+	          if(anim->x*OBJECT_SIZE >= OBJECT_SIZE*9){anim->x=9;}
+	             _sprite->setTextureRect(sf::IntRect(anim->x*OBJECT_SIZE, anim->y*OBJECT_SIZE, OBJECT_SIZE, OBJECT_SIZE));
+}
 // bool RangedMonster::fireball(Character* target) {
 //     sf::Vector2f targetPos = target->getPosition();
 

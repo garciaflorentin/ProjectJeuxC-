@@ -43,6 +43,11 @@ private:
 	float LIMITE_YnegBoss=9600.f;
 	float LIMITE_XBoss=10456.f;
 	float LIMITE_YBoss=10328.f;
+	bool _spf = false;
+	bool _spm = false;
+	bool _spb = false;
+	bool _spt = false;
+
 	
 
 public:

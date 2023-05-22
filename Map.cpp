@@ -113,7 +113,7 @@ void Map::createMap(){
 int a=rand();
 //creation du sol
 for (float x = 0; x < 200; x++) {
-    for (float y = -100; y < 100; y++) {
+    for (float y = -102; y < 102; y++) {
         
         if (x < 100) {
             if (y <0) {
@@ -174,7 +174,7 @@ for (float x = 0; x < 200; x++) {
 				}else if ( rand()%300==0){
 					addObject(new Chest("Chests.png",{x,y}));
 				}else if(rand()%300==0){
-					addObject(new Wall("World2.png",{x, y}, TypeWall::LacForest));
+					//addObject(new Wall("World2.png",{x, y}, TypeWall::LacForest));
 				}else if(rand()%100==0){
 					addObject(new Wall("World2.png",{x, y}, TypeWall::RocherForest));
 				}else if(rand()%100==0){
@@ -188,7 +188,7 @@ for (float x = 0; x < 200; x++) {
                     addObject(new Wall("World2.png",{x, y}, TypeWall::MonsterSkeleton));
                 }
                 else if (rand() % 300 == 0) {
-                    addObject(new Wall("World2.png",{x, y}, TypeWall::LacMountain));
+                   // addObject(new Wall("World2.png",{x, y}, TypeWall::LacMountain));
                 }
 				else if (rand() % 100 == 0) {
                     addObject(new Wall("World2.png",{x, y}, TypeWall::TombStone));
@@ -211,7 +211,7 @@ for (float x = 0; x < 200; x++) {
                 else if(rand() % 100 == 0) {
                     addObject(new Wall("World2.png",{x, y}, TypeWall::Barrel));
                 }else if(rand() % 100 == 0) {
-                    addObject(new Wall("World2.png",{x, y}, TypeWall::lacBeatch));
+                   // addObject(new Wall("World2.png",{x, y}, TypeWall::lacBeatch));
                 }
             } else {
                 // Monde 4 : ville
@@ -230,12 +230,74 @@ for (float x = 0; x < 200; x++) {
     
     }
 }
-	
- addObject(new GoldenChest("Chests.png",{5, -2}));
- addObject(new GoldenChest("Chests.png",{5, 2}));
- addObject(new GoldenChest("Chests.png",{8, 2}));
- addObject(new GoldenChest("Chests.png",{8, -2}));
- addObject(new Door("!Demon Door.png",{10,-10},TypeWall::KnightStatue));
+for(int x=0;x<49;x++){
+    for(int y=-102;y<-100;y++){
+                            addObject(new Wall("World2.png",{x, y}, TypeWall::GrandSapin));
+    }
+}
+for(int x=51;x<100;x++){
+    for(int y=-102;y<-100;y++){
+                            addObject(new Wall("World2.png",{x, y}, TypeWall::GrandSapin));
+    }
+}
+for(int x=100;x<149;x++){
+    for(int y=-102;y<-100;y++){
+                            addObject(new Wall("World2.png",{x, y}, TypeWall::CoconutTree));
+    }
+}
+for(int x=151;x<200;x++){
+    for(int y=-102;y<-100;y++){
+                            addObject(new Wall("World2.png",{x, y}, TypeWall::CoconutTree));
+    }
+}
+for(int x=100;x<149;x++){
+    for(int y=100;y<102;y++){
+                            addObject(new Wall("World2.png",{x, y}, TypeWall::KnightStatue));
+    }
+}
+for(int x=151;x<200;x++){
+    for(int y=100;y<102;y++){
+                            addObject(new Wall("World2.png",{x, y}, TypeWall::KnightStatue));
+    }
+}
+for(int x=0;x<49;x++){
+    for(int y=100;y<102;y++){
+                            addObject(new Wall("World2.png",{x, y}, TypeWall::SnowTree));
+    }
+}
+for(int x=51;x<100;x++){
+    for(int y=100;y<102;y++){
+                            addObject(new Wall("World2.png",{x, y}, TypeWall::SnowTree));
+    }
+}
+
+addObject(new Wall("World2.png",{49, -103}, TypeWall::ChestForestBack));
+addObject(new Wall("World2.png",{149, -103}, TypeWall::ChestBeatchBack));
+addObject(new Wall("World2.png",{149, 103}, TypeWall::ChestTownBack));
+addObject(new Wall("World2.png",{49, 103}, TypeWall::ChestMountainBack));
+addObject(new Wall("World2.png",{48, -101}, TypeWall::ForetsPylone));
+addObject(new Wall("World2.png",{48, -100}, TypeWall::ForetsPylone));
+addObject(new Wall("World2.png",{51, -101}, TypeWall::ForetsPylone));
+addObject(new Wall("World2.png",{51, -100}, TypeWall::ForetsPylone));
+
+addObject(new Wall("World2.png",{48, 100}, TypeWall::MountainPylone));
+addObject(new Wall("World2.png",{48, 101}, TypeWall::MountainPylone));
+addObject(new Wall("World2.png",{51, 100}, TypeWall::MountainPylone));
+addObject(new Wall("World2.png",{51, 101}, TypeWall::MountainPylone));
+addObject(new Wall("World2.png",{148, -101}, TypeWall::BeatchPylone));
+addObject(new Wall("World2.png",{148, -100}, TypeWall::BeatchPylone));
+addObject(new Wall("World2.png",{151, -101}, TypeWall::BeatchPylone));
+addObject(new Wall("World2.png",{151, -100}, TypeWall::BeatchPylone));
+addObject(new Wall("World2.png",{148, 100}, TypeWall::TownPylone));
+addObject(new Wall("World2.png",{148, 101}, TypeWall::TownPylone));
+addObject(new Wall("World2.png",{151, 100}, TypeWall::TownPylone));
+addObject(new Wall("World2.png",{151, 101}, TypeWall::TownPylone));
+
+ addObject(new GoldenChest("Chests.png",{49.5, -101}));
+ addObject(new GoldenChest("Chests.png",{149.5, -101}));
+ addObject(new GoldenChest("Chests.png",{49.5, 101}));
+ addObject(new GoldenChest("Chests.png",{149.5, 101}));
+ addObject(new Door("!Demon Door.png",{100,-101},TypeWall::KnightStatue));
 
  for(int x=-11;x<11;x++){
     for(int y=-11;y<11;y++){
@@ -258,17 +320,6 @@ for (float x = 0; x < 200; x++) {
     }
  }
 
- /*
-for(int x=-12;x<12;x++){
-        addObject(new Wall("World2.png",{x+2.54+148, 155}, TypeWall::BossWallDown));
-        addObject(new Wall("World2.png",{x+148+2.54, 95}, TypeWall::BossWallUp));
-
-}
-for(int y=-12;y<12;y++){
-        addObject(new Wall("World2.png",{178, y+125+2.54}, TypeWall::BossWallLeft));
-        addObject(new Wall("World2.png",{118, y+125+2.54}, TypeWall::BossWallRight));
-
-}*/
 
  //addObject(new Monster("MonsterSheet1.png", {20,-10}));
 }
@@ -301,7 +352,7 @@ void Map::spawnMobs(string area) {
 
         for (float x = 0; x < 100; x++)
             for (float y = -100; y < 0; y++)
-                if (rand() % SPAWN_FREQUENCY == 0)	addObject(new MeleeMonster("crying_cat.png", {x,y}));
+                if (rand() % SPAWN_FREQUENCY == 0)	addObject(new MeleeMonster("MonsterSheet1.png", {x,y}));
         _spf = true;
         _spm = false;
         _spb = false;
@@ -310,8 +361,11 @@ void Map::spawnMobs(string area) {
         cout << "adding mountain monsters" << endl;
 
         for (float x = 0; x < 100; x++)
-            for (float y = 0; y < 100; y++)
-                if (rand() % SPAWN_FREQUENCY == 0)	addObject(new RangedMonster("standing_cat.png", {x,y}));
+            for (float y = 0; y < 100; y++){
+               // if (rand() % SPAWN_FREQUENCY == 0)	addObject(new RangedMonster("MonsterSheet2.png", {x,y}));
+                if (rand() % SPAWN_FREQUENCY == 0)	addObject(new MeleeMonster("MonsterSheet2.png", {x,y}));
+
+            }
         _spf = false;
         _spm = true;
         _spb = false;
@@ -385,6 +439,7 @@ void Map::updateObjects(Player* player) {
 
 	}
     updateAnimateObject();
+    std::cout<<"nombre de monstre total="<<_monsterList->size()<<std::endl;
 }
 
 void Map::updateAnimateObject(){
