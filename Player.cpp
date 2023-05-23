@@ -123,10 +123,7 @@ void Player::initWeapon(){
 }
 
 
-void Player::move(sf::Vector2i deplacement){
-	_sprite->move(deplacement.x,deplacement.y);
 
-}
 
 
 void Player::collide(Object* o){

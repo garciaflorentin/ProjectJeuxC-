@@ -36,9 +36,9 @@ private:
 	std::vector<Monster*>* _monsterList;
 	Door* door;
 	float LIMITE_Xneg= 0;
-	float LIMITE_Y= 14350.f;
-	float LIMITE_X= 14350;
-	float LIMITE_Yneg=-7125.f;
+	float LIMITE_Y= 4992.f;
+	float LIMITE_X= 9540;
+	float LIMITE_Yneg=-4896.f;
 	float LIMITE_XnegBoss=9472.f;
 	float LIMITE_YnegBoss=9600.f;
 	float LIMITE_XBoss=10456.f;

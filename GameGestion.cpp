@@ -41,54 +41,53 @@ GameGestion::GameGestion() {
 
 void GameGestion::keyEvent(sf::Event e) {
 
-if(time.getElapsedTime().asMilliseconds()>= 100){
 		if(!player->WeaponIsUsed()){
-			if (e.key.code == sf::Keyboard::Down) {
+			if (sf::Keyboard::isKeyPressed(sf::Keyboard::Down)) {//if (sf::Keyboard::isKeyPressed(sf::Keyboard::Space)) e.key.code == sf::Keyboard::Down
 				//std::cout << " D " << std::endl;
 				player->getAnim()->x++;
 				player->getAnim()->y = 0;
 				player->setOrientation(2);
-				player->move({0,10});
+				player->move({0,1.5});
 			}
-			else if ((e.key.code == sf::Keyboard::Up)) {
+			else if (sf::Keyboard::isKeyPressed(sf::Keyboard::Up)) {
 				//std::cout << " U " << std::endl;
 				player->getAnim()->x++;
 				player->getAnim()->y = 4;
 				player->setOrientation(0);
-				player->move({0,-10});
+				player->move({0,-1.5});
 			}
-			else if ((e.key.code == sf::Keyboard::Right)) {
+			else if (sf::Keyboard::isKeyPressed(sf::Keyboard::Right)) {
 				//std::cout << " R " << std::endl;
 				player->getAnim()->x++;
 				player->getAnim()->y = 2;
 				player->setOrientation(3);
-				player->move({10,0});
+				player->move({1.5,0});
 			}
-			else if ((e.key.code == sf::Keyboard::Left)) {
+			else if (sf::Keyboard::isKeyPressed(sf::Keyboard::Left)) {
 				//std::cout << " L " << std::endl;
 				player->getAnim()->x++;
 				player->getAnim()->y = 6;
 				player->setOrientation(1);
-				player->move({-10,0});
+				player->move({-1.5,0});
 			}
 			(*getPlayerVector())[0]->updateSprite();
 
 		}
 		
-			if ((e.key.code == sf::Keyboard::A )) 
+			if (sf::Keyboard::isKeyPressed(sf::Keyboard::A )) 
 			{
 				player->useSword();
-			}else if ((e.key.code == sf::Keyboard::Z)) 
+			}else if (sf::Keyboard::isKeyPressed(sf::Keyboard::Z)) 
 			{
 				player->useBow();
-			}else if ((e.key.code == sf::Keyboard::E)) 
+			}else if (sf::Keyboard::isKeyPressed(sf::Keyboard::E) )
 			{
 				player->useWand();
 			}
 
 
 
-	}
+	
 }
 
 int GameGestion::updateGame(){

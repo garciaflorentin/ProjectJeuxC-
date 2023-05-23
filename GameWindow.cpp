@@ -49,26 +49,29 @@ void GameWindow::setScrollingView() {
   std::vector<float> limitMap;
   _game->getMap()->getLimitMap(limitMap);
 
-   //on ne peut pas filmer en dehors de la map  
-   if (positionCentre.x < limitMap[2]) {
-       positionCentre.x = limitMap[2];
-   }
-   else if (positionCentre.y < limitMap[3]) {
-       positionCentre.y = limitMap[3];
-   }
-   else if (positionCentre.x > limitMap[0])
-       positionCentre.x = limitMap[0];
-   else if (positionCentre.y > limitMap[1])
-       positionCentre.y = limitMap[1];
-       
 
-   // on met a jour la vu en changeant la position du coin haut gauche
+     // On ne peut pas filmer en dehors de la map
+    if (positionCentre.x < limitMap[2]) {
+        positionCentre.x = limitMap[2];
+    }
+    else if (positionCentre.x + 2 * (viewX / 2) > limitMap[0]) {
+        positionCentre.x = limitMap[0] - 2 * (viewX / 2);
+    }
+
+    if (positionCentre.y < limitMap[3]) {
+        positionCentre.y = limitMap[3];
+    }
+    else if (positionCentre.y + 2 * (viewY / 2) > limitMap[1]) {
+        positionCentre.y = limitMap[1] - 2 * (viewY / 2);
+    }
+    
+       // on met a jour la vu en changeant la position du coin haut gauche
    _view->reset(sf::FloatRect(positionCentre.x, positionCentre.y, viewX, viewY));
    
-   // on applique la view a la window
-   window->setView(*_view);
-
+    window->setView(*_view);
 }
+  
+
 
 void GameWindow::setViewBoss(){
     float viewX=getWindowDim().x;
@@ -139,9 +142,10 @@ void GameWindow::pollEvent() {
         if (event->type == sf::Event::Closed) { // event=fermeture de la fenetre ?
             window->close();
         }
-        else if(event->type == sf::Event::KeyPressed ){
+        }
+        //if(event->type == sf::Event::KeyPressed ){
             // regarde si une touche du clavier à été pressé
-            if((event->key.code == sf::Keyboard::Space)) {
+            if(sf::Keyboard::isKeyPressed(sf::Keyboard::Space)) {
                 if(!ui->isPaused()){
                     ui->setIsPaused(true);
                 }else{
@@ -151,11 +155,11 @@ void GameWindow::pollEvent() {
             _game->keyEvent(*event);// fait appel à la fonction move des sprites
             //_game->getPlayerVector()[1]->updateSprite();
             
-        }
-
-    }
-
 }
+
+
+
+
 
 void GameWindow::drawSprite(sf::Sprite sprite) {
     this->window->draw(sprite);

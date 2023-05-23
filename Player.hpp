@@ -49,7 +49,7 @@ public:
 	void openChest(Chest* chest);
 	void setDamage(Character* target);
 	void attack(Character* target) ;
-	void move(sf::Vector2i deplacement);
+	
 
 	void collide(Object* o);
 

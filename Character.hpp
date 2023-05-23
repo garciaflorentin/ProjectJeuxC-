@@ -52,7 +52,7 @@ public:
 	}
 	void takeDamage(int heartQuarters);
 	virtual void attack(Character* target) = 0;
-	virtual void move(sf::Vector2i deplacement);
+	virtual void move(sf::Vector2f deplacement);
 	const bool isAlive() const{
 		return _isAlive;
 	};

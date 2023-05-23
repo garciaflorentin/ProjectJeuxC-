@@ -122,7 +122,7 @@ public:
 			_sprite->setTextureRect(sf::IntRect( 1108, 1546, 48, 96));
 			break;
 			case 24:
-			_sprite->setTextureRect(sf::IntRect( 1112, 1834, 96, 96));
+			_sprite->setTextureRect(sf::IntRect( 1012, 1834, 96, 96));
 			break;
 			case 25:
 			_sprite->setTextureRect(sf::IntRect( 1029, 1254, 122, 96));

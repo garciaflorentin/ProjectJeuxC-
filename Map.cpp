@@ -113,7 +113,7 @@ void Map::createMap(){
 int a=rand();
 //creation du sol
 for (float x = 0; x < 200; x++) {
-    for (float y = -102; y < 102; y++) {
+    for (float y = -102; y < 104; y++) {
         
         if (x < 100) {
             if (y <0) {
@@ -235,12 +235,12 @@ for(int x=0;x<49;x++){
                             addObject(new Wall("World2.png",{x, y}, TypeWall::GrandSapin));
     }
 }
-for(int x=51;x<100;x++){
+for(int x=51;x<95;x++){
     for(int y=-102;y<-100;y++){
                             addObject(new Wall("World2.png",{x, y}, TypeWall::GrandSapin));
     }
 }
-for(int x=100;x<149;x++){
+for(int x=105;x<149;x++){
     for(int y=-102;y<-100;y++){
                             addObject(new Wall("World2.png",{x, y}, TypeWall::CoconutTree));
     }
@@ -271,10 +271,10 @@ for(int x=51;x<100;x++){
     }
 }
 
-addObject(new Wall("World2.png",{49, -103}, TypeWall::ChestForestBack));
-addObject(new Wall("World2.png",{149, -103}, TypeWall::ChestBeatchBack));
-addObject(new Wall("World2.png",{149, 103}, TypeWall::ChestTownBack));
-addObject(new Wall("World2.png",{49, 103}, TypeWall::ChestMountainBack));
+addObject(new Wall("World2.png",{49, -102}, TypeWall::ChestForestBack));
+addObject(new Wall("World2.png",{149, -102}, TypeWall::ChestBeatchBack));
+addObject(new Wall("World2.png",{149, 102}, TypeWall::ChestTownBack));
+addObject(new Wall("World2.png",{49, 102}, TypeWall::ChestMountainBack));
 addObject(new Wall("World2.png",{48, -101}, TypeWall::ForetsPylone));
 addObject(new Wall("World2.png",{48, -100}, TypeWall::ForetsPylone));
 addObject(new Wall("World2.png",{51, -101}, TypeWall::ForetsPylone));
@@ -292,12 +292,26 @@ addObject(new Wall("World2.png",{148, 100}, TypeWall::TownPylone));
 addObject(new Wall("World2.png",{148, 101}, TypeWall::TownPylone));
 addObject(new Wall("World2.png",{151, 100}, TypeWall::TownPylone));
 addObject(new Wall("World2.png",{151, 101}, TypeWall::TownPylone));
-
- addObject(new GoldenChest("Chests.png",{49.5, -101}));
- addObject(new GoldenChest("Chests.png",{149.5, -101}));
+ addObject(new GoldenChest("Chests.png",{49.5, -100}));
+ addObject(new GoldenChest("Chests.png",{149.5, -100}));
  addObject(new GoldenChest("Chests.png",{49.5, 101}));
  addObject(new GoldenChest("Chests.png",{149.5, 101}));
- addObject(new Door("!Demon Door.png",{100,-101},TypeWall::KnightStatue));
+ addObject(new Wall("World2.png",{95, -102}, TypeWall::DeadTree));
+  addObject(new Wall("World2.png",{95, -101}, TypeWall::DeadTree));
+  addObject(new Wall("World2.png",{96, -102}, TypeWall::DeadTree));
+    addObject(new Wall("World2.png",{96, -101}, TypeWall::DeadTree));
+  addObject(new Wall("World2.png",{97, -101}, TypeWall::DeadTree));
+
+  addObject(new Wall("World2.png",{96.5, -101}, TypeWall::DragonStatue));
+addObject(new Wall("World2.png",{104, -102}, TypeWall::DeadTree));
+addObject(new Wall("World2.png",{104, -101}, TypeWall::DeadTree));
+addObject(new Wall("World2.png",{103, -102}, TypeWall::DeadTree));
+addObject(new Wall("World2.png",{103, -101}, TypeWall::DeadTree));
+addObject(new Wall("World2.png",{102, -102}, TypeWall::DeadTree));
+
+addObject(new Wall("World2.png",{102, -101}, TypeWall::DragonStatue));
+
+ addObject(new Door("!Demon Door.png",{98.5,-102},TypeWall::DragonStatue));
 
  for(int x=-11;x<11;x++){
     for(int y=-11;y<11;y++){
@@ -352,7 +366,7 @@ void Map::spawnMobs(string area) {
 
         for (float x = 0; x < 100; x++)
             for (float y = -100; y < 0; y++)
-                if (rand() % SPAWN_FREQUENCY == 0)	addObject(new MeleeMonster("MonsterSheet1.png", {x,y}));
+               // if (rand() % SPAWN_FREQUENCY == 0)	addObject(new MeleeMonster("MonsterSheet1.png", {x,y}));
         _spf = true;
         _spm = false;
         _spb = false;
@@ -363,7 +377,7 @@ void Map::spawnMobs(string area) {
         for (float x = 0; x < 100; x++)
             for (float y = 0; y < 100; y++){
                // if (rand() % SPAWN_FREQUENCY == 0)	addObject(new RangedMonster("MonsterSheet2.png", {x,y}));
-                if (rand() % SPAWN_FREQUENCY == 0)	addObject(new MeleeMonster("MonsterSheet2.png", {x,y}));
+               // if (rand() % SPAWN_FREQUENCY == 0)	addObject(new MeleeMonster("MonsterSheet2.png", {x,y}));
 
             }
         _spf = false;

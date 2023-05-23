@@ -55,7 +55,7 @@ void Character::updateSprite(){
 
 }
 
-void Character::move(sf::Vector2i deplacement){
+void Character::move(sf::Vector2f deplacement){
 	_sprite->move(deplacement.x,deplacement.y);
 
 }
