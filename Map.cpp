@@ -365,12 +365,13 @@ void Map::spawnMobs(string area) {
         cout << "adding forest monsters" << endl;
 
         for (float x = 0; x < 100; x++)
-            for (float y = -100; y < 0; y++)
-               // if (rand() % SPAWN_FREQUENCY == 0)	addObject(new MeleeMonster("MonsterSheet1.png", {x,y}));
-        _spf = true;
-        _spm = false;
-        _spb = false;
-        _spt = false;
+            for (float y = -100; y < 0; y++){
+                if(_monsterList->size()<=30){
+                if (rand() % 200 == 0)	addObject(new MeleeMonster("MonsterSheet1.png", {x,y}));
+                if (rand() % 500 == 0)	addObject(new DemonDogMonster("DemonDogMonster.png", {x,y}));
+                }
+
+            }
     } else if (area == "mountain") {
         cout << "adding mountain monsters" << endl;
 
@@ -380,30 +381,20 @@ void Map::spawnMobs(string area) {
                // if (rand() % SPAWN_FREQUENCY == 0)	addObject(new MeleeMonster("MonsterSheet2.png", {x,y}));
 
             }
-        _spf = false;
-        _spm = true;
-        _spb = false;
-        _spt = false;
     } else if (area == "beach") {
         cout << "adding beach monsters" << endl;
 
         for (float x = 100; x < 200; x++)
             for (float y = -100; y < 0; y++)
                 if (rand() % SPAWN_FREQUENCY == 0) {}
-        _spf = false;
-        _spm = false;
-        _spb = true;
-        _spt = false;
+ 
     } else if (area == "town") {
         cout << "adding town monsters" << endl;
 
         for (float x = 100; x < 200; x++)
             for (float y = 0; y < 100; y++)
                 if (rand() % SPAWN_FREQUENCY == 0) {}
-        _spf = false;
-        _spm = false;
-        _spb = false;
-        _spt = true;
+  
     }
 }
 
@@ -417,15 +408,19 @@ void Map::updateObjects(Player* player) {
     
     if ((ppose.x < 100*SPR_SIZE)&&(ppose.y < 0)&&(!_spf)) {
         cout << "in forest area" << endl;
+        _spf=true;
         spawnMobs("forest");
     } else if ((ppose.x < 100*SPR_SIZE)&&(ppose.y > 0)&&(!_spm)) {
         cout << "in mountain area" << endl;
+        _spm=true;
         spawnMobs("mountain");
     } else if ((ppose.x > 100*SPR_SIZE)&&(ppose.y < 0)&&(!_spb)) {
         cout << "in beach area" << endl;
+        _spb=true;
         spawnMobs("beach");
     } else if ((ppose.x > 100*SPR_SIZE)&&(ppose.y>0)&&(!_spt)) {
         cout << "in town area" << endl;
+        _spt=true;
         spawnMobs("town");
     }
 

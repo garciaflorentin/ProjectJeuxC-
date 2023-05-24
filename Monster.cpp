@@ -4,10 +4,10 @@
 Player* Monster::_player = nullptr;
 int Monster::_serial = 0;
 
-Monster::Monster(const char* nameObject, sf::Vector2f initPos, string name, int dmg, int ar, int vf) :
+Monster::Monster(const char* nameObject, sf::Vector2f initPos, string name, int dmg, int ar, int vf, float speed) :
             Character(nameObject, initPos),  _damage(dmg), _attack_radius(ar*SPR_SIZE), _vision_field(vf*SPR_SIZE), _canOpenChest(false) {
-               
-            
+               isAttacking=false;
+                this->speed=speed;
                 _this_serial = _serial;
                 _serial++;
             }
@@ -55,22 +55,55 @@ void Monster::goToPlayer() {
 
     if ((abs(dist_y) > _attack_radius-SPR_SIZE)||(abs(dist_x) > _attack_radius-SPR_SIZE)) {
         if ((dist_x > 0)&&(dist_y > 0)) {
-            if (dist_x > dist_y) {   np.x++; anim->y=2;anim->x++;}
-            else                {    np.y++;anim->y=0;anim->x++;}
+            if (dist_x > dist_y) {   
+            np.x++;
+            if(_upd.getElapsedTime().asMilliseconds()%1 == 0){
+            anim->y=2;
+            anim->x++;
+            }
+            }
+            else {   
+            np.y++;
+            if(_upd.getElapsedTime().asMilliseconds()%1 == 0){
+            anim->y=0;anim->x++;}
+            }
         } else if ((dist_x < 0)&&(dist_y < 0)) {
-            if (dist_x < dist_y)   { np.x--;anim->y=1;anim->x++;}
-            else                   { np.y--;anim->y=3;anim->x++;}
+            if (dist_x < dist_y) {
+                 np.x--;
+                 if(_upd.getElapsedTime().asMilliseconds()%1 == 0){
+                 anim->y=1;anim->x++;}
+            }
+            else{
+                 np.y--;
+                 if(_upd.getElapsedTime().asMilliseconds()%1 == 0){
+                 anim->y=3;anim->x++;}
+            }
         } else if ((dist_x > 0)&&(dist_y < 0)) {
-            if (abs(dist_x) > abs(dist_y))  {np.x++;anim->y=2;anim->x++;}
-            else                        {    np.y--;anim->y=3;anim->x++;}
+            if (abs(dist_x) > abs(dist_y)){
+                np.x++;
+                if(_upd.getElapsedTime().asMilliseconds()%1 == 0){
+                anim->y=2;anim->x++;}
+            }
+            else {np.y--;
+            if(_upd.getElapsedTime().asMilliseconds()%1 == 0){
+            anim->y=3;anim->x++;}
+            }
         } else if ((dist_x < 0)&&(dist_y > 0)) {
-            if (abs(dist_x) > abs(dist_y)) { np.x--;anim->y=1;anim->x++;}
-            else                         {   np.y++;anim->y=0;anim->x++;}
+            if (abs(dist_x) > abs(dist_y)) {
+                 np.x--;
+                 if(_upd.getElapsedTime().asMilliseconds()%1 == 0){
+                 anim->y=1;anim->x++;}
+            }
+            else {
+                np.y++;
+                if(_upd.getElapsedTime().asMilliseconds()%1 == 0){
+                anim->y=0;anim->x++;}
+            }
         }
 
         //cout << "moving by " << np.x << " " << np.y << endl;
         updateSprite();
-        move(np);
+        move({np.x*speed,np.y*speed});
     }
 }
 
@@ -83,10 +116,10 @@ void Monster::update(Player* pl) {
     //cout << "Updating monster" << endl;
     this->_player = pl;
 
-    if (playerSeen())       goToPlayer();
+    if (playerSeen() && !playerInRange()) {  goToPlayer();}
     if (_upd.getElapsedTime().asMilliseconds()%100 == 0) {
         //cout << "Attack cooldown" << endl;
-        if (playerInRange())    attack(pl);
+        if (playerInRange()){    attack(pl);}
     }
 }
     
@@ -105,5 +138,6 @@ void Monster::move(sf::Vector2f deplacement){
         //Projectile* p=dynamic_cast<Projectile*>(o);
        if(typeid(*o) == typeid(Projectile)){
                 getSprite()->scale(0,0); 
+                takeDamage(12);
         }
 }

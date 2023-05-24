@@ -2,7 +2,7 @@
 #include <cmath>
 
 Player::Player(const char* nameObject, sf::Vector2f initPos): Character(nameObject,initPos) {
-	speed = 3;
+	speed = 4;
 	damageAttack = 3;
 	_isInTheCave=false;
 	_canOpenChest = true;

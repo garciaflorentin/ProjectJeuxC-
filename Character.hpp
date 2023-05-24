@@ -38,6 +38,13 @@ public:
 		return killedallMobs;
 	}
 
+	double getSpeed(){
+		return speed;
+	}
+
+	void setSpeed(double _speed){
+		speed=_speed;
+	}
 
 	Character(const char* nameObject, sf::Vector2f initPos);
 

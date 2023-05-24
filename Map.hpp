@@ -21,8 +21,9 @@
 #include "GoldenChest.hpp"
 #include "Door.hpp"
 #include "RangedMonster.hpp" 
+#include "DemonDogMonster.hpp"
 
-#define SPAWN_FREQUENCY 200
+#define SPAWN_FREQUENCY 600
 
 using namespace std;
 

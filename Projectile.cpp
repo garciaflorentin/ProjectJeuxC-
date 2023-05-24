@@ -34,18 +34,19 @@ Projectile& Projectile::operator=(const Projectile& other)
 
 
 void Projectile::goTo(){
+    float vitesse= _player->getSpeed()*4;
     switch(direction){
         case 0:
-        this->getSprite()->move(0,-10);
+        this->getSprite()->move(0,-vitesse);
         break;
         case 1:
-        this->getSprite()->move(-10,0);
+        this->getSprite()->move(-vitesse,0);
         break;
         case 2:
-        this->getSprite()->move(0,10);
+        this->getSprite()->move(0,vitesse);
         break;
         case 3:
-        this->getSprite()->move(10,0);
+        this->getSprite()->move(vitesse,0);
         break;
 
     }
@@ -60,12 +61,6 @@ void Projectile::initProjectile(){
 
  void Projectile::collide(Object* o){
     std::cout<<"ProjectileCollideObject"<<std::endl;
-
-   if(typeid(*o) == typeid(Monster)){
-        std::cout<<"ProjectcollideAMonster"<<std::endl;
-        Monster* target=dynamic_cast<Monster*>(o);
-        target->takeDamage(12);
-    }
 
     distance=0;
     _isShot=false;

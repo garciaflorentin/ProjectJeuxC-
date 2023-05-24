@@ -15,15 +15,16 @@ class Monster : public Character {
         static int _serial;
 
         int _this_serial;
-        
+        bool isAttacking;
         int _damage;
         float _attack_radius;
         float _vision_field;
+        float speed;
 
         //void hitPlayer(Character& target);
         void goToPlayer();
         bool playerSeen() const;
-        bool playerInRange() const;
+        bool playerInRange()const;
 
         //std::vector<Object*>* _map;
 
@@ -34,7 +35,7 @@ class Monster : public Character {
         bool _canOpenChest = false;
 
     public :
-        Monster(const char* nameObject, sf::Vector2f initPos, string name="meat", int dmg=1, int ar=2, int vf=5);
+        Monster(const char* nameObject, sf::Vector2f initPos, string name="meat", int dmg=1, int ar=2, int vf=5, float speed=1);
         ~Monster();
         
         virtual void attack(Character* target);
