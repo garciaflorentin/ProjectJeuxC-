@@ -34,7 +34,7 @@ Projectile& Projectile::operator=(const Projectile& other)
 
 
 void Projectile::goTo(){
-    float vitesse= _player->getSpeed()*4;
+    float vitesse= _player->getSpeed()*3;
     switch(direction){
         case 0:
         this->getSprite()->move(0,-vitesse);
@@ -56,6 +56,8 @@ void Projectile::initProjectile(){
     std::cout<<"initprojectile"<<std::endl;
     _sprite->setTextureRect(sf::IntRect(direction*256,0,256,256));
     _sprite->setPosition(_player->getPosition().x,_player->getPosition().y);
+    goTo();
+	incrementeDistance();
 }
 
 
@@ -69,15 +71,12 @@ void Projectile::initProjectile(){
 
 
 
-
- 
-
-
 void Projectile::arrowOutOfBounds(){
-
+std::cout<<"arrowOutOfBounds"<<std::endl;
     if(isShot() && distance<= 96){
 			goTo();
 			incrementeDistance();
+            std::cout<<"goto"<<std::endl;
 
 	}else if( isShot() && distance > 96){
 			std:cout<<"destruction projectile"<<std::endl;

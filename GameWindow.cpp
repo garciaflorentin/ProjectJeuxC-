@@ -17,8 +17,8 @@ GameWindow::GameWindow(void) {
     _game = new GameGestion();
     Heart* test = new Heart();
     _lifeWindow = new LifeWindow((*_game->getPlayerVector())[0]->getlife());
-        ui =  new UserInterface();
-        _keyWindow= new KeyWindow((*_game->getPlayerVector())[0]);
+    ui =  new UserInterface();
+    _keyWindow= new KeyWindow((*_game->getPlayerVector())[0]);
 
 }
 
@@ -42,6 +42,7 @@ GameWindow::~GameWindow(void) {
 void GameWindow::setScrollingView() {
     float viewX=getWindowDim().x-300;
     float viewY=getWindowDim().y-225;
+    if((*_game->getPlayerVector())[0]->isAlive()){
     _view->reset(sf::FloatRect(0,0,viewX,viewY)); // coordoné du coin haut gauche et du coin bas droit
    positionCentre = { getWindowDim().x / 2, getWindowDim().y / 2 };// coordoné du centre de l'ecran
    positionCentre.x= (*_game->getPlayerVector())[0]->getPosition().x + ((*_game->getPlayerVector())[0]->getBlockSize()/2) - (viewX/ 2);// si le perso passe la moitié de l'ecran selon x je change la position du centre 
@@ -63,6 +64,31 @@ void GameWindow::setScrollingView() {
     }
     else if (positionCentre.y + 2 * (viewY / 2) > limitMap[1]) {
         positionCentre.y = limitMap[1] - 2 * (viewY / 2);
+    }
+    }else if ((*_game->getPlayerVector())[1]->isAlive()){
+
+    _view->reset(sf::FloatRect(0,0,viewX,viewY)); // coordoné du coin haut gauche et du coin bas droit
+   positionCentre = { getWindowDim().x / 2, getWindowDim().y / 2 };// coordoné du centre de l'ecran
+   positionCentre.x= (*_game->getPlayerVector())[1]->getPosition().x + ((*_game->getPlayerVector())[1]->getBlockSize()/2) - (viewX/ 2);// si le perso passe la moitié de l'ecran selon x je change la position du centre 
+   positionCentre.y = (*_game->getPlayerVector())[1]->getPosition().y + ((*_game->getPlayerVector())[1]->getBlockSize() / 2) - (viewY/ 2);// si le perso passe la moitié de l'ecran selon y je change la position du centre 
+  std::vector<float> limitMap;
+  _game->getMap()->getLimitMap(limitMap);
+
+
+     // On ne peut pas filmer en dehors de la map
+    if (positionCentre.x < limitMap[2]) {
+        positionCentre.x = limitMap[2];
+    }
+    else if (positionCentre.x + 2 * (viewX / 2) > limitMap[0]) {
+        positionCentre.x = limitMap[0] - 2 * (viewX / 2);
+    }
+
+    if (positionCentre.y < limitMap[3]) {
+        positionCentre.y = limitMap[3];
+    }
+    else if (positionCentre.y + 2 * (viewY / 2) > limitMap[1]) {
+        positionCentre.y = limitMap[1] - 2 * (viewY / 2);
+    }
     }
     
        // on met a jour la vu en changeant la position du coin haut gauche
@@ -205,11 +231,11 @@ inline void GameWindow::DisplayTile(std::vector<sf::Sprite> v) {
 int GameWindow::controlWindow(void) {
     this->pollEvent();
     int fin=_game->updateGame();
-    if(fin==0){
+    if(fin!=0){
         ui->setIsDead(true);
         return 0;
     }
-    return 1;
+    return fin;
 
 }
 
@@ -227,24 +253,37 @@ void GameWindow::draw() {
 
     }
 
-    for (int i = 0; i < 1/*(*_game->getPlayerVector()).size()*/; i++){
+    for (int i = 0; i < (*_game->getPlayerVector()).size(); i++){
         window->draw(*(*_game->getPlayerVector())[i]->getSprite());
     }
+
    
-   if(_game->drawProjectile(getCurrentWindowPos())){
+   if(_game->drawProjectile1(getCurrentWindowPos())){
         std::cout<<"projectile draw"<<std::endl;
         window->draw(*(*_game->getPlayerVector())[0]->getProjectile()->getSprite());
+        
+   }
+    if(_game->drawProjectile2(getCurrentWindowPos())){
+        std::cout<<"projectile draw"<<std::endl;
+        window->draw(*(*_game->getPlayerVector())[1]->getProjectile()->getSprite());
         
    }
 }
 
 
 void GameWindow::display() {
-        
+
    setScrollingView();
-   if((*_game->getPlayerVector())[0]->getIsInTheCave()){
+   if((*_game->getPlayerVector())[0]->getIsInTheCave() ||(*_game->getPlayerVector())[1]->getIsInTheCave()  ){
+    if((*_game->getPlayerVector())[0]->getIsInTheCave()){
+        (*_game->getPlayerVector())[1]->getSprite()->setPosition({9984,9984});
+    }else{
+        (*_game->getPlayerVector())[0]->getSprite()->setPosition({9984,9984});
+
+    }
     setViewBoss();
    }
+
    draw();// dessine tout les sprites contenut dans la fenetre courante
    setLifeView();
    displayLifeWindow();

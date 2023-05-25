@@ -26,18 +26,15 @@ int main(void)
 
     while (_window.isRunning())
     {
-
         g->updateMobs();
+
         int fin = _window.controlWindow();
         
         if ((!_window.getUi()->isPaused()) && _window.getUi()->isLaunched())
         {
+
             _window.display();
-            if (fin == 0)
-            {
-                //sf::sleep(sf::seconds(20));
-              //_window.getWindow()->close();
-            }
+            
         }
     }
 

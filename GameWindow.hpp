@@ -69,6 +69,10 @@ public:
 
     GameGestion* getGame();
 
+    sf::Vector2f& getPositionCentre(){
+        return positionCentre;
+    }
+
     sf::RenderWindow* getWindow() {
         return window;
     }

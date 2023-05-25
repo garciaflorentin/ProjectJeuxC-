@@ -73,7 +73,12 @@ public:
 		return projectile;
 	}
 
-void targetInRange(std::vector<Monster*>& targetList,std::vector<int> indiceToKill);
+	void deadGestion(){
+		_sprite->setTextureRect(sf::IntRect(704,64,32,32));
+		_sprite->setPosition(getPosition().x,getPosition().y);
+	}
+
+	void targetInRange(std::vector<Monster*>& targetList,std::vector<int> indiceToKill);
 
 
 };

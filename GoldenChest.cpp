@@ -4,7 +4,9 @@ void GoldenChest::collide(Object* o){
   cout << "Chest collistion" << endl;
         //if(typeid(*o) == typeid(Character)){
         //cout << "Character collistion" << endl;
+
 if(!isOpen()){
+        if(typeid(*o)==typeid(Character)){
         Character* p=dynamic_cast<Character*>(o);
         bool canOpen=false;
 
@@ -18,18 +20,19 @@ if(!isOpen()){
 				canOpen=p->getKilledallMobs()[3];
 			}
     std::cout<<"canOpen="<<canOpen<<std::endl;
-        if (p->getName() == "player1.png" && canOpen) {
+        if ((p->getName() == "player1.png" || p->getName() == "player2.png" )&& canOpen) {
                 cout << "Can open GoldenChest" << endl;
                 open();
                 p->addKey();
         }
 }
 }
+}
 
 
 void GoldenChest::open(){
-    std::cout<<"a"<<std::endl;
 	chestAnim->x = 1;
         _sprite->setTextureRect(sf::IntRect(49 , 233, 32, 24));
+        _sprite->scale(1.5,1.5);
         _isOpen=true;
 }

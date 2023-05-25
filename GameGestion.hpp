@@ -26,6 +26,7 @@ private:
 
 	std::vector< Player*>* playerVector;
 	Player* player;
+	Player* player2;
 	sf::Clock time;
 	Map* _map;
 	sf::Music* forestMusic;
@@ -60,7 +61,9 @@ public:
 	void keyEvent(sf::Event e);//focntion interaction 
 
 	std::vector<Object*>* toDrawUpdate(std::vector<sf::Vector2f>* currentWindow);
-	bool drawProjectile(std::vector<sf::Vector2f>* currentWindow);
+	bool drawProjectile1(std::vector<sf::Vector2f>* currentWindow);
+	bool drawProjectile2(std::vector<sf::Vector2f>* currentWindow);
+
 
 	int updateGame();
 

@@ -8,7 +8,7 @@ void Chest::collide(Object* o){
         //cout << "Character collistion" << endl;
         
         Character* p=dynamic_cast<Character*>(o);
-        if (p->getName() == "player1.png") {
+        if (p->getName() == "player1.png" || p->getName() == "player2.png") {
                 cout << "Can open chest" << endl;
                 p->openChest(this);
                 _gain->collide(o);   
