@@ -3,6 +3,7 @@
 
 #include "Character.hpp"
 #include "Player.hpp"
+#include "Projectile.hpp"
 class Player;
 
 
@@ -51,6 +52,8 @@ class Monster : public Character {
         float lifetime_secs() { return _upd.getElapsedTime().asSeconds(); };
 
         int getSerial() { return _this_serial; };
+
+        virtual Projectile* getProjectile() { return nullptr; }
 };
 
 #endif

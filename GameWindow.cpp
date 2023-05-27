@@ -210,13 +210,30 @@ void GameWindow::draw() {
     for (int i = 0; i < 1/*(*_game->getPlayerVector()).size()*/; i++){
         window->draw(*(*_game->getPlayerVector())[i]->getSprite());
     }
-   
-   if(_game->drawProjectile(getCurrentWindowPos())){
 
+    //std::vector<Projectile*> projectiles;
+    if(_game->drawProjectile(getCurrentWindowPos())) {
         std::cout<<"projectile draw"<<std::endl;
         window->draw(*(*_game->getPlayerVector())[0]->getProjectile()->getSprite());
+    }
+
+    std::vector<Projectile*> fireballs;
+    if (_game->drawFireballs(getCurrentWindowPos(), &fireballs)) {
+        for (int i = 0; i < fireballs.size(); i++) {
+            cout << "drawing fireball at : " << fireballs[i]->getPosition().x << " " << fireballs[i]->getPosition().y << endl;
+            window->draw(*(fireballs[i]->getSprite()));
+        }
+    }
+   
+   //if(projectiles.size() > 0){
+
         
-   }
+
+        // for (int i = 0; i < projectiles.size(); i++) {
+        //     window->draw(*(projectiles[i]->getSprite()));
+        // }
+        
+   //}
 }
 
 

@@ -18,7 +18,7 @@ Character::~Character() {
 }
 
 void Character::takeDamage(int NOQ) {
-	std::cout<<"Character::takeDamage"<<std::endl;
+	std::cout<<"Character::takeDamage for " /*<< getName()*/ <<std::endl;
 	if(0<NOQ<=life->getNOQ()){
 	for (int i = 0; i < NOQ; i++) {
 			life->removeLife();
@@ -27,6 +27,7 @@ void Character::takeDamage(int NOQ) {
 	if(life->getNOQ()<=0){
 		_isAlive=false;
 	}
+	cout << "Exiting takeDamage()" << endl;
 	
 }
 

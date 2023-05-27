@@ -41,6 +41,7 @@ class Projectile: public Object{
     const int getBlockSize(){return 32;}
 
     bool isShot(){
+        //cout << "isShot() returns" << _isShot << endl;
         return _isShot;
     }
 

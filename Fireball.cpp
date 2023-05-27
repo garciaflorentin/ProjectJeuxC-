@@ -1,41 +1,57 @@
 #include "Fireball.hpp"
 
 
-Fireball::Fireball(const char* nameObject, sf::Vector2f initPos, Character* player, int dmg) {
-    _player = dynamic_cast<Player*>(player);
-    _isShot = false;
-    distance = 0;
+Fireball::Fireball(const char* nameObject, sf::Vector2f initPos, Character* player, int dmg) : 
+    Projectile(nameObject, initPos, nullptr) {
+        cout << "Creating new Fireball with initPos = " << initPos.x << " " << initPos.y << endl;
+        _target = player;
+        _isShot = false;
+        distance = 0;
 
-    _initPos = initPos;
+        this->setPosition(initPos);
 
-    _dmg = dmg;
+        // _initPos = initPos;
+        // setPosition(_initPos);
 
-    this->computeTrajectory();
+        _dmg = dmg;
 
-    initProjectile();
+        if (player!=nullptr) {
 
-    // while (!_isShot) {
-    //     goTo;
-    // }
+            cout << "computing trajectory" << endl;
+            this->computeTrajectory();
+
+            initProjectile();
+        }
+
+        // while (!_isShot) {
+        //     goTo;
+        // }
 }
 
 void Fireball::computeTrajectory() {
-    sf::Vector2f targetPos = _player->getPosition();
+    sf::Vector2f targetPos = _target->getPosition();
+    cout << "got target position : " << targetPos.x << ", " << targetPos.y << endl;
+    cout << "initial position : " << this->getPosition().x << ", " << this->getPosition().y << endl;
 
     float distX = targetPos.x - this->getPosition().x;
     float distY = targetPos.y - this->getPosition().y;
 
-    _dirVect.x = distX / PROJECTILE_SPEED;
-    _dirVect.y = distY / PROJECTILE_SPEED;
+    // _dirVect.x = distX / PROJECTILE_SPEED;
+    // _dirVect.y = distY / PROJECTILE_SPEED;
+
+    _dirVect.x = -distX / (distX+distY) * PROJECTILE_SPEED;
+    _dirVect.y = -distY / (distX+distY) * PROJECTILE_SPEED;
+
+    cout << "direction vector : " << _dirVect.x << " " << _dirVect.y << endl;
 }
 
 void Fireball::initProjectile(){
     std::cout<<"init fireball"<<std::endl;
-    _sprite->setTextureRect(sf::IntRect(0,0,256,256));
-    if (_dirVect.x != 0)    _sprite->rotate(atan(_dirVect.y/_dirVect.x));
+    //_sprite->setTextureRect(sf::IntRect(0,0,256,256));
+    if (_dirVect.x != 0)    _sprite->rotate(-atan(_dirVect.y/_dirVect.x));
     else                    _sprite->rotate(90);
 
-    _sprite->setPosition(_initPos.x,_initPos.y);
+    //_sprite->setPosition(_initPos.x,_initPos.y);
 }
 
 void Fireball::goTo(){
@@ -47,10 +63,10 @@ void Fireball::collide(Object* o){
 
    if(typeid(*o) == typeid(Player)){
         std::cout<<"Fireball collide Player"<<std::endl;
-        Monster* target=dynamic_cast<Monster*>(o);
-        target->takeDamage(12);
+        Player* target=dynamic_cast<Player*>(o);
+        target->takeDamage(2);
     }
 
     distance=0;
-    _isShot=true;
+    _isShot=false;
  }

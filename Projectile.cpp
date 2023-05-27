@@ -79,16 +79,17 @@ void Projectile::initProjectile(){
 
 
 void Projectile::arrowOutOfBounds(){
+    //cout << "Projectile distance: " << distance << endl;
 
-    if(isShot() && distance<= 96){
+    if((isShot()) && (distance <= 96)) {
+            //cout << "shooting projectile" << endl;
 			goTo();
 			incrementeDistance();
 
-	}else if( isShot() && distance > 96){
+	} else if ( (isShot()) && (distance > 96)) {
 			std:cout<<"destruction projectile"<<std::endl;
 			setDistance(0);
 		    setIsShot(false);
-
-		}
-
+    }
+    //cout << "exiting arrowOutOfBounds" << endl;
 }

@@ -29,14 +29,48 @@ GameGestion::GameGestion() {
 
 	bool GameGestion::drawProjectile(std::vector<sf::Vector2f>* currentWindow){
 			Projectile* _projectile= (*playerVector)[0]->getProjectile();
+
 			if(_projectile->isShot()){
-			std::cout<<"projX="<<(*playerVector)[0]->getProjectile()->getPosition().x<<std::endl;
-			std::cout<<"projY="<<(*playerVector)[0]->getProjectile()->getPosition().y<<std::endl;
+				std::cout<<"projX="<<(*playerVector)[0]->getProjectile()->getPosition().x<<std::endl;
+				std::cout<<"projY="<<(*playerVector)[0]->getProjectile()->getPosition().y<<std::endl;
 			}
+
 			if (_projectile->isShot() && (_projectile->getPosition().x >= ((*currentWindow)[0].x - 200) && _projectile->getPosition().y >= ((*currentWindow)[0].y)-200) && (_projectile->getPosition().x <= ((*currentWindow)[1].x+50) && _projectile->getPosition().y < ((*currentWindow)[1].y)+50) )  {
 					return !((*playerVector)[0]->getProjectile()==nullptr);
-			}else{return false;}
+			} else { return false; }
 	}
+
+bool GameGestion::drawFireballs(std::vector<sf::Vector2f>* currentWindow, std::vector<Projectile*>* toFill) {
+	//cout << "Entering drawFireballs()" << endl;
+
+	int indice = 0;
+
+	for (int i=0; i<_map->getMonsters()->size(); i++) {
+		//cout << "checking fireballs" << endl;
+		if ((*(_map->getMonsters()))[i]->getProjectile() != nullptr) {
+			cout << "found fireball" << endl;
+
+			toFill->push_back((*(_map->getMonsters()))[i]->getProjectile());
+
+			if((*toFill)[indice]->isShot()){
+				std::cout<<"projX="<<(*toFill)[indice]->getPosition().x<<std::endl;
+				std::cout<<"projY="<<(*toFill)[indice]->getPosition().y<<std::endl;
+			}
+
+			if (!((*toFill)[indice]->isShot() && ((*toFill)[indice]->getPosition().x >= ((*currentWindow)[0].x - 200) && (*toFill)[indice]->getPosition().y >= ((*currentWindow)[0].y)-200) && ((*toFill)[indice]->getPosition().x <= ((*currentWindow)[1].x+50) && (*toFill)[indice]->getPosition().y < ((*currentWindow)[1].y)+50) ))  {
+					//return !((*playerVector)[0]->getProjectile()==nullptr);
+					indice--;
+					toFill->pop_back();
+
+					cout << "popping back fireball" << endl;
+			}
+
+			indice++;
+		}
+	}
+
+	return (indice > 0);
+}
 
 
 void GameGestion::keyEvent(sf::Event e) {
@@ -200,6 +234,29 @@ void GameGestion::collideMonster(Object* o, std::vector <Monster*>& wallList,std
             
         }
     }
+	if(!collide){
+		info.push_back(-1);
+		info.push_back(-1);
+	}
+    //std::cout<<"info size= "<<info.size()<<std::endl;
+}
+
+void GameGestion::collidePlayer(Object* o, Player*p ,std::vector<int>& info) {
+	//std::cout<<"collideWall"<<std::endl;
+	bool collide =false;
+
+    //for (int x = 0; x < wallList.size(); x++) {
+
+		int colision =collidePosition(o, p);
+
+        if (colision!=-1) {
+			//std::cout<<"collide: collideMonster"<<"indice="<<x<<std::endl;
+			info.push_back(0);
+			info.push_back(colision);
+			collide=true;
+            
+        }
+    //}
 	if(!collide){
 		info.push_back(-1);
 		info.push_back(-1);
@@ -378,6 +435,49 @@ void GameGestion::updateMobs() {
 		wallList = *_map->getWallList();
 		monsters = *_map->getMonsters();
 
+		//cout << "updating projectiles" << endl;
+
+		std::vector<Projectile*> fireballs;
+		for (int i = 0; i < monsters.size(); i++) {
+			//cout << "adding projectile" << endl;
+			if (monsters[i]->getProjectile() != nullptr) {
+				fireballs.push_back(monsters[i]->getProjectile());
+
+				int curr_ind = fireballs.size()-1;
+			
+				std::vector<int> infoWall;
+				std::vector<int> infoPlayer;
+
+				// cout << "entering arrowOutOfBounds" << std::endl;
+				// cout << "Projectile distance: " << fireballs[curr_ind]->getDistance() << endl;
+				fireballs[curr_ind]->arrowOutOfBounds();
+
+				if(fireballs[curr_ind]->isShot()) {	
+					//std::cout<<"projectilTire"<<std::endl;
+					//this->_map->addObject(fireballs[curr_ind]);
+
+					collideWall(fireballs[curr_ind],wallList,infoWall);
+					collidePlayer(fireballs[curr_ind],player,infoPlayer);
+
+					int indice =infoWall[0];
+					int typeCollide=infoWall[1];
+					int indicePlayer=infoPlayer[0];
+					int TypeCollidePlayer=infoPlayer[1];
+
+
+
+					if(indice!= -1 && typeCollide!= -1){
+						std::cout<<"colisionProjectile : GameGestion"<<std::endl;
+						collideVisitor(fireballs[curr_ind],wallList[indice]);
+						//delete _projectile;
+					}
+					if(indicePlayer!= -1 && TypeCollidePlayer!= -1){
+						collideVisitor(fireballs[curr_ind],player);
+					}
+				}
+			}
+		}	
+		
 		for (Monster* mnt : monsters) {
 			sf::Vector2f newpos;
 			std::vector<int> info;

@@ -9,6 +9,9 @@
 #include "EnumOrientation.hpp"
 #include "Heart.hpp"
 #include "Chest.hpp"
+//#include "Projectile.hpp"
+
+class Projectile;
 
 
 class Character : public Object {
@@ -68,7 +71,7 @@ public:
 	bool canOpenChest() const { return _canOpenChest; };
 	virtual void openChest(Chest* chest)=0;
 
-
+	virtual Projectile* getProjectile() { return nullptr; };
 };
 #endif
 

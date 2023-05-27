@@ -61,6 +61,8 @@ public:
 
 	void addObject(Monster* m);
 
+	void addObject(Projectile* p);
+
 	void removeObject(Object* o);
 	
 	void createMap();

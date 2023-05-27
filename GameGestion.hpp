@@ -61,6 +61,7 @@ public:
 
 	std::vector<Object*>* toDrawUpdate(std::vector<sf::Vector2f>* currentWindow);
 	bool drawProjectile(std::vector<sf::Vector2f>* currentWindow);
+	bool drawFireballs(std::vector<sf::Vector2f>* currentWindow,  std::vector<Projectile*>* toFill);
 
 	int updateGame();
 
@@ -80,6 +81,7 @@ int collidePosition(Object* object1, Object* object2);
 
 void collideWall(Object* o, std::vector <Object*>& wallList,std::vector<int>& info) ;
 void collideMonster(Object* o, std::vector <Monster*>& wallList,std::vector<int>& info);
+void collidePlayer(Object* o, Player*p, std::vector<int>& info);
 
 
 	void LimitMap();
