@@ -11,7 +11,8 @@ enum class TypeGround {
 	floorTile,
 	grass,
 	ice,
-	sand
+	sand,
+	BossGround
 };
 
 #endif

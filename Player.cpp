@@ -2,9 +2,9 @@
 #include <cmath>
 
 Player::Player(const char* nameObject, sf::Vector2f initPos): Character(nameObject,initPos) {
-	speed = 3;
+	speed = 4;
 	damageAttack = 3;
-
+	_isInTheCave=false;
 	_canOpenChest = true;
 	initWeapon();
 	projectile = new Projectile("arrow.png",initPos,this);
@@ -39,7 +39,7 @@ void Player::attack(Character* target){
 }
 
 bool Player::WeaponIsUsed(){
-		return ( bowAnim!=0 || swordAnim!=0 || wandAnim!=0);
+		return ( bowAnim!=0 || wandAnim!=0);
 	}
 
 void Player::useSword(){
@@ -79,25 +79,27 @@ void Player::useBow(){
 		bowAnim++;
 	}
 
-
+	
 }
 
 
 void Player::useWand(){
 	if(wandAnim>=1){
 
-		if(wandAnim==10){
-				wandAttack->stop();
+		if(wandAnim==20 && !projectile->isShot()){
+			wandAttack->stop();
 			wandAttack->play();
+			projectile->setDirection(orientation);
+			projectile->setIsShot(true);
+			projectile->initProjectile();
 			_sprite->setTextureRect(sf::IntRect(14*OBJECT_SIZE, anim->y*OBJECT_SIZE, OBJECT_SIZE, OBJECT_SIZE));
 			wandAnim=0;
-		}else if(wandAnim<10){wandAnim++;}
+		}else if(wandAnim<20){wandAnim++;}
 
 	}else if(wandAnim==0){
 	_sprite->setTextureRect(sf::IntRect(13*OBJECT_SIZE, anim->y*OBJECT_SIZE, OBJECT_SIZE, OBJECT_SIZE));
 	wandAnim++;
 	}
-
 
 }
 
@@ -123,10 +125,7 @@ void Player::initWeapon(){
 }
 
 
-void Player::move(sf::Vector2i deplacement){
-	_sprite->move(deplacement.x,deplacement.y);
 
-}
 
 
 void Player::collide(Object* o){
@@ -138,12 +137,7 @@ void Player::collide(Object* o){
 			std::cout<<"	target->getlife()->getNOQ()="<<target->getlife()->getNOQ()<<std::endl;
 			 target->takeDamage(12);
 		}
-		// else{ if(time.getElapsedTime().asMilliseconds()>= 1000){
-		// 	takeDamage(1);
-		// 	}
-		// 				std::cout<<"PlayerTakeDamage"<<std::endl;
-
-		// }
+	
     }
 }
 

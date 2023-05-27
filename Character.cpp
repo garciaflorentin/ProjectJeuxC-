@@ -5,6 +5,8 @@ Character::Character(const char* nameObject, sf::Vector2f initPos): Object(nameO
 	anim = new sf::Vector2i; // probleme du segmentation fault
 	anim->x = 1;
 	anim->y = 0;
+	OBJECT_SIZE= 32;
+	key=0;
 	//_sprite->setTextureRect(sf::IntRect(anim->x * OBJECT_SIZE , anim->y * OBJECT_SIZE , OBJECT_SIZE, OBJECT_SIZE));
 	//_sprite->scale(1.5,1.5);
 
@@ -32,7 +34,7 @@ void Character::takeDamage(int NOQ) {
 }
 
 void Character::setUpCharacter(){
-anim->x = 1;
+	anim->x = 1;
 	anim->y = 0;
 	_sprite->setTextureRect(sf::IntRect(anim->x * OBJECT_SIZE , anim->y * OBJECT_SIZE , OBJECT_SIZE, OBJECT_SIZE));
 	_sprite->scale(1.5,1.5);
@@ -54,7 +56,7 @@ void Character::updateSprite(){
 
 }
 
-void Character::move(sf::Vector2i deplacement){
+void Character::move(sf::Vector2f deplacement){
 	_sprite->move(deplacement.x,deplacement.y);
 
 }

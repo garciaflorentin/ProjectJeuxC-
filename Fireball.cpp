@@ -60,8 +60,8 @@ void Fireball::goTo(){
 
 void Fireball::collide(Object* o){
     std::cout<<"Fireball CollideObject"<<std::endl;
-
-   if(typeid(*o) == typeid(Player)){
+    Character* p=dynamic_cast<Character*>(o);
+   if(p->getName()=="player1.png" || p->getName()=="player1.png"){
         std::cout<<"Fireball collide Player"<<std::endl;
         Player* target=dynamic_cast<Player*>(o);
         target->takeDamage(2);

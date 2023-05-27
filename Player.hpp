@@ -26,10 +26,11 @@ private:
 	int bowAnim;
 	int wandAnim;
 
-
+	bool _isInTheCave;
 	Projectile* projectile;
 
 	bool _canOpenChest = true;
+
 
 
 public:
@@ -38,11 +39,17 @@ public:
 
 	~Player();
 
+	void isInTheCave(bool state){
+		_isInTheCave=state;
+	}
 	
+	bool getIsInTheCave(){
+		return _isInTheCave;
+	}
 	void openChest(Chest* chest);
 	void setDamage(Character* target);
 	void attack(Character* target) ;
-	void move(sf::Vector2i deplacement);
+	
 
 	void collide(Object* o);
 
@@ -66,7 +73,12 @@ public:
 		return projectile;
 	}
 
-void targetInRange(std::vector<Monster*>& targetList,std::vector<int> indiceToKill);
+	void deadGestion(){
+		_sprite->setTextureRect(sf::IntRect(704,64,32,32));
+		_sprite->setPosition(getPosition().x,getPosition().y);
+	}
+
+	void targetInRange(std::vector<Monster*>& targetList,std::vector<int> indiceToKill);
 
 
 };

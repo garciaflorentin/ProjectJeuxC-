@@ -18,9 +18,12 @@
 #include "TypeWall.hpp"
 #include "Projectile.hpp"
 #include "MeleeMonster.hpp"
+#include "GoldenChest.hpp"
+#include "Door.hpp"
 #include "RangedMonster.hpp" 
+#include "DemonDogMonster.hpp"
 
-#define SPAWN_FREQUENCY 200
+#define SPAWN_FREQUENCY 600
 
 using namespace std;
 
@@ -32,26 +35,35 @@ private:
 	std::vector<Object*>* _map;
 	std::vector<Object*>* _wallList;
 	std::vector<Monster*>* _monsterList;
+	Door* door;
 	float LIMITE_Xneg= 0;
-	float LIMITE_Y= 7125.f;
-	float LIMITE_X= 14350;
-	float LIMITE_Yneg=-7125.f;
-
+	float LIMITE_Y= 4992.f;
+	float LIMITE_X= 9540;
+	float LIMITE_Yneg=-4896.f;
+	float LIMITE_XnegBoss=9472.f;
+	float LIMITE_YnegBoss=9600.f;
+	float LIMITE_XBoss=10456.f;
+	float LIMITE_YBoss=10328.f;
 	bool _spf = false;
 	bool _spm = false;
 	bool _spb = false;
 	bool _spt = false;
 
-
+	
 
 public:
-
+//384
 	Map();
 	~Map();
 
 	void getLimitMap(std::vector<float>& limit){
 		limit={LIMITE_X,LIMITE_Y,LIMITE_Xneg,LIMITE_Yneg};
 	}
+
+	void getLimitMapBoss(std::vector<float>& limit){
+		limit={LIMITE_XnegBoss,LIMITE_YnegBoss,LIMITE_XBoss,LIMITE_YBoss};
+	}
+
 
 	std::vector<Object*>* objectToDraw(std::vector<sf::Vector2f>* currentWindow);
 
@@ -79,6 +91,8 @@ public:
 
 	void updateObjects(Player* player);	
 
+	void updateAnimateObject();
+	
 	void spawnMobs(string area);
 	
 };

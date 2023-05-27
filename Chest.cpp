@@ -1,11 +1,14 @@
 #include "Chest.hpp"
-
+#include "Projectile.hpp"
 void Chest::collide(Object* o){
         cout << "Chest collistion" << endl;
-        //if(typeid(*o) == typeid(Character)){
+        if(typeid(*o) == typeid(Projectile)){
+                return;
+        }
         //cout << "Character collistion" << endl;
+        
         Character* p=dynamic_cast<Character*>(o);
-        if (p->getName() == "player1.png") {
+        if (p->getName() == "player1.png" || p->getName() == "player2.png") {
                 cout << "Can open chest" << endl;
                 p->openChest(this);
                 _gain->collide(o);   

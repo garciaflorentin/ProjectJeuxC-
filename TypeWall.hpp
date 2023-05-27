@@ -19,7 +19,27 @@ enum class TypeWall {
 	Barrel,
 	Well,
 	KnightStatue,
-	sign
+	sign,
+	BossWallUp,
+	BossColone,
+	BrokenBossColone1,
+	BrokenBossColone2,
+	BossSqueleton,
+	BossBanner,
+	BossTornBaner,
+	DragonStatue,
+	BossWallRight,
+	BossWallLeft,
+	BossWallDown,
+	ChestForestBack,
+	ChestTownBack,
+	ChestBeatchBack,
+	ChestMountainBack,
+	ForetsPylone,
+	TownPylone,
+	BeatchPylone,
+	MountainPylone
+
 };
 
 #endif

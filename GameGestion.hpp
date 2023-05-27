@@ -26,6 +26,7 @@ private:
 
 	std::vector< Player*>* playerVector;
 	Player* player;
+	Player* player2;
 	sf::Clock time;
 	Map* _map;
 	sf::Music* forestMusic;
@@ -60,8 +61,11 @@ public:
 	void keyEvent(sf::Event e);//focntion interaction 
 
 	std::vector<Object*>* toDrawUpdate(std::vector<sf::Vector2f>* currentWindow);
-	bool drawProjectile(std::vector<sf::Vector2f>* currentWindow);
+	//bool drawProjectile(std::vector<sf::Vector2f>* currentWindow);
 	bool drawFireballs(std::vector<sf::Vector2f>* currentWindow,  std::vector<Projectile*>* toFill);
+	bool drawProjectile1(std::vector<sf::Vector2f>* currentWindow);
+	bool drawProjectile2(std::vector<sf::Vector2f>* currentWindow);
+
 
 	int updateGame();
 
@@ -85,6 +89,8 @@ void collidePlayer(Object* o, Player*p, std::vector<int>& info);
 
 
 	void LimitMap();
+	void LimitMapBoss();
+
 
 
 
@@ -95,5 +101,8 @@ void collidePlayer(Object* o, Player*p, std::vector<int>& info);
 //musique gestion
 
 void musicGestion();
+
+void checkLifeMonster(std::vector<bool>& control);
+
 };
 #endif
