@@ -377,8 +377,8 @@ void Map::spawnMobs(string area) {
 
         for (float x = 0; x < 100; x++)
             for (float y = 0; y < 100; y++){
-               // if (rand() % SPAWN_FREQUENCY == 0)	addObject(new RangedMonster("MonsterSheet2.png", {x,y}));
-               // if (rand() % SPAWN_FREQUENCY == 0)	addObject(new MeleeMonster("MonsterSheet2.png", {x,y}));
+               if (rand() % SPAWN_FREQUENCY == 0)	addObject(new RangedMonster("MonsterSheet2.png", {x,y}));
+               if (rand() % SPAWN_FREQUENCY == 0)	addObject(new MeleeMonster("MonsterSheet2.png", {x,y}));
 
             }
     } else if (area == "beach") {
@@ -448,7 +448,7 @@ void Map::updateObjects(Player* player) {
 
 	}
     updateAnimateObject();
-    std::cout<<"nombre de monstre total="<<_monsterList->size()<<std::endl;
+    //std::cout<<"nombre de monstre total="<<_monsterList->size()<<std::endl;
 }
 
 void Map::updateAnimateObject(){

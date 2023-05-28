@@ -25,7 +25,7 @@ class Monster : public Character {
         //void hitPlayer(Character& target);
         void goToPlayer();
         bool playerSeen() const;
-        bool playerInRange()const;
+        virtual bool playerInRange()const;
 
         //std::vector<Object*>* _map;
 
@@ -42,7 +42,7 @@ class Monster : public Character {
         virtual void attack(Character* target);
         void move(sf::Vector2f deplacement);
         
-        void update(Player* pl);      
+        virtual void update(Player* pl);      
 
         void collide(Object* o);
 

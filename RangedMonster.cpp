@@ -6,7 +6,7 @@
 
 void RangedMonster::attack(Character* target) {
     cout << "entering attack" << endl;
-    //delete[] _fireball;
+    //if (_fireball != nullptr)   delete[] _fireball;
     cout << "previous fireball deleted" << endl;
     cout << "current position x = " << this->getPosition().x << " y = " << this->getPosition().y << endl;
     cout << "target position x = " << target->getPosition().x << " y = " << target->getPosition().y << endl;
@@ -16,10 +16,14 @@ void RangedMonster::attack(Character* target) {
     cout << "exiting initProjectile" << endl;
     _fireball->setIsShot(true);
 }
+
+
 void RangedMonster::updateSprite(){
 	          if(anim->x*OBJECT_SIZE >= OBJECT_SIZE*9){anim->x=9;}
 	             _sprite->setTextureRect(sf::IntRect(anim->x*OBJECT_SIZE, anim->y*OBJECT_SIZE, OBJECT_SIZE, OBJECT_SIZE));
 }
+
+
 // bool RangedMonster::fireball(Character* target) {
 //     sf::Vector2f targetPos = target->getPosition();
 

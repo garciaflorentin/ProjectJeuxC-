@@ -55,13 +55,14 @@ void Fireball::initProjectile(){
 }
 
 void Fireball::goTo(){
+    //cout << "Moving fireball" << endl;
     this->getSprite()->move(_dirVect);
 }
 
 void Fireball::collide(Object* o){
     std::cout<<"Fireball CollideObject"<<std::endl;
-    Character* p=dynamic_cast<Character*>(o);
-   if(p->getName()=="player1.png" || p->getName()=="player1.png"){
+    //Character* p=dynamic_cast<Character*>(o);
+   if(o->getName()=="player1.png" || o->getName()=="player2.png"){
         std::cout<<"Fireball collide Player"<<std::endl;
         Player* target=dynamic_cast<Player*>(o);
         target->takeDamage(2);

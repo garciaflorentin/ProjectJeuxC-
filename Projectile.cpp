@@ -72,7 +72,7 @@ void Projectile::initProjectile(){
 
 
 void Projectile::arrowOutOfBounds(){
-std::cout<<"arrowOutOfBounds"<<std::endl;
+//std::cout<<"arrowOutOfBounds"<<std::endl;
     if(isShot() && distance<= 96){
 			goTo();
 			incrementeDistance();

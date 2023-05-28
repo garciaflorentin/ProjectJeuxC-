@@ -747,53 +747,53 @@ void GameGestion::updateMobs()
 
 
 		
-		// std::vector<Object*> wallList;
-		// std::vector<Monster*> monsters;
-		// wallList = *_map->getWallList();
-		// monsters = *_map->getMonsters();
+		std::vector<Object*> wallList;
+		std::vector<Monster*> monsters;
+		wallList = *_map->getWallList();
+		monsters = *_map->getMonsters();
 
-		// //cout << "updating projectiles" << endl;
+		//cout << "updating projectiles" << endl;
 
-		// std::vector<Projectile*> fireballs;
-		// for (int i = 0; i < monsters.size(); i++) {
-		// 	//cout << "adding projectile" << endl;
-		// 	if (monsters[i]->getProjectile() != nullptr) {
-		// 		fireballs.push_back(monsters[i]->getProjectile());
+		std::vector<Projectile*> fireballs;
+		for (int i = 0; i < monsters.size(); i++) {
+			//cout << "adding projectile" << endl;
+			if (monsters[i]->getProjectile() != nullptr) {
+				fireballs.push_back(monsters[i]->getProjectile());
 
-		// 		int curr_ind = fireballs.size()-1;
+				int curr_ind = fireballs.size()-1;
 			
-		// 		std::vector<int> infoWall;
-		// 		std::vector<int> infoPlayer;
+				std::vector<int> infoWall;
+				std::vector<int> infoPlayer;
 
-		// 		// cout << "entering arrowOutOfBounds" << std::endl;
-		// 		// cout << "Projectile distance: " << fireballs[curr_ind]->getDistance() << endl;
-		// 		fireballs[curr_ind]->arrowOutOfBounds();
+				// cout << "entering arrowOutOfBounds" << std::endl;
+				// cout << "Projectile distance: " << fireballs[curr_ind]->getDistance() << endl;
+				fireballs[curr_ind]->arrowOutOfBounds();
 
-		// 		if(fireballs[curr_ind]->isShot()) {	
-		// 			//std::cout<<"projectilTire"<<std::endl;
-		// 			//this->_map->addObject(fireballs[curr_ind]);
+				if(fireballs[curr_ind]->isShot()) {	
+					//std::cout<<"projectilTire"<<std::endl;
+					//this->_map->addObject(fireballs[curr_ind]);
 
-		// 			collideWall(fireballs[curr_ind],wallList,infoWall);
-		// 			collidePlayer(fireballs[curr_ind],player,infoPlayer);
+					collideWall(fireballs[curr_ind],wallList,infoWall);
+					collidePlayer(fireballs[curr_ind],player,infoPlayer);
 
-		// 			int indice =infoWall[0];
-		// 			int typeCollide=infoWall[1];
-		// 			int indicePlayer=infoPlayer[0];
-		// 			int TypeCollidePlayer=infoPlayer[1];
+					int indice =infoWall[0];
+					int typeCollide=infoWall[1];
+					int indicePlayer=infoPlayer[0];
+					int TypeCollidePlayer=infoPlayer[1];
 
 
 
-		// 			if(indice!= -1 && typeCollide!= -1){
-		// 				std::cout<<"colisionProjectile : GameGestion"<<std::endl;
-		// 				collideVisitor(fireballs[curr_ind],wallList[indice]);
-		// 				//delete _projectile;
-		// 			}
-		// 			if(indicePlayer!= -1 && TypeCollidePlayer!= -1){
-		// 				collideVisitor(fireballs[curr_ind],player);
-		// 			}
-		// 		}
-		// 	}
-		// }	
+					if(indice!= -1 && typeCollide!= -1){
+						std::cout<<"colisionProjectile : GameGestion"<<std::endl;
+						collideVisitor(fireballs[curr_ind],wallList[indice]);
+						//delete _projectile;
+					}
+					if(indicePlayer!= -1 && TypeCollidePlayer!= -1){
+						collideVisitor(fireballs[curr_ind],player);
+					}
+				}
+			}
+		}	
 		
 		// for (Monster* mnt : monsters) {
 		// 	sf::Vector2f newpos;
@@ -828,10 +828,10 @@ void GameGestion::updateMobs()
 		// 				break;
 		// 		}
 		// 		collideVisitor(mnt,wallList[indice]);
-	std::vector<Object *> wallList;
-	std::vector<Monster *> monsters;
-	wallList = *_map->getWallList();
-	monsters = *_map->getMonsters();
+	// std::vector<Object *> wallList;
+	// std::vector<Monster *> monsters;
+	// wallList = *_map->getWallList();
+	// monsters = *_map->getMonsters();
 
 	for (Monster *mnt : monsters)
 	{

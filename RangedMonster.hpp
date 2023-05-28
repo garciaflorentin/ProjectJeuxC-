@@ -26,7 +26,7 @@ class RangedMonster : public Monster {
         void attack(Character* target);
 
         Projectile* getProjectile() { return  _fireball; };
-        bool fireball(Character* target);
+        //bool fireball(Character* target);
 
         void updateSprite();
 };

@@ -6,7 +6,7 @@
 #include "Projectile.hpp"
 
 #define SPR_SIZE            48
-#define PROJECTILE_SPEED    5.0
+#define PROJECTILE_SPEED    10.0
 
 
 class Fireball : public Projectile {

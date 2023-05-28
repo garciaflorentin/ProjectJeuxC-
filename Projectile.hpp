@@ -26,7 +26,7 @@ class Projectile: public Object{
 
     Projectile() : Object() {};
     Projectile(const char* nameObject, sf::Vector2f initPos,Player* player);
-    ~Projectile(){}
+    ~Projectile() {};
     Projectile(const Projectile& other);
     Projectile& operator=(const Projectile& other);
 
