@@ -4,8 +4,8 @@
 GameGestion::GameGestion()
 {
 	currentZoneMusic= -1;
-	player = new Player("player1.png", {2, -1});
-	player2 = new Player("player2.png", {1, -1});
+	player = new Player("player1.png", {2, 1});
+	player2 = new Player("player2.png", {1, 1});
 	/*player->addKey();
 		player->addKey();
 	player->addKey();
