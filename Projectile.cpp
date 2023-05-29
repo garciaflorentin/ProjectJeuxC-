@@ -5,8 +5,10 @@ Projectile::Projectile(const char* nameObject, sf::Vector2f initPos,Player* play
     this->_player = player;
     _isShot= false;
     distance= 0;
-    if(!(_player->getName()=="player2.png")){
-    this->getSprite()->scale(0.25,0.25);}
+
+    if (_player!=nullptr)
+        if(!(_player->getName()=="player2.png")){
+        this->getSprite()->scale(0.25,0.25);}
 
     //initProjectile();
 }
