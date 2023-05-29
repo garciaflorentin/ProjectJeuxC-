@@ -1,7 +1,7 @@
 #include "Fireball.hpp"
 
 
-Fireball::Fireball(const char* nameObject, sf::Vector2f initPos, Character* player, int dmg) : 
+Fireball::Fireball(const char* nameObject, sf::Vector2f initPos, Character* player, float angle, int dmg) : 
     Projectile(nameObject, initPos, nullptr) {
         cout << "Creating new Fireball with initPos = " << initPos.x << " " << initPos.y << endl;
         _target = player;
@@ -18,7 +18,7 @@ Fireball::Fireball(const char* nameObject, sf::Vector2f initPos, Character* play
         if (player!=nullptr) {
 
             cout << "computing trajectory" << endl;
-            this->computeTrajectory();
+            this->computeTrajectory(angle);
 
             initProjectile();
         }
@@ -28,13 +28,16 @@ Fireball::Fireball(const char* nameObject, sf::Vector2f initPos, Character* play
         // }
 }
 
-void Fireball::computeTrajectory() {
+void Fireball::computeTrajectory(float angle) {
     sf::Vector2f targetPos = _target->getPosition();
     cout << "got target position : " << targetPos.x << ", " << targetPos.y << endl;
     cout << "initial position : " << this->getPosition().x << ", " << this->getPosition().y << endl;
 
     float distX = targetPos.x - this->getPosition().x;
     float distY = targetPos.y - this->getPosition().y;
+
+    distX += distX * (1-cos(angle));
+    distY += distY * (sin(angle));
 
     // _dirVect.x = distX / PROJECTILE_SPEED;
     // _dirVect.y = distY / PROJECTILE_SPEED;

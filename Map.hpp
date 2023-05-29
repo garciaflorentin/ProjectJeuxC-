@@ -21,12 +21,16 @@
 #include "Door.hpp"
 #include "RangedMonster.hpp" 
 #include "DemonDogMonster.hpp"
+
+#include "FinalBoss.hpp"
+
 #include "MiniOgre.hpp"
 #include "GuerrierOgre.hpp"
 #include "FlyMonster.hpp"
 #include "MiniFrogMonster.hpp"
 #include "DoorWall.hpp"
 #include "WallZone.hpp"
+
 
 #define SPAWN_FREQUENCY 600
 
