@@ -83,6 +83,7 @@ public:
 	std::vector<Object*>* toDrawUpdate(std::vector<sf::Vector2f>* currentWindow);
 	bool drawProjectile1(std::vector<sf::Vector2f>* currentWindow);
 	bool drawProjectile2(std::vector<sf::Vector2f>* currentWindow);
+    bool drawFireballs(std::vector<sf::Vector2f>* currentWindow,  std::vector<Projectile*>* toFill);
 
     /**
      * @brief Met à jour les monstres et les autres objets mobiles.
