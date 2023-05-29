@@ -25,7 +25,7 @@ class RangedMonster : public Monster {
 
             _fireball = nullptr;
         };
-        ~RangedMonster();
+        ~RangedMonster(){};
 
         void attack(Character* target);
 

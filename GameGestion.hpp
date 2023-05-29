@@ -138,8 +138,13 @@ public:
      */
     void collideMonster(Object* o, std::vector<Monster*>& wallList, std::vector<int>& info);
 
-
-void collidePlayer(Object* o, Player*p, std::vector<int>& info);
+/**
+     * @brief Gère la collision avec les Joueurs.
+     * @param o Pointeur vers l'objet à tester pour la collision.
+     * @param p Joueur en question.
+     * @param info Informations sur la collision.
+     */
+    void collidePlayer(Object* o, Player*p, std::vector<int>& info);
 
     // Limites de la carte
 
