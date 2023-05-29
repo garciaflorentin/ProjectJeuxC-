@@ -1,17 +1,12 @@
 #ifndef _GAMEGESTION_HPP_
 #define _GAMEGESTION_HPP_
 
-/// Special library
 #include <SFML/Graphics.hpp>
 #include <SFML/Audio.hpp>
-/// STL
 #include <iostream>
 #include <vector>
 #include <string>
-
-/// Header create
 #include "Player.hpp"
-//#include "Object.hpp"
 #include "Map.hpp"
 #include "ColisionInterface.hpp"
 #include "Character.hpp"
@@ -20,88 +15,181 @@
 
 using namespace std;
 
-class GameGestion : public ColisionInterface{
+/**
+ * @class GameGestion
+ * @brief Classe principale de gestion du jeu.
+ *
+ * La classe GameGestion gère le déroulement du jeu, y compris la gestion des joueurs, des collisions,
+ * des mises à jour, des limites de la carte et de la musique.
+ */
+class GameGestion : public ColisionInterface {
 private:
-
-	std::vector< Player*>* playerVector;
-	Player* player;
-	Player* player2;
-	sf::Clock time;
-	Map* _map;
-	sf::Music* forestMusic;
-	sf::Music townMusic;
-	sf::Music MountainMusic;
-	sf::Music BeatchMusic;
-
+    std::vector<Player*>* playerVector; /**< Vecteur de pointeurs vers les joueurs */
+    Player* player; /**< Pointeur vers le joueur */
+    Player* player2; /**< Pointeur vers le deuxième joueur */
+    sf::Clock time; /**< Horloge utilisée pour la gestion du temps */
+    Map* _map; /**< Pointeur vers la carte du jeu */
+    sf::Music* forestMusic; /**< Musique de la forêt */
+    sf::Music* townMusic; /**< Musique de la ville */
+    sf::Music* MountainMusic; /**< Musique de la montagne */
+    sf::Music* BeatchMusic; /**< Musique de la plage */
+    std::vector<sf::Music*> musics; /**< Vecteur de pointeurs vers les musiques */
+    int currentZoneMusic; /**< Indice de la musique de la zone actuelle */
 
 public:
+    /**
+     * @brief Constructeur par défaut de GameGestion.
+     */
+    GameGestion();
 
-	GameGestion();
+    /**
+     * @brief Destructeur de GameGestion.
+     */
+    ~GameGestion();
 
-	~GameGestion();
+    /**
+     * @brief Enumération des orientations possibles des joueurs.
+     */
+    enum Orientation { Down, Left, Right, Up };
 
-	enum Orientation { Down, Left, Right, Up };
+    // Gestion des joueurs
 
-	Map* getMap(){
-		return _map;
-	}
+    /**
+     * @brief Définit le joueur principal.
+     * @param player Pointeur vers le sprite du joueur.
+     */
+    void setPlayer(sf::Sprite* player);
 
-	const int getObjectSize() const {
-		return player->getBlockSize();
-	}
+    /**
+     * @brief Gère les événements clavier.
+     * @param e Événement SFML associé à une touche clavier pressée.
+     */
+    void keyEvent(sf::Event e);
 
-	std::vector< Player*>* getPlayerVector() {
-		return playerVector;
-	}
+    /**
+     * @brief Récupère le vecteur de pointeurs vers les joueurs.
+     * @return Vecteur de pointeurs vers les joueurs.
+     */
+    std::vector<Player*>* getPlayerVector();
 
+    // Mise à jour du jeu
 
-	void setPlayer(sf::Sprite* player); // ajoute un joeur au jeu
-
-	void keyEvent(sf::Event e);//focntion interaction 
+    /**
+     * @brief Met à jour le jeu.
+     * @return Résultat de la mise à jour du jeu.
+     */
+    int updateGame();
 
 	std::vector<Object*>* toDrawUpdate(std::vector<sf::Vector2f>* currentWindow);
-	//bool drawProjectile(std::vector<sf::Vector2f>* currentWindow);
-	bool drawFireballs(std::vector<sf::Vector2f>* currentWindow,  std::vector<Projectile*>* toFill);
 	bool drawProjectile1(std::vector<sf::Vector2f>* currentWindow);
 	bool drawProjectile2(std::vector<sf::Vector2f>* currentWindow);
+    bool drawFireballs(std::vector<sf::Vector2f>* currentWindow,  std::vector<Projectile*>* toFill);
 
+    /**
+     * @brief Met à jour les monstres et les autres objets mobiles.
+     */
+    void updateMobs();
 
-	int updateGame();
+    // Collision
 
-//interface colision
+    /**
+     * @brief Visiteurs de collision entre le joueur et un objet.
+     * @param player Pointeur vers l'objet joueur.
+     * @param o Pointeur vers l'objet à tester pour la collision.
+     */
+    void collideVisitor(Object* player, Object* o);
 
-	void collideVisitor(Object* player,Object * o);
+    /**
+     * @brief Gère la collision avec les murs.
+     */
+    void collideWallGestion();
 
+    /**
+     * @brief Gère la collision avec les projectiles.
+     */
+    void collideProjectileGestion();
 
+    /**
+     * @brief Gère la collision avec les monstres.
+     */
+    void collideMonsterGestion();
 
-void collideWallGestion();
+    /**
+     * @brief Détermine la position de collision entre deux objets.
+     * @param object1 Pointeur vers le premier objet.
+     * @param object2 Pointeur vers le deuxième objet.
+     * @return Résultat de la collision entre les deux objets.
+     */
+    int collidePosition(Object* object1, Object* object2);
 
-void collideProjectileGestion();
+    /**
+     * @brief Gère la collision avec les murs.
+     * @param o Pointeur vers l'objet à tester pour la collision.
+     * @param wallList Liste des objets murs.
+     * @param info Informations sur la collision.
+     */
+    void collideWall(Object* o, std::vector<Object*>& wallList, std::vector<int>& info);
 
-void collideMonsterGestion();
+    /**
+     * @brief Gère la collision avec les monstres.
+     * @param o Pointeur vers l'objet à tester pour la collision.
+     * @param wallList Liste des objets monstres.
+     * @param info Informations sur la collision.
+     */
+    void collideMonster(Object* o, std::vector<Monster*>& wallList, std::vector<int>& info);
 
-int collidePosition(Object* object1, Object* object2);
+/**
+     * @brief Gère la collision avec les Joueurs.
+     * @param o Pointeur vers l'objet à tester pour la collision.
+     * @param p Joueur en question.
+     * @param info Informations sur la collision.
+     */
+    void collidePlayer(Object* o, Player*p, std::vector<int>& info);
 
-void collideWall(Object* o, std::vector <Object*>& wallList,std::vector<int>& info) ;
-void collideMonster(Object* o, std::vector <Monster*>& wallList,std::vector<int>& info);
-void collidePlayer(Object* o, Player*p, std::vector<int>& info);
+    // Limites de la carte
 
+    /**
+     * @brief Gère les limites de la carte.
+     */
+    void LimitMap();
 
-	void LimitMap();
-	void LimitMapBoss();
+    /**
+     * @brief Gère les limites de la carte du boss.
+     */
+    void LimitMapBoss();
 
+    // Gestion de la musique
 
+    /**
+     * @brief Gère la musique du jeu.
+     */
+    void musicGestion();
 
+    /**
+     * @brief Vérifie la vie des monstres et contrôle la musique.
+     * @param control Vecteur de contrôle des monstres.
+     */
+    void checkLifeMonster(std::vector<bool>& control);
 
-	//mise a jour des monstres (et autres objets qui bougent eventuellement)
-	void updateMobs();
+    /**
+     * @brief Applique un fondu sur la musique.
+     * @param music Pointeur vers la musique à appliquer le fondu.
+     */
+    void musicFade(sf::Music* music);
 
+    // Autres méthodes
 
-//musique gestion
+    /**
+     * @brief Récupère la carte du jeu.
+     * @return Pointeur vers la carte du jeu.
+     */
+    Map* getMap();
 
-void musicGestion();
-
-void checkLifeMonster(std::vector<bool>& control);
-
+    /**
+     * @brief Récupère la taille de l'objet.
+     * @return Taille de l'objet.
+     */
+    const int getObjectSize() const;
 };
+
 #endif

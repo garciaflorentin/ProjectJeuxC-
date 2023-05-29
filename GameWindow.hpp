@@ -1,4 +1,3 @@
-
 #ifndef _GAMEWINDOW_H_
 #define _GAMEWINDOW_H_
 
@@ -13,140 +12,168 @@
 #include "Projectile.hpp"
 #include "UserInterface.hpp"
 
-
-
-/// Window class and start the game
+/**
+ * @class GameWindow
+ * @brief Represents the game window and handles game rendering and user input.
+ */
 class GameWindow {
 private:
-
-
     float windowWidth = 1024.0, windowHeight = 768.0;
-    sf::RenderWindow* window;
-    sf::Event* event;
-    sf::VideoMode videoMode; //VideoMode defines a video mode (width, height, bpp) 
-    sf::View* _view;
-    std::vector<sf::Vector2f>* currentWindowPos;
-    sf::Vector2f positionCentre;
-    Heart* test;
+    sf::RenderWindow* window; /**< The SFML render window */
+    sf::Event* event; /**< The SFML event object */
+    sf::VideoMode videoMode; /**< The SFML video mode */
+    sf::View* _view; /**< The SFML view */
+    std::vector<sf::Vector2f>* currentWindowPos; /**< The current window position */
+    sf::Vector2f positionCentre; /**< The center position of the window */
 
-    //class
-    GameGestion* _game;
-    LifeWindow* _lifeWindow;
-    KeyWindow* _keyWindow;
-    UserInterface* ui;
+    // Class instances
+    GameGestion* _game; /**< The game management instance */
+    LifeWindow* _lifeWindow; /**< The life window instance */
+    LifeWindow* _lifeWindowP2; /**< The second player's life window instance */
+    KeyWindow* _keyWindow; /**< The key window instance */
+    UserInterface* ui; /**< The user interface instance */
 
-    void pollEvent();// declaration d'un event
+    // Private member functions
+    /**
+     * @brief Polls the SFML event to handle user input.
+     */
+    void pollEvent();
 
-    void drawSprite(sf::Sprite sprite); //dessine un sprites sur la main window
-
-    void drawText(sf::Text Text);
-
-    void drawVectorSprite(std::vector <sf::Sprite> vector);
-
-    void drawVectorText(std::vector <sf::Text> vector);
-
-    void displayLifeWindow() {
-        _lifeWindow->drawTo(this->getWindow());
-    }
-
-    void displayKeyWindow() {
-        _keyWindow->drawTo(this->getWindow());
-    }
-
-
+    /**
+     * @brief Sets the current window position.
+     */
     void setCurrentWindowPos();
+
 public:
-    ////////////////////////////////////////
+    // Constructors and Destructor
+    /**
+     * @brief Default constructor for GameWindow.
+     */
+    GameWindow();
 
-    /// Default Constructor
-    GameWindow(void);
+    /**
+     * @brief Destructor for GameWindow.
+     */
+    ~GameWindow();
 
-    /// Destructor
-    ~GameWindow(void);
-
-
-    //getteur
-
+    // Getters
+    /**
+     * @brief Gets the GameGestion instance.
+     * @return A pointer to the GameGestion instance.
+     */
     GameGestion* getGame();
 
-    sf::Vector2f& getPositionCentre(){
-        return positionCentre;
-    }
+    /**
+     * @brief Gets the position of the window center.
+     * @return A reference to the position of the window center.
+     */
+    sf::Vector2f& getPositionCentre();
 
-    sf::RenderWindow* getWindow() {
-        return window;
-    }
+    /**
+     * @brief Gets the SFML render window.
+     * @return A pointer to the SFML render window.
+     */
+    sf::RenderWindow* getWindow();
 
-    //UI
-    UserInterface* getUi(){
-        return ui;
-    }
+    /**
+     * @brief Gets the UserInterface instance.
+     * @return A pointer to the UserInterface instance.
+     */
+    UserInterface* getUi();
 
-  //  void ControlUi();
+    /**
+     * @brief Gets the dimensions of the window.
+     * @return The dimensions of the window as a sf::Vector2f.
+     */
+    sf::Vector2f getWindowDim();
 
-    //view
+    /**
+     * @brief Gets the current window position.
+     * @return A pointer to the current window position vector.
+     */
+    std::vector<sf::Vector2f>* getCurrentWindowPos();
 
-    sf::Vector2f getWindowDim() {
-        sf::Vector2f dim = { windowWidth,windowHeight };
-        return dim;
-    }
+    /**
+     * @brief Gets the SFML view of the window.
+     * @return A pointer to the SFML view.
+     */
+    sf::View* getViewWindow();
 
-    std::vector<sf::Vector2f>* getCurrentWindowPos(){
-        setCurrentWindowPos();
-        return currentWindowPos;
-    }
+    // Setters
+    /**
+     * @brief Sets the life view for player 1.
+     */
+    void setLifeViewPlayer1();
 
-    void setLifeView() {
-        window->setView(*_lifeWindow->getLifeView());
-    }
+    /**
+     * @brief Sets the life view for player 2.
+     */
+    void setLifeViewPlayer2();
 
-    void setKeyView(){
-        window->setView(*_keyWindow->getKeyView());
-    }
+    /**
+     * @brief Sets the key view.
+     */
+    void setKeyView();
 
-    sf::View* getViewWindow() {
-        return _view;
-    }
+    // Control
+    /**
+     * @brief Checks if the game window is running.
+     * @return True if the window is open, false otherwise.
+     */
+    bool isRunning();
 
+    /**
+     * @brief Controls the game window, handling user input and updating the game state.
+     * @return An integer representing the game state.
+     */
+    int controlWindow();
 
-    // control
-
-    /// \return true if the window is open
-    bool isRunning(void);
-    int controlWindow(void); 
-
-
-    /// Limit FPS
-    /// \param frame FPS number
+    /**
+     * @brief Limits the frame rate of the game window.
+     * @param frame The desired frame rate.
+     */
     void limitFrameRate(int frame);
 
+    // Display
+    /**
+     * @brief Clears the window.
+     */
+    void clearWindow() const;
 
+    /**
+     * @brief Draws all sprites to the window.
+     */
+    void draw();
 
-    // affichage
-
-    void updateWindow(void);// fais la maj de la windwow a chaquqe fps
-
-    void updateWindow(std::vector<sf::Sprite> _sprites);
-
-    void clearWindow() const {
-        window->clear();
-    }
-
-    void DisplayTile(std::vector<sf::Sprite> v);
-
-    void draw();// draw tout les sprites
-
+    /**
+     * @brief Displays the window.
+     */
     void display();
 
+    /**
+     * @brief Sets the scrolling view for the game.
+     */
     void setScrollingView();
 
+    /**
+     * @brief Sets the view for the boss fight.
+     */
     void setViewBoss();
 
+    // Private display functions
+    /**
+     * @brief Displays the life window.
+     */
+    void displayLifeWindow();
 
-    //void verificationWindow(void);
+    /**
+     * @brief Displays the second player's life window.
+     */
+    void displayLifeWindowP2();
 
-
-    
-
+    /**
+     * @brief Displays the key window.
+     */
+    void displayKeyWindow();
 };
 #endif

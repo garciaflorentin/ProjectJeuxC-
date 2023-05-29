@@ -3,16 +3,48 @@
 
 GameGestion::GameGestion()
 {
-	player = new Player("player1.png", {0, 0});
+	currentZoneMusic= -1;
+	player = new Player("player1.png", {2, 1});
 	player2 = new Player("player2.png", {1, 1});
+	/*player->addKey();
+		player->addKey();
+	player->addKey();
+	player->addKey();
+*/
 	_map = new Map();
 	_map->createMap();
 	playerVector = new std::vector<Player *>{player, player2};
 	forestMusic = new sf::Music;
-	/*if (!forestMusic->openFromFile("/home/garcia/Bureau/ProjetC++  (travail)/ProjectJeuxC-/Music/forestMusic.wav"))
-{
+	townMusic =new sf::Music;
+	MountainMusic= new sf::Music;
+	BeatchMusic= new sf::Music;
+	if (!forestMusic->openFromFile("ForestMood.wav"))
+	{
 	std::cout<<"erreur de chargement de forestMusic"<<std::endl;
-}*/
+	}
+	if (!townMusic->openFromFile("TownMood.wav"))
+	{
+	std::cout<<"erreur de chargement de townMusic"<<std::endl;
+	}
+	if (!MountainMusic->openFromFile("MountainMood.wav"))
+	{
+	std::cout<<"erreur de chargement de MountainMusic"<<std::endl;
+	}
+	if (!BeatchMusic->openFromFile("BeatchMood.ogg"))
+	{
+	std::cout<<"erreur de chargement de BeatchMusic"<<std::endl;
+	}
+	
+	
+	musics.push_back(forestMusic);
+	musics.push_back(MountainMusic);
+	musics.push_back(townMusic);
+	musics.push_back(BeatchMusic);
+
+
+
+
+
 }
 
 GameGestion::~GameGestion()
@@ -21,6 +53,10 @@ GameGestion::~GameGestion()
 	delete player2;
 	delete _map;
 	delete forestMusic;
+	delete BeatchMusic;
+	delete MountainMusic;
+	delete townMusic;
+
 }
 
 std::vector<Object *> *GameGestion::toDrawUpdate(std::vector<sf::Vector2f> *currentWindow)
@@ -119,7 +155,7 @@ bool GameGestion::drawFireballs(std::vector<sf::Vector2f>* currentWindow, std::v
 void GameGestion::keyEvent(sf::Event e)
 {
 	(*playerVector)[0]->setSpeed(_map->getMonsters()->size() / 5);
-	double vitesse = (*playerVector)[0]->getSpeed();
+	float vitesse = (*playerVector)[0]->getSpeed();
 	if (vitesse <= 3)
 	{
 		(*playerVector)[0]->setSpeed(4);
@@ -213,11 +249,11 @@ if(!(*playerVector)[1]->WeaponIsUsed()){
 	
 	if (sf::Keyboard::isKeyPressed(sf::Keyboard::E))
 	{
-		p2->useWand();
+		if(p2->isAlive()) p2->useWand();
 	}
 	if (sf::Keyboard::isKeyPressed(sf::Keyboard::M))
 	{
-		p1->useBow();
+		if(p1->isAlive()) p1->useBow();
 	}
 }
 
@@ -225,9 +261,18 @@ int GameGestion::updateGame()
 {
 	Player *p1 = (*playerVector)[0];
 	Player *p2 = (*playerVector)[1];
+	
+	if(p2->getKey() != p1->getKey()){
+		int tempo=p2->getKey();
+		p2->setKey(p2->getKey()+ p1->getKey());
+		p1->setKey(tempo+ p1->getKey());
 
+	}
 
-		if (p1->bowIsUsed() && !p1->getProjectile()->isShot())
+	//	fade(BeatchMusic);
+	
+
+		if (p1->bowIsUsed())// && !p1->getProjectile()->isShot())
 		{
 			p1->useBow();
 		}
@@ -236,7 +281,7 @@ int GameGestion::updateGame()
 	
 
 	
-		if (p2->wandIsUsed()&& !p1->getProjectile()->isShot())
+		if (p2->wandIsUsed())//&& !p1->getProjectile()->isShot())
 		{
 			p2->useWand();
 		}
@@ -262,14 +307,13 @@ int GameGestion::updateGame()
 	if (!player->isAlive() || !player2->isAlive())
 	{
 		if(!player->isAlive() && !player2->isAlive()){
-			player->deadGestion();
-			player2->deadGestion();
+	
 			return 3;
 		}else if (!player->isAlive()){
-			player->deadGestion();
+			_map->addPlayerDead(player->deadGestion());
 			return 1;
 		}else{
-			player2->deadGestion();
+			_map->addPlayerDead(player2->deadGestion());
 			return 2;
 		}
 	}
@@ -304,7 +348,7 @@ int GameGestion::collidePosition(Object *object1, Object *object2)
 	{
 		if (rect1.top < rect2.top)
 		{
-			std::cout << "up" << std::endl;
+			//std::cout << "up" << std::endl;
 			return 1;
 		}
 		else
@@ -431,28 +475,29 @@ void GameGestion::LimitMap()
 		newpos = {player->getPosition().x, limit[3]};
 		player->setPosition(newpos);
 	}
-	if(player->isAlive()){
-	if (player2->getPosition().x < player->getPosition().x-384)
+
+	if(player->isAlive() && player2->isAlive()){
+	if (player2->getPosition().x < player->getPosition().x-362)
 	{
-		newpos = {player->getPosition().x-384, player2->getPosition().y};
+		newpos = {player->getPosition().x-362, player2->getPosition().y};
 		player2->setPosition(newpos);
 	}
-	else if (player2->getPosition().x >= player->getPosition().x+384)
+	if (player2->getPosition().x >= player->getPosition().x+362)
 	{
-		newpos = {player->getPosition().x+384, player2->getPosition().y};
+		newpos = {player->getPosition().x+362, player2->getPosition().y};
 		player2->setPosition(newpos);
 	}
-	else if (player2->getPosition().y >player->getPosition().y+512)
+	if (player2->getPosition().y >player->getPosition().y+271)
 	{
-		newpos = {player2->getPosition().x,player->getPosition().y+512};
+		newpos = {player2->getPosition().x,player->getPosition().y+271};
 		player2->setPosition(newpos);
 	}
-	else if (player2->getPosition().y < player->getPosition().y-512)
+	if (player2->getPosition().y < player->getPosition().y-271)
 	{
-		newpos = {player2->getPosition().x, player->getPosition().y-512};
+		newpos = {player2->getPosition().x, player->getPosition().y-271};
 		player2->setPosition(newpos);
 	}
-	}else {
+	}else if(player2->isAlive()){
 		if (player2->getPosition().x < limit[2])
 	{
 		newpos = {limit[2], player2->getPosition().y};
@@ -499,7 +544,6 @@ void GameGestion::LimitMapBoss()
 	}
 	if (player->getPosition().y < limit[1])
 	{
-		std::cout << "aa" << std::endl;
 		newpos = {player->getPosition().x, limit[1]};
 		player->setPosition(newpos);
 	}
@@ -585,7 +629,7 @@ void GameGestion::collideWallGestion()
 			break;
 		case 2: // colision du joueur allant vers la haut
 			newpos = {p2->getPosition().x, wallList[indice2]->getPosition().y + wallList[indice2]->getSprite()->getGlobalBounds().height};
-			p1->setPosition(newpos);
+			p2->setPosition(newpos);
 			break;
 		case 3: // colision du joueur allant vers la droite
 			newpos = {wallList[indice2]->getPosition().x - 48, p2->getPosition().y};
@@ -642,7 +686,6 @@ void GameGestion::collideProjectileGestion()
 
 		if (indice != -1 && typeCollide != -1)
 		{
-			std::cout << "colisionProjectile : GameGestion" << std::endl;
 			collideVisitor(_projectile, wallList[indice]);
 			// delete _projectile;
 		}
@@ -652,7 +695,6 @@ void GameGestion::collideProjectileGestion()
 		}
 		if (indice2 != -1 && typeCollide2 != -1)
 		{
-			std::cout << "colisionProjectile : GameGestion" << std::endl;
 			collideVisitor(_projectile2, wallList[indice2]);
 			// delete _projectile;
 		}
@@ -899,23 +941,143 @@ void GameGestion::checkLifeMonster(std::vector<bool> &control)
 	control = {true, true, true, true};
 	std::vector<Monster *> monsters;
 	monsters = *_map->getMonsters();
+	std::vector<float> limit;
+	_map->getLimitMap(limit);
 	for (int i = 0; i < monsters.size(); i++)
 	{
-		if (monsters[i]->getPosition().x >= 0 && monsters[i]->getPosition().x < 4800 && monsters[i]->getPosition().y > -4800 && monsters[i]->getPosition().y <= 0)
+		if (monsters[i]->getPosition().x >= 0 && monsters[i]->getPosition().x <= limit[0]/2 && monsters[i]->getPosition().y >= limit[3] && monsters[i]->getPosition().y <= 0)
 		{
 			control[0] = false;
 		}
-		else if (monsters[i]->getPosition().x >= 0 && monsters[i]->getPosition().x < 4800 && monsters[i]->getPosition().y < 4800 && monsters[i]->getPosition().y >= 0)
+		else if (monsters[i]->getPosition().x >= 0 && monsters[i]->getPosition().x <= limit[0]/2 && monsters[i]->getPosition().y <= limit[1] && monsters[i]->getPosition().y >= 0)
 		{
 			control[1] = false;
 		}
-		else if (monsters[i]->getPosition().x >= 4800 && monsters[i]->getPosition().x <= 9600 && monsters[i]->getPosition().y < -4800 && monsters[i]->getPosition().y <= 0)
+		else if (monsters[i]->getPosition().x >= limit[0]/2 && monsters[i]->getPosition().x <= limit[0] && monsters[i]->getPosition().y <= limit[1] && monsters[i]->getPosition().y >= 0)
 		{
 			control[2] = false;
 		}
-		else if ((monsters[i]->getPosition().x >= 4800 && monsters[i]->getPosition().x <= 9600 && monsters[i]->getPosition().y < 4800 && monsters[i]->getPosition().y >= 0))
+		else if ((monsters[i]->getPosition().x >= limit[0]/2 && monsters[i]->getPosition().x <= limit[0] && monsters[i]->getPosition().y <=0 && monsters[i]->getPosition().y >= limit[3]))
 		{
 			control[3] = false;
 		}
 	}
 }
+
+void GameGestion::musicGestion(){
+	BeatchMusic->setVolume(100);
+	//BeatchMusic->setLoop(true);
+	BeatchMusic->play();
+	/*
+	    const int NUM_ZONES = 4;
+
+
+    // Initialisation des zones et des musiques correspondantes
+	std::vector<float> limit;
+	_map->getLimitMap(limit);
+    sf::IntRect zones[NUM_ZONES] = {
+        sf::IntRect(0, limit[3],limit[0]/2, 0),    // Zone 1
+        sf::IntRect(50, 0, limit[0]/2, limit[1]),   // Zone 2
+        sf::IntRect(limit[0]/2,0, limit[0], limit[1]),   // Zone 3
+        sf::IntRect(limit[0]/2,0, limit[0], limit[3])   // Zone 4
+    };
+
+    for (int i = 0; i < NUM_ZONES; ++i)
+    {
+        musics[i]->setLoop(true);
+        musics[i]->setVolume(0); // Démarre avec un volume initial faible
+        musics[i]->play();
+    }
+
+	currentZoneMusic=-1;
+
+    // Boucle principale du jeu
+        // Mettre à jour la position du joueur
+        sf::Vector2f playerPosition(player->getPosition().x, player->getPosition().y);
+
+        // Trouver la zone actuelle
+        int newZoneIndex = -1;
+        for (int i = 0; i < NUM_ZONES; ++i)
+        {
+            if (zones[i].contains(static_cast<int>(playerPosition.x), static_cast<int>(playerPosition.y)))
+            {
+                newZoneIndex = i;
+				std::cout<<"zone="<<i<<std::endl;
+                break;
+            }
+        }
+
+        // Si le joueur a changé de zone
+        if (newZoneIndex != currentZoneMusic)
+        {
+            // Transition musicale
+            if (currentZoneMusic != -1)
+            {
+                sf::Music& previousMusic = *musics[currentZoneMusic];
+                sf::Music& newMusic = *musics[newZoneIndex];
+
+                // Fade-out de la musique actuelle
+                for (int fadeStep = 10; fadeStep >= 0; --fadeStep)
+                {
+                    float volume = fadeStep * 10.0f;
+                    previousMusic.setVolume(volume);
+                    sf::sleep(sf::milliseconds(50)); // Attendre avant chaque ajustement de volume
+                }
+
+                // Fade-in de la nouvelle musique
+                for (int fadeStep = 0; fadeStep <= 10; ++fadeStep)
+                {
+                    float volume = fadeStep * 10.0f;
+                    newMusic.setVolume(volume);
+                    sf::sleep(sf::milliseconds(50)); // Attendre avant chaque ajustement de volume
+                }
+            }
+
+            currentZoneMusic = newZoneIndex;
+        }
+		*/
+
+
+}
+
+void GameGestion::musicFade(sf::Music* music){
+    music->setLoop(true);  // Désactiver la lecture en boucle automatique
+    music->setVolume(100);  // Définir le volume initial de la musique
+     sf::Time fadeDuration = sf::seconds(2.0f);  // Durée du fondu en secondes
+    sf::Time fadeDelay = sf::seconds(0.1f);     // Délai entre chaque étape du fondu
+    if (music->getStatus() == sf::SoundSource::Playing){
+
+        // Vérifier si la musique est en train de se terminer
+        if (music->getPlayingOffset() + fadeDuration >= music->getDuration())
+        {
+            // Calculer le volume en fonction du temps restant avant la fin
+            float fadeFactor = 1.0f - ((music->getDuration() - music->getPlayingOffset()) / fadeDuration);
+            music->setVolume(100 * fadeFactor);
+        }
+
+        sf::sleep(fadeDelay);
+    }else{
+    music->stop();
+    music->play();
+    }
+
+    
+}
+
+
+
+Map* GameGestion::getMap(){
+		return _map;
+	}
+
+	const int GameGestion::getObjectSize() const {
+		return player->getBlockSize();
+	}
+
+	std::vector< Player*>* GameGestion::getPlayerVector() {
+		return playerVector;
+	}
+
+
+
+

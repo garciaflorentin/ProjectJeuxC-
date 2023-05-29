@@ -8,6 +8,7 @@ Door::Door(const char* nameObject, sf::Vector2f initPos, TypeWall _typeWall): Wa
         _sprite->setTextureRect(sf::IntRect(42,anim.y*DOOR_SIZE,156,175));
         isOpen=false;
         isOpening=false;
+        resistance=1000000;
      /*   if (!(backDoorTexture.loadFromFile("!Demon Door.png"))){
 			std::cout<<"probleme dans la creation de la porte"<<std::endl;
 		}
@@ -31,7 +32,7 @@ void Door::animDoor(){
         }
     }
 
-    void Door::collide(Object* o){
+void Door::collide(Object* o){
 		if(typeid(*o) == typeid(Player)){
 
 		    Player* p=dynamic_cast<Player*>(o);
