@@ -13,20 +13,28 @@ Character::Character(const char* nameObject, sf::Vector2f initPos): Object(nameO
 	life = new Heart();
 
 	_isAlive = true;
+	
+
 }
 
 Character::~Character() {
-	delete[] life;
+	footStepSound.stop();
+	takeDamageMusic.stop();
+	delete life;
+	delete anim;
 }
 
 void Character::takeDamage(int NOQ) {
 	std::cout<<"Character::takeDamage"<<std::endl;
-	if(0<NOQ<=life->getNOQ()){
+	//takeDamageMusic->setVolume(75);
+	//takeDamageMusic->stop();
+	//takeDamageMusic->play();
+	if(0<NOQ<=life->getNumberOfQuarter()){
 	for (int i = 0; i < NOQ; i++) {
 			life->removeLife();
 		}
 	}
-	if(life->getNOQ()<=0){
+	if(life->getNumberOfQuarter()<=0){
 		_isAlive=false;
 	}
 	
@@ -57,6 +65,67 @@ void Character::updateSprite(){
 
 void Character::move(sf::Vector2f deplacement){
 	_sprite->move(deplacement.x,deplacement.y);
+	/*int x = static_cast<int>(getPosition().x);
+	int y = static_cast<int>(getPosition().y);
 
+	if (x%6==0 || y%7==0)
+                {
+                   footStepSound->setVolume(40);
+				   footStepSound->stop();
+	            	footStepSound->play();
+                }*/
 }
 
+
+
+void Character::updateKilledallMobs(std::vector<bool>& _killedallMobs){
+		killedallMobs=_killedallMobs;
+	}
+
+std::vector<bool>& Character::getKilledallMobs(){
+		return killedallMobs;
+	}
+
+double Character::getSpeed(){
+		return speed;
+	}
+
+void Character::setSpeed(double _speed){
+		speed=_speed;
+	}
+
+int Character::getOrientation(){
+		return orientation;
+	}
+
+	void Character::setOrientation(int _orientation){
+		orientation=_orientation;
+	}
+
+	const bool Character::isAlive() const{
+		return _isAlive;
+	}
+
+		sf::Vector2i* Character::getAnim(){
+		return anim;
+	}
+
+	Heart* Character::getlife() const {
+		return life;
+	}
+
+	bool Character::canOpenChest() const { return _canOpenChest; };
+
+	int Character::getKey(){
+		return key;
+	}
+
+	void Character::addKey(){
+		if(key<4){
+			key++;
+		}
+	}
+
+    void Character::setKey(int nbKey){
+		key=nbKey;
+	}

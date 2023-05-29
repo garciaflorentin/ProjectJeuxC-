@@ -46,3 +46,6 @@ void LifeWindow::updateWindow() {
 
 }
 
+sf::View* LifeWindow::getLifeView() {
+		return lifeView;
+	}

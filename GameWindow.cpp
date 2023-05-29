@@ -17,6 +17,7 @@ GameWindow::GameWindow(void) {
     _game = new GameGestion();
     Heart* test = new Heart();
     _lifeWindow = new LifeWindow((*_game->getPlayerVector())[0]->getlife());
+    _lifeWindowP2 = new LifeWindow((*_game->getPlayerVector())[1]->getlife());
     ui =  new UserInterface();
     _keyWindow= new KeyWindow((*_game->getPlayerVector())[0]);
 
@@ -32,72 +33,80 @@ GameWindow::~GameWindow(void) {
     delete _view;
     delete currentWindowPos;
     delete _lifeWindow;
+    delete _lifeWindowP2;
     delete _keyWindow;
-    delete test;
     delete ui;
 }
 
 // view
 
-void GameWindow::setScrollingView() {
-    float viewX=getWindowDim().x-300;
-    float viewY=getWindowDim().y-225;
-    if((*_game->getPlayerVector())[0]->isAlive()){
-    _view->reset(sf::FloatRect(0,0,viewX,viewY)); // coordoné du coin haut gauche et du coin bas droit
-   positionCentre = { getWindowDim().x / 2, getWindowDim().y / 2 };// coordoné du centre de l'ecran
-   positionCentre.x= (*_game->getPlayerVector())[0]->getPosition().x + ((*_game->getPlayerVector())[0]->getBlockSize()/2) - (viewX/ 2);// si le perso passe la moitié de l'ecran selon x je change la position du centre 
-   positionCentre.y = (*_game->getPlayerVector())[0]->getPosition().y + ((*_game->getPlayerVector())[0]->getBlockSize() / 2) - (viewY/ 2);// si le perso passe la moitié de l'ecran selon y je change la position du centre 
-  std::vector<float> limitMap;
-  _game->getMap()->getLimitMap(limitMap);
+void GameWindow::setScrollingView()
+{
+    float viewX = getWindowDim().x - 300;
+    float viewY = getWindowDim().y - 225;
+    if ((*_game->getPlayerVector())[0]->isAlive())
+    {
+        _view->reset(sf::FloatRect(0, 0, viewX, viewY));                                                                                         // coordoné du coin haut gauche et du coin bas droit
+        positionCentre = {getWindowDim().x / 2, getWindowDim().y / 2};                                                                           // coordoné du centre de l'ecran
+        positionCentre.x = (*_game->getPlayerVector())[0]->getPosition().x + ((*_game->getPlayerVector())[0]->getBlockSize() / 2) - (viewX / 2); // si le perso passe la moitié de l'ecran selon x je change la position du centre
+        positionCentre.y = (*_game->getPlayerVector())[0]->getPosition().y + ((*_game->getPlayerVector())[0]->getBlockSize() / 2) - (viewY / 2); // si le perso passe la moitié de l'ecran selon y je change la position du centre
+        std::vector<float> limitMap;
+        _game->getMap()->getLimitMap(limitMap);
 
+        // On ne peut pas filmer en dehors de la map
+        if (positionCentre.x < limitMap[2])
+        {
+            positionCentre.x = limitMap[2];
+        }
+        else if (positionCentre.x + 2 * (viewX / 2) > limitMap[0])
+        {
+            positionCentre.x = limitMap[0] - 2 * (viewX / 2);
+        }
 
-     // On ne peut pas filmer en dehors de la map
-    if (positionCentre.x < limitMap[2]) {
-        positionCentre.x = limitMap[2];
+        if (positionCentre.y < limitMap[3])
+        {
+            positionCentre.y = limitMap[3];
+        }
+        else if (positionCentre.y + 2 * (viewY / 2) > limitMap[1])
+        {
+            positionCentre.y = limitMap[1] - 2 * (viewY / 2);
+        }
     }
-    else if (positionCentre.x + 2 * (viewX / 2) > limitMap[0]) {
-        positionCentre.x = limitMap[0] - 2 * (viewX / 2);
+    else if ((*_game->getPlayerVector())[1]->isAlive())
+    {
+
+        _view->reset(sf::FloatRect(0, 0, viewX, viewY));                                                                                         // coordoné du coin haut gauche et du coin bas droit
+        positionCentre = {getWindowDim().x / 2, getWindowDim().y / 2};                                                                           // coordoné du centre de l'ecran
+        positionCentre.x = (*_game->getPlayerVector())[1]->getPosition().x + ((*_game->getPlayerVector())[1]->getBlockSize() / 2) - (viewX / 2); // si le perso passe la moitié de l'ecran selon x je change la position du centre
+        positionCentre.y = (*_game->getPlayerVector())[1]->getPosition().y + ((*_game->getPlayerVector())[1]->getBlockSize() / 2) - (viewY / 2); // si le perso passe la moitié de l'ecran selon y je change la position du centre
+        std::vector<float> limitMap;
+        _game->getMap()->getLimitMap(limitMap);
+
+        // On ne peut pas filmer en dehors de la map
+        if (positionCentre.x < limitMap[2])
+        {
+            positionCentre.x = limitMap[2];
+        }
+        else if (positionCentre.x + 2 * (viewX / 2) > limitMap[0])
+        {
+            positionCentre.x = limitMap[0] - 2 * (viewX / 2);
+        }
+
+        if (positionCentre.y < limitMap[3])
+        {
+            positionCentre.y = limitMap[3];
+        }
+        else if (positionCentre.y + 2 * (viewY / 2) > limitMap[1])
+        {
+            positionCentre.y = limitMap[1] - 2 * (viewY / 2);
+        }
     }
 
-    if (positionCentre.y < limitMap[3]) {
-        positionCentre.y = limitMap[3];
-    }
-    else if (positionCentre.y + 2 * (viewY / 2) > limitMap[1]) {
-        positionCentre.y = limitMap[1] - 2 * (viewY / 2);
-    }
-    }else if ((*_game->getPlayerVector())[1]->isAlive()){
-
-    _view->reset(sf::FloatRect(0,0,viewX,viewY)); // coordoné du coin haut gauche et du coin bas droit
-   positionCentre = { getWindowDim().x / 2, getWindowDim().y / 2 };// coordoné du centre de l'ecran
-   positionCentre.x= (*_game->getPlayerVector())[1]->getPosition().x + ((*_game->getPlayerVector())[1]->getBlockSize()/2) - (viewX/ 2);// si le perso passe la moitié de l'ecran selon x je change la position du centre 
-   positionCentre.y = (*_game->getPlayerVector())[1]->getPosition().y + ((*_game->getPlayerVector())[1]->getBlockSize() / 2) - (viewY/ 2);// si le perso passe la moitié de l'ecran selon y je change la position du centre 
-  std::vector<float> limitMap;
-  _game->getMap()->getLimitMap(limitMap);
-
-
-     // On ne peut pas filmer en dehors de la map
-    if (positionCentre.x < limitMap[2]) {
-        positionCentre.x = limitMap[2];
-    }
-    else if (positionCentre.x + 2 * (viewX / 2) > limitMap[0]) {
-        positionCentre.x = limitMap[0] - 2 * (viewX / 2);
-    }
-
-    if (positionCentre.y < limitMap[3]) {
-        positionCentre.y = limitMap[3];
-    }
-    else if (positionCentre.y + 2 * (viewY / 2) > limitMap[1]) {
-        positionCentre.y = limitMap[1] - 2 * (viewY / 2);
-    }
-    }
-    
-       // on met a jour la vu en changeant la position du coin haut gauche
-   _view->reset(sf::FloatRect(positionCentre.x, positionCentre.y, viewX, viewY));
+    // on met a jour la vu en changeant la position du coin haut gauche
+    _view->reset(sf::FloatRect(positionCentre.x, positionCentre.y, viewX, viewY));
    
     window->setView(*_view);
 }
-  
-
 
 void GameWindow::setViewBoss(){
     float viewX=getWindowDim().x;
@@ -185,28 +194,6 @@ void GameWindow::pollEvent() {
 
 
 
-
-
-void GameWindow::drawSprite(sf::Sprite sprite) {
-    this->window->draw(sprite);
-}
-
-void GameWindow::drawText(sf::Text text) {
-    this->window->draw(text);
-}
-
-void GameWindow::drawVectorSprite(std::vector <sf::Sprite> vector) {
-    for (int number = 0; number < vector.size(); number++) {
-        drawSprite(vector[number]);
-    }
-}
-
-void GameWindow::drawVectorText(std::vector <sf::Text> vector) {
-    for (int number = 0; number < vector.size(); number++) {
-        drawText(vector[number]);
-    }
-}
-
 bool GameWindow::isRunning(void) { // check si la fenetre est ouverte
     return window->isOpen();
 }
@@ -215,23 +202,15 @@ void GameWindow::limitFrameRate(int frame) { //limite le nombre de FPS
     this->window->setFramerateLimit(frame);
 }
 
-void GameWindow::updateWindow(std::vector<sf::Sprite> _sprites) { // met a jour la fentre en utilisation des methodes priv�s
-    this->window->clear();
-    this->drawVectorSprite(_sprites);//this->drawVectorSprite(this->_game.getDrawingSprite());
-   // this->drawVectorText(_texts);//this->_game.getDrawingText())
-    this->window->display();
-}
 
-inline void GameWindow::DisplayTile(std::vector<sf::Sprite> v) {
-    drawVectorSprite(v);
-    window->display();
-}
+
+
 
 
 int GameWindow::controlWindow(void) {
     this->pollEvent();
     int fin=_game->updateGame();
-    if(fin!=0){
+    if(fin==3){
         ui->setIsDead(true);
         return 0;
     }
@@ -259,15 +238,21 @@ void GameWindow::draw() {
 
    
    if(_game->drawProjectile1(getCurrentWindowPos())){
-        std::cout<<"projectile draw"<<std::endl;
         window->draw(*(*_game->getPlayerVector())[0]->getProjectile()->getSprite());
         
    }
     if(_game->drawProjectile2(getCurrentWindowPos())){
-        std::cout<<"projectile draw"<<std::endl;
         window->draw(*(*_game->getPlayerVector())[1]->getProjectile()->getSprite());
         
    }
+
+
+   if(!(_game->getMap()->getPlayerDead() == nullptr) ){
+
+    window->draw(*_game->getMap()->getPlayerDead());
+   }
+
+
 }
 
 
@@ -285,8 +270,10 @@ void GameWindow::display() {
    }
 
    draw();// dessine tout les sprites contenut dans la fenetre courante
-   setLifeView();
+   setLifeViewPlayer1();
    displayLifeWindow();
+   setLifeViewPlayer2();
+    displayLifeWindowP2();
    setKeyView();
    displayKeyWindow();
    window->display();
@@ -308,3 +295,55 @@ void GameWindow::display() {
     }
 
 
+ void GameWindow::displayLifeWindow() {
+        _lifeWindow->drawTo(this->getWindow());
+    }
+
+    void GameWindow::displayLifeWindowP2() {
+        _lifeWindowP2->drawTo(this->getWindow());
+    }
+
+        void GameWindow::displayKeyWindow() {
+        _keyWindow->drawTo(this->getWindow());
+    }
+sf::Vector2f& GameWindow::getPositionCentre(){
+        return positionCentre;
+    }
+
+     sf::RenderWindow* GameWindow::getWindow() {
+        return window;
+    }
+
+    UserInterface* GameWindow::getUi(){
+        return ui;
+    }
+
+    sf::Vector2f GameWindow::getWindowDim() {
+        sf::Vector2f dim = { windowWidth,windowHeight };
+        return dim;
+    }
+
+    std::vector<sf::Vector2f>* GameWindow::getCurrentWindowPos(){
+        setCurrentWindowPos();
+        return currentWindowPos;
+    }
+
+    void GameWindow::setLifeViewPlayer1() {
+        window->setView(*_lifeWindow->getLifeView());
+    }
+
+     void GameWindow::setLifeViewPlayer2() {
+        window->setView(*_lifeWindowP2->getLifeView());
+    }
+
+    void GameWindow::setKeyView(){
+        window->setView(*_keyWindow->getKeyView());
+    }
+
+     sf::View* GameWindow::getViewWindow() {
+        return _view;
+    }
+
+    void GameWindow::clearWindow() const {
+        window->clear();
+    }

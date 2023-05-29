@@ -10,17 +10,17 @@ if(!isOpen()){
         Character* p=dynamic_cast<Character*>(o);
         bool canOpen=false;
 
-        	if(p->getPosition().x>=0 && p->getPosition().x<4800 && p->getPosition().y>-5000 &&  p->getPosition().y<=0 ){
+        	if(p->getPosition().x>=0 && p->getPosition().x<9540/2 && p->getPosition().y>-4896 &&  p->getPosition().y<=0 ){
 				canOpen=p->getKilledallMobs()[0];
-			}else if(p->getPosition().x>=0 && p->getPosition().x<4800 && p->getPosition().y<5000 && p->getPosition().y>=0){
+			}else if(p->getPosition().x>=0 && p->getPosition().x<9540/2 && p->getPosition().y<4992 && p->getPosition().y>=0){
 				canOpen=p->getKilledallMobs()[1];
-			}else if(p->getPosition().x>=4800 && p->getPosition().x<=9600  && p->getPosition().y<-5000 && p->getPosition().y<=0){
+			}else if(p->getPosition().x>=9540/2 && p->getPosition().x<=9540  && p->getPosition().y<4992 && p->getPosition().y>=0){
 				canOpen=p->getKilledallMobs()[2];
-			}else if((p->getPosition().x>=4800 && p->getPosition().x<=9600 && p->getPosition().y<5000 && p->getPosition().y>=0)){
+			}else if((p->getPosition().x>=9540/2  && p->getPosition().x<=9540 && p->getPosition().y<0 && p->getPosition().y>=-4896)){
 				canOpen=p->getKilledallMobs()[3];
 			}
     std::cout<<"canOpen="<<canOpen<<std::endl;
-        if ((p->getName() == "player1.png" || p->getName() == "player2.png" )&& canOpen) {
+        if (canOpen) {
                 cout << "Can open GoldenChest" << endl;
                 open();
                 p->addKey();
