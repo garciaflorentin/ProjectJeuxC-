@@ -3,8 +3,9 @@
 
 #include "Character.hpp"
 #include "Player.hpp"
-
+#include "Projectile.hpp"
 class Player;
+
 
 #define SPR_SIZE 48
 
@@ -130,6 +131,9 @@ public:
      * @return Numéro de sérialisation du monstre
      */
     int getSerial();
+
+virtual Projectile* getProjectile() { return nullptr; }
+
 };
 
 #endif

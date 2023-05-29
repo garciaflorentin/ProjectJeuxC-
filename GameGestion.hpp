@@ -80,26 +80,9 @@ public:
      */
     int updateGame();
 
-    /**
-     * @brief Met à jour les objets à dessiner sur l'écran.
-     * @param currentWindow Vecteur de positions des objets à dessiner.
-     * @return Vecteur de pointeurs vers les objets à dessiner.
-     */
-    std::vector<Object*>* toDrawUpdate(std::vector<sf::Vector2f>* currentWindow);
-
-    /**
-     * @brief Dessine le projectile 1 sur l'écran.
-     * @param currentWindow Vecteur de positions des objets à dessiner.
-     * @return Booléen indiquant si le projectile a été dessiné.
-     */
-    bool drawProjectile1(std::vector<sf::Vector2f>* currentWindow);
-
-    /**
-     * @brief Dessine le projectile 2 sur l'écran.
-     * @param currentWindow Vecteur de positions des objets à dessiner.
-     * @return Booléen indiquant si le projectile a été dessiné.
-     */
-    bool drawProjectile2(std::vector<sf::Vector2f>* currentWindow);
+	std::vector<Object*>* toDrawUpdate(std::vector<sf::Vector2f>* currentWindow);
+	bool drawProjectile1(std::vector<sf::Vector2f>* currentWindow);
+	bool drawProjectile2(std::vector<sf::Vector2f>* currentWindow);
 
     /**
      * @brief Met à jour les monstres et les autres objets mobiles.
@@ -153,6 +136,9 @@ public:
      * @param info Informations sur la collision.
      */
     void collideMonster(Object* o, std::vector<Monster*>& wallList, std::vector<int>& info);
+
+
+void collidePlayer(Object* o, Player*p, std::vector<int>& info);
 
     // Limites de la carte
 

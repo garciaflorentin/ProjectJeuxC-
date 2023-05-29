@@ -125,6 +125,8 @@ public:
      */
     void addObject(Monster* m);
 
+void addObject(Projectile* p);
+
     /**
      * @brief Supprime un objet de la carte.
      *

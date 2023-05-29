@@ -9,7 +9,7 @@
 #include "EnumOrientation.hpp"
 #include "Heart.hpp"
 #include "Chest.hpp"
-
+class Projectile;
 /**
  * @class Character
  * @brief Classe de base pour les personnages du jeu.
@@ -35,6 +35,7 @@ protected:
     sf::Vector2i* anim; /**< Animation du personnage */
     Heart* life; /**< Vie du personnage */
     bool _canOpenChest = false; /**< Indique si le personnage peut ouvrir un coffre */
+
 
     /**
      * @brief Applique les dégâts au personnage cible.
@@ -181,6 +182,8 @@ public:
      */
     virtual void openChest(Chest* chest) = 0;
 
+	virtual Projectile* getProjectile() { return nullptr; };
+	
     /**
      * @brief Obtient le nombre de clés possédées par le personnage.
      *
