@@ -3,16 +3,30 @@
 
 Player::Player(const char* nameObject, sf::Vector2f initPos): Character(nameObject,initPos) {
 	speed = 4;
+	hitAnim=0;
 	damageAttack = 3;
 	_isInTheCave=false;
 	_canOpenChest = true;
 	initWeapon();
 	projectile = new Projectile("arrow.png",initPos,this);
+	if(getName()=="player2.png"){
+	projectile = new Projectile("fate.png",initPos,this);}
+	
 	orientation= Down;
+	life->setBelongTo(getName());
+	life->initPlayerLife();
+	if (!takeDamageMusic.openFromFile("hurt_knight.wav"))
+    {
+        std::cout<<"erreur de chargement de takeDamageMusic"<<std::endl;
+    }
+	if (!footStepSound.openFromFile("Steps_wood-015.ogg"))
+    {
+        std::cout<<"erreur de chargement de footStepSound"<<std::endl;
+    }
+	
 }
 
 Player::~Player() {
-		delete SwordAttack;
 		delete bowAttack;
 		delete wandAttack;
 		//delete projectile;
@@ -42,29 +56,12 @@ bool Player::WeaponIsUsed(){
 		return ( bowAnim!=0 || wandAnim!=0);
 	}
 
-void Player::useSword(){
-	if(swordAnim>=1){
-
-		if(swordAnim==10){
-			SwordAttack->stop();
-			SwordAttack->play();
-			_sprite->setTextureRect(sf::IntRect(6*OBJECT_SIZE, anim->y*OBJECT_SIZE, OBJECT_SIZE, OBJECT_SIZE));
-			swordAnim=0;
-		}else if(swordAnim<10){swordAnim++;}
-
-	}else if(swordAnim==0){
-	_sprite->setTextureRect(sf::IntRect(5*OBJECT_SIZE, anim->y*OBJECT_SIZE, OBJECT_SIZE, OBJECT_SIZE));
-	swordAnim++;
-	}
-
-
-}
-
 
 void Player::useBow(){
 	if(bowAnim>=1){
 
-		if(bowAnim==20 && !projectile->isShot()){
+		if(bowAnim==3 && !projectile->isShot()){
+			bowAttack->setVolume(30);
 			bowAttack->stop();
 			bowAttack->play();
 			projectile->setDirection(orientation);
@@ -72,7 +69,7 @@ void Player::useBow(){
 			projectile->initProjectile();
 			_sprite->setTextureRect(sf::IntRect(9*OBJECT_SIZE, anim->y*OBJECT_SIZE, OBJECT_SIZE, OBJECT_SIZE));
 			bowAnim=0;
-		}else if(bowAnim<20){bowAnim++;}
+		}else if(bowAnim<3){bowAnim++;}
 
 	}else if(bowAnim==0){
 		_sprite->setTextureRect(sf::IntRect(8*OBJECT_SIZE, anim->y*OBJECT_SIZE, OBJECT_SIZE, OBJECT_SIZE));
@@ -86,7 +83,8 @@ void Player::useBow(){
 void Player::useWand(){
 	if(wandAnim>=1){
 
-		if(wandAnim==20 && !projectile->isShot()){
+		if(wandAnim==3 && !projectile->isShot()){
+			wandAttack->setVolume(30);
 			wandAttack->stop();
 			wandAttack->play();
 			projectile->setDirection(orientation);
@@ -94,7 +92,7 @@ void Player::useWand(){
 			projectile->initProjectile();
 			_sprite->setTextureRect(sf::IntRect(14*OBJECT_SIZE, anim->y*OBJECT_SIZE, OBJECT_SIZE, OBJECT_SIZE));
 			wandAnim=0;
-		}else if(wandAnim<20){wandAnim++;}
+		}else if(wandAnim<3){wandAnim++;}
 
 	}else if(wandAnim==0){
 	_sprite->setTextureRect(sf::IntRect(13*OBJECT_SIZE, anim->y*OBJECT_SIZE, OBJECT_SIZE, OBJECT_SIZE));
@@ -107,11 +105,6 @@ void Player::initWeapon(){
 	swordAnim= 0;
 	bowAnim=0;
 	wandAnim=0;
-	SwordAttack=new sf::Music;
-	 if (!SwordAttack->openFromFile("attackSimple.wav"))
-    {
-        std::cout<<"erreur de chargement de SwordAttack"<<std::endl;
-    }
 	bowAttack = new sf::Music;
 	if (!bowAttack->openFromFile("Retro Weapon Arrow 02.wav"))
     {
@@ -129,16 +122,9 @@ void Player::initWeapon(){
 
 
 void Player::collide(Object* o){
-	 if(typeid(*o) == typeid(Monster)){
-		Monster* target=dynamic_cast<Monster*>(o);
-		std::cout<<"swordIsUsed()="<<swordIsUsed()<<std::endl;
-		if(swordIsUsed()){
-			std::cout<<"monsterTakeDamage"<<std::endl;
-			std::cout<<"	target->getlife()->getNOQ()="<<target->getlife()->getNOQ()<<std::endl;
-			 target->takeDamage(12);
-		}
-	
-    }
+		      
+
+
 }
 
 
@@ -155,3 +141,51 @@ void Player::targetInRange(std::vector<Monster*>& targetList,std::vector<int> in
 		}		
 	}
 }
+
+
+void Player::isInTheCave(bool state){
+		_isInTheCave=state;
+	}
+
+bool Player::getIsInTheCave(){
+		return _isInTheCave;
+	}
+
+	bool Player::bowIsUsed(){
+		return bowAnim!=0;
+	}
+	bool Player::wandIsUsed(){
+		return wandAnim!=0;
+	}
+	
+Projectile* Player::getProjectile(){
+		return projectile;
+	}
+
+sf::Sprite* Player::deadGestion(){
+		_sprite->setTextureRect(sf::IntRect(704,64,32,32));
+		_sprite->setPosition(getPosition().x,getPosition().y);
+		return _sprite;
+	}
+
+int Player::getHitAnim(){
+	return hitAnim;
+}
+
+void Player::incrHitAnim(){
+	hitAnim++;
+}
+
+void Player::setHitAnim(int nbAnim){
+	hitAnim=nbAnim;
+}
+
+
+/*
+	anim->x=19;
+	if(hitAnim<=3){
+	_sprite->setTextureRect(sf::IntRect(anim->x*32,anim->y*32,32,32));
+	hitAnim=0;
+	}else{hitAnim++;}
+	
+*/

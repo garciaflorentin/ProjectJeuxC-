@@ -1,6 +1,9 @@
 #include "RangedMonster.hpp"
 
 void RangedMonster::attack(Character* target) {
+	//crySound->setVolume(50);
+      //  crySound->stop();
+        //crySound->play();
     Fireball* nfb = new Fireball("fireball.png", this->getPosition(), target);
 }
 

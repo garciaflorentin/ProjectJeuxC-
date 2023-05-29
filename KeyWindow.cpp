@@ -83,3 +83,7 @@ void KeyWindow::updateWindow() {
 	
 
 
+
+sf::View* KeyWindow::getKeyView() {
+		return keyView;
+	}
