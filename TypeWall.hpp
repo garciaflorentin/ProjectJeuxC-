@@ -38,7 +38,10 @@ enum class TypeWall {
 	ForetsPylone,
 	TownPylone,
 	BeatchPylone,
-	MountainPylone
+	MountainPylone,
+	WallZoneHorizontal,
+	WallZoneVertical
+	
 
 };
 

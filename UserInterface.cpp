@@ -42,6 +42,12 @@ UserInterface::UserInterface(){
 			std::cout<<"probleme dans la creation de la police d'ecriture de l'interface"<<std::endl;
     }
 
+     if (!StartMusic.openFromFile("StartingMusic.wav"))
+    {
+        std::cout<<"erreur de chargement de StartingMusic"<<std::endl;
+    }
+
+
 		
 }
 
@@ -144,13 +150,16 @@ void UserInterface::runPausedWindow(){
         text.setString("Start");
 		while(window->isOpen()){
         text.setPosition(sprite2Position.x-50,sprite2Position.y-165);
+        fade(StartMusic);
 
 			while(window->pollEvent(*event)){
+                
 				if (button1->getGlobalBounds().contains(sf::Mouse::getPosition(*window).x,sf::Mouse::getPosition(*window).y)) {
                     button1->setTextureRect(sf::IntRect(112,96,32,16));
                     
                         text.setFillColor(sf::Color::Magenta);
                     if (event->mouseButton.button == sf::Mouse::Left) {
+                        StartMusic.stop();
                         return;
                     }
                  } else {
@@ -240,7 +249,6 @@ void UserInterface::runPausedWindow(){
         titre.setPosition({titrePos.x,titrePos.y-250});
         sf::Vector2f sprite2Position;
 		while(window->isOpen()){
-
 			while(window->pollEvent(*event)){
                  if (event->type == sf::Event::Closed) {
             window->close();
@@ -255,3 +263,27 @@ void UserInterface::runPausedWindow(){
 			window->display();
 		}
 	}}
+
+    void UserInterface::fade(sf::Music& music){
+    music.setLoop(true);  // Désactiver la lecture en boucle automatique
+    music.setVolume(100);  // Définir le volume initial de la musique
+     sf::Time fadeDuration = sf::seconds(2.0f);  // Durée du fondu en secondes
+    sf::Time fadeDelay = sf::seconds(0.1f);     // Délai entre chaque étape du fondu
+    if (music.getStatus() == sf::SoundSource::Playing){
+
+        // Vérifier si la musique est en train de se terminer
+        if (music.getPlayingOffset() + fadeDuration >= music.getDuration())
+        {
+            // Calculer le volume en fonction du temps restant avant la fin
+            float fadeFactor = 1.0f - ((music.getDuration() - music.getPlayingOffset()) / fadeDuration);
+            music.setVolume(100 * fadeFactor);
+        }
+
+        sf::sleep(fadeDelay);
+    }else{
+    music.stop();
+    music.play();
+    }
+
+    
+}

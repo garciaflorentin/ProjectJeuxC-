@@ -6,72 +6,114 @@
 #include <iostream>
 #include <cstring>
 #include "TexturesLib.hpp"
-//#include "GameGestion.hpp"
 
 using namespace std;
 
+/**
+ * @class Object
+ * @brief Classe de base pour les objets du jeu.
+ */
 class Object {
-
 protected:
-    sf::Texture* _texture;
-    sf::Sprite* _sprite;
-    //const char* name;
-    string name;
-    bool _isUse;
-    bool loadTexture(const char* spriteName);//focntion finalement inutile , je vais la virrer 
-    
+    sf::Texture* _texture; /**< Pointeur vers la texture de l'objet */
+    sf::Sprite* _sprite; /**< Pointeur vers le sprite de l'objet */
+    string name; /**< Nom de l'objet */
+    bool _isUse; /**< Indique si l'objet est utilisé */
+    bool loadTexture(const char* spriteName); /**< Charge la texture de l'objet depuis un fichier (fonction inutile) */
 
 public:
+    static TexturesLib _texturesLib; /**< Bibliothèque de textures partagée par tous les objets */
 
-    // attributs de classe , commun � tout les objets.
-    static TexturesLib _texturesLib;
-
-    //constructeurs
+    /**
+     * @brief Constructeur par défaut de la classe Object.
+     */
     Object();
+
+    /**
+     * @brief Constructeur de la classe Object avec un nom et une position initiale.
+     * @param nameObject Nom de l'objet.
+     * @param initPos Position initiale de l'objet.
+     */
     Object(const char* nameObject, sf::Vector2f initPos);
-    //destructeur
+
+    /**
+     * @brief Destructeur de la classe Object.
+     */
     ~Object();
 
-    //chargement textures sur le sprites
+    /**
+     * @brief Charge la texture sur le sprite de l'objet.
+     * @param nameSprite Nom de la texture.
+     * @param initPos Position initiale du sprite.
+     * @return Renvoie 0 si le chargement est réussi, -1 sinon.
+     */
     const int loadSprite(const char* nameSprite, sf::Vector2f initPos);
 
-    virtual const int getBlockSize() =0;
+    /**
+     * @brief Renvoie la taille du bloc de l'objet (méthode virtuelle pure à implémenter dans les classes dérivées).
+     * @return Taille du bloc de l'objet.
+     */
+    virtual const int getBlockSize() = 0;
 
-    //getteur de use
-    const bool isUse() const {
-        return _isUse;
-    }
+    /**
+     * @brief Gère la collision entre l'objet et un autre objet (méthode virtuelle pure à implémenter dans les classes dérivées).
+     * @param o Pointeur vers l'objet avec lequel la collision est détectée.
+     */
+    virtual void collide(Object* o) = 0;
 
-    //setteur
+    /**
+     * @brief Renvoie le numéro de série de l'objet.
+     * @return Numéro de série de l'objet.
+     */
+    virtual int getSerial();
+
+    /**
+     * @brief Indique si l'objet est utilisé.
+     * @return `true` si l'objet est utilisé, `false` sinon.
+     */
+    const bool isUse() const;
+
+    /**
+     * @brief Définit la position de l'objet.
+     * @param newPos Nouvelle position de l'objet.
+     */
     void setPosition(sf::Vector2f& newPos);
+
+    /**
+     * @brief Définit la position de l'objet dans une boîte.
+     * @param newPos Nouvelle position de l'objet.
+     */
     void setPositionInBox(sf::Vector2f& newPos);
 
-    sf::Sprite* getSprite(){
-        return _sprite;
-    }
+    /**
+     * @brief Renvoie le sprite de l'objet.
+     * @return Pointeur vers le sprite de l'objet.
+     */
+    sf::Sprite* getSprite();
 
-    sf::Vector2f getPosition() const {
-        return _sprite->getPosition();
-    }
+    /**
+     * @brief Renvoie la position de l'objet.
+     * @return Position de l'objet.
+     */
+    sf::Vector2f getPosition() const;
 
-    void setSprite(sf::Sprite& sprite) {
-        _sprite = &sprite;
-    }
+    /**
+     * @brief Définit le sprite de l'objet.
+     * @param sprite Sprite à définir.
+     */
+    void setSprite(sf::Sprite& sprite);
 
-    string getName() const { return name; };
+    /**
+     * @brief Renvoie le nom de l'objet.
+     * @return Nom de l'objet.
+     */
+    string getName() const;
 
-    virtual void update(Object& player) {};
-
-    //virtual void virtual_temporal_method_do_not_touch();
-
-    //collide
-	
-    virtual void collide(Object* o)=0;
-    /*{
-        std::cout<<"collideObject"<<std::endl;
-    }*/
-
-    virtual int getSerial() { return 0; };
+    /**
+     * @brief Met à jour l'objet.
+     * @param player Référence vers l'objet joueur.
+     */
+    virtual void update(Object& player){};
 };
 
 #endif

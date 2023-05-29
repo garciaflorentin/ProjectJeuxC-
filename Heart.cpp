@@ -1,6 +1,6 @@
 #include "Heart.hpp"
 
-Heart::Heart(): numberOfQuarter(12) {
+Heart::Heart(): numberOfQuarter(12){
 
 	_textures = new std::vector<sf::Texture*>();
 	_sprites = new std::vector<sf::Sprite*>();
@@ -19,7 +19,7 @@ Heart::Heart(): numberOfQuarter(12) {
 		_sprites->push_back(sprite);
 		//sprite->setPosition(i * 48.0, 0);
 	}
-	initlife();
+	initLife();
 }
 
 Heart::Heart(const Heart& other)
@@ -83,19 +83,26 @@ Heart::~Heart() {
 }
 
 
-void Heart::initlife() {
+void Heart::initLife() {
 
 	life->push_back(*(*_sprites)[4]);
 	life->push_back(*(*_sprites)[4]);
 	life->push_back(*(*_sprites)[4]);
+
+	if(getBelongTo()=="player1.png"){
+		std::cout<<"getBelongTo()==player1.png"<<std::endl;
 	for (int i = 0; i < 3; i++) {
-			(*life)[i].setPosition(i*32.0,0);
+				(*life)[i].setPosition(i*32.0,0);}
+	}else if(getBelongTo()=="player2.png"){
+		std::cout<<"getBelongTo()==player2.png"<<std::endl;
+			for (int i = 0; i < 3; i++) {
+				(*life)[i].setPosition(i*32+570.0,0);}
 	}
 	numberOfQuarter = 12;
 
 }
 
-void Heart::changelife(int i) { // i = 1 ou i=-1
+void Heart::changeLife(int i) { // i = 1 ou i=-1
 	cout << "i from changeLife() : " << i << endl;
 	cout << "NOQ = " << numberOfQuarter << endl;
 	getLife()->clear();
@@ -139,18 +146,48 @@ void Heart::changelife(int i) { // i = 1 ou i=-1
 			break;
 		}
 
-		for (int i = 0; i < 3; i++) {
-			(*life)[i].setPosition(i*32.0,0);
+		if(getBelongTo()=="player1.png"){
+			for (int i = 0; i < 3; i++) {
+				(*life)[i].setPosition(i*32.0,0);}
+		}else if(getBelongTo()=="player2.png"){
+			for (int i = 0; i < 3; i++) {
+				(*life)[i].setPosition(i*32+570.0,0);}
 		}
 }
 
 
 void Heart::removeLife() {
-	changelife(-1);
+	changeLife(-1);
 }
 
 void Heart::addLife() {
-	changelife(+1);
+	changeLife(+1);
 }
 
 
+void Heart::initPlayerLife(){
+		initLife();
+	}
+
+	string Heart::getBelongTo(){
+		return belongTo;
+	}
+
+	void Heart::setBelongTo(string _belongTo){
+		belongTo=_belongTo;
+	}
+	const int Heart::getNumberOfQuarter() const{
+		return numberOfQuarter;
+	}
+
+	sf::Sprite Heart::getHeart(int NOQ) const {
+
+		return *(*_sprites)[NOQ];
+
+	}
+
+	std::vector<sf::Sprite>* Heart::getLife() const {
+
+		return life;
+
+	}
