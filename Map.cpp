@@ -391,8 +391,8 @@ addObject(new DoorWall("Door.png",{149, -1}, TypeWall::WallZoneHorizontal,3,0));
     //addObject(new Monster("MonsterSheet1.png", {20,-10}));
 
     /* Boss final spawn en plein milieu A DEPLACER */
-    // cout << "adding the boss" << endl;
-    // addObject(new FinalBoss());
+    cout << "adding the boss" << endl;
+    addObject(new FinalBoss());
     }
 }
 
