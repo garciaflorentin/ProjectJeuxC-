@@ -87,9 +87,6 @@ MiniFrogMonster.o: MiniFrogMonster.cpp MeleeMonster.hpp
 	$(CPP) $(CPPFLAGS) -c MiniFrogMonster.cpp
 
 
-jeu_de_base: main.o  Door.o KeyWindow.o GoldenChest.o UserInterface.o Monster.o Projectile.o Heart.o TexturesLib.o Object.o LifeWindow.o Character.o Player.o Map.o GameGestion.o GameWindow.o Chest.o Fireball.o MeleeMonster.o RangedMonster.o FinalBoss.o
-	$(LD) $(LDFLAGS) Door.o KeyWindow.o GoldenChest.o UserInterface.o Monster.o Projectile.o Chest.o Heart.o TexturesLib.o Object.o LifeWindow.o Character.o Player.o Map.o GameGestion.o GameWindow.o Fireball.o MeleeMonster.o RangedMonster.o FinalBoss.o main.o -o jeu_de_base $(LIBS)
-
 DoorWall.o: DoorWall.cpp Door.hpp
 	$(CPP) $(CPPFLAGS) -c DoorWall.cpp
 

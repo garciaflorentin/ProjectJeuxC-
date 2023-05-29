@@ -251,7 +251,6 @@ void Map::createMap(){
         }
     }
 
-}
 for(float x=0;x<49;x++){
     for(float y=-102;y<-100;y++){
                             addObject(new Wall("World2.png",{x, y}, TypeWall::GrandSapin));
@@ -394,6 +393,7 @@ addObject(new DoorWall("Door.png",{149, -1}, TypeWall::WallZoneHorizontal,3,0));
     /* Boss final spawn en plein milieu A DEPLACER */
     // cout << "adding the boss" << endl;
     // addObject(new FinalBoss());
+    }
 }
 
 
