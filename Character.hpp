@@ -9,7 +9,7 @@
 #include "EnumOrientation.hpp"
 #include "Heart.hpp"
 #include "Chest.hpp"
-
+class Projectile;
 /**
  * @class Character
  * @brief Classe de base pour les personnages du jeu.
