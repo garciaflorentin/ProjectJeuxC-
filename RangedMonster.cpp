@@ -7,7 +7,7 @@
 void RangedMonster::attack(Character* target) {
     cout << "entering attack" << endl;
     //if (_fireball != nullptr)   delete[] _fireball;
-    cout << "previous fireball deleted" << endl;
+    //cout << "previous fireball deleted" << endl;
     cout << "current position x = " << this->getPosition().x << " y = " << this->getPosition().y << endl;
     cout << "target position x = " << target->getPosition().x << " y = " << target->getPosition().y << endl;
     _fireball = new Fireball("fireball.png", this->getPosition(), target);

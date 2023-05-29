@@ -17,7 +17,6 @@
 #include "Character.hpp"
 #include "Monster.hpp"
 #include "Projectile.hpp"
-#include "Monster.hpp"
 
 using namespace std;
 

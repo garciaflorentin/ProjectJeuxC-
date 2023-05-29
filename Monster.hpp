@@ -56,6 +56,7 @@ class Monster : public Character {
         int getSerial() { return _this_serial; };
 
         virtual Projectile* getProjectile() { return nullptr; }
+        virtual std::vector<Projectile*>* getProjectiles() { return nullptr; };
 };
 
 #endif

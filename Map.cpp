@@ -336,6 +336,9 @@ addObject(new Wall("World2.png",{102, -101}, TypeWall::DragonStatue));
 
 
  //addObject(new Monster("MonsterSheet1.png", {20,-10}));
+
+ /* Boss final spawn en plein milieu A DEPLACER */
+    //addObject(new FinalBoss());
 }
 
 
