@@ -1,7 +1,8 @@
 #include "FinalBoss.hpp"
 
 
-FinalBoss::FinalBoss() : Monster("angry_cat.png", {100,100}, "serious meat", 1, 10, 100, 1.5) {
+FinalBoss::FinalBoss() : Monster("angry_cat.png", {5,5}, "serious meat", 1, 10, 100, 1.5) {
+    cout << "final boss constructor" << endl;
     for (int i = 0; i < FIREBALL_NUMBER; i++) _fireballs.push_back(nullptr);
 }
 

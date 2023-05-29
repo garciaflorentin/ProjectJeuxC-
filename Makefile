@@ -35,7 +35,7 @@ Player.o: Player.cpp Character.hpp Object.hpp EnumOrientation.hpp Heart.hpp Ches
 GameGestion.o: GameGestion.cpp Object.hpp Player.hpp Character.hpp
 	$(CPP) $(CPPFLAGS) -c GameGestion.cpp 
 
-Map.o: Map.cpp Object.hpp Player.hpp Gain.hpp TexturesLib.hpp Tile.hpp Object.hpp Character.hpp Chest.hpp Ground.hpp TypeGround.hpp MeleeMonster.hpp RangedMonster.hpp
+Map.o: Map.cpp Object.hpp Player.hpp Gain.hpp TexturesLib.hpp Tile.hpp Object.hpp Character.hpp Chest.hpp Ground.hpp TypeGround.hpp MeleeMonster.hpp RangedMonster.hpp FinalBoss.hpp
 	$(CPP) $(CPPFLAGS) -c Map.cpp 
 
 Chest.o: Chest.cpp Gain.hpp Object.hpp Character.hpp Player.hpp  Tile.hpp TexturesLib.hpp
@@ -67,14 +67,13 @@ Door.o: Door.cpp Wall.hpp Player.hpp
 RangedMonster.o: RangedMonster.cpp Player.hpp Fireball.hpp
 	$(CPP) $(CPPFLAGS) -c RangedMonster.cpp
 
-		
+FinalBoss.o: FinalBoss.cpp Monster.hpp Fireball.hpp
+	$(CPP) $(CPPFLAGS) -c FinalBoss.cpp
 
 
 
-
-
-jeu_de_base: main.o  Door.o KeyWindow.o GoldenChest.o UserInterface.o Monster.o Projectile.o Heart.o TexturesLib.o Object.o LifeWindow.o Character.o Player.o Map.o GameGestion.o GameWindow.o Chest.o Fireball.o MeleeMonster.o RangedMonster.o
-	$(LD) $(LDFLAGS) Door.o KeyWindow.o GoldenChest.o UserInterface.o Monster.o Projectile.o Chest.o Heart.o TexturesLib.o Object.o LifeWindow.o Character.o Player.o Map.o GameGestion.o GameWindow.o Fireball.o MeleeMonster.o RangedMonster.o main.o -o jeu_de_base $(LIBS)
+jeu_de_base: main.o  Door.o KeyWindow.o GoldenChest.o UserInterface.o Monster.o Projectile.o Heart.o TexturesLib.o Object.o LifeWindow.o Character.o Player.o Map.o GameGestion.o GameWindow.o Chest.o Fireball.o MeleeMonster.o RangedMonster.o FinalBoss.o
+	$(LD) $(LDFLAGS) Door.o KeyWindow.o GoldenChest.o UserInterface.o Monster.o Projectile.o Chest.o Heart.o TexturesLib.o Object.o LifeWindow.o Character.o Player.o Map.o GameGestion.o GameWindow.o Fireball.o MeleeMonster.o RangedMonster.o FinalBoss.o main.o -o jeu_de_base $(LIBS)
 
 
 clean:

@@ -22,6 +22,7 @@
 #include "Door.hpp"
 #include "RangedMonster.hpp" 
 #include "DemonDogMonster.hpp"
+#include "FinalBoss.hpp"
 
 #define SPAWN_FREQUENCY 600
 
