@@ -19,15 +19,20 @@ if(!isOpen()){
           cout << "Chestaaaaa" << endl;
 
         	if(p->getPosition().x>=0 && p->getPosition().x<9540/2 && p->getPosition().y>-4896 &&  p->getPosition().y<=0 ){
+        	if(p->getPosition().x>=0 && p->getPosition().x<9540/2 && p->getPosition().y>-4896 &&  p->getPosition().y<=0 ){
 				canOpen=p->getKilledallMobs()[0];
+			}else if(p->getPosition().x>=0 && p->getPosition().x<9540/2 && p->getPosition().y<4992 && p->getPosition().y>=0){
 			}else if(p->getPosition().x>=0 && p->getPosition().x<9540/2 && p->getPosition().y<4992 && p->getPosition().y>=0){
 				canOpen=p->getKilledallMobs()[1];
 			}else if(p->getPosition().x>=9540/2 && p->getPosition().x<=9540  && p->getPosition().y<4992 && p->getPosition().y>=0){
+			}else if(p->getPosition().x>=9540/2 && p->getPosition().x<=9540  && p->getPosition().y<4992 && p->getPosition().y>=0){
 				canOpen=p->getKilledallMobs()[2];
+			}else if((p->getPosition().x>=9540/2  && p->getPosition().x<=9540 && p->getPosition().y<0 && p->getPosition().y>=-4896)){
 			}else if((p->getPosition().x>=9540/2  && p->getPosition().x<=9540 && p->getPosition().y<0 && p->getPosition().y>=-4896)){
 				canOpen=p->getKilledallMobs()[3];
 			}
     std::cout<<"canOpen="<<canOpen<<std::endl;
+        if (canOpen) {
         if (canOpen) {
                 cout << "Can open GoldenChest" << endl;
                 open();

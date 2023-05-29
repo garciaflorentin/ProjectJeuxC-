@@ -4,10 +4,21 @@
 #include "Chest.hpp"
 
 class GoldenChest : public Chest {
+class GoldenChest : public Chest {
 
 private:
     int key = 1; /**< Clé nécessaire pour ouvrir le coffre */
+private:
+    int key = 1; /**< Clé nécessaire pour ouvrir le coffre */
 
+public:
+    /**
+     * @brief Constructeur de la classe `GoldenChest`.
+     *
+     * @param nameObject Nom de l'objet
+     * @param initPos Position initiale
+     */
+    GoldenChest(const char* nameObject, sf::Vector2f initPos) : Chest(nameObject, initPos) {
 public:
     /**
      * @brief Constructeur de la classe `GoldenChest`.
@@ -29,6 +40,16 @@ public:
     ~GoldenChest() {}
 
     /**
+     * @brief Destructeur de la classe `GoldenChest`.
+     */
+    ~GoldenChest() {}
+
+    /**
+     * @brief Gère la collision avec un objet.
+     *
+     * @param o Objet avec lequel il y a collision.
+     */
+    /**
      * @brief Gère la collision avec un objet.
      *
      * @param o Objet avec lequel il y a collision.
@@ -38,8 +59,14 @@ public:
     /**
      * @brief Ouvre le coffre.
      */
+
+    /**
+     * @brief Ouvre le coffre.
+     */
     void open();
 
 };
 
+
 #endif
+

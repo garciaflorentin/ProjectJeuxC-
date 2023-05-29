@@ -86,7 +86,6 @@ void Projectile::arrowOutOfBounds(){
 	}else if( isShot() && distance > 96){
 			setDistance(0);
 		    setIsShot(false);
-
-		}
-
+    }
+    //cout << "exiting arrowOutOfBounds" << endl;
 }

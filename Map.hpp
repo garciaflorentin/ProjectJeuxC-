@@ -27,6 +27,12 @@
 #include "MiniFrogMonster.hpp"
 #include "DoorWall.hpp"
 #include "WallZone.hpp"
+#include "MiniOgre.hpp"
+#include "GuerrierOgre.hpp"
+#include "FlyMonster.hpp"
+#include "MiniFrogMonster.hpp"
+#include "DoorWall.hpp"
+#include "WallZone.hpp"
 
 #define SPAWN_FREQUENCY 600
 
@@ -38,8 +44,38 @@ using namespace std;
  *
  * La classe `Map` gère la création, la mise à jour et l'affichage de la carte du jeu.
  */
+/**
+ * @class Map
+ * @brief Classe représentant la carte du jeu.
+ *
+ * La classe `Map` gère la création, la mise à jour et l'affichage de la carte du jeu.
+ */
 class Map {
 private:
+    std::vector<Object*>* toDraw;
+    std::vector<Object*>* _map;
+    std::vector<Object*>* _wallList;
+    std::vector<Monster*>* _monsterList;
+    Door* door;
+    DoorWall* doorWall1;
+    DoorWall* doorWall2;
+    DoorWall* doorWall3;
+
+    float LIMITE_Xneg = 0;
+    float LIMITE_Y = 4992.f;
+    float LIMITE_X = 9540;
+    float LIMITE_Yneg = -4896.f;
+    float LIMITE_XnegBoss = 9472.f;
+    float LIMITE_YnegBoss = 9600.f;
+    float LIMITE_XBoss = 10456.f;
+    float LIMITE_YBoss = 10328.f;
+    bool _spf = false;
+    bool _spm = false;
+    bool _spb = false;
+    bool _spt = false;
+    int nbDoorWall;
+    sf::Sprite* playerDead;
+
     std::vector<Object*>* toDraw;
     std::vector<Object*>* _map;
     std::vector<Object*>* _wallList;
@@ -74,7 +110,22 @@ public:
      * @brief Destructeur de la classe `Map`.
      */
     ~Map();
+    /**
+     * @brief Constructeur de la classe `Map`.
+     */
+    Map();
 
+    /**
+     * @brief Destructeur de la classe `Map`.
+     */
+    ~Map();
+
+    /**
+     * @brief Récupère les limites de la carte.
+     *
+     * @param limit Vecteur dans lequel stocker les limites de la carte (limites horizontales et verticales)
+     */
+    void getLimitMap(std::vector<float>& limit);
     /**
      * @brief Récupère les limites de la carte.
      *
@@ -88,7 +139,20 @@ public:
      * @param limit Vecteur dans lequel stocker les limites de la carte du boss (limites horizontales et verticales)
      */
     void getLimitMapBoss(std::vector<float>& limit);
+    /**
+     * @brief Récupère les limites de la carte du boss.
+     *
+     * @param limit Vecteur dans lequel stocker les limites de la carte du boss (limites horizontales et verticales)
+     */
+    void getLimitMapBoss(std::vector<float>& limit);
 
+    /**
+     * @brief Récupère les objets à afficher sur la carte.
+     *
+     * @param currentWindow Fenêtre actuelle du jeu
+     * @return Vecteur contenant les objets à afficher sur la carte
+     */
+    std::vector<Object*>* objectToDraw(std::vector<sf::Vector2f>* currentWindow);
     /**
      * @brief Récupère les objets à afficher sur la carte.
      *
@@ -117,7 +181,33 @@ public:
      * @param g Objet sol à ajouter
      */
     void addObject(Ground* g);
+    /**
+     * @brief Ajoute un objet à la carte.
+     *
+     * @param w Objet mur à ajouter
+     */
+    void addObject(Wall* w);
 
+    /**
+     * @brief Ajoute un objet à la carte.
+     *
+     * @param c Objet coffre à ajouter
+     */
+    void addObject(Chest* c);
+
+    /**
+     * @brief Ajoute un objet à la carte.
+     *
+     * @param g Objet sol à ajouter
+     */
+    void addObject(Ground* g);
+
+    /**
+     * @brief Ajoute un monstre à la carte.
+     *
+     * @param m Monstre à ajouter
+     */
+    void addObject(Monster* m);
     /**
      * @brief Ajoute un monstre à la carte.
      *
@@ -136,7 +226,7 @@ public:
      * @brief Crée la carte du jeu.
      */
     void createMap();
-
+void addObject(Projectile* p);
     /**
      * @brief Place les objets à afficher sur la carte.
      *
@@ -144,6 +234,12 @@ public:
      */
     void putObjectToDraw(std::vector<sf::Vector2f>* pos);
 
+    /**
+     * @brief Obtient la carte du jeu.
+     *
+     * @return Vecteur contenant les objets de la carte
+     */
+    std::vector<Object*>* getMap();
     /**
      * @brief Obtient la carte du jeu.
      *
@@ -164,7 +260,26 @@ public:
      * @return Vecteur contenant les monstres présents sur la carte
      */
     std::vector<Monster*>* getMonsters();
+    /**
+     * @brief Obtient la liste des murs de la carte.
+     *
+     * @return Vecteur contenant les murs de la carte
+     */
+    std::vector<Object*>* getWallList();
 
+    /**
+     * @brief Obtient la liste des monstres présents sur la carte.
+     *
+     * @return Vecteur contenant les monstres présents sur la carte
+     */
+    std::vector<Monster*>* getMonsters();
+
+    /**
+     * @brief Met à jour les objets de la carte en fonction du joueur.
+     *
+     * @param player Pointeur vers le joueur
+     */
+    void updateObjects(Player* player);
     /**
      * @brief Met à jour les objets de la carte en fonction du joueur.
      *
@@ -198,5 +313,6 @@ public:
      */
     sf::Sprite* getPlayerDead();
 };
+
 
 #endif

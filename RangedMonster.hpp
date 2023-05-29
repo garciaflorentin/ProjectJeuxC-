@@ -4,12 +4,14 @@
 #include "Monster.hpp"
 #include "Fireball.hpp"
 
-#define PROJECTILE_SPEED 10.0
+//#define PROJECTILE_SPEED 10.0
+
+using namespace std;
 
 
 class RangedMonster : public Monster {
     private:
-        
+        Fireball* _fireball;
 
     public:
         RangedMonster(const char* nameObject, sf::Vector2f initPos, string name="meat", int dmg=1, int ar=5, int vf=50,float speed=1) : Monster(nameObject, initPos, name, dmg, ar, vf,speed) {
@@ -20,12 +22,15 @@ class RangedMonster : public Monster {
     {
         std::cout<<"erreur de chargement de footStepSound"<<std::endl;
     }
+
+            _fireball = nullptr;
         };
         ~RangedMonster();
 
         void attack(Character* target);
 
-        bool fireball(Character* target);
+        Projectile* getProjectile() { return  _fireball; };
+        //bool fireball(Character* target);
 
         void updateSprite();
 };
