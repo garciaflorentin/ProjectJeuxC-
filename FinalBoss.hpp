@@ -6,6 +6,7 @@
 
 #define RANGED_RANGE    10
 #define MELEE_RANGE     1
+#define FIREBALL_NUMBER 8
 
 
 class FinalBoss : public Monster {
@@ -19,7 +20,9 @@ class FinalBoss : public Monster {
         FinalBoss();
 
         void update(Player* pl);
-        void attack(Character* target);
+        void attack(Character* target, char type);
+
+        std::vector<Fireball*>* getFireballs() { return &_fireballs; };
 };
 
 

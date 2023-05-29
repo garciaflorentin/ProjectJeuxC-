@@ -20,10 +20,10 @@ class Fireball : public Projectile {
 
     public:
         Fireball() : Projectile() {};
-        Fireball(const char* nameObject, sf::Vector2f initPos, Character* player, int dmg = 2);
+        Fireball(const char* nameObject, sf::Vector2f initPos, Character* player, float angle = 0, int dmg = 2);
         ~Fireball() {};
 
-        void computeTrajectory();
+        void computeTrajectory(float angle);
 
         void initProjectile();
         void goTo();

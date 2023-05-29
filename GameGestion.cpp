@@ -126,6 +126,26 @@ bool GameGestion::drawFireballs(std::vector<sf::Vector2f>* currentWindow, std::v
 			}
 
 			indice++;
+
+		} else if ((*(_map->getMonsters()))[i]->getProjectiles() != nullptr) {
+			for (int i = 0; i < (*(_map->getMonsters()))[i]->getProjectiles()->size(); i++) {
+				toFill->push_back((*((*(_map->getMonsters()))[i]->getProjectiles()))[i]);
+
+				if((*toFill)[indice]->isShot()){
+				std::cout<<"projX="<<(*toFill)[indice]->getPosition().x<<std::endl;
+				std::cout<<"projY="<<(*toFill)[indice]->getPosition().y<<std::endl;
+			}
+
+			if (!((*toFill)[indice]->isShot() && ((*toFill)[indice]->getPosition().x >= ((*currentWindow)[0].x - 200) && (*toFill)[indice]->getPosition().y >= ((*currentWindow)[0].y)-200) && ((*toFill)[indice]->getPosition().x <= ((*currentWindow)[1].x+50) && (*toFill)[indice]->getPosition().y < ((*currentWindow)[1].y)+50) ))  {
+					//return !((*playerVector)[0]->getProjectile()==nullptr);
+					indice--;
+					toFill->pop_back();
+
+					cout << "popping back fireball" << endl;
+			}
+
+			indice++;
+			}
 		}
 	}
 

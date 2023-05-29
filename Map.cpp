@@ -100,6 +100,7 @@ void Map::addObject(Chest* c) {
 }
 
 void Map::addObject(Monster* m) {
+    //cout << "entering addObject()" << endl;
 	_map->push_back(m);
 	_monsterList->push_back(m);
 	//_wallList->push_back(m);
@@ -129,125 +130,127 @@ std::vector<Monster*>* Map::getMonsters(){
 	
 
 void Map::createMap(){
-int a=rand();
-//creation du sol
-for (float x = 0; x < 200; x++) {
-    for (float y = -102; y < 104; y++) {
+    int a=rand();
+    //creation du sol
+    for (float x = 0; x < 200; x++) {
+        for (float y = -102; y < 104; y++) {
+            
+            if (x < 100) {
+                if (y <0) {
+                    // Monde 1 : forêt
+                    if (rand() % 10 == 0) {
+                        addObject(new Ground("World2.png", {x, y}, TypeGround::floorTile));
+                    } else {
+                        addObject(new Ground("World2.png", {x, y}, TypeGround::grass));
+                    }
+                    if (rand() % 20 == 0) {
+                        addObject(new Ground("World2.png",{x, y}, TypeGround::stone));
+                    }
+                    } else {
+                    // Monde 2 : montagnes
+                    if (rand() % 5 == 0) {
+                        addObject(new Ground("World2.png", {x, y}, TypeGround::Rock));
+                    } else {
+                        addObject(new Ground("World2.png",{x, y}, TypeGround::floorTile));
+                    }
+                    if (rand() % 20 == 0) {
+                        addObject(new Ground("World2.png",{x, y}, TypeGround::cobblestone));
+                    }
+                }
+            } else {
+                if (y < 0) {
+                    // Monde 3 : plage
+                    if (rand() % 10 == 0) {
+                        addObject(new Ground("World2.png",{x, y}, TypeGround::sand));
+                    } else {
+                        addObject(new Ground("World2.png",{x, y}, TypeGround::floorTile));
+                    }
+                    if (rand() % 20 == 0) {
+                        addObject(new Ground("World2.png",{x, y}, TypeGround::ice));
+                    }
+                } else {
+                    // Monde 4 : ville
+                    if (rand() % 10 == 0) {
+                        addObject(new Ground("World2.png",{x, y}, TypeGround::brick));
+                    } else {
+                        addObject(new Ground("World2.png",{x, y}, TypeGround::floorTile));
+                    }
+                    if (rand() % 20 == 0) {
+                        addObject(new Ground("World2.png",{x, y}, TypeGround::cobblestone2));
+                    }
+                }
+            }
+        }
+    }
+    //creation des murs
+    for (float x = 0; x < 200; x++) {
+        for (float y = -100; y < 100; y++) {
+            if (x < 100) {
+                if (y <0) {//foret
+                    if (rand() % 100 == 0) {
+                        addObject(new Wall("World2.png",{x, y}, TypeWall::GrosseBranche)); 
+                    }else if(rand()%100==0){
+                        addObject(new Wall("World2.png",{x, y}, TypeWall::GrandSapin));
+                    }else if ( rand()%300==0){
+                        addObject(new Chest("Chests.png",{x,y}));
+                    }else if(rand()%300==0){
+                        //addObject(new Wall("World2.png",{x, y}, TypeWall::LacForest));
+                    }else if(rand()%100==0){
+                        addObject(new Wall("World2.png",{x, y}, TypeWall::RocherForest));
+                    }else if(rand()%100==0){
+                        addObject(new Wall("World2.png",{x, y}, TypeWall::DeadTree));
+                    }
+            }else {
+                    // Monde 2 : montagnes
+                    if (rand() % 100 == 0) {
+                        addObject(new Wall("World2.png", {x, y}, TypeWall::SnowTree));
+                    } else if(rand() % 300 == 0){
+                        addObject(new Wall("World2.png",{x, y}, TypeWall::MonsterSkeleton));
+                    }
+                    else if (rand() % 300 == 0) {
+                    // addObject(new Wall("World2.png",{x, y}, TypeWall::LacMountain));
+                    }
+                    else if (rand() % 100 == 0) {
+                        addObject(new Wall("World2.png",{x, y}, TypeWall::TombStone));
+                    }
+                    else if (rand() % 100 == 0) {
+                        addObject(new Wall("World2.png",{x, y}, TypeWall::DeadTree));
+                    }
+                    else if (rand() % 200 == 0) {
+                        addObject(new Wall("World2.png",{x, y}, TypeWall::FrozenScarecrow));
+                    }
+                }
+            } else {
+                if (y < 0) {
+                    // Monde 3 : plage
+                    if (rand() % 100 == 0) {
+                        addObject(new Wall("World2.png",{x, y}, TypeWall::RocherBeatch));
+                    } else if(rand() % 100 == 0) {
+                        addObject(new Wall("World2.png",{x, y}, TypeWall::CoconutTree));
+                    }
+                    else if(rand() % 100 == 0) {
+                        addObject(new Wall("World2.png",{x, y}, TypeWall::Barrel));
+                    }else if(rand() % 100 == 0) {
+                    // addObject(new Wall("World2.png",{x, y}, TypeWall::lacBeatch));
+                    }
+                } else {
+                    // Monde 4 : ville
+                    if (rand() % 100 == 0) {
+                        addObject(new Wall("World2.png",{x, y}, TypeWall::Well));
+                    } else if(rand() % 100 == 0) {
+                        addObject(new Wall("World2.png",{x, y}, TypeWall::sign));
+                    }
+                    else if(rand() % 100 == 0) {
+                        addObject(new Wall("World2.png",{x, y}, TypeWall::Barrel));
+                    }else if(rand() % 200 == 0) {
+                        addObject(new Wall("World2.png",{x, y}, TypeWall::KnightStatue));
+                    }
+                }
+            }
         
-        if (x < 100) {
-            if (y <0) {
-                // Monde 1 : forêt
-                if (rand() % 10 == 0) {
-                    addObject(new Ground("World2.png", {x, y}, TypeGround::floorTile));
-                } else {
-                    addObject(new Ground("World2.png", {x, y}, TypeGround::grass));
-                }
-                if (rand() % 20 == 0) {
-                    addObject(new Ground("World2.png",{x, y}, TypeGround::stone));
-                }
-            	} else {
-                // Monde 2 : montagnes
-                if (rand() % 5 == 0) {
-                    addObject(new Ground("World2.png", {x, y}, TypeGround::Rock));
-                } else {
-                    addObject(new Ground("World2.png",{x, y}, TypeGround::floorTile));
-                }
-                if (rand() % 20 == 0) {
-                    addObject(new Ground("World2.png",{x, y}, TypeGround::cobblestone));
-                }
-            }
-        } else {
-            if (y < 0) {
-                // Monde 3 : plage
-                if (rand() % 10 == 0) {
-                    addObject(new Ground("World2.png",{x, y}, TypeGround::sand));
-                } else {
-                    addObject(new Ground("World2.png",{x, y}, TypeGround::floorTile));
-                }
-                if (rand() % 20 == 0) {
-                    addObject(new Ground("World2.png",{x, y}, TypeGround::ice));
-                }
-            } else {
-                // Monde 4 : ville
-                if (rand() % 10 == 0) {
-                    addObject(new Ground("World2.png",{x, y}, TypeGround::brick));
-                } else {
-                    addObject(new Ground("World2.png",{x, y}, TypeGround::floorTile));
-                }
-                if (rand() % 20 == 0) {
-                    addObject(new Ground("World2.png",{x, y}, TypeGround::cobblestone2));
-                }
-            }
         }
     }
-}
-//creation des murs
-for (float x = 0; x < 200; x++) {
-    for (float y = -100; y < 100; y++) {
-        if (x < 100) {
-            if (y <0) {//foret
-				if (rand() % 100 == 0) {
-    				addObject(new Wall("World2.png",{x, y}, TypeWall::GrosseBranche)); 
-				}else if(rand()%100==0){
-					addObject(new Wall("World2.png",{x, y}, TypeWall::GrandSapin));
-				}else if ( rand()%300==0){
-					addObject(new Chest("Chests.png",{x,y}));
-				}else if(rand()%300==0){
-					//addObject(new Wall("World2.png",{x, y}, TypeWall::LacForest));
-				}else if(rand()%100==0){
-					addObject(new Wall("World2.png",{x, y}, TypeWall::RocherForest));
-				}else if(rand()%100==0){
-					addObject(new Wall("World2.png",{x, y}, TypeWall::DeadTree));
-				}
-		}else {
-                // Monde 2 : montagnes
-                if (rand() % 100 == 0) {
-                    addObject(new Wall("World2.png", {x, y}, TypeWall::SnowTree));
-                } else if(rand() % 300 == 0){
-                    addObject(new Wall("World2.png",{x, y}, TypeWall::MonsterSkeleton));
-                }
-                else if (rand() % 300 == 0) {
-                   // addObject(new Wall("World2.png",{x, y}, TypeWall::LacMountain));
-                }
-				else if (rand() % 100 == 0) {
-                    addObject(new Wall("World2.png",{x, y}, TypeWall::TombStone));
-                }
-				else if (rand() % 100 == 0) {
-                    addObject(new Wall("World2.png",{x, y}, TypeWall::DeadTree));
-                }
-                else if (rand() % 200 == 0) {
-                    addObject(new Wall("World2.png",{x, y}, TypeWall::FrozenScarecrow));
-                }
-            }
-        } else {
-            if (y < 0) {
-                // Monde 3 : plage
-                if (rand() % 100 == 0) {
-                    addObject(new Wall("World2.png",{x, y}, TypeWall::RocherBeatch));
-                } else if(rand() % 100 == 0) {
-                    addObject(new Wall("World2.png",{x, y}, TypeWall::CoconutTree));
-                }
-                else if(rand() % 100 == 0) {
-                    addObject(new Wall("World2.png",{x, y}, TypeWall::Barrel));
-                }else if(rand() % 100 == 0) {
-                   // addObject(new Wall("World2.png",{x, y}, TypeWall::lacBeatch));
-                }
-            } else {
-                // Monde 4 : ville
-                 if (rand() % 100 == 0) {
-                    addObject(new Wall("World2.png",{x, y}, TypeWall::Well));
-                } else if(rand() % 100 == 0) {
-                    addObject(new Wall("World2.png",{x, y}, TypeWall::sign));
-                }
-                else if(rand() % 100 == 0) {
-                    addObject(new Wall("World2.png",{x, y}, TypeWall::Barrel));
-                }else if(rand() % 200 == 0) {
-                    addObject(new Wall("World2.png",{x, y}, TypeWall::KnightStatue));
-                }
-            }
-        }
-    
-    }
+
 }
 for(float x=0;x<49;x++){
     for(float y=-102;y<-100;y++){
@@ -288,7 +291,7 @@ for(float x=51;x<100;x++){
     for(float y=100;y<102;y++){
                             addObject(new Wall("World2.png",{x, y}, TypeWall::SnowTree));
     }
-}
+
 
 addObject(new Wall("World2.png",{49, -102}, TypeWall::ChestForestBack));
 addObject(new Wall("World2.png",{149, -102}, TypeWall::ChestBeatchBack));
@@ -385,7 +388,12 @@ addObject(new DoorWall("Door.png",{149, -1}, TypeWall::WallZoneHorizontal,3,0));
 
 
 
- //addObject(new Monster("MonsterSheet1.png", {20,-10}));
+
+    //addObject(new Monster("MonsterSheet1.png", {20,-10}));
+
+    /* Boss final spawn en plein milieu A DEPLACER */
+    // cout << "adding the boss" << endl;
+    // addObject(new FinalBoss());
 }
 
 
