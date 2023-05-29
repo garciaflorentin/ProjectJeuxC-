@@ -10,13 +10,7 @@
 #include "Heart.hpp"
 #include "Chest.hpp"
 
-/**
- * @class Character
- * @brief Classe de base pour les personnages du jeu.
- *
- * La classe `Character` hérite de la classe `Object` et définit les fonctionnalités de base
- * pour les personnages du jeu.
- */
+
 class Character : public Object {
 protected:
     int damageAttack; /**< Dégâts de l'attaque du personnage */
@@ -181,6 +175,8 @@ public:
      */
     virtual void openChest(Chest* chest) = 0;
 
+	virtual Projectile* getProjectile() { return nullptr; };
+	
     /**
      * @brief Obtient le nombre de clés possédées par le personnage.
      *

@@ -92,6 +92,8 @@ public:
      * @param currentWindow Vecteur de positions des objets à dessiner.
      * @return Booléen indiquant si le projectile a été dessiné.
      */
+	//bool drawProjectile(std::vector<sf::Vector2f>* currentWindow);
+	bool drawFireballs(std::vector<sf::Vector2f>* currentWindow,  std::vector<Projectile*>* toFill);
     bool drawProjectile1(std::vector<sf::Vector2f>* currentWindow);
 
     /**
@@ -153,6 +155,7 @@ public:
      * @param info Informations sur la collision.
      */
     void collideMonster(Object* o, std::vector<Monster*>& wallList, std::vector<int>& info);
+void collidePlayer(Object* o, Player*p, std::vector<int>& info);
 
     // Limites de la carte
 

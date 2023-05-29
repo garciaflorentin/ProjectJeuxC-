@@ -136,7 +136,7 @@ public:
      * @brief Crée la carte du jeu.
      */
     void createMap();
-
+void addObject(Projectile* p);
     /**
      * @brief Place les objets à afficher sur la carte.
      *

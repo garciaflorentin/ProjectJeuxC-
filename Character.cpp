@@ -37,6 +37,7 @@ void Character::takeDamage(int NOQ) {
 	if(life->getNumberOfQuarter()<=0){
 		_isAlive=false;
 	}
+	cout << "Exiting takeDamage()" << endl;
 	
 }
 

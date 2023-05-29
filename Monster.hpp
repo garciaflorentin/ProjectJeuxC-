@@ -3,7 +3,7 @@
 
 #include "Character.hpp"
 #include "Player.hpp"
-
+#include "Projectile.hpp"
 class Player;
 
 #define SPR_SIZE 48
@@ -45,7 +45,7 @@ protected:
      *
      * @return `true` si le joueur est à portée d'attaque, `false` sinon
      */
-    bool playerInRange() const;
+    virtual bool playerInRange() const;
 
     /**
      * @brief Applique les dégâts au personnage cible.
@@ -130,6 +130,8 @@ public:
      * @return Numéro de sérialisation du monstre
      */
     int getSerial();
+
+        virtual Projectile* getProjectile() { return nullptr; }
 };
 
 #endif

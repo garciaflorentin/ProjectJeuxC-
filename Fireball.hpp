@@ -16,6 +16,8 @@ class Fireball : public Projectile {
 
         int _dmg;
 
+        Character* _target;
+
     public:
         Fireball() : Projectile() {};
         Fireball(const char* nameObject, sf::Vector2f initPos, Character* player, int dmg = 2);
