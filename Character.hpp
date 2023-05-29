@@ -183,7 +183,13 @@ public:
     virtual void openChest(Chest* chest) = 0;
 
 	virtual Projectile* getProjectile() { return nullptr; };
-	
+	/**
+     * @brief Getteur pour obtenir le projectile du personnage.
+     *
+     * @return Retourne un pointeur sur le Projectile du personnage.
+     */
+    virtual Projectile* getProjectile() { return nullptr; };
+
     /**
      * @brief Obtient le nombre de clés possédées par le personnage.
      *
