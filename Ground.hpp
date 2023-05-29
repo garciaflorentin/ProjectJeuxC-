@@ -36,7 +36,7 @@ public:
 
         int t = static_cast<int>(_typeGround);
         if (t < 9) {
-            _sprite->setTextureRect(sf::IntRect(2 * t * 48 + 2 + 48, 14 * 48 + 6, 48, 48));
+            _sprite->setTextureRect(sf::IntRect(2 * t * 48 + 1 + 48, 14 * 48 + 6, 48, 48));
         }
         else {
             switch (t) {

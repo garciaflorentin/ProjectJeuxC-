@@ -182,7 +182,6 @@ public:
      */
     virtual void openChest(Chest* chest) = 0;
 
-	virtual Projectile* getProjectile() { return nullptr; };
 	/**
      * @brief Getteur pour obtenir le projectile du personnage.
      *
