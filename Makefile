@@ -90,8 +90,9 @@ DoorWall.o: DoorWall.cpp Door.hpp
 	$(CPP) $(CPPFLAGS) -c DoorWall.cpp
 
 
+
 jeu_de_base: main.o  Door.o KeyWindow.o GoldenChest.o UserInterface.o Monster.o Projectile.o  Heart.o TexturesLib.o Object.o LifeWindow.o Character.o Player.o Map.o GameGestion.o GameWindow.o Chest.o Fireball.o MeleeMonster.o RangedMonster.o FinalBoss.o MiniOgre.o GuerrierOgre.o FlyMonster.o MiniFrogMonster.o DoorWall.o
-	$(LD) $(LDFLAGS) Door.o KeyWindow.o GoldenChest.o UserInterface.o Monster.o Projectile.o Chest.o Heart.o TexturesLib.o Object.o LifeWindow.o Character.o Player.o Map.o GameGestion.o GameWindow.o Fireball.o MeleeMonster.o RangedMonster.o FinalBoss.o MiniOgre.o GuerrierOgre.o FlyMonster.o MiniFrogMonster.o DoorWall.o main.o -o jeu_de_base $(LIBS)
+	$(LD) $(LDFLAGS) Door.o KeyWindow.o GoldenChest.o UserInterface.o Monster.o Projectile.o Chest.o Heart.o TexturesLib.o Object.o LifeWindow.o Character.o Player.o Map.o GameGestion.o GameWindow.o Fireball.o MeleeMonster.o RangedMonster.o MiniOgre.o GuerrierOgre.o FlyMonster.o MiniFrogMonster.o DoorWall.o main.o -o jeu_de_base $(LIBS)
 
 
 

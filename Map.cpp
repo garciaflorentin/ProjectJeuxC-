@@ -14,6 +14,8 @@ Map::Map() {
 
     nbDoorWall=0;
 
+nbDoorWall=0;
+
 
 }
 
@@ -291,7 +293,6 @@ void Map::createMap(){
         for(float y=100;y<102;y++){
                                 addObject(new Wall("World2.png",{x, y}, TypeWall::SnowTree));
         }
-    }
 
 
     addObject(new Wall("World2.png",{49, -102}, TypeWall::ChestForestBack));
@@ -389,8 +390,32 @@ void Map::createMap(){
 
 
 
+        for(float i=-97;i<50;i++){
+            addObject(new WallZone("World.png",{100, i}, TypeWall::WallZoneVertical));
+        }
+        for(float i=52;i<100;i++){
+            addObject(new WallZone("World.png",{100, i}, TypeWall::WallZoneVertical));
+        }
+        addObject(new Wall("World2.png",{97, -99}, TypeWall::GrandSapin));
+        addObject(new Wall("World2.png",{97, -100}, TypeWall::GrandSapin));
+        addObject(new Wall("World2.png",{99, -98}, TypeWall::GrandSapin));
+        addObject(new Wall("World2.png",{98, -98}, TypeWall::GrandSapin));
+        addObject(new Wall("World2.png",{97, -98}, TypeWall::GrandSapin));
 
-    //addObject(new Monster("MonsterSheet1.png", {20,-10}));
+
+
+        addObject(new DoorWall("Door.png",{49.5, -1}, TypeWall::WallZoneHorizontal,1,0));
+        addObject(new DoorWall("Door.png",{102, 49.5}, TypeWall::WallZoneHorizontal,2,90));
+        addObject(new DoorWall("Door.png",{149, -1}, TypeWall::WallZoneHorizontal,3,0));
+
+
+
+
+
+
+
+        //addObject(new Monster("MonsterSheet1.png", {20,-10}));
+    }
 }
 
 
