@@ -150,7 +150,7 @@ void UserInterface::runPausedWindow(){
         text.setString("Start");
 		while(window->isOpen()){
         text.setPosition(sprite2Position.x-50,sprite2Position.y-165);
-        fade(StartMusic);
+        //fade(StartMusic);
 
 			while(window->pollEvent(*event)){
                 

@@ -17,32 +17,32 @@ GameGestion::GameGestion()
 	cout << "map created" << endl;
 	
 	playerVector = new std::vector<Player *>{player, player2};
-	forestMusic = new sf::Music;
-	townMusic =new sf::Music;
-	MountainMusic= new sf::Music;
-	BeatchMusic= new sf::Music;
-	if (!forestMusic->openFromFile("ForestMood.wav"))
-	{
-	std::cout<<"erreur de chargement de forestMusic"<<std::endl;
-	}
-	if (!townMusic->openFromFile("TownMood.wav"))
-	{
-	std::cout<<"erreur de chargement de townMusic"<<std::endl;
-	}
-	if (!MountainMusic->openFromFile("MountainMood.wav"))
-	{
-	std::cout<<"erreur de chargement de MountainMusic"<<std::endl;
-	}
-	if (!BeatchMusic->openFromFile("BeatchMood.ogg"))
-	{
-	std::cout<<"erreur de chargement de BeatchMusic"<<std::endl;
-	}
+	// forestMusic = new sf::Music;
+	// townMusic =new sf::Music;
+	// MountainMusic= new sf::Music;
+	// BeatchMusic= new sf::Music;
+	// if (!forestMusic->openFromFile("ForestMood.wav"))
+	// {
+	// std::cout<<"erreur de chargement de forestMusic"<<std::endl;
+	// }
+	// if (!townMusic->openFromFile("TownMood.wav"))
+	// {
+	// std::cout<<"erreur de chargement de townMusic"<<std::endl;
+	// }
+	// if (!MountainMusic->openFromFile("MountainMood.wav"))
+	// {
+	// std::cout<<"erreur de chargement de MountainMusic"<<std::endl;
+	// }
+	// if (!BeatchMusic->openFromFile("BeatchMood.ogg"))
+	// {
+	// std::cout<<"erreur de chargement de BeatchMusic"<<std::endl;
+	// }
 	
 	
-	musics.push_back(forestMusic);
-	musics.push_back(MountainMusic);
-	musics.push_back(townMusic);
-	musics.push_back(BeatchMusic);
+	// musics.push_back(forestMusic);
+	// musics.push_back(MountainMusic);
+	// musics.push_back(townMusic);
+	// musics.push_back(BeatchMusic);
 
 
 
