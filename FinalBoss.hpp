@@ -12,7 +12,7 @@
 class FinalBoss : public Monster {
     private :
         int _meleeRange = 1;
-        std::vector<Fireball*> _fireballs;
+        std::vector<Projectile*>* _fireballs;
 
         bool playerInRange(int range);
 
@@ -22,7 +22,7 @@ class FinalBoss : public Monster {
         void update(Player* pl);
         void attack(Character* target, char type);
 
-        std::vector<Fireball*>* getFireballs() { return &_fireballs; };
+        std::vector<Projectile*>* getProjectiles() { return _fireballs; };
 };
 
 

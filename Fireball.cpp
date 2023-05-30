@@ -20,7 +20,7 @@ Fireball::Fireball(const char* nameObject, sf::Vector2f initPos, Character* play
             cout << "computing trajectory" << endl;
             this->computeTrajectory(angle);
 
-            initProjectile();
+            //initProjectile();
         }
 
         // while (!_isShot) {

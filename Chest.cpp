@@ -1,9 +1,9 @@
 #include "Chest.hpp"
 #include "Projectile.hpp"
 void Chest::collide(Object* o){
-        cout << "Chest collistion" << endl;
         if(typeid(*o) == typeid(Projectile)){
-                return;
+                _sprite->scale(0,0);     
+                return;  
         }
         //cout << "Character collistion" << endl;
         

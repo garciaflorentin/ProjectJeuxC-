@@ -1,14 +1,18 @@
 #include "Map.hpp"
 
 Map::Map() {
-toDraw = new std::vector<Object*>;
-_wallList =new std::vector<Object*>;
-_monsterList =new std::vector<Monster*>;
+    toDraw = new std::vector<Object*>;
+    _wallList =new std::vector<Object*>;
+    _monsterList =new std::vector<Monster*>;
+    playerDead= new sf::Sprite();
+    playerDead=nullptr;
 
-_map = new std::vector<Object*>(10);
-for(int i= 0; i<10 ;i++){
-	_map->push_back(nullptr);
-}
+    _map = new std::vector<Object*>(10);
+    for(int i= 0; i<10 ;i++){
+        _map->push_back(nullptr);
+    }
+
+    nbDoorWall=0;
 
 
 }
@@ -18,6 +22,7 @@ Map::~Map() {
 	delete[] _map;
 	delete[] _wallList;
 	delete[] _monsterList;
+    delete playerDead;
 }
 
 
@@ -67,7 +72,21 @@ void Map::addObject(Ground* g) {
 void Map::addObject(Wall* w) {
 	_map->push_back(w);
 	_wallList->push_back(w);
-    if(typeid(*w) == typeid(Door)){
+
+    if(typeid(*w) == typeid(DoorWall)){
+        std::cout<<"ajoutDoorWall"<<std::endl;
+		    DoorWall* doorWall=dynamic_cast<DoorWall*>(w);
+            if(nbDoorWall==0){
+            doorWall1=doorWall;
+            nbDoorWall++;
+            }else if(nbDoorWall==1){
+                doorWall2=doorWall;
+                nbDoorWall++;
+            }else if(nbDoorWall==2){
+                doorWall3=doorWall;
+                nbDoorWall++;
+            }
+    }else if(typeid(*w) == typeid(Door)){
 		    Door* _door=dynamic_cast<Door*>(w);
             this->door=_door;
     }
@@ -231,46 +250,49 @@ void Map::createMap(){
         
         }
     }
-    for(int x=0;x<49;x++){
-        for(int y=-102;y<-100;y++){
+
+
+    for(float x=0;x<49;x++){
+        for(float y=-102;y<-100;y++){
                                 addObject(new Wall("World2.png",{x, y}, TypeWall::GrandSapin));
         }
     }
-    for(int x=51;x<95;x++){
-        for(int y=-102;y<-100;y++){
+    for(float x=51;x<95;x++){
+        for(float y=-102;y<-100;y++){
                                 addObject(new Wall("World2.png",{x, y}, TypeWall::GrandSapin));
         }
     }
-    for(int x=105;x<149;x++){
-        for(int y=-102;y<-100;y++){
+    for(float x=105;x<149;x++){
+        for(float y=-102;y<-100;y++){
                                 addObject(new Wall("World2.png",{x, y}, TypeWall::CoconutTree));
         }
     }
-    for(int x=151;x<200;x++){
-        for(int y=-102;y<-100;y++){
+    for(float x=151;x<200;x++){
+        for(float y=-102;y<-100;y++){
                                 addObject(new Wall("World2.png",{x, y}, TypeWall::CoconutTree));
         }
     }
-    for(int x=100;x<149;x++){
-        for(int y=100;y<102;y++){
+    for(float x=100;x<149;x++){
+        for(float y=100;y<102;y++){
                                 addObject(new Wall("World2.png",{x, y}, TypeWall::KnightStatue));
         }
     }
-    for(int x=151;x<200;x++){
-        for(int y=100;y<102;y++){
+    for(float x=151;x<200;x++){
+        for(float y=100;y<102;y++){
                                 addObject(new Wall("World2.png",{x, y}, TypeWall::KnightStatue));
         }
     }
-    for(int x=0;x<49;x++){
-        for(int y=100;y<102;y++){
+    for(float x=0;x<49;x++){
+        for(float y=100;y<102;y++){
                                 addObject(new Wall("World2.png",{x, y}, TypeWall::SnowTree));
         }
     }
-    for(int x=51;x<100;x++){
-        for(int y=100;y<102;y++){
+    for(float x=51;x<100;x++){
+        for(float y=100;y<102;y++){
                                 addObject(new Wall("World2.png",{x, y}, TypeWall::SnowTree));
         }
     }
+
 
     addObject(new Wall("World2.png",{49, -102}, TypeWall::ChestForestBack));
     addObject(new Wall("World2.png",{149, -102}, TypeWall::ChestBeatchBack));
@@ -314,14 +336,14 @@ void Map::createMap(){
 
     addObject(new Door("!Demon Door.png",{98.5,-102},TypeWall::DragonStatue));
 
-    for(int x=-11;x<11;x++){
-        for(int y=-11;y<11;y++){
+    for(float x=-11;x<11;x++){
+        for(float y=-11;y<11;y++){
                 addObject(new Ground("World2.png",{x+208, y+208}, TypeGround::BossGround));
                 
         }
     }
-    for(int x=-10;x<10;x++){
-        for(int y=-10;y<10;y++){
+    for(float x=-10;x<10;x++){
+        for(float y=-10;y<10;y++){
                 if (rand() % 50 == 0) {
                         addObject(new Wall("World2.png",{x+208, y+208}, TypeWall::BrokenBossColone1));
                     }else if(rand() % 70 == 0) {
@@ -334,14 +356,43 @@ void Map::createMap(){
                     }
         }
     }
+    for(float i=0;i<50;i++){
+        addObject(new WallZone("World.png",{i, 0}, TypeWall::WallZoneHorizontal));
+    }
+    for(float i=52;i<150;i++){
+        addObject(new WallZone("World.png",{i, 0}, TypeWall::WallZoneHorizontal));
+    }
+    for(float i=152;i<200;i++){
+        addObject(new WallZone("World.png",{i, 0}, TypeWall::WallZoneHorizontal));
+    }
+
+    for(float i=-97;i<50;i++){
+        addObject(new WallZone("World.png",{100, i}, TypeWall::WallZoneVertical));
+    }
+    for(float i=52;i<100;i++){
+        addObject(new WallZone("World.png",{100, i}, TypeWall::WallZoneVertical));
+    }
+    addObject(new Wall("World2.png",{97, -99}, TypeWall::GrandSapin));
+    addObject(new Wall("World2.png",{97, -100}, TypeWall::GrandSapin));
+    addObject(new Wall("World2.png",{99, -98}, TypeWall::GrandSapin));
+    addObject(new Wall("World2.png",{98, -98}, TypeWall::GrandSapin));
+    addObject(new Wall("World2.png",{97, -98}, TypeWall::GrandSapin));
+
+
+
+    addObject(new DoorWall("Door.png",{49.5, -1}, TypeWall::WallZoneHorizontal,1,0));
+    addObject(new DoorWall("Door.png",{102, 49.5}, TypeWall::WallZoneHorizontal,2,90));
+    addObject(new DoorWall("Door.png",{149, -1}, TypeWall::WallZoneHorizontal,3,0));
+
+
+
+
+
 
 
     //addObject(new Monster("MonsterSheet1.png", {20,-10}));
-
-    /* Boss final spawn en plein milieu A DEPLACER */
-    // cout << "adding the boss" << endl;
-    // addObject(new FinalBoss());
 }
+
 
 
 	//creation des monstres
@@ -366,12 +417,16 @@ void Map::spawnMobs(string area) {
     }
     _monsterList->clear();
 
+    /* Boss final spawn en plein milieu A DEPLACER */
+    cout << "adding the boss" << endl;
+    addObject(new FinalBoss());
+
     if (area == "forest") {
         cout << "adding forest monsters" << endl;
 
         for (float x = 0; x < 100; x++)
             for (float y = -100; y < 0; y++){
-                if(_monsterList->size()<=30){
+                if(_monsterList->size()<0){
                 if (rand() % 200 == 0)	addObject(new MeleeMonster("MonsterSheet1.png", {x,y}));
                 if (rand() % 500 == 0)	addObject(new DemonDogMonster("DemonDogMonster.png", {x,y}));
                 }
@@ -382,23 +437,31 @@ void Map::spawnMobs(string area) {
 
         for (float x = 0; x < 100; x++)
             for (float y = 0; y < 100; y++){
+                if(_monsterList->size()<30){
                if (rand() % SPAWN_FREQUENCY == 0)	addObject(new RangedMonster("MonsterSheet2.png", {x,y}));
                if (rand() % SPAWN_FREQUENCY == 0)	addObject(new MeleeMonster("MonsterSheet2.png", {x,y}));
-
+                }
             }
     } else if (area == "beach") {
         cout << "adding beach monsters" << endl;
 
         for (float x = 100; x < 200; x++)
             for (float y = -100; y < 0; y++)
-                if (rand() % SPAWN_FREQUENCY == 0) {}
+               if(_monsterList->size()<30){
+                if (rand() % 200 == 0)	addObject(new FlyMonster("object.png", {x,y}));
+                if (rand() % 400 == 0)	addObject(new MiniFrogMonster("object.png", {x,y}));
+                }
+
  
     } else if (area == "town") {
         cout << "adding town monsters" << endl;
 
         for (float x = 100; x < 200; x++)
             for (float y = 0; y < 100; y++)
-                if (rand() % SPAWN_FREQUENCY == 0) {}
+               if(_monsterList->size()<30){
+                if (rand() % 200 == 0)	addObject(new MiniOgre("MonsterSheet1.png", {x,y}));
+                if (rand() % 300 == 0)	addObject(new GuerrierOgre("MonsterSheet1.png", {x,y}));
+               }
   
     }
 }
@@ -414,20 +477,26 @@ void Map::updateObjects(Player* player) {
     if ((ppose.x < 100*SPR_SIZE)&&(ppose.y < 0)&&(!_spf)) {
         cout << "in forest area" << endl;
         _spf=true;
+        _monsterList->clear();
         spawnMobs("forest");
     } else if ((ppose.x < 100*SPR_SIZE)&&(ppose.y > 0)&&(!_spm)) {
         cout << "in mountain area" << endl;
         _spm=true;
+        _monsterList->clear();
         spawnMobs("mountain");
     } else if ((ppose.x > 100*SPR_SIZE)&&(ppose.y < 0)&&(!_spb)) {
         cout << "in beach area" << endl;
         _spb=true;
+        _monsterList->clear();
         spawnMobs("beach");
     } else if ((ppose.x > 100*SPR_SIZE)&&(ppose.y>0)&&(!_spt)) {
         cout << "in town area" << endl;
         _spt=true;
+        _monsterList->clear();
         spawnMobs("town");
     }
+
+    cout << "updating mobs" << endl;
 
 	for (int i=0;i<_monsterList->size();i++)
 	{
@@ -453,10 +522,33 @@ void Map::updateObjects(Player* player) {
 
 	}
     updateAnimateObject();
+    //std::cout<<"nbMonster= "<<_monsterList->size()<<std::endl;
     //std::cout<<"nombre de monstre total="<<_monsterList->size()<<std::endl;
 }
 
 void Map::updateAnimateObject(){
-			door->animDoor();
-		    
+			door->animDoor();	
+            doorWall1->animDoor();
+            doorWall2->animDoor();
+            doorWall3->animDoor();
 }
+
+void Map::getLimitMap(std::vector<float>& limit){
+		limit={LIMITE_X,LIMITE_Y,LIMITE_Xneg,LIMITE_Yneg};
+	}
+
+	void Map::getLimitMapBoss(std::vector<float>& limit){
+		limit={LIMITE_XnegBoss,LIMITE_YnegBoss,LIMITE_XBoss,LIMITE_YBoss};
+	}
+
+    std::vector<Object*>* Map::getMap() {
+		return _map;
+	}
+
+    void Map::addPlayerDead(sf::Sprite* sprite){
+		playerDead = sprite;
+	}
+
+	sf::Sprite* Map::getPlayerDead(){
+		return playerDead;
+	}

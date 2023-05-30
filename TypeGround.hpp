@@ -12,7 +12,9 @@ enum class TypeGround {
 	grass,
 	ice,
 	sand,
-	BossGround
+	BossGround,
+	DoorZoneHorizontal,
+	DoorZoneVertical
 };
 
 #endif

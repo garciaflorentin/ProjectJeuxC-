@@ -42,9 +42,32 @@ Object::Object(const char* nameObject, sf::Vector2f initPos) : _isUse(false){
 }
 
 Object::~Object() {
-    delete[] _texture;
-    delete[] _sprite;
+    delete _texture;
+    delete _sprite;
 }
+
+const bool Object::isUse() const {
+        return _isUse;
+    }
+
+     sf::Sprite* Object::getSprite(){
+        return _sprite;
+    }
+
+    sf::Vector2f Object::getPosition() const {
+        return _sprite->getPosition();
+    }
+
+    void Object::setSprite(sf::Sprite& sprite) {
+        _sprite = &sprite;
+    }
+
+    string Object::getName() const { return name; };
+
+     int Object::getSerial() { return 0; };
+
+
+
 
 const int Object::loadSprite(const char* nameSprite, sf::Vector2f initPos) { // return false si la texture � deja etait charg� , recupere la texture et l'assigne au sprite de l'object et return true sinon charge la textures et assigne la texture au sprite de l'object.
     switch (TexturesLib::assignTexture(nameSprite, _texture))

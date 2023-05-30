@@ -5,7 +5,10 @@ Projectile::Projectile(const char* nameObject, sf::Vector2f initPos,Player* play
     this->_player = player;
     _isShot= false;
     distance= 0;
-    this->getSprite()->scale(0.25,0.25);
+
+    if (_player!=nullptr)
+        if(!(_player->getName()=="player2.png")){
+        this->getSprite()->scale(0.25,0.25);}
 
     //initProjectile();
 }
@@ -53,16 +56,22 @@ void Projectile::goTo(){
 }
 
 void Projectile::initProjectile(){
-    std::cout<<"initprojectile"<<std::endl;
+    if(getName()=="arrow.png"){
     _sprite->setTextureRect(sf::IntRect(direction*256,0,256,256));
     _sprite->setPosition(_player->getPosition().x,_player->getPosition().y);
     goTo();
 	incrementeDistance();
+    }else{
+    _sprite->setTextureRect(sf::IntRect(9,40,13,13));
+    _sprite->setPosition(_player->getPosition().x+ _player->getSprite()->getGlobalBounds().width/2,_player->getPosition().y+ _player->getSprite()->getGlobalBounds().height/2);
+    goTo();
+	incrementeDistance();
+}
 }
 
 
+
  void Projectile::collide(Object* o){
-    std::cout<<"ProjectileCollideObject"<<std::endl;
 
     distance=0;
     _isShot=false;
@@ -72,14 +81,11 @@ void Projectile::initProjectile(){
 
 
 void Projectile::arrowOutOfBounds(){
-//std::cout<<"arrowOutOfBounds"<<std::endl;
     if(isShot() && distance<= 96){
 			goTo();
 			incrementeDistance();
-            std::cout<<"goto"<<std::endl;
 
-	} else if ( (isShot()) && (distance > 96)) {
-			std:cout<<"destruction projectile"<<std::endl;
+	}else if( isShot() && distance > 96){
 			setDistance(0);
 		    setIsShot(false);
     }

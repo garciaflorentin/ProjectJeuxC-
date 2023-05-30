@@ -3,7 +3,10 @@
 
 FinalBoss::FinalBoss() : Monster("angry_cat.png", {5,5}, "serious meat", 1, 10, 100, 1.5) {
     cout << "final boss constructor" << endl;
-    for (int i = 0; i < FIREBALL_NUMBER; i++) _fireballs.push_back(nullptr);
+    _fireballs = new std::vector<Projectile*>();
+    //for (int i = 0; i < FIREBALL_NUMBER; i++) _fireballs->push_back(nullptr);
+
+    cout << "fireballs number : " << _fireballs->size() << endl;
 }
 
 
@@ -30,6 +33,7 @@ void FinalBoss::update(Player* pl) {
     }
 
     if (_upd.getElapsedTime().asMilliseconds()%150 == 0) {
+        cout << "Boss ranged attack" << endl;
         if (playerInRange(_attack_radius)) attack(pl, 'r');
     }
 }
@@ -40,10 +44,15 @@ void FinalBoss::attack(Character* target, char type) {
             target->takeDamage(_damage);
             break;
         case 'r':
-            for (int i = 0; i < _fireballs.size(); i++) {
-                _fireballs[i] = new Fireball("fireball.png", this->getPosition(), target, 360/FIREBALL_NUMBER*i);
-                _fireballs[i]->initProjectile();
-                _fireballs[i]->setIsShot(true);
+            _fireballs->clear();
+            for (int i = 0; i < FIREBALL_NUMBER; i++) {
+                // (*_fireballs)[i] = new Fireball("fireball.png", this->getPosition(), target, 360/FIREBALL_NUMBER*i);
+                // (*_fireballs)[i]->initProjectile();
+                // (*_fireballs)[i]->setIsShot(true);
+
+                _fireballs->push_back(new Fireball("fireball.png", this->getPosition(), target, 360/FIREBALL_NUMBER*i));
+                (*_fireballs)[i]->initProjectile();
+                (*_fireballs)[i]->setIsShot(true);
             }
             break;
     }

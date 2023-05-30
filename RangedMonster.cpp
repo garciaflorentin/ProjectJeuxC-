@@ -5,6 +5,9 @@
 // }
 
 void RangedMonster::attack(Character* target) {
+	//crySound->setVolume(50);
+      //  crySound->stop();
+        //crySound->play();
     cout << "entering attack" << endl;
     //if (_fireball != nullptr)   delete[] _fireball;
     //cout << "previous fireball deleted" << endl;
