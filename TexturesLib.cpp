@@ -23,7 +23,7 @@ int TexturesLib::assignTexture(string filename, sf::Texture& _texture) {
 
 
 sf::Texture& TexturesLib::assignTexture(string filename) {
-    cout << "Looking for texture " << filename << endl;
+    //cout << "Looking for texture " << filename << endl;
     
     if (_textures.count(filename) == 0) {
         _textures.insert({ filename, new sf::Texture });

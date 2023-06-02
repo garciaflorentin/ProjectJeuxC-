@@ -16,18 +16,13 @@ int main(void)
 
     _window.limitFrameRate(60);
 
-    while (_window.isRunning())
-    {
+    while (_window.isRunning()) {
         g.updateMobs();
 
         int fin = _window.controlWindow();
         
         if ((!_window.getUi().isPaused()) && _window.getUi().isLaunched())
-        {
-
             _window.display();
-            
-        }
     }
 
     return EXIT_SUCCESS;

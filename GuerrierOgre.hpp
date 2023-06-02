@@ -7,7 +7,9 @@
 class GuerrierOgre : public MeleeMonster {
 
     private:
-        virtual void goToPlayer();
+        virtual void goToPlayer(Player& target);
+
+        int _attack_cooldown = 40;
 
     public:
         /**
@@ -21,8 +23,8 @@ class GuerrierOgre : public MeleeMonster {
          * @param vf Valeur de vie du monstre
          * @param speed Vitesse du monstre
          */
-        GuerrierOgre(const char* nameObject, sf::Vector2f initPos, Player& player, string name = "GuerrierOgre", int dmg = 4, int ar = 1, int vf = 30, float speed = 1.5) : 
-        MeleeMonster(nameObject, initPos, player, name, dmg, ar, vf, speed) {
+        GuerrierOgre(const char* nameObject, sf::Vector2f initPos, /*Player& player1, Player& player2,*/ string name = "GuerrierOgre", int dmg = 4, int ar = 1, int vf = 30, float speed = 1.5) : 
+        MeleeMonster(nameObject, initPos, /*player1, player2,*/ name, dmg, ar, vf, speed) {
             _anim.x = 3;
             _anim.y = 4;
             _object_size = 32;
@@ -52,7 +54,7 @@ class GuerrierOgre : public MeleeMonster {
          *
          * @param pl Joueur
          */
-        virtual void update(Player& pl);
+        //virtual void update(Player& pl);
 };
 
 

@@ -100,14 +100,14 @@ class Character : public Object {
          *
          * @return `true` si le personnage est en vie, `false` sinon
          */
-        const bool isAlive() const;
+        virtual const bool isAlive() const;
 
         /**
          * @brief Inflige des dégâts au personnage en fonction du nombre de quarts de vie.
          *
          * @param heartQuarters Nombre de quarts de vie
          */
-        void takeDamage(int heartQuarters);
+        virtual void takeDamage(int heartQuarters);
 
         /**
          * @brief Effectue une attaque sur le personnage cible.

@@ -21,10 +21,11 @@ Projectile::Projectile(const Projectile& other) : Object(other) {
 Projectile& Projectile::operator=(const Projectile& other) {
     if (this != &other) {
         Object::operator=(other);
+
         _isShot = other._isShot;
         _distance = 0;
-        this->getSprite().scale(0.25,0.25);
 
+        this->getSprite().scale(0.25,0.25);
     }
     
     return *this;

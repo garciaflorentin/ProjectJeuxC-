@@ -13,13 +13,13 @@ class FinalBoss : public Monster {
         int _meleeRange = 1;
         vector<Projectile*> _fireballs;
 
-        const bool playerInRange(int range) const;
+        const bool playerInRange(Player& target, int range) const;
 
     public:
         FinalBoss();
 
         void attack(Character& target, char type);
-        void update(Player& pl);
+        void update(Player& pl1, Player& pl2);
 
         const std::vector<Projectile*>* getProjectiles() const { return &_fireballs; };
 };

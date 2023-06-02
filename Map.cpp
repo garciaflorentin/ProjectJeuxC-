@@ -1,6 +1,6 @@
 #include "Map.hpp"
 
-Map::Map() : _playerDead(*(new sf::Sprite)) {
+Map::Map() : _playerDead(*(new sf::Sprite)), _door(*(new Door())), _doorWall1(*(new DoorWall())), _doorWall2(*(new DoorWall())), _doorWall3(*(new DoorWall())) {
 	for(int i= 0; i<1000 ;i++)
 		_map.push_back(nullptr);
 }
@@ -19,6 +19,19 @@ Map& Map::operator=(const Map& other) {
 
 	_nbDoorWall = other._nbDoorWall;
     _playerDead = other._playerDead;
+
+    _LIMITE_Xneg = 0;
+    _LIMITE_Y = 4992.f;
+    _LIMITE_X = 9540;
+    _LIMITE_Yneg = -4896.f;
+    _LIMITE_XnegBoss = 9472.f;
+    _LIMITE_YnegBoss = 9600.f;
+    _LIMITE_XBoss = 10456.f;
+    _LIMITE_YBoss = 10328.f;
+    _spf = false;
+    _spm = false;
+    _spb = false;
+    _spt = false;
 
     return *this;
 }
@@ -385,8 +398,8 @@ void Map::spawnMobs(string area) {
         for (float x = 0; x < 100; x++)
             for (float y = -100; y < 0; y++){
                 if(_monsterList.size()<0) {
-					if (rand() % 200 == 0)	addObject(new MeleeMonster("MonsterTextures/MonsterSheet1.png", {x,y}, (*(new Player()))));
-					if (rand() % 500 == 0)	addObject(new DemonDogMonster("MonsterTextures/DemonDogMonster.png", {x,y}, (*(new Player()))));
+					if (rand() % 200 == 0)	addObject(new MeleeMonster("MonsterTextures/MonsterSheet1.png", {x,y}));
+					if (rand() % 500 == 0)	addObject(new DemonDogMonster("MonsterTextures/DemonDogMonster.png", {x,y}));
                 }
 
             }
@@ -394,31 +407,31 @@ void Map::spawnMobs(string area) {
         for (float x = 0; x < 100; x++)
             for (float y = 0; y < 100; y++){
                 if(_monsterList.size()<30){
-					if (rand() % 200 == 0)	addObject(new RangedMonster("MonsterTextures/MonsterSheet2.png", {x,y}, (*(new Player()))));
-					if (rand() % 500 == 0)	addObject(new MeleeMonster("MonsterTextures/MonsterSheet2.png", {x,y}, (*(new Player()))));
+					if (rand() % 200 == 0)	addObject(new RangedMonster("MonsterTextures/MonsterSheet2.png", {x,y}));
+					if (rand() % 500 == 0)	addObject(new MeleeMonster("MonsterTextures/MonsterSheet2.png", {x,y}));
                 }
             }
     } else if (area == "beach") {
         for (float x = 100; x < 200; x++)
             for (float y = -100; y < 0; y++)
                	if(_monsterList.size()<30){
-					if (rand() % 200 == 0)	addObject(new FlyMonster("object.png", {x,y}, (*(new Player()))));
-					if (rand() % 400 == 0)	addObject(new MiniFrogMonster("object.png", {x,y}, (*(new Player()))));
+					if (rand() % 200 == 0)	addObject(new FlyMonster("object.png", {x,y}));
+					if (rand() % 400 == 0)	addObject(new MiniFrogMonster("object.png", {x,y}));
                 } 
     } else if (area == "town") {
         for (float x = 100; x < 200; x++)
             for (float y = 0; y < 100; y++)
                	if(_monsterList.size()<30){
-					if (rand() % 200 == 0)	addObject(new MiniOgre("MonsterTextures/MonsterSheet1.png", {x,y}, (*(new Player()))));
-					if (rand() % 300 == 0)	addObject(new GuerrierOgre("MonsterTextures/MonsterSheet1.png", {x,y}, (*(new Player()))));
+					if (rand() % 200 == 0)	addObject(new MiniOgre("MonsterTextures/MonsterSheet1.png", {x,y}));
+					if (rand() % 300 == 0)	addObject(new GuerrierOgre("MonsterTextures/MonsterSheet1.png", {x,y}));
                	}
   
     }
 }
 
 
-void Map::updateObjects(Player& player) {
-    sf::Vector2f ppose = player.getPosition();
+void Map::updateObjects(Player& player1, Player& player2) {
+    sf::Vector2f ppose = player1.getPosition();
 
     if ((ppose.x < 100*SPR_SIZE)&&(ppose.y < 0)&&(!_spf)) {
         _spf=true;
@@ -443,7 +456,7 @@ void Map::updateObjects(Player& player) {
          	_monsterList.erase(_monsterList.begin() + i);
 		}
 		else {
-			_monsterList[i]->update();
+			_monsterList[i]->update(player1, player2);
 		}
 	}
 

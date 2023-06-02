@@ -28,9 +28,9 @@ class GameWindow {
 
         // Class instances
         GameGestion& _game; /**< The game management instance */
-        LifeWindow _lifeWindow; /**< The life window instance */
-        LifeWindow _lifeWindowP2; /**< The second player's life window instance */
-        KeyWindow _keyWindow; /**< The key window instance */
+        LifeWindow& _lifeWindow; /**< The life window instance */
+        LifeWindow& _lifeWindowP2; /**< The second player's life window instance */
+        KeyWindow& _keyWindow; /**< The key window instance */
         UserInterface& _ui; /**< The user interface instance */
 
         // Private member functions

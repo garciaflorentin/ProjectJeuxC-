@@ -2,6 +2,8 @@
 
 
 void MeleeMonster::attack(Character& target) {
+    cout << "MeleeMonster attack" << endl;
+    
     _crySound->setVolume(75);
     _crySound->stop();
     _crySound->play();
@@ -15,11 +17,11 @@ void MeleeMonster::updateSprite(){
 }
 
 
-void MeleeMonster::update(Player& pl) {
-    this->_player = pl;
+// void MeleeMonster::update(Player& pl) {
+//     this->_player = pl;
 
-    if (playerSeen() && !playerInRange())   goToPlayer();
-    if (_upd.getElapsedTime().asMilliseconds()%20 == 0)
-        if (playerInRange())    attack(pl);
+//     if (playerSeen() && !playerInRange())   goToPlayer();
+//     if (_upd.getElapsedTime().asMilliseconds()%1000 == 0)
+//         if (playerInRange())    attack(pl);
     
-}
+// }

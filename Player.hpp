@@ -54,6 +54,10 @@ class Player : public Character {
          */
         ~Player();
 
+        void takeDamage(int heartQuarters);
+
+        bool isAlive() { return _isAlive; }
+
         /**
          * @brief Indique si le joueur est dans la grotte.
          *

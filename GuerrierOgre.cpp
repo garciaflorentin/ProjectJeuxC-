@@ -7,21 +7,21 @@ void GuerrierOgre::updateSprite(){
 }
 
 
-void GuerrierOgre::update(Player& pl) {
-    if(pl.isAlive()){
-        this->_player = pl;
+// void GuerrierOgre::update(Player& pl) {
+//     if(pl.isAlive()){
+//         this->_player = pl;
 
-        if (playerSeen() && !playerInRange())   goToPlayer();
+//         if (playerSeen() && !playerInRange())   goToPlayer();
 
-        if (_upd.getElapsedTime().asMilliseconds()%40 == 0)
-            if (playerInRange())    attack(pl);
-    }
-}
+//         if (_upd.getElapsedTime().asMilliseconds()%40 == 0)
+//             if (playerInRange())    attack(pl);
+//     }
+// }
 
 
-void GuerrierOgre::goToPlayer() {
-    if(_player.isAlive()) {
-        sf::Vector2f player_pos = _player.getPosition();
+void GuerrierOgre::goToPlayer(Player& target) {
+    if(target.isAlive()) {
+        sf::Vector2f player_pos = target.getPosition();
         sf::Vector2f this_pos = this->getPosition();
 
         float dist_x = player_pos.x - this_pos.x;

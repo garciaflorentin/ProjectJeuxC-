@@ -8,10 +8,12 @@ class FlyMonster : public MeleeMonster {
 
     private:
 
+        int _attack_cooldown = 40;
+
         /**
          * @brief Déplace le monstre vers le joueur.
          */
-        virtual void goToPlayer();
+        virtual void goToPlayer(Player &target);
 
     public:
 
@@ -25,8 +27,8 @@ class FlyMonster : public MeleeMonster {
          * @param vf Les points de vie du monstre.
          * @param speed La vitesse de déplacement du monstre.
          */
-        FlyMonster(string nameObject, sf::Vector2f initPos, Player& player, string name = "FlyMonster", int dmg = 3, int ar = 2, int vf = 100, float speed = 1.5) : 
-        MeleeMonster(nameObject, initPos, player, name, dmg, ar, vf, speed) {
+        FlyMonster(string nameObject, sf::Vector2f initPos, /*Player& player1, Player& player2,*/ string name = "FlyMonster", int dmg = 3, int ar = 2, int vf = 100, float speed = 1.5) : 
+        MeleeMonster(nameObject, initPos, /*player1, player2,*/ name, dmg, ar, vf, speed) {
             _anim.x = 12;
             _anim.y = 34;
             _object_size = 48;
@@ -56,7 +58,7 @@ class FlyMonster : public MeleeMonster {
          * @brief Met à jour le monstre.
          * @param pl Le joueur.
          */
-        virtual void update(Player& pl);
+        //virtual void update(Player& pl1, Player& pl2);
 };
 
 

@@ -1,7 +1,14 @@
 #include "GameWindow.hpp"
 
 
-GameWindow::GameWindow(void) : _game(*(new GameGestion())), _ui(*(new UserInterface())) {
+GameWindow::GameWindow(void) : 
+_game(*(new GameGestion())), _ui(*(new UserInterface())), _lifeWindow(*(new LifeWindow())), 
+_lifeWindowP2(*(new LifeWindow())), _keyWindow(*(new KeyWindow(*_game.getPlayerVector()[0]))) {
+    
+    _lifeWindow = LifeWindow(_game.getPlayerVector()[0]->getlife());
+    _lifeWindowP2 = LifeWindow(_game.getPlayerVector()[1]->getlife());
+
+
     _view = sf::View();
     _event = sf::Event();
     _currentWindowPos = std::vector<sf::Vector2f>(2);
@@ -14,12 +21,6 @@ GameWindow::GameWindow(void) : _game(*(new GameGestion())), _ui(*(new UserInterf
     _window = nullptr;
     _window = new sf::RenderWindow(sf::VideoMode(static_cast<int>(_windowWidth), static_cast<int>(_windowHeight)), "Game"); // creation de la fenetre
     _window->setPosition(sf::Vector2i(100, 100));
-
-    //_game = GameGestion();
-    _lifeWindow = LifeWindow(_game.getPlayerVector()[0]->getlife());
-    _lifeWindowP2 = LifeWindow(_game.getPlayerVector()[1]->getlife());
-    //_ui = UserInterface();
-    _keyWindow = KeyWindow(*_game.getPlayerVector()[0]);
 }
 
 
@@ -248,10 +249,12 @@ void GameWindow::setCurrentWindowPos(){
 
 
 void GameWindow::displayLifeWindow() {
+    cout << "Displaying life window 1" << endl;
     _lifeWindow.drawTo(this->getWindow());
 }
 
 void GameWindow::displayLifeWindowP2() {
+    cout << "Displaying life window 2" << endl;
     _lifeWindowP2.drawTo(this->getWindow());
 }
 

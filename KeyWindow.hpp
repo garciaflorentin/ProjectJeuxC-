@@ -18,11 +18,11 @@ class KeyWindow {
         sf::View _keyView;
         sf::RenderTexture _keyTexture;
         sf::Sprite _keySprite;
-        sf::Texture _texture;
+        sf::Texture& _texture;
         Player& _player;
 
     public:
-        KeyWindow() : _player(*(new Player())) {};
+        KeyWindow() : _player(*(new Player())), _texture(*(new sf::Texture())) {};
 
         /**
          * @brief Constructeur de la classe `KeyWindow`.

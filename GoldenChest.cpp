@@ -9,7 +9,7 @@ void GoldenChest::collide(Object& o){
         }
         
         Character& p=dynamic_cast<Character&>(o);
-        if (p.getName() == "player1.png" || p.getName() == "player2.png") {
+        if (p.getName() == "PlayerTextures/player1.png" || p.getName() == "PlayerTextures/player2.png") {
             bool canOpen=false;
 
             if(p.getPosition().x>=0 && p.getPosition().x<9540/2 && p.getPosition().y>-4896 &&  p.getPosition().y<=0 )

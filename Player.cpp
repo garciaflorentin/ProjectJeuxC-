@@ -9,16 +9,19 @@ Character(nameObject,initPos), _projectile(*(new Arrow("OtherTextures/arrow.png"
 	_isInTheCave = false;
 	_canOpenChest = true;
 
+	_isAlive = true;
+
 	initWeapon();
 
-	if(getName()=="player2.png")
-	    _projectile = Arrow("fate.png",initPos,*this);
+	if(getName()=="PlayerTextures/player2.png")
+	    _projectile = Arrow("OtherTextures/fate.png",initPos,*this);
 	
 	_orientation = Down;
 
 	_life.setBelongTo(getName());
 	_life.initPlayerLife();
 
+	cout << "loading sounds..." << endl;
 	_takeDamageMusic = SoundsLib::assignSound("Sounds/hurt_knight.wav");
 	_footStepSound = SoundsLib::assignSound("Sounds/Steps_wood-015.ogg");	
 }
@@ -26,10 +29,6 @@ Character(nameObject,initPos), _projectile(*(new Arrow("OtherTextures/arrow.png"
 
 Player& Player::operator=(const Player& other) {
     Character::operator=(other);
-
-    _swordAnim = other._swordAnim;
-    _bowAnim = other._bowAnim;
-    _wandAnim = other._wandAnim;
 
     _isInTheCave = other._isInTheCave;
 
@@ -47,6 +46,34 @@ Player::~Player() {
     _bowAttack->stop();
     _wandAttack->stop();
 };
+
+
+void Player::takeDamage(int NOQ) {
+	cout << "Entering takeDamage()" << endl;
+
+	if (_takeDamageMusic == nullptr)
+		cout << "no _takeDamageMusic" << endl;
+		
+	_takeDamageMusic->setVolume(75);
+
+	cout << "Playing sounds..." << endl;
+
+	_takeDamageMusic->stop();
+	_takeDamageMusic->play();
+
+	cout << "Removing heart quarters..." << endl;
+
+	if(0 < NOQ <= _life.getNumberOfQuarter())
+		for (int i = 0; i < NOQ; i++)
+			_life.removeLife();
+		
+	cout << "Checking if dead..." << endl;
+
+	if(_life.getNumberOfQuarter() <= 0)
+		_isAlive=false;
+
+	cout << "Exiting takeDamage()" << endl;
+}
 
 
 void Player::openChest(Chest& chest) {

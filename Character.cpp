@@ -2,7 +2,9 @@
 
 
 Character::Character(string nameObject, sf::Vector2f initPos): 
-Object(nameObject, initPos), _life(*(new Heart())) {
+Object(nameObject, initPos), _life(*(new Heart(nameObject))) {
+	//_life.setBelongTo(nameObject);
+
 	_anim.x = 1;
 	_anim.y = 0;
 	_object_size = 32;
@@ -33,8 +35,15 @@ Character& Character::operator=(const Character& other) {
     _keys = 0;
     _killedallMobs = { false, false, false, false };
 
+	_footStepSound = other._footStepSound;
+	_takeDamageMusic = other._takeDamageMusic; 
+
+	_clock = sf::Clock();
+
     _anim = other._anim;
     _life = other._life;
+
+	_canOpenChest = other._canOpenChest;
 
 	return *this;
 }
@@ -47,6 +56,9 @@ Character::~Character() {
 
 
 void Character::takeDamage(int NOQ) {
+	if (_takeDamageMusic == nullptr)
+		cout << "no _takeDamageMusic" << endl;
+		
 	_takeDamageMusic->setVolume(75);
 	_takeDamageMusic->stop();
 	_takeDamageMusic->play();

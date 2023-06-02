@@ -8,7 +8,7 @@ void Chest::collide(Object& o){
     }
     
     Character& p=dynamic_cast<Character&>(o);
-    if (p.getName() == "player1.png" || p.getName() == "player2.png") {
+    if (p.getName() == "PlayerTextures/player1.png" || p.getName() == "PlayerTextures/player2.png") {
             p.openChest(*this);
             _prise.collide(o);   
     }

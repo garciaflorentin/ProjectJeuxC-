@@ -10,8 +10,8 @@ class RangedMonster : public Monster {
         Fireball& _fireball;
 
     public:
-        RangedMonster(string nameObject, sf::Vector2f initPos, Player& player, string name="meat", int dmg=1, int ar=5, int vf=50,float speed=1) : 
-        Monster(nameObject, initPos, player, name, dmg, ar, vf,speed), _fireball(*(new Fireball())) {
+        RangedMonster(string nameObject, sf::Vector2f initPos, /*Player& player1, Player& player2,*/ string name="meat", int dmg=1, int ar=5, int vf=50,float speed=1) : 
+        Monster(nameObject, initPos, /*player1, player2,*/ name, dmg, ar, vf,speed), _fireball(*(new Fireball())) {
             _anim.x = 9;
 	        _anim.y = 0;
 

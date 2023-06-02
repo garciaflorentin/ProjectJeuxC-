@@ -54,7 +54,7 @@ void Fireball::goTo(){
 
 
 void Fireball::collide(Object& o){
-   if(o.getName()=="player1.png" || o.getName()=="player2.png"){
+   if(o.getName()=="PlayerTextures/player1.png" || o.getName()=="PlayerTextures/player2.png"){
         Player& target=dynamic_cast<Player&>(o);
         target.takeDamage(2);
     }

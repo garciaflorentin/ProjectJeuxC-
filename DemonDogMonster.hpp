@@ -5,6 +5,8 @@
 
 
 class DemonDogMonster : public MeleeMonster {
+    private:
+        int _attack_cooldown = 20;
         
     public:
         /**
@@ -18,8 +20,8 @@ class DemonDogMonster : public MeleeMonster {
          * @param vf Valeur de vie du monstre
          * @param speed Vitesse du monstre
          */
-        DemonDogMonster(string nameObject, sf::Vector2f initPos, Player& player, string name = "meat", int dmg = 3, int ar = 2, int vf = 100, float speed = 1) : 
-        MeleeMonster(nameObject, initPos, player, name, dmg, ar, vf, speed) {
+        DemonDogMonster(string nameObject, sf::Vector2f initPos, /*Player& player1, Player& player2,*/ string name = "meat", int dmg = 3, int ar = 2, int vf = 100, float speed = 1) : 
+        MeleeMonster(nameObject, initPos, /*player1, player2,*/ name, dmg, ar, vf, speed) {
             _anim.x = 0;
             _anim.y = 0;
             _sprite.scale(1, 1);
@@ -55,16 +57,16 @@ class DemonDogMonster : public MeleeMonster {
          *
          * @param pl Joueur
          */
-        void update(Player& pl) {
-            this->_player = pl;
+        // void update(Player& pl) {
+        //     this->_player = pl;
 
-            if (playerSeen() && !playerInRange())
-                goToPlayer();
+        //     if (playerSeen() && !playerInRange())
+        //         goToPlayer();
             
-            if (_upd.getElapsedTime().asMilliseconds() % 20 == 0) 
-                if (playerInRange())
-                    attack(pl);
-        }
+        //     if (_upd.getElapsedTime().asMilliseconds() % 20 == 0) 
+        //         if (playerInRange())
+        //             attack(pl);
+        // }
 };
 
 

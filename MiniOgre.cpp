@@ -7,10 +7,10 @@ void MiniOgre::updateSprite(){
 }
 
 
-void MiniOgre::update(Player& pl) {
-    this->_player = pl;
+// void MiniOgre::update(Player& pl) {
+//     this->_player = pl;
 
-    if (playerSeen() && !playerInRange())   goToPlayer();
-    if (_upd.getElapsedTime().asMilliseconds()%40 == 0)
-        if (playerInRange())    attack(pl);
-}
+//     if (playerSeen() && !playerInRange())   goToPlayer();
+//     if (_upd.getElapsedTime().asMilliseconds()%40 == 0)
+//         if (playerInRange())    attack(pl);
+// }

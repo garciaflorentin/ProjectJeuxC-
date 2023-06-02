@@ -23,7 +23,7 @@ int SoundsLib::assignSound(string filename, sf::Music* sound) {
 
 
 sf::Music* SoundsLib::assignSound(string filename) {
-    cout << "Looking for sound " << filename << endl;
+    //cout << "Looking for sound " << filename << endl;
     
     if (_sounds.count(filename) == 0) {
         _sounds.insert({ filename, new sf::Music });
@@ -32,6 +32,8 @@ sf::Music* SoundsLib::assignSound(string filename) {
             throw runtime_error("Error loading sound " + filename);
         }
     }
+
+    //cout << "Sound files loaded : " << _sounds.size() << endl;
 
     return _sounds[filename];
 }

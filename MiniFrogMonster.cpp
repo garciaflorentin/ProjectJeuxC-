@@ -7,23 +7,23 @@ void MiniFrogMonster::updateSprite(){
 }
 
 
-void MiniFrogMonster::update(Player& pl) {
-    if(pl.isAlive()){
-    this->_player = pl;
+// void MiniFrogMonster::update(Player& pl) {
+//     if(pl.isAlive()){
+//     this->_player = pl;
 
-    if (playerSeen() && !playerInRange())   goToPlayer();
-    if (_upd.getElapsedTime().asMilliseconds()%40 == 0)
-        if (playerInRange())    attack(pl);
-    }
-}
+//     if (playerSeen() && !playerInRange())   goToPlayer();
+//     if (_upd.getElapsedTime().asMilliseconds()%40 == 0)
+//         if (playerInRange())    attack(pl);
+//     }
+// }
 
 
-void MiniFrogMonster::goToPlayer()
+void MiniFrogMonster::goToPlayer(Player& target)
 {
     // cout << "Player seen" << endl;
-    if(_player.isAlive()){
+    if(target.isAlive()){
 
-        sf::Vector2f player_pos = _player.getPosition();
+        sf::Vector2f player_pos = target.getPosition();
         sf::Vector2f this_pos = this->getPosition();
 
         // cout << "current position : " << this_pos.x << ", " << this_pos.y << endl;

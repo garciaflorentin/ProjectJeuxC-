@@ -50,9 +50,9 @@ Arrow& Arrow::operator=(const Arrow& other){
         Projectile::operator=(other);
 
         _player = other._player;
-        _isShot = other._isShot;
-        _distance = 0;
-        this->getSprite().scale(0.25,0.25);
+        _direction = other._direction;
+
+        //this->getSprite().scale(0.25,0.25);
     }
 
     return *this;

@@ -8,20 +8,30 @@ void FlyMonster::updateSprite(){
 }
 
 
-void FlyMonster::update(Player& pl) {
-    if(pl.isAlive()){
-        this->_player = pl;
+// void FlyMonster::update(Player& pl1, Player& pl2) {
+//     //if(pl1.isAlive()){
+//     this->_player1 = pl1;
+//     this->_player2 = pl2;
 
-        if (playerSeen() && !playerInRange())   goToPlayer();
-        if (_upd.getElapsedTime().asMilliseconds()%40 == 0)
-            if (playerInRange()){    attack(pl);}
-    }
-}
+//     float dist1, dist2;
+
+//     if (playerSeen(&dist1, &dist2)) {
+//         if (dist1 < dist2 && !playerInRange(_player1))
+//             goToPlayer(_player1);
+//         else if (dist1 > dist2 && !playerInRange(_player2))
+//             goToPlayer(_player2);
+//     } 
+
+//     if (_upd.getElapsedTime().asMilliseconds()%40 == 0)
+//         if (playerInRange(_player1))    attack(_player1);
+
+//     //}
+// }
 
 
-void FlyMonster::goToPlayer() {
-    if(_player.isAlive()) {
-        sf::Vector2f player_pos = _player.getPosition();
+void FlyMonster::goToPlayer(Player& target) {
+    if(target.isAlive()) {
+        sf::Vector2f player_pos = target.getPosition();
         sf::Vector2f this_pos = this->getPosition();
 
         float dist_x = player_pos.x - this_pos.x;

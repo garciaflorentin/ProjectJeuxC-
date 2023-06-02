@@ -7,6 +7,8 @@
 class MiniOgre : public MeleeMonster {
     private:
 
+        int _attack_cooldown = 40;
+
     public:
         /**
          * @brief Constructeur de la classe `MiniOgre`.
@@ -19,8 +21,8 @@ class MiniOgre : public MeleeMonster {
          * @param vf Champ de vision du mini ogre
          * @param speed Vitesse du mini ogre
          */
-        MiniOgre(string nameObject, sf::Vector2f initPos, Player& player, string name = "MiniOgre", int dmg = 2.5, int ar = 1, int vf = 30, float speed = 2.5) :
-        MeleeMonster(nameObject, initPos, player, name, dmg, ar, vf, speed) {
+        MiniOgre(string nameObject, sf::Vector2f initPos, /*Player& player1, Player& player2,*/ string name = "MiniOgre", int dmg = 2.5, int ar = 1, int vf = 30, float speed = 2.5) :
+        MeleeMonster(nameObject, initPos, /*player1, player2,*/ name, dmg, ar, vf, speed) {
             _anim.x = 3;
             _anim.y = 0;
             _object_size = 32;
@@ -51,7 +53,7 @@ class MiniOgre : public MeleeMonster {
          *
          * @param pl Pointeur vers le joueur
          */
-        virtual void update(Player& pl);
+        //virtual void update(Player& pl);
 };
 
 

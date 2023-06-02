@@ -4,8 +4,8 @@
 int Monster::_serial = 0;
 
 
-Monster::Monster(string nameObject, sf::Vector2f initPos, Player& player, string name, int dmg, int ar, int vf, float speed) : 
-Character(nameObject, initPos), _player(player), _attack_radius(ar * SPR_SIZE), _vision_field(vf * SPR_SIZE), _canOpenChest(false) {
+Monster::Monster(string nameObject, sf::Vector2f initPos, /*Player& player1, Player& player2,*/ string name, int dmg, int ar, int vf, float speed) : 
+Character(nameObject, initPos), /*_player1(player1), _player2(player2),*/ _attack_radius(ar * SPR_SIZE), _vision_field(vf * SPR_SIZE), _canOpenChest(false) {
     //_player = player;
 
     _damageAttack = dmg;
@@ -25,40 +25,59 @@ Monster::~Monster() {
 }
 
 
-bool Monster::playerSeen() const {
-    if(_player.isAlive()){
-    sf::Vector2f player_pos = _player.getPosition();
-    sf::Vector2f this_pos = this->getPosition();
+bool Monster::playerSeen(Player& p1, Player& p2, float* dist1, float* dist2) const {
+    bool seen = false;
 
-    float dist = sqrt((player_pos.x - this_pos.x) * (player_pos.x - this_pos.x) +
-                      (player_pos.y - this_pos.y) * (player_pos.y - this_pos.y));
+    if(p1.isAlive()){
+        sf::Vector2f player_pos = p1.getPosition();
+        sf::Vector2f this_pos = this->getPosition();
 
-    if (dist < _vision_field)
-        return true;
+        float dist = sqrt((player_pos.x - this_pos.x) * (player_pos.x - this_pos.x) +
+                        (player_pos.y - this_pos.y) * (player_pos.y - this_pos.y));
+
+        *dist1 = dist;
+
+        if (dist < _vision_field)
+            seen = true;
     }
 
+    if(p2.isAlive()){
+        sf::Vector2f player_pos = p2.getPosition();
+        sf::Vector2f this_pos = this->getPosition();
+
+        float dist = sqrt((player_pos.x - this_pos.x) * (player_pos.x - this_pos.x) +
+                        (player_pos.y - this_pos.y) * (player_pos.y - this_pos.y));
+
+        *dist2 = dist;
+
+        if (dist < _vision_field)
+            seen = true;
+    }
+
+    return seen;
+}
+
+
+bool Monster::playerInRange(Player& target) const {
+    if(target.isAlive()) {
+        sf::Vector2f player_pos = target.getPosition();
+        sf::Vector2f this_pos = this->getPosition();
+
+        float dist = sqrt((player_pos.x - this_pos.x) * (player_pos.x - this_pos.x) +
+                        (player_pos.y - this_pos.y) * (player_pos.y - this_pos.y));
+
+        if (dist < _attack_radius) {
+            cout << "Player in range" << endl;
+            return true;
+        }
+    }
     return false;
 }
 
 
-bool Monster::playerInRange() const {
-    if(_player.isAlive()) {
-    sf::Vector2f player_pos = _player.getPosition();
-    sf::Vector2f this_pos = this->getPosition();
-
-    float dist = sqrt((player_pos.x - this_pos.x) * (player_pos.x - this_pos.x) +
-                      (player_pos.y - this_pos.y) * (player_pos.y - this_pos.y));
-
-    if (dist < _attack_radius)
-        return true;
-    }
-    return false;
-}
-
-
-void Monster::goToPlayer() {
-    if(_player.isAlive()){ 
-        sf::Vector2f player_pos = _player.getPosition();
+void Monster::goToPlayer(Player& target) {
+    if(target.isAlive()){ 
+        sf::Vector2f player_pos = target.getPosition();
         sf::Vector2f this_pos = this->getPosition();
 
         // cout << "current position : " << this_pos.x << ", " << this_pos.y << endl;
@@ -136,20 +155,30 @@ void Monster::goToPlayer() {
 }
 
 
-void Monster::attack(Character& target) {
+void Monster::attack(Player& target) {
     if (target.isAlive()) {
         target.takeDamage(_damageAttack);
     }
 }
 
-void Monster::update() {
-    if (_player.isAlive()) {
-        if (playerSeen() && !playerInRange())
-            goToPlayer();
+void Monster::update(Player& target1, Player& target2) {
+    float dist1, dist2;
+    
+    if (target1.isAlive() || target2.isAlive()) {
+        if (playerSeen(target1, target2, &dist1, &dist2)) {
+            if (dist1 < dist2 && !playerInRange(target1))
+                goToPlayer(target1);
+            else if (dist1 > dist2 && !playerInRange(target2))
+                goToPlayer(target2);
+        }
         
-        if (_upd.getElapsedTime().asMilliseconds() % 100 == 0)
-            if (playerInRange())
-                attack(_player);
+        if (_upd.getElapsedTime().asMilliseconds() % _attack_cooldown == 0) {
+            if (playerInRange(target1))
+                attack(target1);
+            if (playerInRange(target2))
+                attack(target2);
+        }
+            
     }
 }
 

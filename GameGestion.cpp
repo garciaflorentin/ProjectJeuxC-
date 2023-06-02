@@ -1,15 +1,14 @@
 #include "GameGestion.hpp"
 
 
-GameGestion::GameGestion() : _map(*(new Map)) {
+GameGestion::GameGestion() : 
+_map(*(new Map)), _player(*(new Player("PlayerTextures/player1.png", {2, 1}))), _player2(*(new Player("PlayerTextures/player2.png", {1, 1}))) {
 	_currentZoneMusic= -1;
-	_player = Player("PlayerTextures/player1.png", {2, 1});
-	_player2 = Player("PlayerTextures/player2.png", {1, 1});
 
 	_map.createMap();
 	
 	_playerVector.push_back(&_player);
-    _playerVector.push_back(&_player2);
+	_playerVector.push_back(&_player2);
 
 	_ForestMusic = SoundsLib::assignSound("Sounds/ForestMood.wav");
 	_TownMusic = SoundsLib::assignSound("Sounds/TownMood.wav");
@@ -24,6 +23,8 @@ GameGestion::GameGestion() : _map(*(new Map)) {
 
 
 GameGestion& GameGestion::operator=(const GameGestion& other) {
+	ColisionInterface::operator=(other);
+
     _playerVector = other._playerVector; /**< Vecteur de pointeurs vers les joueurs */
     _player = other._player; /**< Pointeur vers le joueur */
     _player2 = other._player2; /**< Pointeur vers le deuxième joueur */
@@ -37,6 +38,8 @@ GameGestion& GameGestion::operator=(const GameGestion& other) {
 	_MountainMusic = SoundsLib::assignSound("Sounds/MountainMood.wav");
 	_BeachMusic = SoundsLib::assignSound("Sounds/BeachMood.ogg");
 
+	_music = other._music;
+
     _currentZoneMusic = other._currentZoneMusic;
 
 	return *this;
@@ -44,7 +47,7 @@ GameGestion& GameGestion::operator=(const GameGestion& other) {
 
 
 GameGestion::~GameGestion() {
-    for (auto it = _playerVector.begin(); it != _playerVector.end(); ++it)
+	for (auto it = _playerVector.begin(); it != _playerVector.end(); ++it)
 		delete *it;
 
 	for (auto it = _music.begin(); it != _music.end(); ++it)
@@ -58,8 +61,8 @@ std::vector<Object*>& GameGestion::toDrawUpdate(std::vector<sf::Vector2f>& curre
 
 
 const bool GameGestion::drawProjectile1(std::vector<sf::Vector2f>& currentWindow) {
-	if ((_playerVector[0]->getProjectile()->isShot()) && (_playerVector[0]->getProjectile()->getPosition().x >= currentWindow[0].x - 200) && (_playerVector[0]->getProjectile()->getPosition().y >= currentWindow[0].y - 200) && (_playerVector[0]->getProjectile()->getPosition().x <= currentWindow[1].x + 50) && (_playerVector[0]->getProjectile()->getPosition().y < currentWindow[1].y + 50))
-		return !(_playerVector[0]->getProjectile() == nullptr);
+	if ((_player.getProjectile()->isShot()) && (_player.getProjectile()->getPosition().x >= currentWindow[0].x - 200) && (_player.getProjectile()->getPosition().y >= currentWindow[0].y - 200) && (_player.getProjectile()->getPosition().x <= currentWindow[1].x + 50) && (_player.getProjectile()->getPosition().y < currentWindow[1].y + 50))
+		return !(_player.getProjectile() == nullptr);
 	
 	else
 	    return false;
@@ -67,8 +70,8 @@ const bool GameGestion::drawProjectile1(std::vector<sf::Vector2f>& currentWindow
 
 
 const bool GameGestion::drawProjectile2(std::vector<sf::Vector2f>& currentWindow) {
-	if ((_playerVector[1]->getProjectile()->isShot()) && (_playerVector[1]->getProjectile()->getPosition().x >= currentWindow[0].x - 200) && (_playerVector[1]->getProjectile()->getPosition().y >= currentWindow[0].y - 200) && (_playerVector[1]->getProjectile()->getPosition().x <= currentWindow[1].x + 50) && (_playerVector[1]->getProjectile()->getPosition().y < currentWindow[1].y + 50))
-		return !(_playerVector[1]->getProjectile() == nullptr);
+	if ((_player2.getProjectile()->isShot()) && (_player2.getProjectile()->getPosition().x >= currentWindow[0].x - 200) && (_player2.getProjectile()->getPosition().y >= currentWindow[0].y - 200) && (_player2.getProjectile()->getPosition().x <= currentWindow[1].x + 50) && (_player2.getProjectile()->getPosition().y < currentWindow[1].y + 50))
+		return !(_player2.getProjectile() == nullptr);
 	
 	else
 		return false;
@@ -113,116 +116,110 @@ const bool GameGestion::drawFireballs(std::vector<sf::Vector2f>& currentWindow, 
 
 
 void GameGestion::keyEvent(sf::Event e) {
-	_playerVector[0]->setSpeed(_map.getMonsters().size() / 5);
-	float vitesse = _playerVector[0]->getSpeed();
+	_player.setSpeed(_map.getMonsters().size() / 5);
+	float vitesse = _player.getSpeed();
 	if (vitesse <= 3) {
-		_playerVector[0]->setSpeed(4);
+		_player.setSpeed(4);
 		vitesse = 4;
 	}
 
-	_playerVector[1]->setSpeed(_map.getMonsters().size() / 5);
-	vitesse = _playerVector[1]->getSpeed();
+	_player2.setSpeed(_map.getMonsters().size() / 5);
+	vitesse = _player2.getSpeed();
 	if (vitesse <= 3) {
-		_playerVector[1]->setSpeed(4);
+		_player2.setSpeed(4);
 		vitesse = 4;
 	}
 
-	Player& p1 = *_playerVector[0];
-	Player& p2 = *_playerVector[1];
-
-    if(!_playerVector[0]->WeaponIsUsed()){
+    if(!_player.WeaponIsUsed()){
         if (sf::Keyboard::isKeyPressed(sf::Keyboard::Down)) {
-            p1.getAnim().x++;
-            p1.getAnim().y = 0;
-            p1.setOrientation(2);
-            p1.move({0, vitesse});
+            _player.getAnim().x++;
+            _player.getAnim().y = 0;
+            _player.setOrientation(2);
+            _player.move({0, vitesse});
         }
         else if (sf::Keyboard::isKeyPressed(sf::Keyboard::Up)) {
-            p1.getAnim().x++;
-            p1.getAnim().y = 4;
-            p1.setOrientation(0);
-            p1.move({0, -vitesse});
+            _player.getAnim().x++;
+            _player.getAnim().y = 4;
+            _player.setOrientation(0);
+            _player.move({0, -vitesse});
         }
         else if (sf::Keyboard::isKeyPressed(sf::Keyboard::Right)) {
             // std::cout << " R " << std::endl;
-            p1.getAnim().x++;
-            p1.getAnim().y = 2;
-            p1.setOrientation(3);
-            p1.move({vitesse, 0});
+            _player.getAnim().x++;
+            _player.getAnim().y = 2;
+            _player.setOrientation(3);
+            _player.move({vitesse, 0});
         }
         else if (sf::Keyboard::isKeyPressed(sf::Keyboard::Left)) {
             // std::cout << " L " << std::endl;
-            p1.getAnim().x++;
-            p1.getAnim().y = 6;
-            p1.setOrientation(1);
-            p1.move({-vitesse, 0});
+            _player.getAnim().x++;
+            _player.getAnim().y = 6;
+            _player.setOrientation(1);
+            _player.move({-vitesse, 0});
         }
 
-        p1.updateSprite();
+        _player.updateSprite();
     }
 
-    if(_playerVector[1]->WeaponIsUsed()){
+    if(_player2.WeaponIsUsed()){
         if (sf::Keyboard::isKeyPressed(sf::Keyboard::S)){
-            p2.getAnim().x++;
-            p2.getAnim().y = 0;
-            p2.setOrientation(2);
-            p2.move({0, vitesse});
+            _player2.getAnim().x++;
+            _player2.getAnim().y = 0;
+            _player2.setOrientation(2);
+            _player2.move({0, vitesse});
         }
         else if (sf::Keyboard::isKeyPressed(sf::Keyboard::Z)){
-            p2.getAnim().x++;
-            p2.getAnim().y = 4;
-            p2.setOrientation(0);
-            p2.move({0, -vitesse});
+            _player2.getAnim().x++;
+            _player2.getAnim().y = 4;
+            _player2.setOrientation(0);
+            _player2.move({0, -vitesse});
         }
         else if (sf::Keyboard::isKeyPressed(sf::Keyboard::D)){
-            p2.getAnim().x++;
-            p2.getAnim().y = 2;
-            p2.setOrientation(3);
-            p2.move({vitesse, 0});
+            _player2.getAnim().x++;
+            _player2.getAnim().y = 2;
+            _player2.setOrientation(3);
+            _player2.move({vitesse, 0});
         }
         else if (sf::Keyboard::isKeyPressed(sf::Keyboard::Q)){
-            p2.getAnim().x++;
-            p2.getAnim().y = 6;
-            p2.setOrientation(1);
-            p2.move({-vitesse, 0});
+            _player2.getAnim().x++;
+            _player2.getAnim().y = 6;
+            _player2.setOrientation(1);
+            _player2.move({-vitesse, 0});
         }
             
-        p2.updateSprite();
+        _player2.updateSprite();
     }
         
     if (sf::Keyboard::isKeyPressed(sf::Keyboard::E))
-        if(p2.isAlive()) p2.useWand();
+        if(_player2.isAlive())	_player2.useWand();
 
     if (sf::Keyboard::isKeyPressed(sf::Keyboard::M))
-        if(p1.isAlive()) p1.useBow();
+        if(_player.isAlive()) 	_player.useBow();
 }
 
 
 int GameGestion::updateGame() {
-	Player& p1 = *_playerVector[0];
-	Player& p2 = *_playerVector[1];
-	
-	if(p2.getKey() != p1.getKey()){
-		int tempo=p2.getKey();
-		p2.setKey(p2.getKey()+ p1.getKey());
-		p1.setKey(tempo+ p1.getKey());
+	if(_player2.getKey() != _player.getKey()){
+		int tempo=_player2.getKey();
+		_player2.setKey(_player2.getKey()+ _player.getKey());
+		_player.setKey(tempo+ _player.getKey());
 	}
 
-    if (p1.bowIsUsed())
-        p1.useBow();
+    if (_player.bowIsUsed())
+        _player.useBow();
     
-	p1.getProjectile()->arrowOutOfBounds();
+	_player.getProjectile()->arrowOutOfBounds();
 	
-    if (p2.wandIsUsed())//&& !p1.getProjectile().isShot())
-        p2.useWand();
+    if (_player2.wandIsUsed())//&& !_player.getProjectile().isShot())
+        _player2.useWand();
     
-	p2.getProjectile()->arrowOutOfBounds();
+	_player2.getProjectile()->arrowOutOfBounds();
 	
 	collideProjectileGestion();
 	collideMonsterGestion();
 	collideWallGestion();
 
-	if (_playerVector[0]->getIsInTheCave())
+	if (_player.getIsInTheCave())
 		LimitMapBoss();
 	else
 		LimitMap();
@@ -247,8 +244,8 @@ int GameGestion::updateGame() {
 
 
 void GameGestion::setPlayer(sf::Sprite& sprite) {
-	_playerVector[0]->setUpCharacter();
-	_playerVector[1]->setUpCharacter();
+	_player.setUpCharacter();
+	_player.setUpCharacter();
 }
 
 
@@ -440,19 +437,15 @@ void GameGestion::LimitMapBoss()
 }
 
 
-void GameGestion::collideWallGestion()
-{
-	// std::cout<<"collideWallGestion"<<std::endl;
-	Player& p1 = *_playerVector[0];
-	Player& p2 = *_playerVector[1];
+void GameGestion::collideWallGestion() {
 	sf::Vector2f newpos;
 	std::vector<int> infoPlayer;
 	std::vector<int> infoPlayer2;
 
 	std::vector<Object*> wallList;
 	wallList = _map.getWallList();
-	collideWall(p1, wallList, infoPlayer);
-	collideWall(p2, wallList, infoPlayer2);
+	collideWall(_player, wallList, infoPlayer);
+	collideWall(_player2, wallList, infoPlayer2);
 
 	int indice = infoPlayer[0];
 	int typeCollide = infoPlayer[1];
@@ -466,24 +459,24 @@ void GameGestion::collideWallGestion()
 
 		case 1: // colision du joueur allant vers le bas
 			// on empeche le joueur de traverser le Wall
-			newpos = {p1.getPosition().x, wallList[indice]->getPosition().y - 48};
-			p1.setPosition(newpos);
+			newpos = {_player.getPosition().x, wallList[indice]->getPosition().y - 48};
+			_player.setPosition(newpos);
 			break;
 		case 2: // colision du joueur allant vers la haut
-			newpos = {p1.getPosition().x, wallList[indice]->getPosition().y + wallList[indice]->getSprite().getGlobalBounds().height};
-			p1.setPosition(newpos);
+			newpos = {_player.getPosition().x, wallList[indice]->getPosition().y + wallList[indice]->getSprite().getGlobalBounds().height};
+			_player.setPosition(newpos);
 			break;
 		case 3: // colision du joueur allant vers la droite
-			newpos = {wallList[indice]->getPosition().x - 48, p1.getPosition().y};
-			p1.setPosition(newpos);
+			newpos = {wallList[indice]->getPosition().x - 48, _player.getPosition().y};
+			_player.setPosition(newpos);
 			break;
 		case 4: // colision du joueur allant vers le gauche
-			newpos = {wallList[indice]->getPosition().x + 48, p1.getPosition().y};
-			p1.setPosition(newpos);
+			newpos = {wallList[indice]->getPosition().x + 48, _player.getPosition().y};
+			_player.setPosition(newpos);
 			break;
 		}
 
-		collideVisitor(p1, *wallList[indice]);
+		collideVisitor(_player, *wallList[indice]);
 	}
 
 	if (indice2 != -1 && typeCollide2 != -1) {
@@ -493,24 +486,24 @@ void GameGestion::collideWallGestion()
 
 		case 1: // colision du joueur allant vers le bas
 			// on empeche le joueur de traverser le Wall
-			newpos = {p2.getPosition().x, wallList[indice2]->getPosition().y - 48};
-			p2.setPosition(newpos);
+			newpos = {_player2.getPosition().x, wallList[indice2]->getPosition().y - 48};
+			_player2.setPosition(newpos);
 			break;
 		case 2: // colision du joueur allant vers la haut
-			newpos = {p2.getPosition().x, wallList[indice2]->getPosition().y + wallList[indice2]->getSprite().getGlobalBounds().height};
-			p2.setPosition(newpos);
+			newpos = {_player2.getPosition().x, wallList[indice2]->getPosition().y + wallList[indice2]->getSprite().getGlobalBounds().height};
+			_player2.setPosition(newpos);
 			break;
 		case 3: // colision du joueur allant vers la droite
-			newpos = {wallList[indice2]->getPosition().x - 48, p2.getPosition().y};
-			p2.setPosition(newpos);
+			newpos = {wallList[indice2]->getPosition().x - 48, _player2.getPosition().y};
+			_player2.setPosition(newpos);
 			break;
 		case 4: // colision du joueur allant vers le gauche
-			newpos = {wallList[indice2]->getPosition().x + 48, p2.getPosition().y};
-			p2.setPosition(newpos);
+			newpos = {wallList[indice2]->getPosition().x + 48, _player2.getPosition().y};
+			_player2.setPosition(newpos);
 			break;
 		}
 
-		collideVisitor(p2, *wallList[indice2]);
+		collideVisitor(_player2, *wallList[indice2]);
 	}
 }
 
@@ -525,8 +518,8 @@ void GameGestion::collideProjectileGestion() {
 	std::vector<Object*> wallList;
 	std::vector<Monster*> monsterList;
 
-	Projectile& _projectile = *_playerVector[0]->getProjectile();
-	Projectile& _projectile2 = *_playerVector[1]->getProjectile();
+	Projectile& _projectile = *_player.getProjectile();
+	Projectile& _projectile2 = *_player2.getProjectile();
 	if (_projectile.isShot() || _projectile2.isShot()) {
 		wallList = _map.getWallList();
 		collideWall(_projectile, wallList, infoWall);
@@ -561,16 +554,14 @@ void GameGestion::collideProjectileGestion() {
 
 
 void GameGestion::collideMonsterGestion() {
-	Player& p1 = *_playerVector[0];
-	Player& p2 = *_playerVector[1];
 	sf::Vector2f newpos;
 	std::vector<int> infoPlayer;
 	std::vector<int> infoPlayer2;
 
 	std::vector<Monster*> MonsterList;
 	MonsterList = _map.getMonsters();
-	collideMonster(p1, MonsterList, infoPlayer);
-	collideMonster(p2, MonsterList, infoPlayer2);
+	collideMonster(_player, MonsterList, infoPlayer);
+	collideMonster(_player2, MonsterList, infoPlayer2);
 
 	int indice = infoPlayer[0];
 	int typeCollide = infoPlayer[1];
@@ -612,23 +603,23 @@ void GameGestion::collideMonsterGestion() {
 
 		case 1: // colision du joueur allant vers le bas
 			// on empeche le joueur de traverser le Wall
-			newpos = {p2.getPosition().x, MonsterList[indice2]->getPosition().y - 48};
-			p2.setPosition(newpos);
+			newpos = {_player2.getPosition().x, MonsterList[indice2]->getPosition().y - 48};
+			_player2.setPosition(newpos);
 			break;
 		case 2: // colision du joueur allant vers la haut
-			newpos = {p2.getPosition().x, MonsterList[indice2]->getPosition().y + MonsterList[indice2]->getSprite().getGlobalBounds().height};
-			p2.setPosition(newpos);
+			newpos = {_player2.getPosition().x, MonsterList[indice2]->getPosition().y + MonsterList[indice2]->getSprite().getGlobalBounds().height};
+			_player2.setPosition(newpos);
 			break;
 		case 3: // colision du joueur allant vers la droite
-			newpos = {MonsterList[indice2]->getPosition().x - 48, p2.getPosition().y};
-			p2.setPosition(newpos);
+			newpos = {MonsterList[indice2]->getPosition().x - 48, _player2.getPosition().y};
+			_player2.setPosition(newpos);
 			break;
 		case 4: // colision du joueur allant vers le gauche
-			newpos = {MonsterList[indice2]->getPosition().x + 48, p2.getPosition().y};
-			p2.setPosition(newpos);
+			newpos = {MonsterList[indice2]->getPosition().x + 48, _player2.getPosition().y};
+			_player2.setPosition(newpos);
 			break;
 		}
-		collideVisitor(p2, *MonsterList[indice2]);
+		collideVisitor(_player2, *MonsterList[indice2]);
 	}
 }
 
@@ -640,10 +631,7 @@ void GameGestion::collideVisitor(Object& o1, Object& o2) {
 
 
 void GameGestion::updateMobs() {
-	_map.updateObjects(_player);
-	_map.updateObjects(_player2);
-
-
+	_map.updateObjects(_player, _player2);
 		
     std::vector<Object*> wallList;
     std::vector<Monster*> monsters;
@@ -773,6 +761,6 @@ const int GameGestion::getObjectSize() const {
     return _player.getBlockSize();
 }
 
-const std::vector<Player*>& GameGestion::getPlayerVector() const {
+std::vector<Player*>& GameGestion::getPlayerVector() {
     return _playerVector;
 }

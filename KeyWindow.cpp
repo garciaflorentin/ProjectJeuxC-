@@ -1,7 +1,7 @@
 #include "KeyWindow.hpp"
 
 
-KeyWindow::KeyWindow(Player& p) : _player(p) {
+KeyWindow::KeyWindow(Player& p) : _player(p), _texture(*(new sf::Texture())) {
 	_keyTexture.create(1024, 768);
 	_keySprite = sf::Sprite(_keyTexture.getTexture());
 

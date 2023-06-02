@@ -18,7 +18,7 @@ using namespace std;
 class Heart {
     private:
         vector<sf::Texture*> _textures;
-        vector<sf::Sprite*> _sprites;
+        //vector<sf::Sprite*> _sprites;
         vector<sf::Sprite*> _life;
         int _numberOfQuarter;
         string _belongTo;
@@ -41,6 +41,8 @@ class Heart {
          * @brief Constructeur par défaut de la classe `Heart`.
          */
         Heart();
+
+        Heart(string owner);
 
         /**
          * @brief Destructeur de la classe `Heart`.

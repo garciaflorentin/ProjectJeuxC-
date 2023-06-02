@@ -13,8 +13,8 @@ using namespace std;
 class GameGestion : public ColisionInterface {
     private:
         vector<Player*> _playerVector; /**< Vecteur de pointeurs vers les joueurs */
-        Player _player; /**< Pointeur vers le joueur */
-        Player _player2; /**< Pointeur vers le deuxième joueur */
+        Player& _player; /**< Pointeur vers le joueur */
+        Player& _player2; /**< Pointeur vers le deuxième joueur */
 
         sf::Clock _time; /**< Horloge utilisée pour la gestion du temps */
 
@@ -63,7 +63,7 @@ class GameGestion : public ColisionInterface {
          * @brief Récupère le vecteur de pointeurs vers les joueurs.
          * @return Vecteur de pointeurs vers les joueurs.
          */
-        const std::vector<Player*>& getPlayerVector() const;
+        std::vector<Player*>& getPlayerVector();
 
         // Mise à jour du jeu
 

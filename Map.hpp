@@ -30,10 +30,10 @@ class Map {
         std::vector<Object*> _wallList;
         std::vector<Monster*> _monsterList;
 
-        Door _door;
-        DoorWall _doorWall1;
-        DoorWall _doorWall2;
-        DoorWall _doorWall3;
+        Door& _door;
+        DoorWall& _doorWall1;
+        DoorWall& _doorWall2;
+        DoorWall& _doorWall3;
 
         float _LIMITE_Xneg = 0;
         float _LIMITE_Y = 4992.f;
@@ -161,7 +161,7 @@ class Map {
          *
          * @param player Pointeur vers le joueur
          */
-        void updateObjects(Player& player);
+        void updateObjects(Player& player1, Player& player2);
 
         /**
          * @brief Met à jour les animations des objets de la carte.

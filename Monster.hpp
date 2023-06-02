@@ -13,7 +13,8 @@ class Player;
 
 class Monster : public Character {
     protected:
-        Player& _player; /**< Pointeur vers le joueur */
+        // Player& _player1; /**< Pointeur vers le joueur */
+        // Player& _player2;
 
         static int _serial; /**< Compteur de sérialisation des monstres */
 
@@ -25,26 +26,28 @@ class Monster : public Character {
         float _attack_radius; /**< Rayon d'attaque du monstre */
         float _vision_field; /**< Champ de vision du monstre */
 
+        int _attack_cooldown = 1000;
+
         //sf::Music _crySound; /**< Son de cri du monstre */
 
         /**
          * @brief Détermine le comportement du monstre pour se déplacer vers le joueur.
          */
-        virtual void goToPlayer();
+        virtual void goToPlayer(Player& target);
 
         /**
          * @brief Vérifie si le joueur est visible par le monstre.
          *
          * @return `true` si le joueur est visible, `false` sinon
          */
-        bool playerSeen() const;
+        bool playerSeen(Player& p1, Player& p2, float* dist1, float* dist2) const;
 
         /**
          * @brief Vérifie si le joueur est à portée d'attaque du monstre.
          *
          * @return `true` si le joueur est à portée d'attaque, `false` sinon
          */
-        bool playerInRange() const;
+        bool playerInRange(Player& target) const;
 
         /**
          * @brief Applique les dégâts au personnage cible.
@@ -69,7 +72,7 @@ class Monster : public Character {
          * @param vf Champ de vision du monstre
          * @param speed Vitesse du monstre
          */
-        Monster(string nameObject, sf::Vector2f initPos, Player& player, string name = "meat", int dmg = 1, int ar = 2, int vf = 5, float speed = 1);
+        Monster(string nameObject, sf::Vector2f initPos, /*Player& player1, Player& player2,*/ string name = "meat", int dmg = 1, int ar = 3, int vf = 5, float speed = 1);
 
         /**
          * @brief Destructeur de la classe `Monster`.
@@ -81,14 +84,14 @@ class Monster : public Character {
          *
          * @param target Personnage cible
          */
-        virtual void attack(Character& target);
+        virtual void attack(Player& target);
 
         /**
          * @brief Met à jour le monstre en fonction du joueur.
          *
          * @param pl Pointeur vers le joueur
          */
-        virtual void update();
+        virtual void update(Player& target1, Player& target2);
 
         /**
          * @brief Gère la collision du monstre avec un objet.
