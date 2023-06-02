@@ -54,7 +54,7 @@ class GuerrierOgre : public MeleeMonster {
          *
          * @param pl Joueur
          */
-        //virtual void update(Player& pl);
+        virtual void update(Player& pl1, Player& pl2);
 };
 
 

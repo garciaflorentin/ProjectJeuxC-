@@ -58,7 +58,7 @@ class MeleeMonster : public Monster {
          *
          * @param pl Pointeur vers le joueur
          */
-        //virtual void update(Player& pl);
+        virtual void update(Player& pl1, Player& pl2);
 };
 
 

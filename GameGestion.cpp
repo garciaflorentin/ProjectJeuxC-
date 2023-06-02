@@ -243,9 +243,9 @@ int GameGestion::updateGame() {
 }
 
 
-void GameGestion::setPlayer(sf::Sprite& sprite) {
+void GameGestion::setPlayer() {
 	_player.setUpCharacter();
-	_player.setUpCharacter();
+	_player2.setUpCharacter();
 }
 
 

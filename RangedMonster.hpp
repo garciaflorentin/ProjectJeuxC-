@@ -18,6 +18,7 @@ class RangedMonster : public Monster {
             updateSprite();
 
             _footStepSound = SoundsLib::assignSound("Sounds/footStep.wav");
+            _crySound = SoundsLib::assignSound("Sounds/Retro Roar 02.wav");
         };
 
         ~RangedMonster(){};
@@ -27,6 +28,8 @@ class RangedMonster : public Monster {
         Projectile* getProjectile() { return &_fireball; };
 
         void updateSprite();
+
+        virtual void update(Player& target1, Player& target2);
 };
 
 

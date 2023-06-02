@@ -26,7 +26,7 @@ class Monster : public Character {
         float _attack_radius; /**< Rayon d'attaque du monstre */
         float _vision_field; /**< Champ de vision du monstre */
 
-        int _attack_cooldown = 1000;
+        int _attack_cooldown = 50;
 
         //sf::Music _crySound; /**< Son de cri du monstre */
 

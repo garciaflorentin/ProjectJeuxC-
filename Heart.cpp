@@ -44,7 +44,7 @@ Heart::Heart(const Heart& other) {
 
     _belongTo = other._belongTo;
 
-    initLife();
+    //initLife();
 }
 
 
@@ -76,14 +76,14 @@ Heart& Heart::operator=(const Heart& other) {
         //cout << "Textures copied" << endl;
 
 		// Copie les vies
-		_life = std::vector<sf::Sprite*>(other._life);
+		_life = other._life;
 
 		// Copie le nombre de quartiers
 		_numberOfQuarter = other._numberOfQuarter;
 
         _belongTo = other._belongTo;
 
-        initLife();
+        //initLife();
 	}
 
     //cout << "returning *this" << endl;
@@ -108,6 +108,8 @@ Heart::~Heart() {
 void Heart::initLife() {
     //cout << "Entering initLife for " << getBelongTo() << endl;
 
+    _life.clear();
+
     for (int i = 0; i < 3; i++) _life.push_back(new sf::Sprite(*_textures[4]));
 
 	if( getBelongTo()=="PlayerTextures/player1.png") {
@@ -123,6 +125,8 @@ void Heart::initLife() {
         for (int i = 0; i < 3; i++)
             _life[i]->setPosition(i*32+570.0,0);
 	}
+
+    //cout << "Members in _life after initLife() : " << _life.size() << endl;
 
 	_numberOfQuarter = 12;
 }
@@ -178,7 +182,7 @@ void Heart::changeLife(int i) {
             _life[i]->setPosition(i*32+570.0,0);
     }
 
-    cout << "Members in _life after pushing back : " << _life.size() << endl;
+    //cout << "Members in _life after pushing back : " << _life.size() << endl;
 }
 
 
@@ -212,6 +216,6 @@ const int Heart::getNumberOfQuarter() const{
 // }
 
 std::vector<sf::Sprite*>& Heart::getLife() {
-    cout << "Members in _life : " << _life.size() << endl;
+    //cout << "Members in _life : " << _life.size() << endl;
     return _life;
 }

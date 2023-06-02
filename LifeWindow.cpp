@@ -34,7 +34,7 @@ LifeWindow& LifeWindow::operator=(const LifeWindow& other) {
 
 void LifeWindow::drawTo(sf::RenderWindow& target) {
 	updateWindow();
-	cout << "Drawing " << _lifePlayer.getNumberOfQuarter() << " heart quarters" << endl;
+	//cout << "Drawing " << _lifePlayer.getNumberOfQuarter() << " heart quarters" << endl;
 	target.draw(_lifeSprite);
 }
 
@@ -45,7 +45,10 @@ void LifeWindow::updateWindow() {
 	// dessiner la vue de la fenêtre de vie sur la render texture de la fenêtre de vie
 	_lifeTexture->setView(_lifeView);
 	for (int i = 0; i < 3; i++) 
-		_lifeTexture->draw(*(_lifePlayer.getLife())[i]);
+		if (_lifePlayer.getLife()[i] != nullptr) {
+			cout << "getLife() passed nullptr test" << endl;
+			_lifeTexture->draw(*(_lifePlayer.getLife())[i]);
+		}
 
 	// dessiner les éléments de la fenêtre de vie
 	_lifeTexture->display();

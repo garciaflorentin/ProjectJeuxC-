@@ -51,7 +51,7 @@ class GameGestion : public ColisionInterface {
          * @brief Définit le joueur principal.
          * @param player Pointeur vers le sprite du joueur.
          */
-        void setPlayer(sf::Sprite& player);
+        void setPlayer();
 
         /**
          * @brief Gère les événements clavier.

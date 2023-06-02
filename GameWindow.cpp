@@ -249,12 +249,12 @@ void GameWindow::setCurrentWindowPos(){
 
 
 void GameWindow::displayLifeWindow() {
-    cout << "Displaying life window 1" << endl;
+    //cout << "Displaying life window 1" << endl;
     _lifeWindow.drawTo(this->getWindow());
 }
 
 void GameWindow::displayLifeWindowP2() {
-    cout << "Displaying life window 2" << endl;
+    //cout << "Displaying life window 2" << endl;
     _lifeWindowP2.drawTo(this->getWindow());
 }
 

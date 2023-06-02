@@ -58,7 +58,7 @@ class FlyMonster : public MeleeMonster {
          * @brief Met à jour le monstre.
          * @param pl Le joueur.
          */
-        //virtual void update(Player& pl1, Player& pl2);
+        virtual void update(Player& pl1, Player& pl2);
 };
 
 
