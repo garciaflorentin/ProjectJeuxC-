@@ -15,15 +15,15 @@ class Fireball : public Projectile {
 
         int _dmg;
 
-        Character& _target;
+        //Character& _target;
 
     public:
-        Fireball() : Projectile(), _target(*(new Character())) {};
+        Fireball() : Projectile()/*, _target(*(new Character()))*/ {};
         Fireball(string nameObject, sf::Vector2f initPos, Character& player, float angle = 0, int dmg = 2);
         Fireball& operator=(const Fireball& other);
-        ~Fireball() {};
+        ~Fireball() { cout << "Destroying Fireball" << endl; };
 
-        void computeTrajectory(float angle);
+        void computeTrajectory(Character& player, float angle);
 
         void initProjectile();
         void goTo();

@@ -2,15 +2,17 @@
 
 
 Fireball::Fireball(string nameObject, sf::Vector2f initPos, Character& player, float angle, int dmg) : 
-Projectile(nameObject, initPos), _target(player) {
+Projectile(nameObject, initPos)/*, _target(player)*/ {
         _isShot = false;
         _distance = 0;
+
+        _sprite.setScale(1.0, 1.0);
 
         this->setPosition(initPos);
 
         _dmg = dmg;
 
-        this->computeTrajectory(angle);
+        this->computeTrajectory(player, angle);
 }
 
 
@@ -22,14 +24,14 @@ Fireball& Fireball::operator=(const Fireball& other) {
 
     _dmg = other._dmg;
 
-    _target = other._target;
+    //_target = other._target;
 
     return *this;
 }
 
 
-void Fireball::computeTrajectory(float angle) {
-    sf::Vector2f targetPos = _target.getPosition();
+void Fireball::computeTrajectory(Character& player, float angle) {
+    sf::Vector2f targetPos = player.getPosition();
     
     float distX = targetPos.x - this->getPosition().x;
     float distY = targetPos.y - this->getPosition().y;
@@ -39,12 +41,14 @@ void Fireball::computeTrajectory(float angle) {
 
     _dirVect.x = -distX / (distX+distY) * PROJECTILE_SPEED;
     _dirVect.y = -distY / (distX+distY) * PROJECTILE_SPEED;
+
+    cout << "_dirVect = " << _dirVect.x << " " << _dirVect.y << endl;
 }
 
 
 void Fireball::initProjectile(){
-    if (_dirVect.x != 0)    _sprite.rotate(-atan(_dirVect.y/_dirVect.x));
-    else                    _sprite.rotate(90);
+    // if (_dirVect.x != 0)    _sprite.rotate(-atan(_dirVect.y/_dirVect.x));
+    // else                    _sprite.rotate(90);
 }
 
 

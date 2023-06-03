@@ -8,6 +8,7 @@ void RangedMonster::attack(Character& target) {
     _crySound->stop();
     _crySound->play();
 
+    cout << "Firing fireball" << endl;
     _fireball = Fireball("OtherTextures/fireball.png", this->getPosition(), target);
     _fireball.initProjectile();
     _fireball.setIsShot(true);

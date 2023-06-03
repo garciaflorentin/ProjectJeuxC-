@@ -2,7 +2,7 @@
 
 
 Door::Door(string nameObject, sf::Vector2f initPos, TypeWall _typeWall): 
-Wall(nameObject,initPos,_typeWall), _backDoorTexture(TexturesLib::assignTexture(nameObject)), _backDoorSprite(*(new sf::Sprite)) {
+Wall(nameObject,initPos,_typeWall), _backDoorTexture(TexturesLib::assignTexture(nameObject)) {
     _anim.x=0;
     _anim.y=0;
     _sprite.setTextureRect(sf::IntRect(42,_anim.y*_door_size,156,175));

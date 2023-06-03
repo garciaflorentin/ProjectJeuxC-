@@ -45,7 +45,7 @@ class Player : public Character {
          * @param nameObject Nom de l'objet
          * @param initPos Position initiale du joueur
          */
-        Player(string nameObject, sf::Vector2f initPos);
+        Player(string nameObject, sf::Vector2f initPos, string nameProjectile);
 
         Player& operator=(const Player& other);
 

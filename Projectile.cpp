@@ -6,14 +6,14 @@ Object(nameObject,initPos) {
     _isShot = false;
     _distance= 0;
 
-    this->getSprite().scale(0.25,0.25);
+    //this->getSprite().scale(0.75,0.75);
 }
 
 
 Projectile::Projectile(const Projectile& other) : Object(other) {
     _isShot = other._isShot;
     _distance = 0;
-    this->getSprite().scale(0.25,0.25);
+    //this->getSprite().scale(1,1);
 
 }
 
@@ -25,7 +25,7 @@ Projectile& Projectile::operator=(const Projectile& other) {
         _isShot = other._isShot;
         _distance = 0;
 
-        this->getSprite().scale(0.25,0.25);
+        //this->getSprite().scale(1,1);
     }
     
     return *this;

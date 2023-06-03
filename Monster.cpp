@@ -14,6 +14,8 @@ Character(nameObject, initPos), /*_player1(player1), _player2(player2),*/ _attac
     _this_serial = _serial;
     _serial++;
 
+    _takeDamageMusic = SoundsLib::assignSound("Sounds/Retro Roar Krushed 01.wav");
+
     sf::Vector2f pos = {initPos.x*SPR_SIZE, initPos.y*SPR_SIZE};
 
     _upd = sf::Clock();
@@ -67,7 +69,7 @@ bool Monster::playerInRange(Player& target) const {
                         (player_pos.y - this_pos.y) * (player_pos.y - this_pos.y));
 
         if (dist < _attack_radius) {
-            cout << "Player in range" << endl;
+            //cout << "Player in range" << endl;
             return true;
         }
     }
@@ -184,7 +186,13 @@ void Monster::update(Player& target1, Player& target2) {
 
 
 void Monster::collide(Object& o) {
-    if (typeid(o) == typeid(Projectile)) {
+
+    cout << "Monster collide" << endl;
+
+    if (typeid(o) == typeid(Projectile) || typeid(o) == typeid(Arrow)) {
+
+        cout << "Monster collide with projectile" << endl;
+
         getSprite().scale(0, 0);
         takeDamage(12);
     } else if (typeid(o) == typeid(Player)) {

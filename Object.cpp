@@ -2,11 +2,11 @@
 
 
 Object::Object(string nameObject, sf::Vector2f initPos) : 
-_name(nameObject), _texture(TexturesLib::assignTexture(nameObject)), _sprite(*(new sf::Sprite())) {
+_name(nameObject), _texture(TexturesLib::assignTexture(nameObject)), _sprite(*(new sf::Sprite(_texture))) {
     _name = nameObject;
 
     _texture.setSmooth(true);
-    _sprite.setTexture(_texture);
+    //_sprite = sf::Sprite(_texture);
     setPositionInBox(initPos);
 }
 

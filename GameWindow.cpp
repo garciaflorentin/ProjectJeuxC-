@@ -2,11 +2,11 @@
 
 
 GameWindow::GameWindow(void) : 
-_game(*(new GameGestion())), _ui(*(new UserInterface())), _lifeWindow(*(new LifeWindow())), 
-_lifeWindowP2(*(new LifeWindow())), _keyWindow(*(new KeyWindow(*_game.getPlayerVector()[0]))) {
+_game(*(new GameGestion())), _ui(*(new UserInterface())), _lifeWindow(*(new LifeWindow(_game.getPlayerVector()[0]->getlife()))), 
+_lifeWindowP2(*(new LifeWindow(_game.getPlayerVector()[1]->getlife()))), _keyWindow(*(new KeyWindow(*_game.getPlayerVector()[0]))) {
     
-    _lifeWindow = LifeWindow(_game.getPlayerVector()[0]->getlife());
-    _lifeWindowP2 = LifeWindow(_game.getPlayerVector()[1]->getlife());
+    // _lifeWindow = LifeWindow(_game.getPlayerVector()[0]->getlife());
+    // _lifeWindowP2 = LifeWindow(_game.getPlayerVector()[1]->getlife());
 
 
     _view = sf::View();
@@ -198,6 +198,9 @@ void GameWindow::draw() {
 
     std::vector<Projectile*> fireballs;
     if (_game.drawFireballs(getCurrentWindowPos(), fireballs)) {
+
+        cout << "Found " << fireballs.size() << " fireballs" << endl;
+        
         for (int i = 0; i < fireballs.size(); i++) 
             _window->draw(fireballs[i]->getSprite());
     }

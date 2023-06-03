@@ -1,7 +1,7 @@
 #include "KeyWindow.hpp"
 
 
-KeyWindow::KeyWindow(Player& p) : _player(p), _texture(*(new sf::Texture())) {
+KeyWindow::KeyWindow(Player& p) : _player(p), _texture(TexturesLib::assignTexture("OtherTextures/key.png")) {
 	_keyTexture.create(1024, 768);
 	_keySprite = sf::Sprite(_keyTexture.getTexture());
 
@@ -9,7 +9,7 @@ KeyWindow::KeyWindow(Player& p) : _player(p), _texture(*(new sf::Texture())) {
 	_keyView.setViewport(sf::FloatRect(0.f, 0.f, 1, 1));
 	_keyTexture.setView(_keyView);
 
-    _texture = TexturesLib::assignTexture("OtherTextures/key.png");
+    //_texture = TexturesLib::assignTexture("OtherTextures/key.png");
 }
 
 

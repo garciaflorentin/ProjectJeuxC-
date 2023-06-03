@@ -18,11 +18,11 @@ class LifeWindow {
         const float _windowWidth = 1024.0, _windowHeight = 55;
         sf::View& _lifeView;
         sf::RenderTexture* _lifeTexture;
-        sf::Sprite& _lifeSprite;
+        sf::Sprite _lifeSprite;
         Heart& _lifePlayer;
 
     public:
-        LifeWindow() : _lifePlayer(*(new Heart())), _lifeView(*(new sf::View())), _lifeSprite(*(new sf::Sprite())) {};
+        LifeWindow() : _lifePlayer(*(new Heart())), _lifeView(*(new sf::View()))/*, _lifeSprite(*(new sf::Sprite()))*/ {};
 
         /**
          * @brief Constructeur de la classe `LifeWindow`.

@@ -2,15 +2,17 @@
 
 
 LifeWindow::LifeWindow(Heart& HeartPlayer) : 
-_lifePlayer(*(new Heart())), _lifeView(*(new sf::View(sf::FloatRect(0.f, 0.f, 1000.0f, 200.f)))), _lifeSprite(*(new sf::Sprite())) {
+_lifePlayer(HeartPlayer), _lifeView(*(new sf::View(sf::FloatRect(0.f, 0.f, 1000.0f, 200.f))))/*, _lifeSprite(*(new sf::Sprite()))*/ {
 	cout << "Entering LifeWindow constructor" << endl;
 
 	// _lifePlayer = Heart();
-	_lifePlayer = HeartPlayer;
+	//_lifePlayer = HeartPlayer;
 
 	_lifeTexture = new sf::RenderTexture();
 	_lifeTexture->create(1500, 80);
-	_lifeSprite.setTexture(_lifeTexture->getTexture());
+	
+	_lifeSprite = sf::Sprite(_lifeTexture->getTexture());
+	// _lifeSprite.setTexture(_lifeTexture->getTexture());
 
 	//_lifeView = sf::View(sf::FloatRect(0.f, 0.f, 1000.0f, 200.f));
 	_lifeView.setViewport(sf::FloatRect(0.f, 0.f, 1, 1));
@@ -46,7 +48,7 @@ void LifeWindow::updateWindow() {
 	_lifeTexture->setView(_lifeView);
 	for (int i = 0; i < 3; i++) 
 		if (_lifePlayer.getLife()[i] != nullptr) {
-			cout << "getLife() passed nullptr test" << endl;
+			//cout << "getLife() passed nullptr test" << endl;
 			_lifeTexture->draw(*(_lifePlayer.getLife())[i]);
 		}
 

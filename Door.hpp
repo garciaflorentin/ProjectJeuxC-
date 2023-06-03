@@ -13,11 +13,11 @@ class Door : public Wall {
         bool _isOpening; /**< Indique si la porte est en train de s'ouvrir */
         int _door_size = 240; /**< Taille de la porte */
         int _cpt = 0; /**< Compteur pour l'animation de la porte */
-        sf::Sprite& _backDoorSprite; /**< Sprite du fond de la porte */
+        sf::Sprite _backDoorSprite; /**< Sprite du fond de la porte */
         sf::Texture& _backDoorTexture; /**< Texture du fond de la porte */
 
     public:
-        Door() : _backDoorTexture(*(new sf::Texture)), _backDoorSprite(*(new sf::Sprite)) {};
+        Door() : _backDoorTexture(*(new sf::Texture)) {};
 
         /**
          * @brief Constructeur de la classe `Door`.

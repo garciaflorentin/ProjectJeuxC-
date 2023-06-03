@@ -2,7 +2,11 @@
 
 
 Arrow::Arrow(string nameObject, sf::Vector2f initPos, Character& player) : 
-Projectile(nameObject,initPos), _player(player) {};
+Projectile(nameObject,initPos), _player(player) {
+    if (nameObject == "OtherTextures/arrow.png") {
+        _sprite.setScale(0.25, 0.25);
+    }
+};
 
 
 void Arrow::goTo(){
@@ -24,13 +28,20 @@ void Arrow::goTo(){
 
 
 void Arrow::initProjectile(){
-    if (getName()=="arrow.png") {
+    if (getName()=="OtherTextures/arrow.png") {
+
+        cout << "Initiating arrow projectile" << endl;
+
         _sprite.setTextureRect(sf::IntRect(_direction*256,0,256,256));
         _sprite.setPosition(_player.getPosition().x, _player.getPosition().y);
         goTo();
         incrementeDistance();
     } else {
+
+        cout << "Initiating fate projectile" << endl;
+
         _sprite.setTextureRect(sf::IntRect(9,40,13,13));
+        _sprite.setRotation(-90*(_direction+1));
         _sprite.setPosition(_player.getPosition().x + _player.getSprite().getGlobalBounds().width/2, _player.getPosition().y + _player.getSprite().getGlobalBounds().height/2);
         goTo();
         incrementeDistance();

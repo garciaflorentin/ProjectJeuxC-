@@ -2,7 +2,8 @@
 
 
 GameGestion::GameGestion() : 
-_map(*(new Map)), _player(*(new Player("PlayerTextures/player1.png", {2, 1}))), _player2(*(new Player("PlayerTextures/player2.png", {1, 1}))) {
+_map(*(new Map())), _player(*(new Player("PlayerTextures/player1.png", {2, 1}, "OtherTextures/arrow.png"))), 
+_player2(*(new Player("PlayerTextures/player2.png", {1, 1}, "OtherTextures/fate.png"))) {
 	_currentZoneMusic= -1;
 
 	_map.createMap();
@@ -19,6 +20,8 @@ _map(*(new Map)), _player(*(new Player("PlayerTextures/player1.png", {2, 1}))), 
 	_music.push_back(_MountainMusic);
 	_music.push_back(_TownMusic);
 	_music.push_back(_BeachMusic);
+
+	setPlayer();
 }
 
 
@@ -161,26 +164,26 @@ void GameGestion::keyEvent(sf::Event e) {
         _player.updateSprite();
     }
 
-    if(_player2.WeaponIsUsed()){
-        if (sf::Keyboard::isKeyPressed(sf::Keyboard::S)){
+    if(!_player2.WeaponIsUsed()){
+        if (sf::Keyboard::isKeyPressed(sf::Keyboard::S) || sf::Keyboard::isKeyPressed(sf::Keyboard::S)){
             _player2.getAnim().x++;
             _player2.getAnim().y = 0;
             _player2.setOrientation(2);
             _player2.move({0, vitesse});
         }
-        else if (sf::Keyboard::isKeyPressed(sf::Keyboard::Z)){
+        else if (sf::Keyboard::isKeyPressed(sf::Keyboard::Z) || sf::Keyboard::isKeyPressed(sf::Keyboard::W)){
             _player2.getAnim().x++;
             _player2.getAnim().y = 4;
             _player2.setOrientation(0);
             _player2.move({0, -vitesse});
         }
-        else if (sf::Keyboard::isKeyPressed(sf::Keyboard::D)){
+        else if (sf::Keyboard::isKeyPressed(sf::Keyboard::D) || sf::Keyboard::isKeyPressed(sf::Keyboard::D)){
             _player2.getAnim().x++;
             _player2.getAnim().y = 2;
             _player2.setOrientation(3);
             _player2.move({vitesse, 0});
         }
-        else if (sf::Keyboard::isKeyPressed(sf::Keyboard::Q)){
+        else if (sf::Keyboard::isKeyPressed(sf::Keyboard::Q) || sf::Keyboard::isKeyPressed(sf::Keyboard::A)){
             _player2.getAnim().x++;
             _player2.getAnim().y = 6;
             _player2.setOrientation(1);
@@ -305,6 +308,9 @@ void GameGestion::collideMonster(Object& o, std::vector<Monster*>& wallList, std
         int colision = collidePosition(o, *(wallList[x]));
 
 		if (colision != -1) {
+
+			cout << "Monster touched by projectile" << endl;
+
 			info.push_back(x);
 			info.push_back(colision);
 			collide = true;
@@ -705,23 +711,25 @@ void GameGestion::updateFireballs(std::vector<Projectile*>& fireballs, int curr_
 	std::vector<int> infoWall;
 	std::vector<int> infoPlayer;
 
-	fireballs[curr_ind]->arrowOutOfBounds();
+	if (fireballs[curr_ind] != nullptr) {
+		fireballs[curr_ind]->arrowOutOfBounds();
 
-	if(fireballs[curr_ind]->isShot()) {
-		collideWall(*fireballs[curr_ind],wallList,infoWall);
-		collidePlayer(*fireballs[curr_ind],_player,infoPlayer);
+		if(fireballs[curr_ind]->isShot()) {
+			collideWall(*fireballs[curr_ind],wallList,infoWall);
+			collidePlayer(*fireballs[curr_ind],_player,infoPlayer);
 
-		int indice =infoWall[0];
-		int typeCollide=infoWall[1];
-		int indicePlayer=infoPlayer[0];
-		int TypeCollidePlayer=infoPlayer[1];
+			int indice =infoWall[0];
+			int typeCollide=infoWall[1];
+			int indicePlayer=infoPlayer[0];
+			int TypeCollidePlayer=infoPlayer[1];
 
-		if(indice!= -1 && typeCollide!= -1){
-			collideVisitor(*fireballs[curr_ind],*wallList[indice]);
-		}
+			if(indice!= -1 && typeCollide!= -1){
+				collideVisitor(*fireballs[curr_ind],*wallList[indice]);
+			}
 
-		if(indicePlayer!= -1 && TypeCollidePlayer!= -1){
-			collideVisitor(*fireballs[curr_ind],_player);
+			if(indicePlayer!= -1 && TypeCollidePlayer!= -1){
+				collideVisitor(*fireballs[curr_ind],_player);
+			}
 		}
 	}
 }

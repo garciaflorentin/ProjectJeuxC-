@@ -1,8 +1,8 @@
 #include "Player.hpp"
 
 
-Player::Player(string nameObject, sf::Vector2f initPos): 
-Character(nameObject,initPos), _projectile(*(new Arrow("OtherTextures/arrow.png",initPos,*this))) {
+Player::Player(string nameObject, sf::Vector2f initPos, string nameProjectile): 
+Character(nameObject,initPos), _projectile(*(new Arrow(nameProjectile,initPos,*this))) {
 	_speed = 4;
 	_hitAnim = 0;
 	_damageAttack = 3;
@@ -13,8 +13,8 @@ Character(nameObject,initPos), _projectile(*(new Arrow("OtherTextures/arrow.png"
 
 	initWeapon();
 
-	if(getName()=="PlayerTextures/player2.png")
-	    _projectile = Arrow("OtherTextures/fate.png",initPos,*this);
+	// if(getName()=="PlayerTextures/player2.png")
+	//     _projectile = Arrow("OtherTextures/fate.png",initPos,*this);
 	
 	_orientation = Down;
 

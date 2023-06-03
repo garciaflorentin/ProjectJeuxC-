@@ -1,6 +1,6 @@
 #include "Map.hpp"
 
-Map::Map() : _playerDead(*(new sf::Sprite)), _door(*(new Door())), _doorWall1(*(new DoorWall())), _doorWall2(*(new DoorWall())), _doorWall3(*(new DoorWall())) {
+Map::Map() /*: _playerDead(*(new sf::Sprite)), _door(*(new Door())), _doorWall1(*(new DoorWall())), _doorWall2(*(new DoorWall())), _doorWall3(*(new DoorWall())) */{
 	for(int i= 0; i<1000 ;i++)
 		_map.push_back(nullptr);
 }
@@ -405,22 +405,22 @@ void Map::spawnMobs(string area) {
             }
     } else if (area == "mountain") {
         for (float x = 0; x < 100; x++)
-            for (float y = 0; y < 100; y++){
+            for (float y = 1; y < 100; y++){
                 if(_monsterList.size()<30){
 					if (rand() % 200 == 0)	addObject(new RangedMonster("MonsterTextures/MonsterSheet2.png", {x,y}));
 					if (rand() % 500 == 0)	addObject(new MeleeMonster("MonsterTextures/MonsterSheet2.png", {x,y}));
                 }
             }
     } else if (area == "beach") {
-        for (float x = 100; x < 200; x++)
+        for (float x = 101; x < 200; x++)
             for (float y = -100; y < 0; y++)
                	if(_monsterList.size()<30){
 					if (rand() % 200 == 0)	addObject(new FlyMonster("object.png", {x,y}));
 					if (rand() % 400 == 0)	addObject(new MiniFrogMonster("object.png", {x,y}));
                 } 
     } else if (area == "town") {
-        for (float x = 100; x < 200; x++)
-            for (float y = 0; y < 100; y++)
+        for (float x = 101; x < 200; x++)
+            for (float y = 1; y < 100; y++)
                	if(_monsterList.size()<30){
 					if (rand() % 200 == 0)	addObject(new MiniOgre("MonsterTextures/MonsterSheet1.png", {x,y}));
 					if (rand() % 300 == 0)	addObject(new GuerrierOgre("MonsterTextures/MonsterSheet1.png", {x,y}));

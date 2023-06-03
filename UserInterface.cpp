@@ -3,8 +3,8 @@
 
 UserInterface::UserInterface() : 
 _UiTexture(TexturesLib::assignTexture("GUITextures/GUI.png")), _UiTexture1(TexturesLib::assignTexture("GUITextures/Uistart.png")), 
-_UiTexture2(TexturesLib::assignTexture("GUITextures/UiPause.png")), _Background(*(new sf::Sprite())),
-_button1(*(new sf::Sprite())), _button2(*(new sf::Sprite())), _button3(*(new sf::Sprite())), _cadre(*(new sf::Sprite())) {
+_UiTexture2(TexturesLib::assignTexture("GUITextures/UiPause.png")), _Background(*(new sf::Sprite(_UiTexture1))),
+_button1(*(new sf::Sprite(_UiTexture))), _button2(*(new sf::Sprite(_UiTexture))), _button3(*(new sf::Sprite(_UiTexture))), _cadre(*(new sf::Sprite(_UiTexture))) {
     _event = sf::Event();
 
     _window = new sf::RenderWindow(sf::VideoMode(static_cast<int>(_windowWidth), static_cast<int>(_windowHeight)), "Tales of the Monster Hunter"); 
@@ -14,10 +14,10 @@ _button1(*(new sf::Sprite())), _button2(*(new sf::Sprite())), _button3(*(new sf:
 
     _button2.scale(10,8);
 
-    _button1.setTexture(_UiTexture);
-    _button2.setTexture(_UiTexture);
-    _button3.setTexture(_UiTexture);
-    _cadre.setTexture(_UiTexture);
+    // _button1.setTexture(_UiTexture);
+    // _button2.setTexture(_UiTexture);
+    // _button3.setTexture(_UiTexture);
+    // _cadre.setTexture(_UiTexture);
 
 	_UiView = sf::View(sf::FloatRect(0.f, 0.f, _windowWidth, _windowHeight));
 	_UiView.setViewport(sf::FloatRect(0.f, 0.f, 1, 1));

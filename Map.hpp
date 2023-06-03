@@ -30,10 +30,10 @@ class Map {
         std::vector<Object*> _wallList;
         std::vector<Monster*> _monsterList;
 
-        Door& _door;
-        DoorWall& _doorWall1;
-        DoorWall& _doorWall2;
-        DoorWall& _doorWall3;
+        Door _door;
+        DoorWall _doorWall1;
+        DoorWall _doorWall2;
+        DoorWall _doorWall3;
 
         float _LIMITE_Xneg = 0;
         float _LIMITE_Y = 4992.f;
@@ -48,7 +48,7 @@ class Map {
         bool _spb = false;
         bool _spt = false;
         int _nbDoorWall;
-        sf::Sprite& _playerDead;
+        sf::Sprite _playerDead;
 
     public:
 
