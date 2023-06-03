@@ -42,7 +42,7 @@ void Fireball::computeTrajectory(Character& player, float angle) {
     _dirVect.x = -distX / (distX+distY) * PROJECTILE_SPEED;
     _dirVect.y = -distY / (distX+distY) * PROJECTILE_SPEED;
 
-    cout << "_dirVect = " << _dirVect.x << " " << _dirVect.y << endl;
+    //cout << "_dirVect = " << _dirVect.x << " " << _dirVect.y << endl;
 }
 
 

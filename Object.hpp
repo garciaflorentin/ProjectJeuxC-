@@ -16,6 +16,8 @@ using namespace std;
  */
 class Object {
     protected:
+        //bool _isOpen = true;
+
         sf::Texture& _texture; /**< Pointeur vers la texture de l'objet */
         sf::Sprite& _sprite; /**< Pointeur vers le sprite de l'objet */
         string _name; /**< Nom de l'objet */
@@ -103,6 +105,8 @@ class Object {
          * @param player Référence vers l'objet joueur.
          */
         virtual void update(Object& player){};
+
+        //virtual bool isOpen() const { return true; };
 };
 
 

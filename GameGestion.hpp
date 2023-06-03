@@ -27,6 +27,8 @@ class GameGestion : public ColisionInterface {
         vector<sf::Music*> _music; /**< Vecteur de pointeurs vers les musiques */
         int _currentZoneMusic; /**< Indice de la musique de la zone actuelle */
 
+        bool _tmp_var = false;   // permet de gerer le clavier
+
     public:
         /**
          * @brief Constructeur par défaut de GameGestion.

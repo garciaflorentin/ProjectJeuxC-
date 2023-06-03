@@ -2,8 +2,8 @@
 
 
 GameGestion::GameGestion() : 
-_map(*(new Map())), _player(*(new Player("PlayerTextures/player1.png", {2, 1}, "OtherTextures/arrow.png"))), 
-_player2(*(new Player("PlayerTextures/player2.png", {1, 1}, "OtherTextures/fate.png"))) {
+_map(*(new Map())), _player(*(new Player("PlayerTextures/player1.png", {2, -1}, "OtherTextures/arrow.png"))), 
+_player2(*(new Player("PlayerTextures/player2.png", {1, -1}, "OtherTextures/fate.png"))) {
 	_currentZoneMusic= -1;
 
 	_map.createMap();
@@ -198,6 +198,36 @@ void GameGestion::keyEvent(sf::Event e) {
 
     if (sf::Keyboard::isKeyPressed(sf::Keyboard::M))
         if(_player.isAlive()) 	_player.useBow();
+
+
+	/* Cheat codes */
+	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Num1)) {	//tuer tous les monstres dans une zone
+		for (int i = 0; i < _map.getMonsters().size(); i++) {
+			_map.getMonsters()[i]->getSprite().scale(0,0);
+			_map.getMonsters()[i]->takeDamage(12);
+		}
+		_map.getMonsters().clear();
+	}
+
+	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Num2) && !_tmp_var) {	//ajouter une cle a l'inventaire
+		_tmp_var = true;
+
+		if (_player.getKey() < 4) 
+			_player.addKey();
+
+		// int chest = 0;
+		// while(chest<4 && _map.getGoldenChestList()[chest]->isOpen()) 
+		// 	chest++;
+		
+		// if (chest != 4)	
+		// 	_map.getGoldenChestList()[chest]->collide(_player);
+
+		//_player.addKey();
+	}
+
+	if (e.type == sf::Event::KeyReleased) 
+		_tmp_var = false;
+	
 }
 
 

@@ -28,11 +28,11 @@ class DemonDogMonster : public MeleeMonster {
 
             updateSprite();
 
-            if (!_footStepSound->openFromFile("/home/garcia/Bureau/ProjetC++  (travail)  (copie)/ProjectJeuxC-/GameSFX/FootStep/bigMonsterStep.wav"))
+            if (!_footStepSound->openFromFile("Sounds/bigMonsterStep.wav"))
                 throw runtime_error("Could not open bigMonsterStep.wav");
-            if (!_takeDamageMusic->openFromFile("die_monster.wav"))
+            if (!_takeDamageMusic->openFromFile("Sounds/die_monster.wav"))
                 throw runtime_error("Could not open die_monster.wav");
-            if (!_crySound->openFromFile("roar3_monster.wav")) 
+            if (!_crySound->openFromFile("Sounds/roar3_monster.wav")) 
                 throw runtime_error("Could not open roar3_monster.wav");
         }
 

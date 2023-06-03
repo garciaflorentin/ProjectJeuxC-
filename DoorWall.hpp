@@ -23,6 +23,7 @@ class DoorWall : public Door {
          */
         DoorWall(string nameObject, sf::Vector2f initPos, TypeWall _typeWall, int nbKey, int rotate) : 
         Door(nameObject, initPos, _typeWall) {
+            _nbKey = nbKey;
             _sprite.setTextureRect(sf::IntRect(_anim.x, _anim.y * 64, 96, 64));
             _sprite.scale(1.5, 1.5);
             _sprite.rotate(rotate);

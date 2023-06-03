@@ -31,12 +31,9 @@ class GuerrierOgre : public MeleeMonster {
 
             updateSprite();
 
-            if (!_footStepSound->openFromFile("/home/garcia/Bureau/ProjetC++  (travail)  (copie)/ProjectJeuxC-/GameSFX/FootStep/littleMonsterStep.wav"))
-                throw runtime_error("Failed to open littleMonsterStep.wav");
-            if (!_takeDamageMusic->openFromFile("die_monster.wav"))
-                throw runtime_error("Failed to open die_monster.wav");
-            if (!_crySound->openFromFile("zombie attack.wav")) 
-                throw runtime_error("Failed to open zombie attack.wav");
+            _footStepSound = SoundsLib::assignSound("Sounds/littleMonsterStep.wav");
+            _takeDamageMusic = SoundsLib::assignSound("Sounds/die_monster.wav");
+            _crySound = SoundsLib::assignSound("Sounds/zombie attack.wav");
         };
 
         /**

@@ -94,6 +94,10 @@ void Map::addObject(Chest* c) {
 	_map.push_back(c);
 	_wallList.push_back(c);
 	_map.push_back(&(c->getPrise()));
+
+    if (typeid(*c) == typeid(GoldenChest)) 
+        _goldChestList.push_back(dynamic_cast<GoldenChest*>(c));
+    
 }
 
 
@@ -392,12 +396,12 @@ void Map::spawnMobs(string area) {
     _monsterList.clear();
 
     /* Boss final spawn en plein milieu A DEPLACER */
-    addObject(new FinalBoss());
+    //addObject(new FinalBoss());
 
     if (area == "forest") {
         for (float x = 0; x < 100; x++)
             for (float y = -100; y < 0; y++){
-                if(_monsterList.size()<0) {
+                if(_monsterList.size()<30) {
 					if (rand() % 200 == 0)	addObject(new MeleeMonster("MonsterTextures/MonsterSheet1.png", {x,y}));
 					if (rand() % 500 == 0)	addObject(new DemonDogMonster("MonsterTextures/DemonDogMonster.png", {x,y}));
                 }
@@ -415,8 +419,8 @@ void Map::spawnMobs(string area) {
         for (float x = 101; x < 200; x++)
             for (float y = -100; y < 0; y++)
                	if(_monsterList.size()<30){
-					if (rand() % 200 == 0)	addObject(new FlyMonster("object.png", {x,y}));
-					if (rand() % 400 == 0)	addObject(new MiniFrogMonster("object.png", {x,y}));
+					if (rand() % 200 == 0)	addObject(new FlyMonster("MonsterTextures/object.png", {x,y}));
+					if (rand() % 400 == 0)	addObject(new MiniFrogMonster("MonsterTextures/object.png", {x,y}));
                 } 
     } else if (area == "town") {
         for (float x = 101; x < 200; x++)

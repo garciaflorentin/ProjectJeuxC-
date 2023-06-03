@@ -233,6 +233,16 @@ void GameWindow::display() {
     displayLifeWindowP2();
     setKeyView();
     displayKeyWindow();
+
+    sf::Text monster_number;
+    sf::Font disp_font;
+    disp_font.loadFromFile("Fonts/TiltNeon.ttf");
+    monster_number.setFont(disp_font);
+    monster_number.setString(" monsters in the zone : " + to_string(_game.getMap().getMonsters().size()));
+    monster_number.setCharacterSize(24);
+    monster_number.setPosition(10, 700);
+    _window->draw(monster_number);
+
     _window->display();
     clearWindow();
 }

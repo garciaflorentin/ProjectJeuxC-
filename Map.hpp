@@ -29,6 +29,7 @@ class Map {
         vector<Object*> _map;
         std::vector<Object*> _wallList;
         std::vector<Monster*> _monsterList;
+        std::vector<GoldenChest*> _goldChestList;
 
         Door _door;
         DoorWall _doorWall1;
@@ -188,6 +189,11 @@ class Map {
          * @return Sprite du joueur mort
          */
         sf::Sprite* getPlayerDead();
+
+        vector<GoldenChest*>& getGoldenChestList() { 
+            //cout << "there are " << _goldChestList.size() << " golden chests" << endl;
+            return _goldChestList; 
+        }
 };
 
 

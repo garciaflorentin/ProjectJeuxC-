@@ -68,7 +68,7 @@ void KeyWindow::updateWindow() {
             _keyTexture.draw(key2);
             _keyTexture.draw(key3);
             break;
-		case 4:
+		default:
             _keyTexture.draw(key1);
             _keyTexture.draw(key2);
             _keyTexture.draw(key3);

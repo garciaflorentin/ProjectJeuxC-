@@ -39,12 +39,9 @@ class MiniFrogMonster : public MeleeMonster {
             _object_size = 48;
             updateSprite();
 
-            if (!_footStepSound->openFromFile("/home/garcia/Bureau/ProjetC++  (travail)  (copie)/ProjectJeuxC-/GameSFX/Bounce Jump/MiniFrogStep.wav"))
-                throw runtime_error("Failed to open MiniFrogStep.wav");
-            if (!_takeDamageMusic->openFromFile("die_monster.wav"))
-                throw runtime_error("Failed to open die_monster.wav");
-            if (!_crySound->openFromFile("/home/garcia/Bureau/ProjetC++  (travail)  (copie)/ProjectJeuxC-/bruit/18_orc_charge.wav"))
-                throw runtime_error("Failed to open 18_orc_charge.wav");
+            _footStepSound = SoundsLib::assignSound("Sounds/MiniFrogStep.wav");
+            _takeDamageMusic = SoundsLib::assignSound("Sounds/die_monster.wav");
+            _crySound = SoundsLib::assignSound("Sounds/18_orc_charge.wav");
         }
 
 

@@ -14,12 +14,23 @@ void DoorWall::animDoor(){
 
 
 void DoorWall::collide(Object& o){
+
+    cout << "Collision with the big door" << endl;
+    
     if(typeid(o) == typeid(Player)){
+        
+        cout << "Player collision with a big door" << endl;
+
         Player& p=dynamic_cast<Player&>(o);
 
         if(p.getKey() >= _nbKey){
-            if(!_isOpen)    _isOpening=true;
-            else            _sprite.scale(0,0);
+
+            cout << "Opening the door" << endl;
+
+            if(!_isOpen) { 
+                _isOpening=true;
+                _sprite.scale(0,0);
+            }
         }
     }
 }
