@@ -1,0 +1,131 @@
+\hypertarget{classMeleeMonster}{}\doxysection{Melee\+Monster Class Reference}
+\label{classMeleeMonster}\index{MeleeMonster@{MeleeMonster}}
+
+
+Classe représentant un monstre de mêlée, un type spécifique de monstre.  
+
+
+
+
+{\ttfamily \#include $<$Melee\+Monster.\+hpp$>$}
+
+
+
+Inheritance diagram for Melee\+Monster\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classMeleeMonster__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for Melee\+Monster\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=190pt]{classMeleeMonster__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classMeleeMonster_a9ab7a959d14767520478d29553207bef}{Melee\+Monster}} (string name\+Object, sf\+::\+Vector2f init\+Pos, string name=\char`\"{}Zombie\char`\"{}, int dmg=1, int ar=1, int vf=30, float speed=3)
+\begin{DoxyCompactList}\small\item\em Constructeur de la classe {\ttfamily \mbox{\hyperlink{classMeleeMonster}{Melee\+Monster}}}. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classMeleeMonster_a18dfc80fe0592ead17cf96a4bd961909}\label{classMeleeMonster_a18dfc80fe0592ead17cf96a4bd961909}} 
+\mbox{\hyperlink{classMeleeMonster_a18dfc80fe0592ead17cf96a4bd961909}{$\sim$\+Melee\+Monster}} ()
+\begin{DoxyCompactList}\small\item\em Destructeur de la classe {\ttfamily \mbox{\hyperlink{classMeleeMonster}{Melee\+Monster}}}. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classMeleeMonster_af1aea5fbfdb7d677ce413185512f59f1}{attack}} (\mbox{\hyperlink{classCharacter}{Character}} \&target)
+\begin{DoxyCompactList}\small\item\em Attaque le personnage cible. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classMeleeMonster_a6d5b6ac02d0f8b45f274d66188788bdd}\label{classMeleeMonster_a6d5b6ac02d0f8b45f274d66188788bdd}} 
+virtual void \mbox{\hyperlink{classMeleeMonster_a6d5b6ac02d0f8b45f274d66188788bdd}{update\+Sprite}} ()
+\begin{DoxyCompactList}\small\item\em Met à jour le sprite du monstre de mêlée. \end{DoxyCompactList}\item 
+virtual void \mbox{\hyperlink{classMeleeMonster_a9f86af7ff23b9f1eafdc9dd2bd672d21}{update}} (\mbox{\hyperlink{classPlayer}{Player}} \&pl1, \mbox{\hyperlink{classPlayer}{Player}} \&pl2)
+\begin{DoxyCompactList}\small\item\em Met a jour le monstre. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Additional Inherited Members}
+
+
+\doxysubsection{Detailed Description}
+Classe représentant un monstre de mêlée, un type spécifique de monstre. 
+
+La classe {\ttfamily \mbox{\hyperlink{classMeleeMonster}{Melee\+Monster}}} hérite de la classe {\ttfamily \mbox{\hyperlink{classMonster}{Monster}}} et implémente les fonctionnalités spécifiques à un monstre de mêlée. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classMeleeMonster_a9ab7a959d14767520478d29553207bef}\label{classMeleeMonster_a9ab7a959d14767520478d29553207bef}} 
+\index{MeleeMonster@{MeleeMonster}!MeleeMonster@{MeleeMonster}}
+\index{MeleeMonster@{MeleeMonster}!MeleeMonster@{MeleeMonster}}
+\doxysubsubsection{\texorpdfstring{MeleeMonster()}{MeleeMonster()}}
+{\footnotesize\ttfamily Melee\+Monster\+::\+Melee\+Monster (\begin{DoxyParamCaption}\item[{string}]{name\+Object,  }\item[{sf\+::\+Vector2f}]{init\+Pos,  }\item[{string}]{name = {\ttfamily \char`\"{}Zombie\char`\"{}},  }\item[{int}]{dmg = {\ttfamily 1},  }\item[{int}]{ar = {\ttfamily 1},  }\item[{int}]{vf = {\ttfamily 30},  }\item[{float}]{speed = {\ttfamily 3} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Constructeur de la classe {\ttfamily \mbox{\hyperlink{classMeleeMonster}{Melee\+Monster}}}. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em name\+Object} & Nom de l\textquotesingle{}objet \\
+\hline
+{\em init\+Pos} & Position initiale du monstre de mêlée \\
+\hline
+{\em name} & Nom du monstre de mêlée \\
+\hline
+{\em dmg} & Dommages infligés par le monstre de mêlée \\
+\hline
+{\em ar} & Rayon d\textquotesingle{}attaque du monstre de mêlée \\
+\hline
+{\em vf} & Champ de vision du monstre de mêlée \\
+\hline
+{\em speed} & Vitesse du monstre de mêlée \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classMeleeMonster_af1aea5fbfdb7d677ce413185512f59f1}\label{classMeleeMonster_af1aea5fbfdb7d677ce413185512f59f1}} 
+\index{MeleeMonster@{MeleeMonster}!attack@{attack}}
+\index{attack@{attack}!MeleeMonster@{MeleeMonster}}
+\doxysubsubsection{\texorpdfstring{attack()}{attack()}}
+{\footnotesize\ttfamily void Melee\+Monster\+::attack (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classCharacter}{Character}} \&}]{target }\end{DoxyParamCaption})}
+
+
+
+Attaque le personnage cible. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em target} & Personnage cible de l\textquotesingle{}attaque \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classMeleeMonster_a9f86af7ff23b9f1eafdc9dd2bd672d21}\label{classMeleeMonster_a9f86af7ff23b9f1eafdc9dd2bd672d21}} 
+\index{MeleeMonster@{MeleeMonster}!update@{update}}
+\index{update@{update}!MeleeMonster@{MeleeMonster}}
+\doxysubsubsection{\texorpdfstring{update()}{update()}}
+{\footnotesize\ttfamily void Melee\+Monster\+::update (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classPlayer}{Player}} \&}]{pl1,  }\item[{\mbox{\hyperlink{classPlayer}{Player}} \&}]{pl2 }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Met a jour le monstre. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em pl1} & Premier joueur de la carte \\
+\hline
+{\em pl2} & Deuxieme joueur de la carte \\
+\hline
+\end{DoxyParams}
+
+
+Reimplemented from \mbox{\hyperlink{classMonster_af614ab57b208d1cc518c1c3cf5ff8ec2}{Monster}}.
+
+
+
+Reimplemented in \mbox{\hyperlink{classDemonDogMonster_a573510b58c39db20ddc1095f8a03cc53}{Demon\+Dog\+Monster}}, \mbox{\hyperlink{classMiniOgre_ad8f1079611f8f02892d3e800b40ac39c}{Mini\+Ogre}}, \mbox{\hyperlink{classMiniFrogMonster_a90d9ce6fe88a73eb229487effdcec110}{Mini\+Frog\+Monster}}, \mbox{\hyperlink{classGuerrierOgre_a4f854e7da33a1a593e43598db5bebb28}{Guerrier\+Ogre}}, and \mbox{\hyperlink{classFlyMonster_a787557ce904e8387fdd285507a2a9cc4}{Fly\+Monster}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+Melee\+Monster.\+hpp\item 
+Melee\+Monster.\+cpp\end{DoxyCompactItemize}

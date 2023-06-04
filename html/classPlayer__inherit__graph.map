@@ -1,0 +1,5 @@
+<map id="Player" name="Player">
+<area shape="rect" id="node1" title="Classe représentant le joueur du jeu." alt="" coords="17,155,79,181"/>
+<area shape="rect" id="node2" href="$classCharacter.html" title="Cette classe represente un parsonnage." alt="" coords="5,80,91,107"/>
+<area shape="rect" id="node3" href="$classObject.html" title="Classe de base pour les objets du jeu." alt="" coords="16,5,80,32"/>
+</map>

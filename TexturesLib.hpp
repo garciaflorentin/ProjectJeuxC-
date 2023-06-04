@@ -45,7 +45,7 @@ class TexturesLib {
         }
 
         /**
-         * @brief Assigner une texture à un fichier spécifié.
+         * @brief Assigner une texture de nom de fichier spécifié.
          * @param filename Le nom du fichier de la texture.
          * @param _texture La texture à assigner.
          * @return 0 si la texture est assignée avec succès, -1 sinon.
@@ -53,7 +53,7 @@ class TexturesLib {
         static int assignTexture(string filename, sf::Texture& _texture);
 
         /**
-         * @brief Assigner une texture à un fichier spécifié.
+         * @brief Assigner une texture de nom de fichier spécifié.
          * @param filename Le nom du fichier de la texture.
          * @return Un pointeur vers la texture assignée, ou nullptr si la texture n'a pas pu être chargée.
          */

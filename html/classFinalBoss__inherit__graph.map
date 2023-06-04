@@ -1,0 +1,6 @@
+<map id="FinalBoss" name="FinalBoss">
+<area shape="rect" id="node1" title="Cette classe represente le boss final." alt="" coords="7,229,89,256"/>
+<area shape="rect" id="node2" href="$classMonster.html" title="Cette classe represente un monstre." alt="" coords="11,155,85,181"/>
+<area shape="rect" id="node3" href="$classCharacter.html" title="Cette classe represente un parsonnage." alt="" coords="5,80,91,107"/>
+<area shape="rect" id="node4" href="$classObject.html" title="Classe de base pour les objets du jeu." alt="" coords="16,5,80,32"/>
+</map>

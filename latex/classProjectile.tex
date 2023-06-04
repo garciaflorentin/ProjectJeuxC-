@@ -1,0 +1,235 @@
+\hypertarget{classProjectile}{}\doxysection{Projectile Class Reference}
+\label{classProjectile}\index{Projectile@{Projectile}}
+
+
+Cette classe represente un projectile.  
+
+
+
+
+{\ttfamily \#include $<$Projectile.\+hpp$>$}
+
+
+
+Inheritance diagram for Projectile\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=196pt]{classProjectile__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for Projectile\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=142pt]{classProjectile__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classProjectile_ad79cf8eacd73576ee4970f11151a9112}{Projectile}} (string name\+Object, sf\+::\+Vector2f init\+Pos)
+\begin{DoxyCompactList}\small\item\em Constructeur de la classe \mbox{\hyperlink{classProjectile}{Projectile}}. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classProjectile_a94903e021fa2edab60ba3836ca0b937d}\label{classProjectile_a94903e021fa2edab60ba3836ca0b937d}} 
+\mbox{\hyperlink{classProjectile_a94903e021fa2edab60ba3836ca0b937d}{$\sim$\+Projectile}} ()
+\begin{DoxyCompactList}\small\item\em Destructeur de la classe \mbox{\hyperlink{classProjectile}{Projectile}}. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classProjectile_ad249e587d04287658a87feb4d0543623}{Projectile}} (const \mbox{\hyperlink{classProjectile}{Projectile}} \&other)
+\begin{DoxyCompactList}\small\item\em Constructeur de copie de la classe \mbox{\hyperlink{classProjectile}{Projectile}}. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classProjectile}{Projectile}} \& \mbox{\hyperlink{classProjectile_a2330985af6201be654ff16629230e6f3}{operator=}} (const \mbox{\hyperlink{classProjectile}{Projectile}} \&other)
+\begin{DoxyCompactList}\small\item\em Opérateur d\textquotesingle{}assignation de la classe \mbox{\hyperlink{classProjectile}{Projectile}}. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classProjectile_a7e12302acd5621ee41b6821e1b46f0b6}\label{classProjectile_a7e12302acd5621ee41b6821e1b46f0b6}} 
+virtual void \mbox{\hyperlink{classProjectile_a7e12302acd5621ee41b6821e1b46f0b6}{go\+To}} ()
+\begin{DoxyCompactList}\small\item\em Déplace le projectile vers sa nouvelle position en fonction de sa direction. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classProjectile_a1aa8bd179a73c8b7e1c219c4ebc16aac}\label{classProjectile_a1aa8bd179a73c8b7e1c219c4ebc16aac}} 
+virtual void \mbox{\hyperlink{classProjectile_a1aa8bd179a73c8b7e1c219c4ebc16aac}{init\+Projectile}} ()
+\begin{DoxyCompactList}\small\item\em Initialise le projectile. \end{DoxyCompactList}\item 
+virtual void \mbox{\hyperlink{classProjectile_a5dbfa02e6e14a2149240762aa1e50403}{collide}} (\mbox{\hyperlink{classObject}{Object}} \&o)
+\begin{DoxyCompactList}\small\item\em Gère la collision du projectile avec un autre objet. \end{DoxyCompactList}\item 
+const int \mbox{\hyperlink{classProjectile_a38fcf7448936cea8b6199f9592adb425}{get\+Block\+Size}} ()
+\begin{DoxyCompactList}\small\item\em Récupère la taille du projectile. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classProjectile_ac37b26205cbfe55e7fb9797664f2dd0c}{is\+Shot}} ()
+\begin{DoxyCompactList}\small\item\em Vérifie si le projectile a été tiré. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classProjectile_a4361c0671be58c8242dd201010630352}{set\+Is\+Shot}} (bool state)
+\begin{DoxyCompactList}\small\item\em Définit l\textquotesingle{}état du projectile (tiré ou non). \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{classProjectile_a8f8efa31f4843a36a8ec6838c34e572f}{get\+Distance}} ()
+\begin{DoxyCompactList}\small\item\em Récupère la distance parcourue par le projectile. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classProjectile_a04596a692ad43957d351e9936c04bb00}\label{classProjectile_a04596a692ad43957d351e9936c04bb00}} 
+void \mbox{\hyperlink{classProjectile_a04596a692ad43957d351e9936c04bb00}{incremente\+Distance}} ()
+\begin{DoxyCompactList}\small\item\em Incrémente la distance parcourue par le projectile. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classProjectile_a32e789cdcd7cb48f32167caad8fb5da4}{set\+Distance}} (int i)
+\begin{DoxyCompactList}\small\item\em Définit la distance parcourue par le projectile. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classProjectile_a05e775eeff0fd0a263cdfd22722d6423}\label{classProjectile_a05e775eeff0fd0a263cdfd22722d6423}} 
+void \mbox{\hyperlink{classProjectile_a05e775eeff0fd0a263cdfd22722d6423}{arrow\+Out\+Of\+Bounds}} ()
+\begin{DoxyCompactList}\small\item\em Gère le dépassement de limite du projectile (hors des limites de l\textquotesingle{}écran). \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classProjectile_adcb696775117c37c9448a88defe4f19d}\label{classProjectile_adcb696775117c37c9448a88defe4f19d}} 
+bool \mbox{\hyperlink{classProjectile_adcb696775117c37c9448a88defe4f19d}{\+\_\+is\+Shot}}
+\begin{DoxyCompactList}\small\item\em Indique si le projectile a été tiré. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classProjectile_aedd6d45189c7e6957c4462b21a8ddc64}\label{classProjectile_aedd6d45189c7e6957c4462b21a8ddc64}} 
+int \mbox{\hyperlink{classProjectile_aedd6d45189c7e6957c4462b21a8ddc64}{\+\_\+distance}}
+\begin{DoxyCompactList}\small\item\em La distance parcourue par le projectile. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Cette classe represente un projectile. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classProjectile_ad79cf8eacd73576ee4970f11151a9112}\label{classProjectile_ad79cf8eacd73576ee4970f11151a9112}} 
+\index{Projectile@{Projectile}!Projectile@{Projectile}}
+\index{Projectile@{Projectile}!Projectile@{Projectile}}
+\doxysubsubsection{\texorpdfstring{Projectile()}{Projectile()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily Projectile\+::\+Projectile (\begin{DoxyParamCaption}\item[{string}]{name\+Object,  }\item[{sf\+::\+Vector2f}]{init\+Pos }\end{DoxyParamCaption})}
+
+
+
+Constructeur de la classe \mbox{\hyperlink{classProjectile}{Projectile}}. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em name\+Object} & Le nom de l\textquotesingle{}objet projectile. \\
+\hline
+{\em init\+Pos} & La position initiale du projectile. \\
+\hline
+{\em player} & Le joueur qui a tiré le projectile. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classProjectile_ad249e587d04287658a87feb4d0543623}\label{classProjectile_ad249e587d04287658a87feb4d0543623}} 
+\index{Projectile@{Projectile}!Projectile@{Projectile}}
+\index{Projectile@{Projectile}!Projectile@{Projectile}}
+\doxysubsubsection{\texorpdfstring{Projectile()}{Projectile()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily Projectile\+::\+Projectile (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classProjectile}{Projectile}} \&}]{other }\end{DoxyParamCaption})}
+
+
+
+Constructeur de copie de la classe \mbox{\hyperlink{classProjectile}{Projectile}}. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em other} & L\textquotesingle{}autre projectile à copier. \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classProjectile_a5dbfa02e6e14a2149240762aa1e50403}\label{classProjectile_a5dbfa02e6e14a2149240762aa1e50403}} 
+\index{Projectile@{Projectile}!collide@{collide}}
+\index{collide@{collide}!Projectile@{Projectile}}
+\doxysubsubsection{\texorpdfstring{collide()}{collide()}}
+{\footnotesize\ttfamily void Projectile\+::collide (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classObject}{Object}} \&}]{o }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Gère la collision du projectile avec un autre objet. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em o} & L\textquotesingle{}objet avec lequel le projectile entre en collision. \\
+\hline
+\end{DoxyParams}
+
+
+Reimplemented from \mbox{\hyperlink{classObject_a62148779acb081bf59c92c24f0695d7d}{Object}}.
+
+
+
+Reimplemented in \mbox{\hyperlink{classFireball_a4b9c83d6c801c086b54c48956eb39487}{Fireball}}.
+
+\mbox{\Hypertarget{classProjectile_a38fcf7448936cea8b6199f9592adb425}\label{classProjectile_a38fcf7448936cea8b6199f9592adb425}} 
+\index{Projectile@{Projectile}!getBlockSize@{getBlockSize}}
+\index{getBlockSize@{getBlockSize}!Projectile@{Projectile}}
+\doxysubsubsection{\texorpdfstring{getBlockSize()}{getBlockSize()}}
+{\footnotesize\ttfamily const int Projectile\+::get\+Block\+Size (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Récupère la taille du projectile. 
+
+\begin{DoxyReturn}{Returns}
+La taille du projectile. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classProjectile_a8f8efa31f4843a36a8ec6838c34e572f}\label{classProjectile_a8f8efa31f4843a36a8ec6838c34e572f}} 
+\index{Projectile@{Projectile}!getDistance@{getDistance}}
+\index{getDistance@{getDistance}!Projectile@{Projectile}}
+\doxysubsubsection{\texorpdfstring{getDistance()}{getDistance()}}
+{\footnotesize\ttfamily int Projectile\+::get\+Distance (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Récupère la distance parcourue par le projectile. 
+
+\begin{DoxyReturn}{Returns}
+La distance parcourue par le projectile. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classProjectile_ac37b26205cbfe55e7fb9797664f2dd0c}\label{classProjectile_ac37b26205cbfe55e7fb9797664f2dd0c}} 
+\index{Projectile@{Projectile}!isShot@{isShot}}
+\index{isShot@{isShot}!Projectile@{Projectile}}
+\doxysubsubsection{\texorpdfstring{isShot()}{isShot()}}
+{\footnotesize\ttfamily bool Projectile\+::is\+Shot (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Vérifie si le projectile a été tiré. 
+
+\begin{DoxyReturn}{Returns}
+{\ttfamily true} si le projectile a été tiré, sinon {\ttfamily false}. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classProjectile_a2330985af6201be654ff16629230e6f3}\label{classProjectile_a2330985af6201be654ff16629230e6f3}} 
+\index{Projectile@{Projectile}!operator=@{operator=}}
+\index{operator=@{operator=}!Projectile@{Projectile}}
+\doxysubsubsection{\texorpdfstring{operator=()}{operator=()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classProjectile}{Projectile}} \& Projectile\+::operator= (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classProjectile}{Projectile}} \&}]{other }\end{DoxyParamCaption})}
+
+
+
+Opérateur d\textquotesingle{}assignation de la classe \mbox{\hyperlink{classProjectile}{Projectile}}. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em other} & L\textquotesingle{}autre projectile à assigner. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Une référence sur le projectile assigné. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classProjectile_a32e789cdcd7cb48f32167caad8fb5da4}\label{classProjectile_a32e789cdcd7cb48f32167caad8fb5da4}} 
+\index{Projectile@{Projectile}!setDistance@{setDistance}}
+\index{setDistance@{setDistance}!Projectile@{Projectile}}
+\doxysubsubsection{\texorpdfstring{setDistance()}{setDistance()}}
+{\footnotesize\ttfamily void Projectile\+::set\+Distance (\begin{DoxyParamCaption}\item[{int}]{i }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Définit la distance parcourue par le projectile. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em i} & La distance parcourue par le projectile. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classProjectile_a4361c0671be58c8242dd201010630352}\label{classProjectile_a4361c0671be58c8242dd201010630352}} 
+\index{Projectile@{Projectile}!setIsShot@{setIsShot}}
+\index{setIsShot@{setIsShot}!Projectile@{Projectile}}
+\doxysubsubsection{\texorpdfstring{setIsShot()}{setIsShot()}}
+{\footnotesize\ttfamily void Projectile\+::set\+Is\+Shot (\begin{DoxyParamCaption}\item[{bool}]{state }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Définit l\textquotesingle{}état du projectile (tiré ou non). 
+
+
+\begin{DoxyParams}{Parameters}
+{\em state} & L\textquotesingle{}état du projectile. \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+Projectile.\+hpp\item 
+Projectile.\+cpp\end{DoxyCompactItemize}

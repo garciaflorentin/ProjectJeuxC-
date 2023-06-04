@@ -1,0 +1,110 @@
+\hypertarget{classDoorWall}{}\doxysection{Door\+Wall Class Reference}
+\label{classDoorWall}\index{DoorWall@{DoorWall}}
+
+
+Inheritance diagram for Door\+Wall\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=142pt]{classDoorWall__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for Door\+Wall\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=142pt]{classDoorWall__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classDoorWall_a68f6f6011ed9635fd8e1d0a70ae81548}{Door\+Wall}} (string name\+Object, sf\+::\+Vector2f init\+Pos, Type\+Wall \+\_\+type\+Wall, int nb\+Key, int rotate)
+\begin{DoxyCompactList}\small\item\em Constructeur de la classe {\ttfamily \mbox{\hyperlink{classDoorWall}{Door\+Wall}}}. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classDoorWall}{Door\+Wall}} \& \mbox{\hyperlink{classDoorWall_a20fb825361a4e97366c34e44df0f5745}{operator=}} (const \mbox{\hyperlink{classDoorWall}{Door\+Wall}} \&other)
+\begin{DoxyCompactList}\small\item\em Operateur d\textquotesingle{}assignement. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classDoorWall_ac43be14f47dea550b0ade9f0801e1178}\label{classDoorWall_ac43be14f47dea550b0ade9f0801e1178}} 
+\mbox{\hyperlink{classDoorWall_ac43be14f47dea550b0ade9f0801e1178}{$\sim$\+Door\+Wall}} ()
+\begin{DoxyCompactList}\small\item\em Destructeur de la classe {\ttfamily \mbox{\hyperlink{classDoorWall}{Door\+Wall}}}. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classDoorWall_aecfc202aed395e0b6d2379a5e0eeae44}\label{classDoorWall_aecfc202aed395e0b6d2379a5e0eeae44}} 
+virtual void \mbox{\hyperlink{classDoorWall_aecfc202aed395e0b6d2379a5e0eeae44}{anim\+Door}} ()
+\begin{DoxyCompactList}\small\item\em Anime la porte. \end{DoxyCompactList}\item 
+virtual void \mbox{\hyperlink{classDoorWall_a5ff43a68c64947d0a40a5b50a393b16d}{collide}} (\mbox{\hyperlink{classObject}{Object}} \&o)
+\begin{DoxyCompactList}\small\item\em Gère la collision avec un objet. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Additional Inherited Members}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classDoorWall_a68f6f6011ed9635fd8e1d0a70ae81548}\label{classDoorWall_a68f6f6011ed9635fd8e1d0a70ae81548}} 
+\index{DoorWall@{DoorWall}!DoorWall@{DoorWall}}
+\index{DoorWall@{DoorWall}!DoorWall@{DoorWall}}
+\doxysubsubsection{\texorpdfstring{DoorWall()}{DoorWall()}}
+{\footnotesize\ttfamily Door\+Wall\+::\+Door\+Wall (\begin{DoxyParamCaption}\item[{string}]{name\+Object,  }\item[{sf\+::\+Vector2f}]{init\+Pos,  }\item[{Type\+Wall}]{\+\_\+type\+Wall,  }\item[{int}]{nb\+Key,  }\item[{int}]{rotate }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Constructeur de la classe {\ttfamily \mbox{\hyperlink{classDoorWall}{Door\+Wall}}}. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em name\+Object} & Nom de l\textquotesingle{}objet \\
+\hline
+{\em init\+Pos} & Position initiale \\
+\hline
+{\em \+\_\+type\+Wall} & Type de mur de la porte \\
+\hline
+{\em nb\+Key} & Nombre de clés nécessaires pour ouvrir la porte \\
+\hline
+{\em rotate} & Angle de rotation de la porte \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classDoorWall_a5ff43a68c64947d0a40a5b50a393b16d}\label{classDoorWall_a5ff43a68c64947d0a40a5b50a393b16d}} 
+\index{DoorWall@{DoorWall}!collide@{collide}}
+\index{collide@{collide}!DoorWall@{DoorWall}}
+\doxysubsubsection{\texorpdfstring{collide()}{collide()}}
+{\footnotesize\ttfamily void Door\+Wall\+::collide (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classObject}{Object}} \&}]{o }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Gère la collision avec un objet. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em o} & Objet avec lequel il y a collision. \\
+\hline
+\end{DoxyParams}
+
+
+Reimplemented from \mbox{\hyperlink{classDoor_a1d3fa06284441d17351275d9950ceadb}{Door}}.
+
+\mbox{\Hypertarget{classDoorWall_a20fb825361a4e97366c34e44df0f5745}\label{classDoorWall_a20fb825361a4e97366c34e44df0f5745}} 
+\index{DoorWall@{DoorWall}!operator=@{operator=}}
+\index{operator=@{operator=}!DoorWall@{DoorWall}}
+\doxysubsubsection{\texorpdfstring{operator=()}{operator=()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classDoorWall}{Door\+Wall}}\& Door\+Wall\+::operator= (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classDoorWall}{Door\+Wall}} \&}]{other }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Operateur d\textquotesingle{}assignement. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em other} & Porte a assigner \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\mbox{\hyperlink{classDoorWall}{Door\+Wall}}\& -\/ Porte assignee 
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+Door\+Wall.\+hpp\item 
+Door\+Wall.\+cpp\end{DoxyCompactItemize}

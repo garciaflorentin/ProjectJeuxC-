@@ -6,6 +6,10 @@
 #define PROJECTILE_SPEED 10.0
 
 
+/**
+ * @brief Cette classe represente un projectile
+ * 
+ */
 class Projectile: public Object {
 
     protected:

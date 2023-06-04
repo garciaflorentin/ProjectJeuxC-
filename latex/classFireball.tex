@@ -1,0 +1,147 @@
+\hypertarget{classFireball}{}\doxysection{Fireball Class Reference}
+\label{classFireball}\index{Fireball@{Fireball}}
+
+
+Cette classe represente une boule de feu.  
+
+
+
+
+{\ttfamily \#include $<$Fireball.\+hpp$>$}
+
+
+
+Inheritance diagram for Fireball\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=142pt]{classFireball__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for Fireball\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=142pt]{classFireball__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classFireball_a7c7146ea91dd774c0bab5d7f605960d0}\label{classFireball_a7c7146ea91dd774c0bab5d7f605960d0}} 
+\mbox{\hyperlink{classFireball_a7c7146ea91dd774c0bab5d7f605960d0}{Fireball}} ()
+\begin{DoxyCompactList}\small\item\em Constructeurt par defaut. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classFireball_a1a6b53f2675deb64c10db9c05c680842}{Fireball}} (string name\+Object, sf\+::\+Vector2f init\+Pos, \mbox{\hyperlink{classCharacter}{Character}} \&player, float angle=0, int dmg=2)
+\begin{DoxyCompactList}\small\item\em Constructeur. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classFireball}{Fireball}} \& \mbox{\hyperlink{classFireball_ac702d58980dda57a4a2a4d41f7a191cf}{operator=}} (const \mbox{\hyperlink{classFireball}{Fireball}} \&other)
+\begin{DoxyCompactList}\small\item\em Operatur d\textquotesingle{}assignement. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classFireball_a60938554b4140792132d3cd993d78eef}\label{classFireball_a60938554b4140792132d3cd993d78eef}} 
+\mbox{\hyperlink{classFireball_a60938554b4140792132d3cd993d78eef}{$\sim$\+Fireball}} ()
+\begin{DoxyCompactList}\small\item\em Destructeur. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classFireball_af2a708a0afcdc799c6c3c9ce402b2472}{compute\+Trajectory}} (\mbox{\hyperlink{classCharacter}{Character}} \&player, float angle)
+\begin{DoxyCompactList}\small\item\em Calcule la trajectoire a suivre par le fireball. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classFireball_a56afd501869c62515f0b1b59cce180a9}\label{classFireball_a56afd501869c62515f0b1b59cce180a9}} 
+void \mbox{\hyperlink{classFireball_a56afd501869c62515f0b1b59cce180a9}{init\+Projectile}} ()
+\begin{DoxyCompactList}\small\item\em Initialide le fireball lors de son lancement et le dessine. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classFireball_a099594f697516ce7ea0230653c76ad8b}\label{classFireball_a099594f697516ce7ea0230653c76ad8b}} 
+void \mbox{\hyperlink{classFireball_a099594f697516ce7ea0230653c76ad8b}{go\+To}} ()
+\begin{DoxyCompactList}\small\item\em Suit la trajectoire du fireball. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classFireball_a4b9c83d6c801c086b54c48956eb39487}{collide}} (\mbox{\hyperlink{classObject}{Object}} \&o)
+\begin{DoxyCompactList}\small\item\em Gere les collisions avec les objets. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Additional Inherited Members}
+
+
+\doxysubsection{Detailed Description}
+Cette classe represente une boule de feu. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classFireball_a1a6b53f2675deb64c10db9c05c680842}\label{classFireball_a1a6b53f2675deb64c10db9c05c680842}} 
+\index{Fireball@{Fireball}!Fireball@{Fireball}}
+\index{Fireball@{Fireball}!Fireball@{Fireball}}
+\doxysubsubsection{\texorpdfstring{Fireball()}{Fireball()}}
+{\footnotesize\ttfamily Fireball\+::\+Fireball (\begin{DoxyParamCaption}\item[{string}]{name\+Object,  }\item[{sf\+::\+Vector2f}]{init\+Pos,  }\item[{\mbox{\hyperlink{classCharacter}{Character}} \&}]{player,  }\item[{float}]{angle = {\ttfamily 0},  }\item[{int}]{dmg = {\ttfamily 2} }\end{DoxyParamCaption})}
+
+
+
+Constructeur. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em name\+Object} & Nom de la texture a charger \\
+\hline
+{\em init\+Pos} & Position initiale \\
+\hline
+{\em player} & Joueur a qui est destine le fireball \\
+\hline
+{\em angle} & Angle sous lequel est lance le fireball \\
+\hline
+{\em dmg} & Degats infliges par le fireball \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classFireball_a4b9c83d6c801c086b54c48956eb39487}\label{classFireball_a4b9c83d6c801c086b54c48956eb39487}} 
+\index{Fireball@{Fireball}!collide@{collide}}
+\index{collide@{collide}!Fireball@{Fireball}}
+\doxysubsubsection{\texorpdfstring{collide()}{collide()}}
+{\footnotesize\ttfamily void Fireball\+::collide (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classObject}{Object}} \&}]{o }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Gere les collisions avec les objets. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em o} & Objet en collision \\
+\hline
+\end{DoxyParams}
+
+
+Reimplemented from \mbox{\hyperlink{classProjectile_a5dbfa02e6e14a2149240762aa1e50403}{Projectile}}.
+
+\mbox{\Hypertarget{classFireball_af2a708a0afcdc799c6c3c9ce402b2472}\label{classFireball_af2a708a0afcdc799c6c3c9ce402b2472}} 
+\index{Fireball@{Fireball}!computeTrajectory@{computeTrajectory}}
+\index{computeTrajectory@{computeTrajectory}!Fireball@{Fireball}}
+\doxysubsubsection{\texorpdfstring{computeTrajectory()}{computeTrajectory()}}
+{\footnotesize\ttfamily void Fireball\+::compute\+Trajectory (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classCharacter}{Character}} \&}]{player,  }\item[{float}]{angle }\end{DoxyParamCaption})}
+
+
+
+Calcule la trajectoire a suivre par le fireball. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em player} & Joueur destinateire \\
+\hline
+{\em angle} & Angle sous lequel le fireball est lance \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classFireball_ac702d58980dda57a4a2a4d41f7a191cf}\label{classFireball_ac702d58980dda57a4a2a4d41f7a191cf}} 
+\index{Fireball@{Fireball}!operator=@{operator=}}
+\index{operator=@{operator=}!Fireball@{Fireball}}
+\doxysubsubsection{\texorpdfstring{operator=()}{operator=()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classFireball}{Fireball}} \& Fireball\+::operator= (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classFireball}{Fireball}} \&}]{other }\end{DoxyParamCaption})}
+
+
+
+Operatur d\textquotesingle{}assignement. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em other} & \mbox{\hyperlink{classFireball}{Fireball}} a assigner \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\mbox{\hyperlink{classFireball}{Fireball}}\& -\/ \mbox{\hyperlink{classFireball}{Fireball}} assigne 
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+Fireball.\+hpp\item 
+Fireball.\+cpp\end{DoxyCompactItemize}

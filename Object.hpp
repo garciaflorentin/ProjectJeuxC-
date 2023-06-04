@@ -16,13 +16,15 @@ using namespace std;
  */
 class Object {
     protected:
-        //bool _isOpen = true;
-
         sf::Texture& _texture; /**< Pointeur vers la texture de l'objet */
         sf::Sprite& _sprite; /**< Pointeur vers le sprite de l'objet */
         string _name; /**< Nom de l'objet */
 
     public:
+        /**
+         * @brief Constructeur par defaut
+         * 
+         */
         Object() : _texture(*(new sf::Texture)), _sprite(*(new sf::Sprite)) {};
 
         /**
@@ -32,6 +34,12 @@ class Object {
          */
         Object(string nameObject, sf::Vector2f initPos);
 
+        /**
+         * @brief Operateur d'assignement
+         * 
+         * @param other Objet a assigner
+         * @return Object& - Objet assigne
+         */
         Object& operator=(const Object& other);
 
         /**
@@ -105,8 +113,6 @@ class Object {
          * @param player Référence vers l'objet joueur.
          */
         virtual void update(Object& player){};
-
-        //virtual bool isOpen() const { return true; };
 };
 
 

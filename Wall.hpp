@@ -15,12 +15,15 @@
  * La classe `Wall` hérite de la classe `Tile` et représente un mur dans le jeu.
  */
 class Wall: public Tile {
-
     protected:
-        sf::Music* _collideMusic; // Musique de collision
-        int _resistance;
+        sf::Music* _collideMusic;   ///< Musique de collision
+        int _resistance;            ///< Resistance du mur
 
     public:
+        /**
+         * @brief Constructeur par defaut
+         * 
+         */
         Wall() {};
 
         /**
@@ -159,6 +162,12 @@ class Wall: public Tile {
             }
         }
 
+        /**
+         * @brief Operateur d'assignement
+         * 
+         * @param other Mur a assigner
+         * @return Wall& - Mur assigne
+         */
         Wall& operator= (const Wall& other);
 
         /**

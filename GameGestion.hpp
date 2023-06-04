@@ -10,6 +10,10 @@
 using namespace std;
 
 
+/**
+ * @brief Cette classe gere les evenements du jeu
+ * 
+ */
 class GameGestion : public ColisionInterface {
     private:
         vector<Player*> _playerVector; /**< Vecteur de pointeurs vers les joueurs */
@@ -27,7 +31,7 @@ class GameGestion : public ColisionInterface {
         vector<sf::Music*> _music; /**< Vecteur de pointeurs vers les musiques */
         int _currentZoneMusic; /**< Indice de la musique de la zone actuelle */
 
-        bool _tmp_var = false;   // permet de gerer le clavier
+        bool _tmp_var = false;  ///< Permet d'eviter l'appui multiple du clavier
 
     public:
         /**
@@ -35,6 +39,12 @@ class GameGestion : public ColisionInterface {
          */
         GameGestion();
 
+        /**
+         * @brief Operateur d'assignement
+         * 
+         * @param other Jeu a assigner
+         * @return GameGestion& - Jeu assigne
+         */
         GameGestion& operator=(const GameGestion& other);
 
         /**
@@ -51,7 +61,6 @@ class GameGestion : public ColisionInterface {
 
         /**
          * @brief Définit le joueur principal.
-         * @param player Pointeur vers le sprite du joueur.
          */
         void setPlayer();
 
@@ -75,9 +84,40 @@ class GameGestion : public ColisionInterface {
          */
         int updateGame();
 
+        /**
+         * @brief Recupere les elements a dessiner depuis la carte
+         * 
+         * @param currentWindow Dimensions de la carte a afficher
+         * @return std::vector<Object*>& - Elements a dessiner
+         */
         std::vector<Object*>& toDrawUpdate(std::vector<sf::Vector2f>& currentWindow);
+
+        /**
+         * @brief Recupere les fleches du premier joueur a dessiner
+         * 
+         * @param currentWindow Dimensions de la carte a afficher
+         * @return true - Il faut dessiner une fleche
+         * @return false - Il n'y a oas de fleche a dessiner
+         */
         const bool drawProjectile1(std::vector<sf::Vector2f>& currentWindow);
+
+        /**
+         * @brief Recupere les fleches du deuxieme joueur a dessiner
+         * 
+         * @param currentWindow Dimensions de la carte a afficher
+         * @return true - Il faut dessiner une fleche
+         * @return false - Il n'y a oas de fleche a dessiner
+         */
         const bool drawProjectile2(std::vector<sf::Vector2f>& currentWindow);
+
+        /**
+         * @brief Recupere les fireball des monstres a afficher
+         * 
+         * @param currentWindow Dimensions de la carte a afficher
+         * @param toFill Tableau des fireball a afficher
+         * @return true - Il faut dessiner des fireball
+         * @return false - Il n'y a pas de fireball a dessiner
+         */
         const bool drawFireballs(std::vector<sf::Vector2f>& currentWindow,  std::vector<Projectile*>& toFill);
 
         /**
@@ -85,6 +125,13 @@ class GameGestion : public ColisionInterface {
          */
         void updateMobs();
 
+        /**
+         * @brief Met a jour les fireball
+         * 
+         * @param fireballs Fireball a mettre a jour
+         * @param curr_ind Indice du fireball dans le tableau qu'il faut mettre a jour
+         * @param wallList Liste des murs sur la carte
+         */
         void updateFireballs(std::vector<Projectile*>& fireballs, int curr_ind, std::vector<Object*>& wallList);
 
         // Collision

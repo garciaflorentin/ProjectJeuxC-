@@ -5,6 +5,10 @@
 #include "Player.hpp"
 
 
+/**
+ * @brief Cette classe represente une porte
+ * 
+ */
 class Door : public Wall {
 
     protected:
@@ -17,6 +21,10 @@ class Door : public Wall {
         sf::Texture& _backDoorTexture; /**< Texture du fond de la porte */
 
     public:
+        /**
+         * @brief Constructeur par defaut
+         * 
+         */
         Door() : _backDoorTexture(*(new sf::Texture)) {};
 
         /**
@@ -28,6 +36,12 @@ class Door : public Wall {
          */
         Door(string nameObject, sf::Vector2f initPos, TypeWall _typeWall);
 
+        /**
+         * @brief Operateur d'assignement
+         * 
+         * @param other Porte a assigner
+         * @return Door& - porte assignee
+         */
         virtual Door& operator=(const Door& other) {
             Wall::operator=(other);
 

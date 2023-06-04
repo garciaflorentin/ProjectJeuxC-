@@ -5,10 +5,13 @@
 #include "TypeGround.hpp"
 
 
+/**
+ * @brief Cette classe represente une case du sol
+ * 
+ */
 class Ground: public Tile {
 
     public:
-
         /**
          * @brief Obtient la taille du bloc de sol.
          * @return La taille du bloc de sol.

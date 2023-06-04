@@ -1,0 +1,135 @@
+\hypertarget{classFinalBoss}{}\doxysection{Final\+Boss Class Reference}
+\label{classFinalBoss}\index{FinalBoss@{FinalBoss}}
+
+
+Cette classe represente le boss final.  
+
+
+
+
+{\ttfamily \#include $<$Final\+Boss.\+hpp$>$}
+
+
+
+Inheritance diagram for Final\+Boss\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=144pt]{classFinalBoss__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for Final\+Boss\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=190pt]{classFinalBoss__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classFinalBoss_a8c9af880c40bda93a29718d19bf5575d}\label{classFinalBoss_a8c9af880c40bda93a29718d19bf5575d}} 
+\mbox{\hyperlink{classFinalBoss_a8c9af880c40bda93a29718d19bf5575d}{Final\+Boss}} ()
+\begin{DoxyCompactList}\small\item\em Constructeur. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classFinalBoss_a894ff95dfd52ceab63eb41aa9422f02d}{attack}} (\mbox{\hyperlink{classCharacter}{Character}} \&target, char type)
+\begin{DoxyCompactList}\small\item\em Attecket une cible. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classFinalBoss_a9990514730d0f1582b8430a3b0f37fec}{update}} (\mbox{\hyperlink{classPlayer}{Player}} \&pl1, \mbox{\hyperlink{classPlayer}{Player}} \&pl2)
+\begin{DoxyCompactList}\small\item\em Met a jour le personnage. \end{DoxyCompactList}\item 
+virtual std\+::vector$<$ \mbox{\hyperlink{classProjectile}{Projectile}} $\ast$ $>$ $\ast$ \mbox{\hyperlink{classFinalBoss_a39364649c9a9724e952a27481fe1f24a}{get\+Projectiles}} ()
+\begin{DoxyCompactList}\small\item\em Getteur de \+\_\+fireballs. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classFinalBoss_ae5600076fdaf0eee3f7ad0f290110983}\label{classFinalBoss_ae5600076fdaf0eee3f7ad0f290110983}} 
+void \mbox{\hyperlink{classFinalBoss_ae5600076fdaf0eee3f7ad0f290110983}{update\+Sprite}} ()
+\begin{DoxyCompactList}\small\item\em Met a jour le sprite. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classFinalBoss_a059108379bc0d83d3f430b7629da9689}{collide}} (\mbox{\hyperlink{classObject}{Object}} \&o)
+\begin{DoxyCompactList}\small\item\em Gere les collisions avec les differents objets. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Additional Inherited Members}
+
+
+\doxysubsection{Detailed Description}
+Cette classe represente le boss final. 
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classFinalBoss_a894ff95dfd52ceab63eb41aa9422f02d}\label{classFinalBoss_a894ff95dfd52ceab63eb41aa9422f02d}} 
+\index{FinalBoss@{FinalBoss}!attack@{attack}}
+\index{attack@{attack}!FinalBoss@{FinalBoss}}
+\doxysubsubsection{\texorpdfstring{attack()}{attack()}}
+{\footnotesize\ttfamily void Final\+Boss\+::attack (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classCharacter}{Character}} \&}]{target,  }\item[{char}]{type }\end{DoxyParamCaption})}
+
+
+
+Attecket une cible. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em target} & La cible \\
+\hline
+{\em type} & Tyoe d\textquotesingle{}attaque \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classFinalBoss_a059108379bc0d83d3f430b7629da9689}\label{classFinalBoss_a059108379bc0d83d3f430b7629da9689}} 
+\index{FinalBoss@{FinalBoss}!collide@{collide}}
+\index{collide@{collide}!FinalBoss@{FinalBoss}}
+\doxysubsubsection{\texorpdfstring{collide()}{collide()}}
+{\footnotesize\ttfamily void Final\+Boss\+::collide (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classObject}{Object}} \&}]{o }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Gere les collisions avec les differents objets. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em o} & Objet en collision \\
+\hline
+\end{DoxyParams}
+
+
+Reimplemented from \mbox{\hyperlink{classMonster_a703f65ba55b23713745707f77a0abc65}{Monster}}.
+
+\mbox{\Hypertarget{classFinalBoss_a39364649c9a9724e952a27481fe1f24a}\label{classFinalBoss_a39364649c9a9724e952a27481fe1f24a}} 
+\index{FinalBoss@{FinalBoss}!getProjectiles@{getProjectiles}}
+\index{getProjectiles@{getProjectiles}!FinalBoss@{FinalBoss}}
+\doxysubsubsection{\texorpdfstring{getProjectiles()}{getProjectiles()}}
+{\footnotesize\ttfamily virtual std\+::vector$<$\mbox{\hyperlink{classProjectile}{Projectile}}$\ast$$>$$\ast$ Final\+Boss\+::get\+Projectiles (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+
+
+Getteur de \+\_\+fireballs. 
+
+\begin{DoxyReturn}{Returns}
+std\+::vector$<$\+Projectile$\ast$$>$$\ast$ -\/ Tableau des fireball tires par le personnage 
+\end{DoxyReturn}
+
+
+Reimplemented from \mbox{\hyperlink{classMonster_a0873f5b7d345dd0866aa259f4a40facb}{Monster}}.
+
+\mbox{\Hypertarget{classFinalBoss_a9990514730d0f1582b8430a3b0f37fec}\label{classFinalBoss_a9990514730d0f1582b8430a3b0f37fec}} 
+\index{FinalBoss@{FinalBoss}!update@{update}}
+\index{update@{update}!FinalBoss@{FinalBoss}}
+\doxysubsubsection{\texorpdfstring{update()}{update()}}
+{\footnotesize\ttfamily void Final\+Boss\+::update (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classPlayer}{Player}} \&}]{pl1,  }\item[{\mbox{\hyperlink{classPlayer}{Player}} \&}]{pl2 }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Met a jour le personnage. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em pl1} & Premier joueur de la carte \\
+\hline
+{\em pl2} & Deuxieme joueur de la carte \\
+\hline
+\end{DoxyParams}
+
+
+Reimplemented from \mbox{\hyperlink{classMonster_af614ab57b208d1cc518c1c3cf5ff8ec2}{Monster}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+Final\+Boss.\+hpp\item 
+Final\+Boss.\+cpp\end{DoxyCompactItemize}

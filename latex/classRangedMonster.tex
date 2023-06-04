@@ -1,0 +1,144 @@
+\hypertarget{classRangedMonster}{}\doxysection{Ranged\+Monster Class Reference}
+\label{classRangedMonster}\index{RangedMonster@{RangedMonster}}
+
+
+Cette classe represente un monstre qui peut tirer les projectiles.  
+
+
+
+
+{\ttfamily \#include $<$Ranged\+Monster.\+hpp$>$}
+
+
+
+Inheritance diagram for Ranged\+Monster\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=173pt]{classRangedMonster__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for Ranged\+Monster\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=190pt]{classRangedMonster__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classRangedMonster_a89ada21b6cb5efcc4d96a65f6fec3c23}{Ranged\+Monster}} (string name\+Object, sf\+::\+Vector2f init\+Pos, string name=\char`\"{}meat\char`\"{}, int dmg=1, int ar=5, int vf=50, float speed=1)
+\begin{DoxyCompactList}\small\item\em Constructeur. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classRangedMonster_a57373b6cda7d035de6b80b9c60e1c193}\label{classRangedMonster_a57373b6cda7d035de6b80b9c60e1c193}} 
+\mbox{\hyperlink{classRangedMonster_a57373b6cda7d035de6b80b9c60e1c193}{$\sim$\+Ranged\+Monster}} ()
+\begin{DoxyCompactList}\small\item\em Destructeur. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classRangedMonster_a2e1846f249980be295889bf1b5d0134b}{attack}} (\mbox{\hyperlink{classCharacter}{Character}} \&target)
+\begin{DoxyCompactList}\small\item\em Attaque la cible. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classProjectile}{Projectile}} $\ast$ \mbox{\hyperlink{classRangedMonster_a7c1f7991f05d84fe674c1cef85b39611}{get\+Projectile}} ()
+\begin{DoxyCompactList}\small\item\em Getteur de \+\_\+fireball. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classRangedMonster_ac398f79a0f83bd20464db5b14db67e6c}\label{classRangedMonster_ac398f79a0f83bd20464db5b14db67e6c}} 
+void \mbox{\hyperlink{classRangedMonster_ac398f79a0f83bd20464db5b14db67e6c}{update\+Sprite}} ()
+\begin{DoxyCompactList}\small\item\em Met a jour le sprite. \end{DoxyCompactList}\item 
+virtual void \mbox{\hyperlink{classRangedMonster_acc42971ada02e522a4f4f34050db6037}{update}} (\mbox{\hyperlink{classPlayer}{Player}} \&target1, \mbox{\hyperlink{classPlayer}{Player}} \&target2)
+\begin{DoxyCompactList}\small\item\em Met a jour le monstre. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Additional Inherited Members}
+
+
+\doxysubsection{Detailed Description}
+Cette classe represente un monstre qui peut tirer les projectiles. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classRangedMonster_a89ada21b6cb5efcc4d96a65f6fec3c23}\label{classRangedMonster_a89ada21b6cb5efcc4d96a65f6fec3c23}} 
+\index{RangedMonster@{RangedMonster}!RangedMonster@{RangedMonster}}
+\index{RangedMonster@{RangedMonster}!RangedMonster@{RangedMonster}}
+\doxysubsubsection{\texorpdfstring{RangedMonster()}{RangedMonster()}}
+{\footnotesize\ttfamily Ranged\+Monster\+::\+Ranged\+Monster (\begin{DoxyParamCaption}\item[{string}]{name\+Object,  }\item[{sf\+::\+Vector2f}]{init\+Pos,  }\item[{string}]{name = {\ttfamily \char`\"{}meat\char`\"{}},  }\item[{int}]{dmg = {\ttfamily 1},  }\item[{int}]{ar = {\ttfamily 5},  }\item[{int}]{vf = {\ttfamily 50},  }\item[{float}]{speed = {\ttfamily 1} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Constructeur. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em name\+Object} & Nom de la texture a charger \\
+\hline
+{\em init\+Pos} & Position initiale \\
+\hline
+{\em name} & Nom du monstre \\
+\hline
+{\em dmg} & Degats du monstre \\
+\hline
+{\em ar} & Rayon d\textquotesingle{}attaque \\
+\hline
+{\em vf} & Rayon de la vue \\
+\hline
+{\em speed} & Vitesse \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classRangedMonster_a2e1846f249980be295889bf1b5d0134b}\label{classRangedMonster_a2e1846f249980be295889bf1b5d0134b}} 
+\index{RangedMonster@{RangedMonster}!attack@{attack}}
+\index{attack@{attack}!RangedMonster@{RangedMonster}}
+\doxysubsubsection{\texorpdfstring{attack()}{attack()}}
+{\footnotesize\ttfamily void Ranged\+Monster\+::attack (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classCharacter}{Character}} \&}]{target }\end{DoxyParamCaption})}
+
+
+
+Attaque la cible. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em target} & La cible \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classRangedMonster_a7c1f7991f05d84fe674c1cef85b39611}\label{classRangedMonster_a7c1f7991f05d84fe674c1cef85b39611}} 
+\index{RangedMonster@{RangedMonster}!getProjectile@{getProjectile}}
+\index{getProjectile@{getProjectile}!RangedMonster@{RangedMonster}}
+\doxysubsubsection{\texorpdfstring{getProjectile()}{getProjectile()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classProjectile}{Projectile}}$\ast$ Ranged\+Monster\+::get\+Projectile (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+
+
+Getteur de \+\_\+fireball. 
+
+\begin{DoxyReturn}{Returns}
+Projectile$\ast$ -\/ \mbox{\hyperlink{classFireball}{Fireball}} tire 
+\end{DoxyReturn}
+
+
+Reimplemented from \mbox{\hyperlink{classMonster_ad72af9b04abe771e0aed673dbb02f9bf}{Monster}}.
+
+\mbox{\Hypertarget{classRangedMonster_acc42971ada02e522a4f4f34050db6037}\label{classRangedMonster_acc42971ada02e522a4f4f34050db6037}} 
+\index{RangedMonster@{RangedMonster}!update@{update}}
+\index{update@{update}!RangedMonster@{RangedMonster}}
+\doxysubsubsection{\texorpdfstring{update()}{update()}}
+{\footnotesize\ttfamily void Ranged\+Monster\+::update (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classPlayer}{Player}} \&}]{target1,  }\item[{\mbox{\hyperlink{classPlayer}{Player}} \&}]{target2 }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Met a jour le monstre. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em target1} & Premier joueur de la carte \\
+\hline
+{\em target2} & Deuxieme joueur de la carte \\
+\hline
+\end{DoxyParams}
+
+
+Reimplemented from \mbox{\hyperlink{classMonster_af614ab57b208d1cc518c1c3cf5ff8ec2}{Monster}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+Ranged\+Monster.\+hpp\item 
+Ranged\+Monster.\+cpp\end{DoxyCompactItemize}

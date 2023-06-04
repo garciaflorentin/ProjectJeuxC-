@@ -1,0 +1,92 @@
+\hypertarget{classTexturesLib}{}\doxysection{Textures\+Lib Class Reference}
+\label{classTexturesLib}\index{TexturesLib@{TexturesLib}}
+
+
+La classe \mbox{\hyperlink{classTexturesLib}{Textures\+Lib}} gère la bibliothèque de textures utilisées dans le jeu.  
+
+
+
+
+{\ttfamily \#include $<$Textures\+Lib.\+hpp$>$}
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classTexturesLib_a296e4cf7aa29b0326f33ad434ff28c97}\label{classTexturesLib_a296e4cf7aa29b0326f33ad434ff28c97}} 
+\mbox{\hyperlink{classTexturesLib_a296e4cf7aa29b0326f33ad434ff28c97}{Textures\+Lib}} ()
+\begin{DoxyCompactList}\small\item\em Constructeur de la classe \mbox{\hyperlink{classTexturesLib}{Textures\+Lib}}. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classTexturesLib_a3d4ce1b20596449be7fee18f36bb2e48}\label{classTexturesLib_a3d4ce1b20596449be7fee18f36bb2e48}} 
+\mbox{\hyperlink{classTexturesLib_a3d4ce1b20596449be7fee18f36bb2e48}{$\sim$\+Textures\+Lib}} ()
+\begin{DoxyCompactList}\small\item\em Destructeur de la classe \mbox{\hyperlink{classTexturesLib}{Textures\+Lib}}. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static map$<$ string, sf\+::\+Texture $\ast$ $>$ \& \mbox{\hyperlink{classTexturesLib_af98741242bb24985c1321027cf62e4f3}{get\+Textures}} ()
+\begin{DoxyCompactList}\small\item\em Récupère la collection de textures. \end{DoxyCompactList}\item 
+static int \mbox{\hyperlink{classTexturesLib_a5cbe5568e6f7facb3cf11a1dcfc3e420}{assign\+Texture}} (string filename, sf\+::\+Texture \&\+\_\+texture)
+\begin{DoxyCompactList}\small\item\em Assigner une texture de nom de fichier spécifié. \end{DoxyCompactList}\item 
+static sf\+::\+Texture \& \mbox{\hyperlink{classTexturesLib_a816d40cad2353a5031e461ab9427632b}{assign\+Texture}} (string filename)
+\begin{DoxyCompactList}\small\item\em Assigner une texture de nom de fichier spécifié. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+La classe \mbox{\hyperlink{classTexturesLib}{Textures\+Lib}} gère la bibliothèque de textures utilisées dans le jeu. 
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classTexturesLib_a816d40cad2353a5031e461ab9427632b}\label{classTexturesLib_a816d40cad2353a5031e461ab9427632b}} 
+\index{TexturesLib@{TexturesLib}!assignTexture@{assignTexture}}
+\index{assignTexture@{assignTexture}!TexturesLib@{TexturesLib}}
+\doxysubsubsection{\texorpdfstring{assignTexture()}{assignTexture()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily sf\+::\+Texture \& Textures\+Lib\+::assign\+Texture (\begin{DoxyParamCaption}\item[{string}]{filename }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Assigner une texture de nom de fichier spécifié. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em filename} & Le nom du fichier de la texture. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Un pointeur vers la texture assignée, ou nullptr si la texture n\textquotesingle{}a pas pu être chargée. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classTexturesLib_a5cbe5568e6f7facb3cf11a1dcfc3e420}\label{classTexturesLib_a5cbe5568e6f7facb3cf11a1dcfc3e420}} 
+\index{TexturesLib@{TexturesLib}!assignTexture@{assignTexture}}
+\index{assignTexture@{assignTexture}!TexturesLib@{TexturesLib}}
+\doxysubsubsection{\texorpdfstring{assignTexture()}{assignTexture()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily int Textures\+Lib\+::assign\+Texture (\begin{DoxyParamCaption}\item[{string}]{filename,  }\item[{sf\+::\+Texture \&}]{\+\_\+texture }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Assigner une texture de nom de fichier spécifié. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em filename} & Le nom du fichier de la texture. \\
+\hline
+{\em \+\_\+texture} & La texture à assigner. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+0 si la texture est assignée avec succès, -\/1 sinon. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classTexturesLib_af98741242bb24985c1321027cf62e4f3}\label{classTexturesLib_af98741242bb24985c1321027cf62e4f3}} 
+\index{TexturesLib@{TexturesLib}!getTextures@{getTextures}}
+\index{getTextures@{getTextures}!TexturesLib@{TexturesLib}}
+\doxysubsubsection{\texorpdfstring{getTextures()}{getTextures()}}
+{\footnotesize\ttfamily static map$<$string, sf\+::\+Texture$\ast$$>$\& Textures\+Lib\+::get\+Textures (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+
+
+Récupère la collection de textures. 
+
+\begin{DoxyReturn}{Returns}
+La collection de textures. 
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+Textures\+Lib.\+hpp\item 
+Textures\+Lib.\+cpp\end{DoxyCompactItemize}

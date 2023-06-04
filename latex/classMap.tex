@@ -1,0 +1,362 @@
+\hypertarget{classMap}{}\doxysection{Map Class Reference}
+\label{classMap}\index{Map@{Map}}
+
+
+Cette classe represente une carte.  
+
+
+
+
+{\ttfamily \#include $<$Map.\+hpp$>$}
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classMap_a0f5ad0fd4563497b4214038cbca8b582}\label{classMap_a0f5ad0fd4563497b4214038cbca8b582}} 
+\mbox{\hyperlink{classMap_a0f5ad0fd4563497b4214038cbca8b582}{Map}} ()
+\begin{DoxyCompactList}\small\item\em Constructeur de la classe {\ttfamily \mbox{\hyperlink{classMap}{Map}}}. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classMap}{Map}} \& \mbox{\hyperlink{classMap_af1055bc2b92bf1e019807a84c6e3e448}{operator=}} (const \mbox{\hyperlink{classMap}{Map}} \&other)
+\begin{DoxyCompactList}\small\item\em Operateur d\textquotesingle{}assignement. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classMap_aa403fbe09394ccf39747588f5168e3b2}\label{classMap_aa403fbe09394ccf39747588f5168e3b2}} 
+\mbox{\hyperlink{classMap_aa403fbe09394ccf39747588f5168e3b2}{$\sim$\+Map}} ()
+\begin{DoxyCompactList}\small\item\em Destructeur de la classe {\ttfamily \mbox{\hyperlink{classMap}{Map}}}. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classMap_a01dadf48d2bf7fb2b2ef4d58f3eb9624}{get\+Limit\+Map}} (std\+::vector$<$ float $>$ \&limit)
+\begin{DoxyCompactList}\small\item\em Récupère les limites de la carte. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classMap_adf291a686c8e72ecf14b0653774e2d47}{get\+Limit\+Map\+Boss}} (std\+::vector$<$ float $>$ \&limit)
+\begin{DoxyCompactList}\small\item\em Récupère les limites de la carte du boss. \end{DoxyCompactList}\item 
+std\+::vector$<$ \mbox{\hyperlink{classObject}{Object}} $\ast$ $>$ \& \mbox{\hyperlink{classMap_a045a50b968f286683b08379f9eafef33}{object\+To\+Draw}} (std\+::vector$<$ sf\+::\+Vector2f $>$ \&current\+Window)
+\begin{DoxyCompactList}\small\item\em Récupère les objets à afficher sur la carte. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classMap_a5afaf0cec1e90c792b2daeeecd99b9d6}{add\+Object}} (\mbox{\hyperlink{classWall}{Wall}} $\ast$w)
+\begin{DoxyCompactList}\small\item\em Ajoute un objet à la carte. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classMap_aa7139d4e76ceae7f4119a0d052de6ca0}{add\+Object}} (\mbox{\hyperlink{classChest}{Chest}} $\ast$c)
+\begin{DoxyCompactList}\small\item\em Ajoute un objet à la carte. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classMap_a0d739c9b83395c752c8a9638829657d6}{add\+Object}} (\mbox{\hyperlink{classGround}{Ground}} $\ast$g)
+\begin{DoxyCompactList}\small\item\em Ajoute un objet à la carte. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classMap_a976f2cd5d44fad8a16f3b0b230e5c1a2}{add\+Object}} (\mbox{\hyperlink{classMonster}{Monster}} $\ast$m)
+\begin{DoxyCompactList}\small\item\em Ajoute un monstre à la carte. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classMap_ac6f0e0a410c1089cf653fbec482bb3f8}\label{classMap_ac6f0e0a410c1089cf653fbec482bb3f8}} 
+void {\bfseries add\+Object} (\mbox{\hyperlink{classProjectile}{Projectile}} $\ast$p)
+\item 
+void \mbox{\hyperlink{classMap_abe4535ad5e928abe0ce0b21161e2ecf7}{remove\+Object}} (\mbox{\hyperlink{classObject}{Object}} \&o)
+\begin{DoxyCompactList}\small\item\em Supprime un objet de la carte. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classMap_ab01b5945ae722908864a3208939928d1}\label{classMap_ab01b5945ae722908864a3208939928d1}} 
+void \mbox{\hyperlink{classMap_ab01b5945ae722908864a3208939928d1}{create\+Map}} ()
+\begin{DoxyCompactList}\small\item\em Crée la carte du jeu. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classMap_a5dd6e485e2f6af74d4d3bb3ca0912828}{put\+Object\+To\+Draw}} (std\+::vector$<$ sf\+::\+Vector2f $>$ \&pos)
+\begin{DoxyCompactList}\small\item\em Place les objets à afficher sur la carte. \end{DoxyCompactList}\item 
+std\+::vector$<$ \mbox{\hyperlink{classObject}{Object}} $\ast$ $>$ \& \mbox{\hyperlink{classMap_a49da5fc96b27891d87c50815cc207235}{get\+Map}} ()
+\begin{DoxyCompactList}\small\item\em Obtient la carte du jeu. \end{DoxyCompactList}\item 
+std\+::vector$<$ \mbox{\hyperlink{classObject}{Object}} $\ast$ $>$ \& \mbox{\hyperlink{classMap_aacab964f971e7c547c98ee11915ff4f2}{get\+Wall\+List}} ()
+\begin{DoxyCompactList}\small\item\em Obtient la liste des murs de la carte. \end{DoxyCompactList}\item 
+std\+::vector$<$ \mbox{\hyperlink{classMonster}{Monster}} $\ast$ $>$ \& \mbox{\hyperlink{classMap_af1c5144301ebe56655c142e42958d19f}{get\+Monsters}} ()
+\begin{DoxyCompactList}\small\item\em Obtient la liste des monstres présents sur la carte. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classMap_a0c379f1b817bd0e9934d14086a7d0462}{update\+Objects}} (\mbox{\hyperlink{classPlayer}{Player}} \&player1, \mbox{\hyperlink{classPlayer}{Player}} \&player2)
+\begin{DoxyCompactList}\small\item\em Met a jour la carte. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classMap_a15a1892ddd0696f3e27d07ff2c9b2cec}\label{classMap_a15a1892ddd0696f3e27d07ff2c9b2cec}} 
+void \mbox{\hyperlink{classMap_a15a1892ddd0696f3e27d07ff2c9b2cec}{update\+Animate\+Object}} ()
+\begin{DoxyCompactList}\small\item\em Met à jour les animations des objets de la carte. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classMap_a139b928e9a1e150bf65c4f21eddd4d29}{spawn\+Mobs}} (string area)
+\begin{DoxyCompactList}\small\item\em Fait apparaître des monstres sur la carte dans une zone spécifique. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classMap_a9c9048ac4c37e31f8afc532a85ba1460}{add\+Player\+Dead}} (sf\+::\+Sprite $\ast$sprite)
+\begin{DoxyCompactList}\small\item\em Ajoute le sprite du joueur mort. \end{DoxyCompactList}\item 
+sf\+::\+Sprite $\ast$ \mbox{\hyperlink{classMap_a596eb5be12a9d053264799af41b519bf}{get\+Player\+Dead}} ()
+\begin{DoxyCompactList}\small\item\em Obtient le sprite du joueur mort. \end{DoxyCompactList}\item 
+vector$<$ \mbox{\hyperlink{classGoldenChest}{Golden\+Chest}} $\ast$ $>$ \& \mbox{\hyperlink{classMap_aca49216bef3e3d0358d71fa48f1784b3}{get\+Golden\+Chest\+List}} ()
+\begin{DoxyCompactList}\small\item\em Getteur de \+\_\+gold\+Chest\+List. \end{DoxyCompactList}\item 
+const bool \mbox{\hyperlink{classMap_af8c44e78919ffa89527090c2e1e55ba6}{game\+Won}} () const
+\begin{DoxyCompactList}\small\item\em Getteur de \+\_\+game\+Won. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Cette classe represente une carte. 
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classMap_aa7139d4e76ceae7f4119a0d052de6ca0}\label{classMap_aa7139d4e76ceae7f4119a0d052de6ca0}} 
+\index{Map@{Map}!addObject@{addObject}}
+\index{addObject@{addObject}!Map@{Map}}
+\doxysubsubsection{\texorpdfstring{addObject()}{addObject()}\hspace{0.1cm}{\footnotesize\ttfamily [1/4]}}
+{\footnotesize\ttfamily void Map\+::add\+Object (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classChest}{Chest}} $\ast$}]{c }\end{DoxyParamCaption})}
+
+
+
+Ajoute un objet à la carte. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em c} & Objet coffre à ajouter \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classMap_a0d739c9b83395c752c8a9638829657d6}\label{classMap_a0d739c9b83395c752c8a9638829657d6}} 
+\index{Map@{Map}!addObject@{addObject}}
+\index{addObject@{addObject}!Map@{Map}}
+\doxysubsubsection{\texorpdfstring{addObject()}{addObject()}\hspace{0.1cm}{\footnotesize\ttfamily [2/4]}}
+{\footnotesize\ttfamily void Map\+::add\+Object (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classGround}{Ground}} $\ast$}]{g }\end{DoxyParamCaption})}
+
+
+
+Ajoute un objet à la carte. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em g} & Objet sol à ajouter \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classMap_a976f2cd5d44fad8a16f3b0b230e5c1a2}\label{classMap_a976f2cd5d44fad8a16f3b0b230e5c1a2}} 
+\index{Map@{Map}!addObject@{addObject}}
+\index{addObject@{addObject}!Map@{Map}}
+\doxysubsubsection{\texorpdfstring{addObject()}{addObject()}\hspace{0.1cm}{\footnotesize\ttfamily [3/4]}}
+{\footnotesize\ttfamily void Map\+::add\+Object (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classMonster}{Monster}} $\ast$}]{m }\end{DoxyParamCaption})}
+
+
+
+Ajoute un monstre à la carte. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em m} & Monstre à ajouter \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classMap_a5afaf0cec1e90c792b2daeeecd99b9d6}\label{classMap_a5afaf0cec1e90c792b2daeeecd99b9d6}} 
+\index{Map@{Map}!addObject@{addObject}}
+\index{addObject@{addObject}!Map@{Map}}
+\doxysubsubsection{\texorpdfstring{addObject()}{addObject()}\hspace{0.1cm}{\footnotesize\ttfamily [4/4]}}
+{\footnotesize\ttfamily void Map\+::add\+Object (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classWall}{Wall}} $\ast$}]{w }\end{DoxyParamCaption})}
+
+
+
+Ajoute un objet à la carte. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em w} & Objet mur à ajouter \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classMap_a9c9048ac4c37e31f8afc532a85ba1460}\label{classMap_a9c9048ac4c37e31f8afc532a85ba1460}} 
+\index{Map@{Map}!addPlayerDead@{addPlayerDead}}
+\index{addPlayerDead@{addPlayerDead}!Map@{Map}}
+\doxysubsubsection{\texorpdfstring{addPlayerDead()}{addPlayerDead()}}
+{\footnotesize\ttfamily void Map\+::add\+Player\+Dead (\begin{DoxyParamCaption}\item[{sf\+::\+Sprite $\ast$}]{sprite }\end{DoxyParamCaption})}
+
+
+
+Ajoute le sprite du joueur mort. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em sprite} & Sprite du joueur mort \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classMap_af8c44e78919ffa89527090c2e1e55ba6}\label{classMap_af8c44e78919ffa89527090c2e1e55ba6}} 
+\index{Map@{Map}!gameWon@{gameWon}}
+\index{gameWon@{gameWon}!Map@{Map}}
+\doxysubsubsection{\texorpdfstring{gameWon()}{gameWon()}}
+{\footnotesize\ttfamily const bool Map\+::game\+Won (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Getteur de \+\_\+game\+Won. 
+
+\begin{DoxyReturn}{Returns}
+true -\/ Victoire 
+
+false -\/ Pas de victoire -\/ pour l\textquotesingle{}instant 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classMap_aca49216bef3e3d0358d71fa48f1784b3}\label{classMap_aca49216bef3e3d0358d71fa48f1784b3}} 
+\index{Map@{Map}!getGoldenChestList@{getGoldenChestList}}
+\index{getGoldenChestList@{getGoldenChestList}!Map@{Map}}
+\doxysubsubsection{\texorpdfstring{getGoldenChestList()}{getGoldenChestList()}}
+{\footnotesize\ttfamily vector$<$\mbox{\hyperlink{classGoldenChest}{Golden\+Chest}}$\ast$$>$\& Map\+::get\+Golden\+Chest\+List (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Getteur de \+\_\+gold\+Chest\+List. 
+
+\begin{DoxyReturn}{Returns}
+vector$<$\+Golden\+Chest$\ast$$>$\& Liste des coffres a cle 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classMap_a01dadf48d2bf7fb2b2ef4d58f3eb9624}\label{classMap_a01dadf48d2bf7fb2b2ef4d58f3eb9624}} 
+\index{Map@{Map}!getLimitMap@{getLimitMap}}
+\index{getLimitMap@{getLimitMap}!Map@{Map}}
+\doxysubsubsection{\texorpdfstring{getLimitMap()}{getLimitMap()}}
+{\footnotesize\ttfamily void Map\+::get\+Limit\+Map (\begin{DoxyParamCaption}\item[{std\+::vector$<$ float $>$ \&}]{limit }\end{DoxyParamCaption})}
+
+
+
+Récupère les limites de la carte. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em limit} & Vecteur dans lequel stocker les limites de la carte (limites horizontales et verticales) \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classMap_adf291a686c8e72ecf14b0653774e2d47}\label{classMap_adf291a686c8e72ecf14b0653774e2d47}} 
+\index{Map@{Map}!getLimitMapBoss@{getLimitMapBoss}}
+\index{getLimitMapBoss@{getLimitMapBoss}!Map@{Map}}
+\doxysubsubsection{\texorpdfstring{getLimitMapBoss()}{getLimitMapBoss()}}
+{\footnotesize\ttfamily void Map\+::get\+Limit\+Map\+Boss (\begin{DoxyParamCaption}\item[{std\+::vector$<$ float $>$ \&}]{limit }\end{DoxyParamCaption})}
+
+
+
+Récupère les limites de la carte du boss. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em limit} & Vecteur dans lequel stocker les limites de la carte du boss (limites horizontales et verticales) \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classMap_a49da5fc96b27891d87c50815cc207235}\label{classMap_a49da5fc96b27891d87c50815cc207235}} 
+\index{Map@{Map}!getMap@{getMap}}
+\index{getMap@{getMap}!Map@{Map}}
+\doxysubsubsection{\texorpdfstring{getMap()}{getMap()}}
+{\footnotesize\ttfamily std\+::vector$<$ \mbox{\hyperlink{classObject}{Object}} $\ast$ $>$ \& Map\+::get\+Map (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Obtient la carte du jeu. 
+
+\begin{DoxyReturn}{Returns}
+Vecteur contenant les objets de la carte 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classMap_af1c5144301ebe56655c142e42958d19f}\label{classMap_af1c5144301ebe56655c142e42958d19f}} 
+\index{Map@{Map}!getMonsters@{getMonsters}}
+\index{getMonsters@{getMonsters}!Map@{Map}}
+\doxysubsubsection{\texorpdfstring{getMonsters()}{getMonsters()}}
+{\footnotesize\ttfamily std\+::vector$<$ \mbox{\hyperlink{classMonster}{Monster}} $\ast$ $>$ \& Map\+::get\+Monsters (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Obtient la liste des monstres présents sur la carte. 
+
+\begin{DoxyReturn}{Returns}
+Vecteur contenant les monstres présents sur la carte 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classMap_a596eb5be12a9d053264799af41b519bf}\label{classMap_a596eb5be12a9d053264799af41b519bf}} 
+\index{Map@{Map}!getPlayerDead@{getPlayerDead}}
+\index{getPlayerDead@{getPlayerDead}!Map@{Map}}
+\doxysubsubsection{\texorpdfstring{getPlayerDead()}{getPlayerDead()}}
+{\footnotesize\ttfamily sf\+::\+Sprite $\ast$ Map\+::get\+Player\+Dead (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Obtient le sprite du joueur mort. 
+
+\begin{DoxyReturn}{Returns}
+Sprite du joueur mort 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classMap_aacab964f971e7c547c98ee11915ff4f2}\label{classMap_aacab964f971e7c547c98ee11915ff4f2}} 
+\index{Map@{Map}!getWallList@{getWallList}}
+\index{getWallList@{getWallList}!Map@{Map}}
+\doxysubsubsection{\texorpdfstring{getWallList()}{getWallList()}}
+{\footnotesize\ttfamily std\+::vector$<$ \mbox{\hyperlink{classObject}{Object}} $\ast$ $>$ \& Map\+::get\+Wall\+List (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Obtient la liste des murs de la carte. 
+
+\begin{DoxyReturn}{Returns}
+Vecteur contenant les murs de la carte 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classMap_a045a50b968f286683b08379f9eafef33}\label{classMap_a045a50b968f286683b08379f9eafef33}} 
+\index{Map@{Map}!objectToDraw@{objectToDraw}}
+\index{objectToDraw@{objectToDraw}!Map@{Map}}
+\doxysubsubsection{\texorpdfstring{objectToDraw()}{objectToDraw()}}
+{\footnotesize\ttfamily std\+::vector$<$ \mbox{\hyperlink{classObject}{Object}} $\ast$ $>$ \& Map\+::object\+To\+Draw (\begin{DoxyParamCaption}\item[{std\+::vector$<$ sf\+::\+Vector2f $>$ \&}]{current\+Window }\end{DoxyParamCaption})}
+
+
+
+Récupère les objets à afficher sur la carte. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em current\+Window} & Fenêtre actuelle du jeu \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Vecteur contenant les objets à afficher sur la carte 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classMap_af1055bc2b92bf1e019807a84c6e3e448}\label{classMap_af1055bc2b92bf1e019807a84c6e3e448}} 
+\index{Map@{Map}!operator=@{operator=}}
+\index{operator=@{operator=}!Map@{Map}}
+\doxysubsubsection{\texorpdfstring{operator=()}{operator=()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classMap}{Map}} \& Map\+::operator= (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classMap}{Map}} \&}]{other }\end{DoxyParamCaption})}
+
+
+
+Operateur d\textquotesingle{}assignement. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em other} & Carte a assigner \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\mbox{\hyperlink{classMap}{Map}}\& -\/ Carte assignee 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classMap_a5dd6e485e2f6af74d4d3bb3ca0912828}\label{classMap_a5dd6e485e2f6af74d4d3bb3ca0912828}} 
+\index{Map@{Map}!putObjectToDraw@{putObjectToDraw}}
+\index{putObjectToDraw@{putObjectToDraw}!Map@{Map}}
+\doxysubsubsection{\texorpdfstring{putObjectToDraw()}{putObjectToDraw()}}
+{\footnotesize\ttfamily void Map\+::put\+Object\+To\+Draw (\begin{DoxyParamCaption}\item[{std\+::vector$<$ sf\+::\+Vector2f $>$ \&}]{pos }\end{DoxyParamCaption})}
+
+
+
+Place les objets à afficher sur la carte. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em pos} & Position des objets à afficher \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classMap_abe4535ad5e928abe0ce0b21161e2ecf7}\label{classMap_abe4535ad5e928abe0ce0b21161e2ecf7}} 
+\index{Map@{Map}!removeObject@{removeObject}}
+\index{removeObject@{removeObject}!Map@{Map}}
+\doxysubsubsection{\texorpdfstring{removeObject()}{removeObject()}}
+{\footnotesize\ttfamily void Map\+::remove\+Object (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classObject}{Object}} \&}]{o }\end{DoxyParamCaption})}
+
+
+
+Supprime un objet de la carte. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em o} & Objet à supprimer \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classMap_a139b928e9a1e150bf65c4f21eddd4d29}\label{classMap_a139b928e9a1e150bf65c4f21eddd4d29}} 
+\index{Map@{Map}!spawnMobs@{spawnMobs}}
+\index{spawnMobs@{spawnMobs}!Map@{Map}}
+\doxysubsubsection{\texorpdfstring{spawnMobs()}{spawnMobs()}}
+{\footnotesize\ttfamily void Map\+::spawn\+Mobs (\begin{DoxyParamCaption}\item[{string}]{area }\end{DoxyParamCaption})}
+
+
+
+Fait apparaître des monstres sur la carte dans une zone spécifique. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em area} & Zone d\textquotesingle{}apparition des monstres \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classMap_a0c379f1b817bd0e9934d14086a7d0462}\label{classMap_a0c379f1b817bd0e9934d14086a7d0462}} 
+\index{Map@{Map}!updateObjects@{updateObjects}}
+\index{updateObjects@{updateObjects}!Map@{Map}}
+\doxysubsubsection{\texorpdfstring{updateObjects()}{updateObjects()}}
+{\footnotesize\ttfamily void Map\+::update\+Objects (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classPlayer}{Player}} \&}]{player1,  }\item[{\mbox{\hyperlink{classPlayer}{Player}} \&}]{player2 }\end{DoxyParamCaption})}
+
+
+
+Met a jour la carte. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em player1} & Premier joueur \\
+\hline
+{\em player2} & Deuxieme joueur \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+Map.\+hpp\item 
+Map.\+cpp\end{DoxyCompactItemize}

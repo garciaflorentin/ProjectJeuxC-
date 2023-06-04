@@ -7,8 +7,11 @@
 #include "Character.hpp"
 
 
+/**
+ * @brief Cette classe representre un coffre
+ * 
+ */
 class Chest : public Tile {
-
     protected:
         int _chest_size = 35; /**< Taille d'un bloc du coffre */
         bool _isOpen; /**< Indique si le coffre est ouvert */

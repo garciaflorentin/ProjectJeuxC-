@@ -10,7 +10,6 @@
 
 
 class Monster;
-//class Arrow;
 
 
 /**
@@ -34,21 +33,32 @@ class Player : public Character {
         Arrow& _projectile; /**< Projectile du joueur */
 
         bool _canOpenChest = true; /**< Indique si le joueur peut ouvrir un coffre */
-        int _hitAnim;
+        int _hitAnim;   ///< Numero du sprite a afficher pour animer l'attaque
 
-        static int _keys;
+        static int _keys;   ///< Nombre des cles ramassees
 
     public:
+        /**
+         * @brief Constructeur par defaut
+         * 
+         */
         Player() : Character(), _projectile(*(new Arrow("OtherTextures/arrow.png",{0,0},*this))) {};
 
         /**
-         * @brief Constructeur de la classe `Player`.
-         *
-         * @param nameObject Nom de l'objet
-         * @param initPos Position initiale du joueur
+         * @brief Constructeur
+         * 
+         * @param nameObject Nom de la texture a charger
+         * @param initPos Position initiale
+         * @param nameProjectile Nom de la texture de la fleche a charger
          */
         Player(string nameObject, sf::Vector2f initPos, string nameProjectile);
 
+        /**
+         * @brief Operateur d'assignement
+         * 
+         * @param other Joueur a assigner
+         * @return Player& - Joueur assigne
+         */
         Player& operator=(const Player& other);
 
         /**
@@ -56,8 +66,19 @@ class Player : public Character {
          */
         ~Player();
 
+        /**
+         * @brief Prendre des degats
+         * 
+         * @param heartQuarters Le degat
+         */
         void takeDamage(int heartQuarters);
 
+        /**
+         * @brief Getteur de _isAlive
+         * 
+         * @return true - Le joueur est vivant
+         * @return false - Le joueur est mort
+         */
         bool isAlive() { return _isAlive; }
 
         /**

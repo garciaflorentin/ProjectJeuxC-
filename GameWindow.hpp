@@ -14,11 +14,11 @@ using namespace std;
 
 /**
  * @class GameWindow
- * @brief Represents the game window and handles game rendering and user input.
+ * @brief Represente l'affichage de la fenetre
  */
 class GameWindow {
     private :
-        float _windowWidth = 1024.0, _windowHeight = 768.0;
+        float _windowWidth = 1024.0, _windowHeight = 768.0; ///< Dimensions de la fenetre
         sf::RenderWindow* _window; /**< The SFML render window */
         sf::Event _event; /**< The SFML event object */
         sf::VideoMode _videoMode; /**< The SFML video mode */

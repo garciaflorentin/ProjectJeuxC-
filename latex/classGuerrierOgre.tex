@@ -1,0 +1,108 @@
+\hypertarget{classGuerrierOgre}{}\doxysection{Guerrier\+Ogre Class Reference}
+\label{classGuerrierOgre}\index{GuerrierOgre@{GuerrierOgre}}
+
+
+Cette classe represente un ogre en armure.  
+
+
+
+
+{\ttfamily \#include $<$Guerrier\+Ogre.\+hpp$>$}
+
+
+
+Inheritance diagram for Guerrier\+Ogre\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=166pt]{classGuerrierOgre__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for Guerrier\+Ogre\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=190pt]{classGuerrierOgre__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classGuerrierOgre_ada05dc77ffa1f84b4bbef49126ee95e5}{Guerrier\+Ogre}} (const char $\ast$name\+Object, sf\+::\+Vector2f init\+Pos, string name=\char`\"{}Guerrier\+Ogre\char`\"{}, int dmg=4, int ar=1, int vf=30, float speed=1.\+5)
+\begin{DoxyCompactList}\small\item\em Constructeur de la classe {\ttfamily \mbox{\hyperlink{classGuerrierOgre}{Guerrier\+Ogre}}}. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classGuerrierOgre_aa1081ab59c5b7da636f58a386c71b7a9}\label{classGuerrierOgre_aa1081ab59c5b7da636f58a386c71b7a9}} 
+\mbox{\hyperlink{classGuerrierOgre_aa1081ab59c5b7da636f58a386c71b7a9}{$\sim$\+Guerrier\+Ogre}} ()
+\begin{DoxyCompactList}\small\item\em Destructeur de la classe {\ttfamily \mbox{\hyperlink{classGuerrierOgre}{Guerrier\+Ogre}}}. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classGuerrierOgre_a46122afa4b11572d486dafa346c90d16}\label{classGuerrierOgre_a46122afa4b11572d486dafa346c90d16}} 
+void \mbox{\hyperlink{classGuerrierOgre_a46122afa4b11572d486dafa346c90d16}{update\+Sprite}} ()
+\begin{DoxyCompactList}\small\item\em Met à jour le sprite du monstre. \end{DoxyCompactList}\item 
+virtual void \mbox{\hyperlink{classGuerrierOgre_a4f854e7da33a1a593e43598db5bebb28}{update}} (\mbox{\hyperlink{classPlayer}{Player}} \&pl1, \mbox{\hyperlink{classPlayer}{Player}} \&pl2)
+\begin{DoxyCompactList}\small\item\em Met a jourt le monstre. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Additional Inherited Members}
+
+
+\doxysubsection{Detailed Description}
+Cette classe represente un ogre en armure. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classGuerrierOgre_ada05dc77ffa1f84b4bbef49126ee95e5}\label{classGuerrierOgre_ada05dc77ffa1f84b4bbef49126ee95e5}} 
+\index{GuerrierOgre@{GuerrierOgre}!GuerrierOgre@{GuerrierOgre}}
+\index{GuerrierOgre@{GuerrierOgre}!GuerrierOgre@{GuerrierOgre}}
+\doxysubsubsection{\texorpdfstring{GuerrierOgre()}{GuerrierOgre()}}
+{\footnotesize\ttfamily Guerrier\+Ogre\+::\+Guerrier\+Ogre (\begin{DoxyParamCaption}\item[{const char $\ast$}]{name\+Object,  }\item[{sf\+::\+Vector2f}]{init\+Pos,  }\item[{string}]{name = {\ttfamily \char`\"{}GuerrierOgre\char`\"{}},  }\item[{int}]{dmg = {\ttfamily 4},  }\item[{int}]{ar = {\ttfamily 1},  }\item[{int}]{vf = {\ttfamily 30},  }\item[{float}]{speed = {\ttfamily 1.5} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Constructeur de la classe {\ttfamily \mbox{\hyperlink{classGuerrierOgre}{Guerrier\+Ogre}}}. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em name\+Object} & Nom de l\textquotesingle{}objet \\
+\hline
+{\em init\+Pos} & Position initiale \\
+\hline
+{\em name} & Nom du monstre \\
+\hline
+{\em dmg} & Dommages du monstre \\
+\hline
+{\em ar} & Armure du monstre \\
+\hline
+{\em vf} & Valeur de vie du monstre \\
+\hline
+{\em speed} & Vitesse du monstre \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classGuerrierOgre_a4f854e7da33a1a593e43598db5bebb28}\label{classGuerrierOgre_a4f854e7da33a1a593e43598db5bebb28}} 
+\index{GuerrierOgre@{GuerrierOgre}!update@{update}}
+\index{update@{update}!GuerrierOgre@{GuerrierOgre}}
+\doxysubsubsection{\texorpdfstring{update()}{update()}}
+{\footnotesize\ttfamily void Guerrier\+Ogre\+::update (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classPlayer}{Player}} \&}]{pl1,  }\item[{\mbox{\hyperlink{classPlayer}{Player}} \&}]{pl2 }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Met a jourt le monstre. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em pl1} & Premier joueur de la carte \\
+\hline
+{\em pl2} & Deuxieme joueur de la carte \\
+\hline
+\end{DoxyParams}
+
+
+Reimplemented from \mbox{\hyperlink{classMeleeMonster_a9f86af7ff23b9f1eafdc9dd2bd672d21}{Melee\+Monster}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+Guerrier\+Ogre.\+hpp\item 
+Guerrier\+Ogre.\+cpp\end{DoxyCompactItemize}

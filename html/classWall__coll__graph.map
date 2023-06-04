@@ -1,0 +1,5 @@
+<map id="Wall" name="Wall">
+<area shape="rect" id="node1" title="Classe représentant un mur." alt="" coords="12,155,63,181"/>
+<area shape="rect" id="node2" href="$classTile.html" title="Classe de base représentant une tuile." alt="" coords="15,80,60,107"/>
+<area shape="rect" id="node3" href="$classObject.html" title="Classe de base pour les objets du jeu." alt="" coords="5,5,69,32"/>
+</map>

@@ -14,25 +14,31 @@
 class Chest;
 
 
+/**
+ * @brief Cette classe represente un parsonnage
+ * 
+ */
 class Character : public Object {
     protected:
         int _damageAttack; /**< Dégâts de l'attaque du personnage */
         float _speed; /**< Vitesse de déplacement du personnage */
+
         EnumOrientation _enumOrientation; /**< Orientation du personnage */
         enum Orientation { Up, Left, Down, Right }; /**< Enumération des orientations possibles */
         bool _isAlive; /**< Indique si le personnage est en vie */
         int _object_size; /**< Taille de l'objet */
         int _orientation; /**< Orientation actuelle du personnage */
 
-        //static int _keys; /**< Nombre de clés possédées par le personnage */
-
         vector<bool> _killedallMobs = { false, false, false, false }; /**< Tableau indiquant si tous les monstres ont été tués */
         sf::Music* _footStepSound; /**< Son des pas du personnage */
         sf::Music* _takeDamageMusic; /**< Son de dégâts subis par le personnage */
+
         sf::Clock _clock; /**< Horloge pour le chronométrage des actions */
 
         sf::Vector2i _anim; /**< Animation du personnage */
+
         Heart& _life; /**< Vie du personnage */
+
         bool _canOpenChest = false; /**< Indique si le personnage peut ouvrir un coffre */
 
 
@@ -44,6 +50,10 @@ class Character : public Object {
         virtual void setDamage(Character* target) {};
 
     public:
+        /**
+         * @brief Constructeur par defaut
+         * 
+         */
         Character() : Object(), _life(*(new Heart())) {};
 
         /**
@@ -54,6 +64,12 @@ class Character : public Object {
          */
         Character(string nameObject, sf::Vector2f initPos);
 
+        /**
+         * @brief Operateur d'assignement
+         * 
+         * @param other Personnage a assigner
+         * @return Character& Personnage assigne
+         */
         Character& operator=(const Character& other);
 
         /**
@@ -193,25 +209,6 @@ class Character : public Object {
          * @return Retourne un pointeur sur le Projectile du personnage.
          */
         virtual Projectile* getProjectile() const { return nullptr; };
-
-        /**
-        //  * @brief Obtient le nombre de clés possédées par le personnage.
-        //  *
-        //  * @return Nombre de clés possédées
-        //  */
-        // virtual const int getKey() const { return 0; };
-
-        // /**
-        //  * @brief Ajoute une clé au personnage.
-        //  */
-        // virtual void addKey() {};
-
-        // /**
-        //  * @brief modifie le nombre de clé du personnage.
-        //  * 
-        //  *  @param nbKey Nouveau nombre de clé du personnage.
-        //  */
-        // virtual void setKey(int nbKey) {};
 };
 
 

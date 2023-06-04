@@ -5,6 +5,10 @@
 #include "Player.hpp"
 
 
+/**
+ * @brief Cette classe represente un coffre contenant une cle
+ * 
+ */
 class GoldenChest : public Chest {
 
     private:

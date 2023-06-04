@@ -1,0 +1,107 @@
+\hypertarget{classDemonDogMonster}{}\doxysection{Demon\+Dog\+Monster Class Reference}
+\label{classDemonDogMonster}\index{DemonDogMonster@{DemonDogMonster}}
+
+
+Cette classe represente un monstre Demon\+Dog.  
+
+
+
+
+{\ttfamily \#include $<$Demon\+Dog\+Monster.\+hpp$>$}
+
+
+
+Inheritance diagram for Demon\+Dog\+Monster\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=191pt]{classDemonDogMonster__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for Demon\+Dog\+Monster\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=192pt]{classDemonDogMonster__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classDemonDogMonster_a833d30a639ffcbecb42c857e8394c71f}{Demon\+Dog\+Monster}} (string name\+Object, sf\+::\+Vector2f init\+Pos, string name=\char`\"{}meat\char`\"{}, int dmg=3, int ar=2, int vf=100, float speed=1)
+\begin{DoxyCompactList}\small\item\em Constructeur de la classe {\ttfamily \mbox{\hyperlink{classDemonDogMonster}{Demon\+Dog\+Monster}}}. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classDemonDogMonster_a13726b4295c4e3e3b05e8d816692766a}\label{classDemonDogMonster_a13726b4295c4e3e3b05e8d816692766a}} 
+\mbox{\hyperlink{classDemonDogMonster_a13726b4295c4e3e3b05e8d816692766a}{$\sim$\+Demon\+Dog\+Monster}} ()
+\begin{DoxyCompactList}\small\item\em Destructeur de la classe {\ttfamily \mbox{\hyperlink{classDemonDogMonster}{Demon\+Dog\+Monster}}}. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classDemonDogMonster_a63ecf8e2f1af188cca9ea7d2be824422}\label{classDemonDogMonster_a63ecf8e2f1af188cca9ea7d2be824422}} 
+void \mbox{\hyperlink{classDemonDogMonster_a63ecf8e2f1af188cca9ea7d2be824422}{update\+Sprite}} ()
+\begin{DoxyCompactList}\small\item\em Met à jour le sprite du monstre. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classDemonDogMonster_a573510b58c39db20ddc1095f8a03cc53}{update}} (\mbox{\hyperlink{classPlayer}{Player}} \&target1, \mbox{\hyperlink{classPlayer}{Player}} \&target2)
+\begin{DoxyCompactList}\small\item\em Met a jour le monster. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Additional Inherited Members}
+
+
+\doxysubsection{Detailed Description}
+Cette classe represente un monstre Demon\+Dog. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classDemonDogMonster_a833d30a639ffcbecb42c857e8394c71f}\label{classDemonDogMonster_a833d30a639ffcbecb42c857e8394c71f}} 
+\index{DemonDogMonster@{DemonDogMonster}!DemonDogMonster@{DemonDogMonster}}
+\index{DemonDogMonster@{DemonDogMonster}!DemonDogMonster@{DemonDogMonster}}
+\doxysubsubsection{\texorpdfstring{DemonDogMonster()}{DemonDogMonster()}}
+{\footnotesize\ttfamily Demon\+Dog\+Monster\+::\+Demon\+Dog\+Monster (\begin{DoxyParamCaption}\item[{string}]{name\+Object,  }\item[{sf\+::\+Vector2f}]{init\+Pos,  }\item[{string}]{name = {\ttfamily \char`\"{}meat\char`\"{}},  }\item[{int}]{dmg = {\ttfamily 3},  }\item[{int}]{ar = {\ttfamily 2},  }\item[{int}]{vf = {\ttfamily 100},  }\item[{float}]{speed = {\ttfamily 1} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Constructeur de la classe {\ttfamily \mbox{\hyperlink{classDemonDogMonster}{Demon\+Dog\+Monster}}}. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em name\+Object} & Nom de l\textquotesingle{}objet \\
+\hline
+{\em init\+Pos} & Position initiale \\
+\hline
+{\em name} & Nom du monstre \\
+\hline
+{\em dmg} & Dommages du monstre \\
+\hline
+{\em ar} & Rayon d\textquotesingle{}attaque du monstre \\
+\hline
+{\em vf} & Valeur de vie du monstre \\
+\hline
+{\em speed} & Vitesse du monstre \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classDemonDogMonster_a573510b58c39db20ddc1095f8a03cc53}\label{classDemonDogMonster_a573510b58c39db20ddc1095f8a03cc53}} 
+\index{DemonDogMonster@{DemonDogMonster}!update@{update}}
+\index{update@{update}!DemonDogMonster@{DemonDogMonster}}
+\doxysubsubsection{\texorpdfstring{update()}{update()}}
+{\footnotesize\ttfamily void Demon\+Dog\+Monster\+::update (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classPlayer}{Player}} \&}]{target1,  }\item[{\mbox{\hyperlink{classPlayer}{Player}} \&}]{target2 }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+
+
+Met a jour le monster. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em target1} & Premier joueur sur la carte \\
+\hline
+{\em target2} & Deuxieme joueur sur la carte \\
+\hline
+\end{DoxyParams}
+
+
+Reimplemented from \mbox{\hyperlink{classMeleeMonster_a9f86af7ff23b9f1eafdc9dd2bd672d21}{Melee\+Monster}}.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+Demon\+Dog\+Monster.\+hpp\end{DoxyCompactItemize}

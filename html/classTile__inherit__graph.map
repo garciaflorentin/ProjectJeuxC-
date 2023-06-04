@@ -1,0 +1,11 @@
+<map id="Tile" name="Tile">
+<area shape="rect" id="node1" title="Classe de base représentant une tuile." alt="" coords="123,80,169,107"/>
+<area shape="rect" id="node3" href="$classChest.html" title="Cette classe representre un coffre." alt="" coords="29,155,87,181"/>
+<area shape="rect" id="node5" href="$classGround.html" title="Cette classe represente une case du sol." alt="" coords="111,155,181,181"/>
+<area shape="rect" id="node6" href="$classWall.html" title="Classe représentant un mur." alt="" coords="205,155,255,181"/>
+<area shape="rect" id="node2" href="$classObject.html" title="Classe de base pour les objets du jeu." alt="" coords="114,5,178,32"/>
+<area shape="rect" id="node4" href="$classGoldenChest.html" title="Cette classe represente un coffre contenant une cle." alt="" coords="5,229,111,256"/>
+<area shape="rect" id="node7" href="$classDoor.html" title="Cette classe represente une porte." alt="" coords="169,229,222,256"/>
+<area shape="rect" id="node9" href="$classWallZone.html" title="Cette classe represente la zone des murs impermeable." alt="" coords="247,229,331,256"/>
+<area shape="rect" id="node8" href="$classDoorWall.html" title=" " alt="" coords="154,304,237,331"/>
+</map>

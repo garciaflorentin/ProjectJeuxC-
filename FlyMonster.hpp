@@ -4,14 +4,18 @@
 #include "MeleeMonster.hpp"
 
 
+/**
+ * @brief Cette classe represente un monstre volant
+ * 
+ */
 class FlyMonster : public MeleeMonster {
-
     private:
-
-        int _attack_cooldown = 40;
+        int _attack_cooldown = 40; ///< Limite de temps entre deux attaques
 
         /**
-         * @brief Déplace le monstre vers le joueur.
+         * @brief Fait suivre un joueur
+         * 
+         * @param target Le joueur a suivre
          */
         virtual void goToPlayer(Player &target);
 
@@ -27,8 +31,8 @@ class FlyMonster : public MeleeMonster {
          * @param vf Les points de vie du monstre.
          * @param speed La vitesse de déplacement du monstre.
          */
-        FlyMonster(string nameObject, sf::Vector2f initPos, /*Player& player1, Player& player2,*/ string name = "FlyMonster", int dmg = 3, int ar = 2, int vf = 100, float speed = 1.5) : 
-        MeleeMonster(nameObject, initPos, /*player1, player2,*/ name, dmg, ar, vf, speed) {
+        FlyMonster(string nameObject, sf::Vector2f initPos, string name = "FlyMonster", int dmg = 3, int ar = 2, int vf = 100, float speed = 1.5) : 
+        MeleeMonster(nameObject, initPos, name, dmg, ar, vf, speed) {
             _anim.x = 12;
             _anim.y = 34;
             _object_size = 48;
@@ -52,8 +56,10 @@ class FlyMonster : public MeleeMonster {
         void updateSprite();
 
         /**
-         * @brief Met à jour le monstre.
-         * @param pl Le joueur.
+         * @brief Met a jour le monstre
+         * 
+         * @param pl1 Premier joueur de la carte
+         * @param pl2 Deuxieme joueur de la carte
          */
         virtual void update(Player& pl1, Player& pl2);
 };

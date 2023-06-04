@@ -1,0 +1,106 @@
+\hypertarget{classGround}{}\doxysection{Ground Class Reference}
+\label{classGround}\index{Ground@{Ground}}
+
+
+Cette classe represente une case du sol.  
+
+
+
+
+{\ttfamily \#include $<$Ground.\+hpp$>$}
+
+
+
+Inheritance diagram for Ground\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=132pt]{classGround__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for Ground\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=132pt]{classGround__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+const int \mbox{\hyperlink{classGround_ada72f4edce10292ae200b9230fdf407d}{get\+Block\+Size}} ()
+\begin{DoxyCompactList}\small\item\em Obtient la taille du bloc de sol. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classGround_a2af9ef29a657cfeda86ebc0b0562642e}{collide}} (\mbox{\hyperlink{classObject}{Object}} \&o)
+\begin{DoxyCompactList}\small\item\em Gère la collision avec un objet. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classGround_ad1281e93a7ae9db41d0ffcc49870b3d1}{Ground}} (string name\+Object, sf\+::\+Vector2f init\+Pos, Type\+Ground \+\_\+type\+Ground)
+\begin{DoxyCompactList}\small\item\em Constructeur de la classe \mbox{\hyperlink{classGround}{Ground}}. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Additional Inherited Members}
+
+
+\doxysubsection{Detailed Description}
+Cette classe represente une case du sol. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classGround_ad1281e93a7ae9db41d0ffcc49870b3d1}\label{classGround_ad1281e93a7ae9db41d0ffcc49870b3d1}} 
+\index{Ground@{Ground}!Ground@{Ground}}
+\index{Ground@{Ground}!Ground@{Ground}}
+\doxysubsubsection{\texorpdfstring{Ground()}{Ground()}}
+{\footnotesize\ttfamily Ground\+::\+Ground (\begin{DoxyParamCaption}\item[{string}]{name\+Object,  }\item[{sf\+::\+Vector2f}]{init\+Pos,  }\item[{Type\+Ground}]{\+\_\+type\+Ground }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Constructeur de la classe \mbox{\hyperlink{classGround}{Ground}}. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em name\+Object} & Le nom de l\textquotesingle{}objet. \\
+\hline
+{\em init\+Pos} & La position initiale de l\textquotesingle{}objet. \\
+\hline
+{\em \+\_\+type\+Ground} & Le type de sol. \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classGround_a2af9ef29a657cfeda86ebc0b0562642e}\label{classGround_a2af9ef29a657cfeda86ebc0b0562642e}} 
+\index{Ground@{Ground}!collide@{collide}}
+\index{collide@{collide}!Ground@{Ground}}
+\doxysubsubsection{\texorpdfstring{collide()}{collide()}}
+{\footnotesize\ttfamily void Ground\+::collide (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classObject}{Object}} \&}]{o }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+
+
+Gère la collision avec un objet. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em o} & L\textquotesingle{}objet avec lequel la collision s\textquotesingle{}est produite. \\
+\hline
+\end{DoxyParams}
+
+
+Reimplemented from \mbox{\hyperlink{classObject_a62148779acb081bf59c92c24f0695d7d}{Object}}.
+
+\mbox{\Hypertarget{classGround_ada72f4edce10292ae200b9230fdf407d}\label{classGround_ada72f4edce10292ae200b9230fdf407d}} 
+\index{Ground@{Ground}!getBlockSize@{getBlockSize}}
+\index{getBlockSize@{getBlockSize}!Ground@{Ground}}
+\doxysubsubsection{\texorpdfstring{getBlockSize()}{getBlockSize()}}
+{\footnotesize\ttfamily const int Ground\+::get\+Block\+Size (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Obtient la taille du bloc de sol. 
+
+\begin{DoxyReturn}{Returns}
+La taille du bloc de sol. 
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+Ground.\+hpp\end{DoxyCompactItemize}

@@ -1,0 +1,4 @@
+<map id="GameGestion" name="GameGestion">
+<area shape="rect" id="node1" title="Cette classe gere les evenements du jeu." alt="" coords="16,80,127,107"/>
+<area shape="rect" id="node2" href="$classColisionInterface.html" title="Special library." alt="" coords="5,5,137,32"/>
+</map>

@@ -1,0 +1,262 @@
+\hypertarget{classUserInterface}{}\doxysection{User\+Interface Class Reference}
+\label{classUserInterface}\index{UserInterface@{UserInterface}}
+
+
+Cette interface representa la GUI du jeu.  
+
+
+
+
+{\ttfamily \#include $<$User\+Interface.\+hpp$>$}
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classUserInterface_ae6fb70370701b3bd6120e923df9705b0}\label{classUserInterface_ae6fb70370701b3bd6120e923df9705b0}} 
+\mbox{\hyperlink{classUserInterface_ae6fb70370701b3bd6120e923df9705b0}{User\+Interface}} ()
+\begin{DoxyCompactList}\small\item\em Constructeur de la classe {\ttfamily \mbox{\hyperlink{classUserInterface}{User\+Interface}}}. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classUserInterface}{User\+Interface}} \& \mbox{\hyperlink{classUserInterface_a933201c51fce8302ed3fb983f96f036f}{operator=}} (const \mbox{\hyperlink{classUserInterface}{User\+Interface}} \&other)
+\begin{DoxyCompactList}\small\item\em Operateur d\textquotesingle{}assignement. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classUserInterface_ae588b2ff1711a016dd4c6fc5002c0841}\label{classUserInterface_ae588b2ff1711a016dd4c6fc5002c0841}} 
+\mbox{\hyperlink{classUserInterface_ae588b2ff1711a016dd4c6fc5002c0841}{$\sim$\+User\+Interface}} ()
+\begin{DoxyCompactList}\small\item\em Destructeur de la classe {\ttfamily \mbox{\hyperlink{classUserInterface}{User\+Interface}}}. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classUserInterface_a0db4679bdef690c97c84556c3dda3767}{draw\+To}} (sf\+::\+Render\+Window \&target)
+\begin{DoxyCompactList}\small\item\em Dessine l\textquotesingle{}interface sur la fenêtre donnée. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classUserInterface_aa8db5d7badf9f49001104bd082cf9912}\label{classUserInterface_aa8db5d7badf9f49001104bd082cf9912}} 
+void \mbox{\hyperlink{classUserInterface_aa8db5d7badf9f49001104bd082cf9912}{update\+Ui}} ()
+\begin{DoxyCompactList}\small\item\em Met à jour l\textquotesingle{}interface. \end{DoxyCompactList}\item 
+const sf\+::\+View \& \mbox{\hyperlink{classUserInterface_a9b1ffa8f3cfd47b54c81c6b93095b450}{get\+Ui\+View}} () const
+\begin{DoxyCompactList}\small\item\em Récupère la vue de l\textquotesingle{}interface. \end{DoxyCompactList}\item 
+const bool \mbox{\hyperlink{classUserInterface_abdf30a67077b466f6f638f94f04b0047}{is\+Paused}} () const
+\begin{DoxyCompactList}\small\item\em Vérifie si le jeu est en pause. \end{DoxyCompactList}\item 
+const bool \mbox{\hyperlink{classUserInterface_a35bf30cc870af2b4287c1a3d8f735768}{is\+Launched}} () const
+\begin{DoxyCompactList}\small\item\em Vérifie si le jeu est en cours. \end{DoxyCompactList}\item 
+const bool \mbox{\hyperlink{classUserInterface_ab6414b8a926304f37bf61fd3aa9a3e57}{is\+Dead}} () const
+\begin{DoxyCompactList}\small\item\em Vérifie si le joueur est mort. \end{DoxyCompactList}\item 
+const bool \mbox{\hyperlink{classUserInterface_af2be6d9531330d3822adf0b2a79020ab}{get\+Win}} () const
+\begin{DoxyCompactList}\small\item\em Vérifie si le joueur a gagné. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classUserInterface_a963f54c6c62cc1cea2ea10afdd61aee4}{set\+Is\+Paused}} (bool state)
+\begin{DoxyCompactList}\small\item\em Définit l\textquotesingle{}état de pause du jeu. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classUserInterface_a3808d79a964f799f88ce93fbe580ef7f}{set\+Is\+Launched}} (bool state)
+\begin{DoxyCompactList}\small\item\em Définit l\textquotesingle{}état du jeu en cours. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classUserInterface_a993d31d417b1ec4a7a35bcb8c4f2f8ee}{set\+Is\+Dead}} (bool state)
+\begin{DoxyCompactList}\small\item\em Définit l\textquotesingle{}état de mort du joueur. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classUserInterface_a739821769ee12298726808d66566fbb5}{set\+Win}} (bool state)
+\begin{DoxyCompactList}\small\item\em Définit l\textquotesingle{}état de victoire du joueur. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classUserInterface_af8781dcb33cd318e792df05b0886c8d2}\label{classUserInterface_af8781dcb33cd318e792df05b0886c8d2}} 
+void \mbox{\hyperlink{classUserInterface_af8781dcb33cd318e792df05b0886c8d2}{set\+Start\+Screen}} ()
+\begin{DoxyCompactList}\small\item\em Affiche l\textquotesingle{}écran de démarrage. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classUserInterface_a5cabf27d2a7b01dc613883c0382a97b9}\label{classUserInterface_a5cabf27d2a7b01dc613883c0382a97b9}} 
+void \mbox{\hyperlink{classUserInterface_a5cabf27d2a7b01dc613883c0382a97b9}{run\+Paused\+Window}} ()
+\begin{DoxyCompactList}\small\item\em Exécute la fenêtre de pause. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classUserInterface_ad893e4cf3abc51010a738586f7c41dba}\label{classUserInterface_ad893e4cf3abc51010a738586f7c41dba}} 
+void \mbox{\hyperlink{classUserInterface_ad893e4cf3abc51010a738586f7c41dba}{run\+Launched\+Window}} ()
+\begin{DoxyCompactList}\small\item\em Exécute la fenêtre de jeu en cours. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classUserInterface_aab6d1f2d484c4c26e8c6163f1034f751}\label{classUserInterface_aab6d1f2d484c4c26e8c6163f1034f751}} 
+void \mbox{\hyperlink{classUserInterface_aab6d1f2d484c4c26e8c6163f1034f751}{run\+Death\+Window}} ()
+\begin{DoxyCompactList}\small\item\em Exécute la fenêtre de fin de partie en cas de mort du joueur. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classUserInterface_aa6837c71adeca37f0eaefc07ccc5fe2c}\label{classUserInterface_aa6837c71adeca37f0eaefc07ccc5fe2c}} 
+void \mbox{\hyperlink{classUserInterface_aa6837c71adeca37f0eaefc07ccc5fe2c}{run\+Victory\+Window}} ()
+\begin{DoxyCompactList}\small\item\em Exécute la fenêtre de victoire. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classUserInterface_a52ac734ab92c9a0249854ab9f0187c56}{fade}} (sf\+::\+Music \&music)
+\begin{DoxyCompactList}\small\item\em Effectue un fondu sur la musique donnée. \end{DoxyCompactList}\item 
+sf\+::\+Render\+Window \& \mbox{\hyperlink{classUserInterface_a5df61e97af9cbd499ce033f8c11d29a2}{get\+Window}} ()
+\begin{DoxyCompactList}\small\item\em Récupère la fenêtre de rendu. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Cette interface representa la GUI du jeu. 
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classUserInterface_a0db4679bdef690c97c84556c3dda3767}\label{classUserInterface_a0db4679bdef690c97c84556c3dda3767}} 
+\index{UserInterface@{UserInterface}!drawTo@{drawTo}}
+\index{drawTo@{drawTo}!UserInterface@{UserInterface}}
+\doxysubsubsection{\texorpdfstring{drawTo()}{drawTo()}}
+{\footnotesize\ttfamily void User\+Interface\+::draw\+To (\begin{DoxyParamCaption}\item[{sf\+::\+Render\+Window \&}]{target }\end{DoxyParamCaption})}
+
+
+
+Dessine l\textquotesingle{}interface sur la fenêtre donnée. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em target} & Fenêtre de rendu \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classUserInterface_a52ac734ab92c9a0249854ab9f0187c56}\label{classUserInterface_a52ac734ab92c9a0249854ab9f0187c56}} 
+\index{UserInterface@{UserInterface}!fade@{fade}}
+\index{fade@{fade}!UserInterface@{UserInterface}}
+\doxysubsubsection{\texorpdfstring{fade()}{fade()}}
+{\footnotesize\ttfamily void User\+Interface\+::fade (\begin{DoxyParamCaption}\item[{sf\+::\+Music \&}]{music }\end{DoxyParamCaption})}
+
+
+
+Effectue un fondu sur la musique donnée. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em music} & Musique à fondu \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classUserInterface_a9b1ffa8f3cfd47b54c81c6b93095b450}\label{classUserInterface_a9b1ffa8f3cfd47b54c81c6b93095b450}} 
+\index{UserInterface@{UserInterface}!getUiView@{getUiView}}
+\index{getUiView@{getUiView}!UserInterface@{UserInterface}}
+\doxysubsubsection{\texorpdfstring{getUiView()}{getUiView()}}
+{\footnotesize\ttfamily const sf\+::\+View\& User\+Interface\+::get\+Ui\+View (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Récupère la vue de l\textquotesingle{}interface. 
+
+\begin{DoxyReturn}{Returns}
+Vue de l\textquotesingle{}interface 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classUserInterface_af2be6d9531330d3822adf0b2a79020ab}\label{classUserInterface_af2be6d9531330d3822adf0b2a79020ab}} 
+\index{UserInterface@{UserInterface}!getWin@{getWin}}
+\index{getWin@{getWin}!UserInterface@{UserInterface}}
+\doxysubsubsection{\texorpdfstring{getWin()}{getWin()}}
+{\footnotesize\ttfamily const bool User\+Interface\+::get\+Win (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Vérifie si le joueur a gagné. 
+
+\begin{DoxyReturn}{Returns}
+Vrai si le joueur a gagné, sinon faux 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classUserInterface_a5df61e97af9cbd499ce033f8c11d29a2}\label{classUserInterface_a5df61e97af9cbd499ce033f8c11d29a2}} 
+\index{UserInterface@{UserInterface}!getWindow@{getWindow}}
+\index{getWindow@{getWindow}!UserInterface@{UserInterface}}
+\doxysubsubsection{\texorpdfstring{getWindow()}{getWindow()}}
+{\footnotesize\ttfamily sf\+::\+Render\+Window\& User\+Interface\+::get\+Window (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Récupère la fenêtre de rendu. 
+
+\begin{DoxyReturn}{Returns}
+Fenêtre de rendu 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classUserInterface_ab6414b8a926304f37bf61fd3aa9a3e57}\label{classUserInterface_ab6414b8a926304f37bf61fd3aa9a3e57}} 
+\index{UserInterface@{UserInterface}!isDead@{isDead}}
+\index{isDead@{isDead}!UserInterface@{UserInterface}}
+\doxysubsubsection{\texorpdfstring{isDead()}{isDead()}}
+{\footnotesize\ttfamily const bool User\+Interface\+::is\+Dead (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Vérifie si le joueur est mort. 
+
+\begin{DoxyReturn}{Returns}
+Vrai si le joueur est mort, sinon faux 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classUserInterface_a35bf30cc870af2b4287c1a3d8f735768}\label{classUserInterface_a35bf30cc870af2b4287c1a3d8f735768}} 
+\index{UserInterface@{UserInterface}!isLaunched@{isLaunched}}
+\index{isLaunched@{isLaunched}!UserInterface@{UserInterface}}
+\doxysubsubsection{\texorpdfstring{isLaunched()}{isLaunched()}}
+{\footnotesize\ttfamily const bool User\+Interface\+::is\+Launched (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Vérifie si le jeu est en cours. 
+
+\begin{DoxyReturn}{Returns}
+Vrai si le jeu est en cours, sinon faux 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classUserInterface_abdf30a67077b466f6f638f94f04b0047}\label{classUserInterface_abdf30a67077b466f6f638f94f04b0047}} 
+\index{UserInterface@{UserInterface}!isPaused@{isPaused}}
+\index{isPaused@{isPaused}!UserInterface@{UserInterface}}
+\doxysubsubsection{\texorpdfstring{isPaused()}{isPaused()}}
+{\footnotesize\ttfamily const bool User\+Interface\+::is\+Paused (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Vérifie si le jeu est en pause. 
+
+\begin{DoxyReturn}{Returns}
+Vrai si le jeu est en pause, sinon faux 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classUserInterface_a933201c51fce8302ed3fb983f96f036f}\label{classUserInterface_a933201c51fce8302ed3fb983f96f036f}} 
+\index{UserInterface@{UserInterface}!operator=@{operator=}}
+\index{operator=@{operator=}!UserInterface@{UserInterface}}
+\doxysubsubsection{\texorpdfstring{operator=()}{operator=()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classUserInterface}{User\+Interface}} \& User\+Interface\+::operator= (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classUserInterface}{User\+Interface}} \&}]{other }\end{DoxyParamCaption})}
+
+
+
+Operateur d\textquotesingle{}assignement. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em other} & GUI a assigner \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\mbox{\hyperlink{classUserInterface}{User\+Interface}}\& -\/ GUI assignee 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classUserInterface_a993d31d417b1ec4a7a35bcb8c4f2f8ee}\label{classUserInterface_a993d31d417b1ec4a7a35bcb8c4f2f8ee}} 
+\index{UserInterface@{UserInterface}!setIsDead@{setIsDead}}
+\index{setIsDead@{setIsDead}!UserInterface@{UserInterface}}
+\doxysubsubsection{\texorpdfstring{setIsDead()}{setIsDead()}}
+{\footnotesize\ttfamily void User\+Interface\+::set\+Is\+Dead (\begin{DoxyParamCaption}\item[{bool}]{state }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Définit l\textquotesingle{}état de mort du joueur. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em state} & État de mort du joueur (vrai ou faux) \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classUserInterface_a3808d79a964f799f88ce93fbe580ef7f}\label{classUserInterface_a3808d79a964f799f88ce93fbe580ef7f}} 
+\index{UserInterface@{UserInterface}!setIsLaunched@{setIsLaunched}}
+\index{setIsLaunched@{setIsLaunched}!UserInterface@{UserInterface}}
+\doxysubsubsection{\texorpdfstring{setIsLaunched()}{setIsLaunched()}}
+{\footnotesize\ttfamily void User\+Interface\+::set\+Is\+Launched (\begin{DoxyParamCaption}\item[{bool}]{state }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Définit l\textquotesingle{}état du jeu en cours. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em state} & État du jeu en cours (vrai ou faux) \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classUserInterface_a963f54c6c62cc1cea2ea10afdd61aee4}\label{classUserInterface_a963f54c6c62cc1cea2ea10afdd61aee4}} 
+\index{UserInterface@{UserInterface}!setIsPaused@{setIsPaused}}
+\index{setIsPaused@{setIsPaused}!UserInterface@{UserInterface}}
+\doxysubsubsection{\texorpdfstring{setIsPaused()}{setIsPaused()}}
+{\footnotesize\ttfamily void User\+Interface\+::set\+Is\+Paused (\begin{DoxyParamCaption}\item[{bool}]{state }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Définit l\textquotesingle{}état de pause du jeu. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em state} & État de pause (vrai ou faux) \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classUserInterface_a739821769ee12298726808d66566fbb5}\label{classUserInterface_a739821769ee12298726808d66566fbb5}} 
+\index{UserInterface@{UserInterface}!setWin@{setWin}}
+\index{setWin@{setWin}!UserInterface@{UserInterface}}
+\doxysubsubsection{\texorpdfstring{setWin()}{setWin()}}
+{\footnotesize\ttfamily void User\+Interface\+::set\+Win (\begin{DoxyParamCaption}\item[{bool}]{state }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Définit l\textquotesingle{}état de victoire du joueur. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em state} & État de victoire du joueur (vrai ou faux) \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+User\+Interface.\+hpp\item 
+User\+Interface.\+cpp\end{DoxyCompactItemize}

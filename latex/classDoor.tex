@@ -1,0 +1,239 @@
+\hypertarget{classDoor}{}\doxysection{Door Class Reference}
+\label{classDoor}\index{Door@{Door}}
+
+
+Cette classe represente une porte.  
+
+
+
+
+{\ttfamily \#include $<$Door.\+hpp$>$}
+
+
+
+Inheritance diagram for Door\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=142pt]{classDoor__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for Door\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=128pt]{classDoor__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classDoor_a5191a649ed79b50f886e5c43b473c369}\label{classDoor_a5191a649ed79b50f886e5c43b473c369}} 
+\mbox{\hyperlink{classDoor_a5191a649ed79b50f886e5c43b473c369}{Door}} ()
+\begin{DoxyCompactList}\small\item\em Constructeur par defaut. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classDoor_a02e2f586d4ba0bcc31434d55bbacc4bc}{Door}} (string name\+Object, sf\+::\+Vector2f init\+Pos, Type\+Wall \+\_\+type\+Wall)
+\begin{DoxyCompactList}\small\item\em Constructeur de la classe {\ttfamily \mbox{\hyperlink{classDoor}{Door}}}. \end{DoxyCompactList}\item 
+virtual \mbox{\hyperlink{classDoor}{Door}} \& \mbox{\hyperlink{classDoor_a5f6c716073584eb81ce0c929435f9770}{operator=}} (const \mbox{\hyperlink{classDoor}{Door}} \&other)
+\begin{DoxyCompactList}\small\item\em Operateur d\textquotesingle{}assignement. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classDoor_a3dbbbd7a49698a8461d3c22df60bd2d3}\label{classDoor_a3dbbbd7a49698a8461d3c22df60bd2d3}} 
+\mbox{\hyperlink{classDoor_a3dbbbd7a49698a8461d3c22df60bd2d3}{$\sim$\+Door}} ()
+\begin{DoxyCompactList}\small\item\em Destructeur de la classe {\ttfamily \mbox{\hyperlink{classDoor}{Door}}}. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classDoor_ae4c5acbb1034a0b36ca7938bbf1d7d3d}{set\+Is\+Open}} (bool state)
+\begin{DoxyCompactList}\small\item\em Définit l\textquotesingle{}état d\textquotesingle{}ouverture de la porte. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classDoor_ae6eed260b4a7aecc6cdcb36a12d23dfc}{set\+Is\+Opening}} (bool state)
+\begin{DoxyCompactList}\small\item\em Définit l\textquotesingle{}état d\textquotesingle{}ouverture de la porte en cours. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classDoor_aa0ea49e43dfb4ab0ce9014f252168c50}\label{classDoor_aa0ea49e43dfb4ab0ce9014f252168c50}} 
+virtual void \mbox{\hyperlink{classDoor_aa0ea49e43dfb4ab0ce9014f252168c50}{anim\+Door}} ()
+\begin{DoxyCompactList}\small\item\em Anime la porte. \end{DoxyCompactList}\item 
+virtual void \mbox{\hyperlink{classDoor_a1d3fa06284441d17351275d9950ceadb}{collide}} (\mbox{\hyperlink{classObject}{Object}} \&o)
+\begin{DoxyCompactList}\small\item\em Gère la collision avec un objet. \end{DoxyCompactList}\item 
+const bool \mbox{\hyperlink{classDoor_a59d975dfc5023cc856ad90a0bf879b27}{can\+Be\+Animated}} () const
+\begin{DoxyCompactList}\small\item\em Indique si la porte peut être animée. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+sf\+::\+Vector2f \mbox{\hyperlink{classDoor_aae0408c1b4ea9b3b43c30e47845f179b}{\+\_\+anim}}
+\item 
+bool \mbox{\hyperlink{classDoor_a8a585cbe9b9049805de118896de1f6c8}{\+\_\+is\+Open}}
+\item 
+bool \mbox{\hyperlink{classDoor_a526c05029246c3d3dac75d5c9e7e2822}{\+\_\+is\+Opening}}
+\item 
+int \mbox{\hyperlink{classDoor_a06868d96b3ff20ede1e0fa030d74adf7}{\+\_\+door\+\_\+size}} = 240
+\item 
+int \mbox{\hyperlink{classDoor_a52aa94d0fb7a38f8cc44b898ba86ffeb}{\+\_\+cpt}} = 0
+\item 
+sf\+::\+Sprite \mbox{\hyperlink{classDoor_a9ade14386e76ed662b69490394908703}{\+\_\+back\+Door\+Sprite}}
+\item 
+sf\+::\+Texture \& \mbox{\hyperlink{classDoor_a04e573be1431677f446772780e5f003d}{\+\_\+back\+Door\+Texture}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Cette classe represente une porte. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classDoor_a02e2f586d4ba0bcc31434d55bbacc4bc}\label{classDoor_a02e2f586d4ba0bcc31434d55bbacc4bc}} 
+\index{Door@{Door}!Door@{Door}}
+\index{Door@{Door}!Door@{Door}}
+\doxysubsubsection{\texorpdfstring{Door()}{Door()}}
+{\footnotesize\ttfamily Door\+::\+Door (\begin{DoxyParamCaption}\item[{string}]{name\+Object,  }\item[{sf\+::\+Vector2f}]{init\+Pos,  }\item[{Type\+Wall}]{\+\_\+type\+Wall }\end{DoxyParamCaption})}
+
+
+
+Constructeur de la classe {\ttfamily \mbox{\hyperlink{classDoor}{Door}}}. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em name\+Object} & Nom de l\textquotesingle{}objet \\
+\hline
+{\em init\+Pos} & Position initiale \\
+\hline
+{\em \+\_\+type\+Wall} & Type de mur de la porte \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classDoor_a59d975dfc5023cc856ad90a0bf879b27}\label{classDoor_a59d975dfc5023cc856ad90a0bf879b27}} 
+\index{Door@{Door}!canBeAnimated@{canBeAnimated}}
+\index{canBeAnimated@{canBeAnimated}!Door@{Door}}
+\doxysubsubsection{\texorpdfstring{canBeAnimated()}{canBeAnimated()}}
+{\footnotesize\ttfamily const bool Door\+::can\+Be\+Animated (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+
+
+Indique si la porte peut être animée. 
+
+\begin{DoxyReturn}{Returns}
+{\ttfamily true} si la porte peut être animée, sinon {\ttfamily false}. 
+\end{DoxyReturn}
+
+
+Reimplemented from \mbox{\hyperlink{classWall_a78d6363f74d83e4493b4a20fd8b53d78}{Wall}}.
+
+\mbox{\Hypertarget{classDoor_a1d3fa06284441d17351275d9950ceadb}\label{classDoor_a1d3fa06284441d17351275d9950ceadb}} 
+\index{Door@{Door}!collide@{collide}}
+\index{collide@{collide}!Door@{Door}}
+\doxysubsubsection{\texorpdfstring{collide()}{collide()}}
+{\footnotesize\ttfamily void Door\+::collide (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classObject}{Object}} \&}]{o }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Gère la collision avec un objet. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em o} & Objet avec lequel il y a collision. \\
+\hline
+\end{DoxyParams}
+
+
+Reimplemented from \mbox{\hyperlink{classObject_a62148779acb081bf59c92c24f0695d7d}{Object}}.
+
+
+
+Reimplemented in \mbox{\hyperlink{classDoorWall_a5ff43a68c64947d0a40a5b50a393b16d}{Door\+Wall}}.
+
+\mbox{\Hypertarget{classDoor_a5f6c716073584eb81ce0c929435f9770}\label{classDoor_a5f6c716073584eb81ce0c929435f9770}} 
+\index{Door@{Door}!operator=@{operator=}}
+\index{operator=@{operator=}!Door@{Door}}
+\doxysubsubsection{\texorpdfstring{operator=()}{operator=()}}
+{\footnotesize\ttfamily virtual \mbox{\hyperlink{classDoor}{Door}}\& Door\+::operator= (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classDoor}{Door}} \&}]{other }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+
+
+Operateur d\textquotesingle{}assignement. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em other} & Porte a assigner \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\mbox{\hyperlink{classDoor}{Door}}\& -\/ porte assignee 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classDoor_ae4c5acbb1034a0b36ca7938bbf1d7d3d}\label{classDoor_ae4c5acbb1034a0b36ca7938bbf1d7d3d}} 
+\index{Door@{Door}!setIsOpen@{setIsOpen}}
+\index{setIsOpen@{setIsOpen}!Door@{Door}}
+\doxysubsubsection{\texorpdfstring{setIsOpen()}{setIsOpen()}}
+{\footnotesize\ttfamily void Door\+::set\+Is\+Open (\begin{DoxyParamCaption}\item[{bool}]{state }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Définit l\textquotesingle{}état d\textquotesingle{}ouverture de la porte. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em state} & État d\textquotesingle{}ouverture de la porte (ouvert ou fermé) \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classDoor_ae6eed260b4a7aecc6cdcb36a12d23dfc}\label{classDoor_ae6eed260b4a7aecc6cdcb36a12d23dfc}} 
+\index{Door@{Door}!setIsOpening@{setIsOpening}}
+\index{setIsOpening@{setIsOpening}!Door@{Door}}
+\doxysubsubsection{\texorpdfstring{setIsOpening()}{setIsOpening()}}
+{\footnotesize\ttfamily void Door\+::set\+Is\+Opening (\begin{DoxyParamCaption}\item[{bool}]{state }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Définit l\textquotesingle{}état d\textquotesingle{}ouverture de la porte en cours. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em state} & État d\textquotesingle{}ouverture de la porte en cours (en train de s\textquotesingle{}ouvrir ou non) \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{classDoor_aae0408c1b4ea9b3b43c30e47845f179b}\label{classDoor_aae0408c1b4ea9b3b43c30e47845f179b}} 
+\index{Door@{Door}!\_anim@{\_anim}}
+\index{\_anim@{\_anim}!Door@{Door}}
+\doxysubsubsection{\texorpdfstring{\_anim}{\_anim}}
+{\footnotesize\ttfamily sf\+::\+Vector2f Door\+::\+\_\+anim\hspace{0.3cm}{\ttfamily [protected]}}
+
+Vecteur d\textquotesingle{}animation de la porte \mbox{\Hypertarget{classDoor_a9ade14386e76ed662b69490394908703}\label{classDoor_a9ade14386e76ed662b69490394908703}} 
+\index{Door@{Door}!\_backDoorSprite@{\_backDoorSprite}}
+\index{\_backDoorSprite@{\_backDoorSprite}!Door@{Door}}
+\doxysubsubsection{\texorpdfstring{\_backDoorSprite}{\_backDoorSprite}}
+{\footnotesize\ttfamily sf\+::\+Sprite Door\+::\+\_\+back\+Door\+Sprite\hspace{0.3cm}{\ttfamily [protected]}}
+
+Sprite du fond de la porte \mbox{\Hypertarget{classDoor_a04e573be1431677f446772780e5f003d}\label{classDoor_a04e573be1431677f446772780e5f003d}} 
+\index{Door@{Door}!\_backDoorTexture@{\_backDoorTexture}}
+\index{\_backDoorTexture@{\_backDoorTexture}!Door@{Door}}
+\doxysubsubsection{\texorpdfstring{\_backDoorTexture}{\_backDoorTexture}}
+{\footnotesize\ttfamily sf\+::\+Texture\& Door\+::\+\_\+back\+Door\+Texture\hspace{0.3cm}{\ttfamily [protected]}}
+
+Texture du fond de la porte \mbox{\Hypertarget{classDoor_a52aa94d0fb7a38f8cc44b898ba86ffeb}\label{classDoor_a52aa94d0fb7a38f8cc44b898ba86ffeb}} 
+\index{Door@{Door}!\_cpt@{\_cpt}}
+\index{\_cpt@{\_cpt}!Door@{Door}}
+\doxysubsubsection{\texorpdfstring{\_cpt}{\_cpt}}
+{\footnotesize\ttfamily int Door\+::\+\_\+cpt = 0\hspace{0.3cm}{\ttfamily [protected]}}
+
+Compteur pour l\textquotesingle{}animation de la porte \mbox{\Hypertarget{classDoor_a06868d96b3ff20ede1e0fa030d74adf7}\label{classDoor_a06868d96b3ff20ede1e0fa030d74adf7}} 
+\index{Door@{Door}!\_door\_size@{\_door\_size}}
+\index{\_door\_size@{\_door\_size}!Door@{Door}}
+\doxysubsubsection{\texorpdfstring{\_door\_size}{\_door\_size}}
+{\footnotesize\ttfamily int Door\+::\+\_\+door\+\_\+size = 240\hspace{0.3cm}{\ttfamily [protected]}}
+
+Taille de la porte \mbox{\Hypertarget{classDoor_a8a585cbe9b9049805de118896de1f6c8}\label{classDoor_a8a585cbe9b9049805de118896de1f6c8}} 
+\index{Door@{Door}!\_isOpen@{\_isOpen}}
+\index{\_isOpen@{\_isOpen}!Door@{Door}}
+\doxysubsubsection{\texorpdfstring{\_isOpen}{\_isOpen}}
+{\footnotesize\ttfamily bool Door\+::\+\_\+is\+Open\hspace{0.3cm}{\ttfamily [protected]}}
+
+Indique si la porte est ouverte \mbox{\Hypertarget{classDoor_a526c05029246c3d3dac75d5c9e7e2822}\label{classDoor_a526c05029246c3d3dac75d5c9e7e2822}} 
+\index{Door@{Door}!\_isOpening@{\_isOpening}}
+\index{\_isOpening@{\_isOpening}!Door@{Door}}
+\doxysubsubsection{\texorpdfstring{\_isOpening}{\_isOpening}}
+{\footnotesize\ttfamily bool Door\+::\+\_\+is\+Opening\hspace{0.3cm}{\ttfamily [protected]}}
+
+Indique si la porte est en train de s\textquotesingle{}ouvrir 
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+Door.\+hpp\item 
+Door.\+cpp\end{DoxyCompactItemize}

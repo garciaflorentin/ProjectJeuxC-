@@ -1,0 +1,109 @@
+\hypertarget{classLifeWindow}{}\doxysection{Life\+Window Class Reference}
+\label{classLifeWindow}\index{LifeWindow@{LifeWindow}}
+
+
+Classe représentant la fenêtre de vie du joueur.  
+
+
+
+
+{\ttfamily \#include $<$Life\+Window.\+hpp$>$}
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classLifeWindow_aacd5714ca5976600c96c3bd2eb223bd3}\label{classLifeWindow_aacd5714ca5976600c96c3bd2eb223bd3}} 
+\mbox{\hyperlink{classLifeWindow_aacd5714ca5976600c96c3bd2eb223bd3}{Life\+Window}} ()
+\begin{DoxyCompactList}\small\item\em Constructeur par defaut. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classLifeWindow_aef9f4b81e54df18ca6fee77e124e34b1}{Life\+Window}} (\mbox{\hyperlink{classHeart}{Heart}} \&Heart\+Player)
+\begin{DoxyCompactList}\small\item\em Constructeur de la classe {\ttfamily \mbox{\hyperlink{classLifeWindow}{Life\+Window}}}. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classLifeWindow}{Life\+Window}} \& \mbox{\hyperlink{classLifeWindow_a8f9b643955b5ce1207ea90accc121aa8}{operator=}} (const \mbox{\hyperlink{classLifeWindow}{Life\+Window}} \&other)
+\begin{DoxyCompactList}\small\item\em Operateur d\textquotesingle{}assignement. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classLifeWindow_af66e0fe9e05f17957a76727ee21108d1}\label{classLifeWindow_af66e0fe9e05f17957a76727ee21108d1}} 
+\mbox{\hyperlink{classLifeWindow_af66e0fe9e05f17957a76727ee21108d1}{$\sim$\+Life\+Window}} ()
+\begin{DoxyCompactList}\small\item\em Destructeur de la classe {\ttfamily \mbox{\hyperlink{classLifeWindow}{Life\+Window}}}. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classLifeWindow_a8b2bcd4921ab44a816e7d994479833f9}{draw\+To}} (sf\+::\+Render\+Window \&target)
+\begin{DoxyCompactList}\small\item\em Dessine la fenêtre de vie sur la cible spécifiée. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classLifeWindow_a766bd820df62ea14d76e118f621135e6}\label{classLifeWindow_a766bd820df62ea14d76e118f621135e6}} 
+void \mbox{\hyperlink{classLifeWindow_a766bd820df62ea14d76e118f621135e6}{update\+Window}} ()
+\begin{DoxyCompactList}\small\item\em Met à jour la fenêtre de vie. \end{DoxyCompactList}\item 
+const sf\+::\+View \& \mbox{\hyperlink{classLifeWindow_ae91878cd586d96a8af8b923983e2979d}{get\+Life\+View}} () const
+\begin{DoxyCompactList}\small\item\em Obtient la vue de la fenêtre de vie. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Classe représentant la fenêtre de vie du joueur. 
+
+La classe {\ttfamily \mbox{\hyperlink{classLifeWindow}{Life\+Window}}} gère l\textquotesingle{}affichage de la barre de vie du joueur. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classLifeWindow_aef9f4b81e54df18ca6fee77e124e34b1}\label{classLifeWindow_aef9f4b81e54df18ca6fee77e124e34b1}} 
+\index{LifeWindow@{LifeWindow}!LifeWindow@{LifeWindow}}
+\index{LifeWindow@{LifeWindow}!LifeWindow@{LifeWindow}}
+\doxysubsubsection{\texorpdfstring{LifeWindow()}{LifeWindow()}}
+{\footnotesize\ttfamily Life\+Window\+::\+Life\+Window (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classHeart}{Heart}} \&}]{Heart\+Player }\end{DoxyParamCaption})}
+
+
+
+Constructeur de la classe {\ttfamily \mbox{\hyperlink{classLifeWindow}{Life\+Window}}}. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em Heart\+Player} & Coeur du joueur \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classLifeWindow_a8b2bcd4921ab44a816e7d994479833f9}\label{classLifeWindow_a8b2bcd4921ab44a816e7d994479833f9}} 
+\index{LifeWindow@{LifeWindow}!drawTo@{drawTo}}
+\index{drawTo@{drawTo}!LifeWindow@{LifeWindow}}
+\doxysubsubsection{\texorpdfstring{drawTo()}{drawTo()}}
+{\footnotesize\ttfamily void Life\+Window\+::draw\+To (\begin{DoxyParamCaption}\item[{sf\+::\+Render\+Window \&}]{target }\end{DoxyParamCaption})}
+
+
+
+Dessine la fenêtre de vie sur la cible spécifiée. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em target} & Fenêtre de rendu cible \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classLifeWindow_ae91878cd586d96a8af8b923983e2979d}\label{classLifeWindow_ae91878cd586d96a8af8b923983e2979d}} 
+\index{LifeWindow@{LifeWindow}!getLifeView@{getLifeView}}
+\index{getLifeView@{getLifeView}!LifeWindow@{LifeWindow}}
+\doxysubsubsection{\texorpdfstring{getLifeView()}{getLifeView()}}
+{\footnotesize\ttfamily const sf\+::\+View \& Life\+Window\+::get\+Life\+View (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Obtient la vue de la fenêtre de vie. 
+
+\begin{DoxyReturn}{Returns}
+Vue de la fenêtre de vie 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classLifeWindow_a8f9b643955b5ce1207ea90accc121aa8}\label{classLifeWindow_a8f9b643955b5ce1207ea90accc121aa8}} 
+\index{LifeWindow@{LifeWindow}!operator=@{operator=}}
+\index{operator=@{operator=}!LifeWindow@{LifeWindow}}
+\doxysubsubsection{\texorpdfstring{operator=()}{operator=()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classLifeWindow}{Life\+Window}} \& Life\+Window\+::operator= (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classLifeWindow}{Life\+Window}} \&}]{other }\end{DoxyParamCaption})}
+
+
+
+Operateur d\textquotesingle{}assignement. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em other} & L\textquotesingle{}affichage a assigner \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\mbox{\hyperlink{classLifeWindow}{Life\+Window}}\& -\/ L\textquotesingle{}affichage assigne 
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+Life\+Window.\+hpp\item 
+Life\+Window.\+cpp\end{DoxyCompactItemize}

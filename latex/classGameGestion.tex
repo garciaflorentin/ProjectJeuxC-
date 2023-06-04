@@ -1,0 +1,446 @@
+\hypertarget{classGameGestion}{}\doxysection{Game\+Gestion Class Reference}
+\label{classGameGestion}\index{GameGestion@{GameGestion}}
+
+
+Cette classe gere les evenements du jeu.  
+
+
+
+
+{\ttfamily \#include $<$Game\+Gestion.\+hpp$>$}
+
+
+
+Inheritance diagram for Game\+Gestion\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=179pt]{classGameGestion__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for Game\+Gestion\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=179pt]{classGameGestion__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classGameGestion_a2f87c4fa4705dae2c272bafb38480088}\label{classGameGestion_a2f87c4fa4705dae2c272bafb38480088}} 
+enum \mbox{\hyperlink{classGameGestion_a2f87c4fa4705dae2c272bafb38480088}{Orientation}} \{ {\bfseries Down}
+, {\bfseries Left}
+, {\bfseries Right}
+, {\bfseries Up}
+ \}
+\begin{DoxyCompactList}\small\item\em Enumération des orientations possibles des joueurs. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classGameGestion_a359e4939762956deff6e4a5e4708c750}\label{classGameGestion_a359e4939762956deff6e4a5e4708c750}} 
+\mbox{\hyperlink{classGameGestion_a359e4939762956deff6e4a5e4708c750}{Game\+Gestion}} ()
+\begin{DoxyCompactList}\small\item\em Constructeur par défaut de \mbox{\hyperlink{classGameGestion}{Game\+Gestion}}. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classGameGestion}{Game\+Gestion}} \& \mbox{\hyperlink{classGameGestion_a05da63c05cae7eafd809b0af80c87940}{operator=}} (const \mbox{\hyperlink{classGameGestion}{Game\+Gestion}} \&other)
+\begin{DoxyCompactList}\small\item\em Operateur d\textquotesingle{}assignement. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classGameGestion_aa90e3962d7b6d78b8484c972541f288c}\label{classGameGestion_aa90e3962d7b6d78b8484c972541f288c}} 
+\mbox{\hyperlink{classGameGestion_aa90e3962d7b6d78b8484c972541f288c}{$\sim$\+Game\+Gestion}} ()
+\begin{DoxyCompactList}\small\item\em Destructeur de \mbox{\hyperlink{classGameGestion}{Game\+Gestion}}. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classGameGestion_a5d9a0702357cf97d985a5d59f3cb9acc}\label{classGameGestion_a5d9a0702357cf97d985a5d59f3cb9acc}} 
+void \mbox{\hyperlink{classGameGestion_a5d9a0702357cf97d985a5d59f3cb9acc}{set\+Player}} ()
+\begin{DoxyCompactList}\small\item\em Définit le joueur principal. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classGameGestion_ad97d781a60e2698054978b1356c901d9}{key\+Event}} (sf\+::\+Event e)
+\begin{DoxyCompactList}\small\item\em Gère les événements clavier. \end{DoxyCompactList}\item 
+std\+::vector$<$ \mbox{\hyperlink{classPlayer}{Player}} $\ast$ $>$ \& \mbox{\hyperlink{classGameGestion_abf43114b2cf5b05d882e787fab88447c}{get\+Player\+Vector}} ()
+\begin{DoxyCompactList}\small\item\em Récupère le vecteur de pointeurs vers les joueurs. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{classGameGestion_a3c60834eb1e29e20dec035ae725bbe9e}{update\+Game}} ()
+\begin{DoxyCompactList}\small\item\em Met à jour le jeu. \end{DoxyCompactList}\item 
+std\+::vector$<$ \mbox{\hyperlink{classObject}{Object}} $\ast$ $>$ \& \mbox{\hyperlink{classGameGestion_a3d40e73444c8bccd8a6c66b799728df7}{to\+Draw\+Update}} (std\+::vector$<$ sf\+::\+Vector2f $>$ \&current\+Window)
+\begin{DoxyCompactList}\small\item\em Recupere les elements a dessiner depuis la carte. \end{DoxyCompactList}\item 
+const bool \mbox{\hyperlink{classGameGestion_a688a78c4e3b5ffb74708f9bb78235c92}{draw\+Projectile1}} (std\+::vector$<$ sf\+::\+Vector2f $>$ \&current\+Window)
+\begin{DoxyCompactList}\small\item\em Recupere les fleches du premier joueur a dessiner. \end{DoxyCompactList}\item 
+const bool \mbox{\hyperlink{classGameGestion_a704ef70727f0f94ec08d2173246ef056}{draw\+Projectile2}} (std\+::vector$<$ sf\+::\+Vector2f $>$ \&current\+Window)
+\begin{DoxyCompactList}\small\item\em Recupere les fleches du deuxieme joueur a dessiner. \end{DoxyCompactList}\item 
+const bool \mbox{\hyperlink{classGameGestion_a7d7d6399c5fd2fc0e9c664339e289f90}{draw\+Fireballs}} (std\+::vector$<$ sf\+::\+Vector2f $>$ \&current\+Window, std\+::vector$<$ \mbox{\hyperlink{classProjectile}{Projectile}} $\ast$ $>$ \&to\+Fill)
+\begin{DoxyCompactList}\small\item\em Recupere les fireball des monstres a afficher. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classGameGestion_a2460819c812f3c76d0ed14e7ee403055}\label{classGameGestion_a2460819c812f3c76d0ed14e7ee403055}} 
+void \mbox{\hyperlink{classGameGestion_a2460819c812f3c76d0ed14e7ee403055}{update\+Mobs}} ()
+\begin{DoxyCompactList}\small\item\em Met à jour les monstres et les autres objets mobiles. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classGameGestion_aceeb38e06962a76a1e43471c57b3f049}{update\+Fireballs}} (std\+::vector$<$ \mbox{\hyperlink{classProjectile}{Projectile}} $\ast$ $>$ \&fireballs, int curr\+\_\+ind, std\+::vector$<$ \mbox{\hyperlink{classObject}{Object}} $\ast$ $>$ \&wall\+List)
+\begin{DoxyCompactList}\small\item\em Met a jour les fireball. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classGameGestion_a5768888a477d586da1f1c276ced9d327}{collide\+Visitor}} (\mbox{\hyperlink{classObject}{Object}} \&player, \mbox{\hyperlink{classObject}{Object}} \&o)
+\begin{DoxyCompactList}\small\item\em Visiteurs de collision entre le joueur et un objet. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classGameGestion_a26e1df8538e3ffca199186b4abca9ff8}\label{classGameGestion_a26e1df8538e3ffca199186b4abca9ff8}} 
+void \mbox{\hyperlink{classGameGestion_a26e1df8538e3ffca199186b4abca9ff8}{collide\+Wall\+Gestion}} ()
+\begin{DoxyCompactList}\small\item\em Gère la collision avec les murs. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classGameGestion_a4f6d4bf8dd9d70bf9bb5d407025dca02}\label{classGameGestion_a4f6d4bf8dd9d70bf9bb5d407025dca02}} 
+void \mbox{\hyperlink{classGameGestion_a4f6d4bf8dd9d70bf9bb5d407025dca02}{collide\+Projectile\+Gestion}} ()
+\begin{DoxyCompactList}\small\item\em Gère la collision avec les projectiles. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classGameGestion_a4355e99e53e9bd43d3466d84c681bd19}\label{classGameGestion_a4355e99e53e9bd43d3466d84c681bd19}} 
+void \mbox{\hyperlink{classGameGestion_a4355e99e53e9bd43d3466d84c681bd19}{collide\+Monster\+Gestion}} ()
+\begin{DoxyCompactList}\small\item\em Gère la collision avec les monstres. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{classGameGestion_a60042112bb86cac0131a5bf7f17cd242}{collide\+Position}} (\mbox{\hyperlink{classObject}{Object}} \&object1, \mbox{\hyperlink{classObject}{Object}} \&object2)
+\begin{DoxyCompactList}\small\item\em Détermine la position de collision entre deux objets. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classGameGestion_a4fc350c34a71f57a966debc8a6ceee26}{collide\+Wall}} (\mbox{\hyperlink{classObject}{Object}} \&o, std\+::vector$<$ \mbox{\hyperlink{classObject}{Object}} $\ast$ $>$ \&wall\+List, std\+::vector$<$ int $>$ \&info)
+\begin{DoxyCompactList}\small\item\em Gère la collision avec les murs. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classGameGestion_a2c6a09bc27c641054bd97b43ac297660}{collide\+Monster}} (\mbox{\hyperlink{classObject}{Object}} \&o, std\+::vector$<$ \mbox{\hyperlink{classMonster}{Monster}} $\ast$ $>$ \&wall\+List, std\+::vector$<$ int $>$ \&info)
+\begin{DoxyCompactList}\small\item\em Gère la collision avec les monstres. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classGameGestion_a94fbd9a021514b17c56631cf5a6ad428}{collide\+Player}} (\mbox{\hyperlink{classObject}{Object}} \&o, \mbox{\hyperlink{classPlayer}{Player}} \&p, std\+::vector$<$ int $>$ \&info)
+\begin{DoxyCompactList}\small\item\em Gère la collision avec les Joueurs. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classGameGestion_aa5b9a06a2ab91f116fcd2d1a4836d3ef}\label{classGameGestion_aa5b9a06a2ab91f116fcd2d1a4836d3ef}} 
+void \mbox{\hyperlink{classGameGestion_aa5b9a06a2ab91f116fcd2d1a4836d3ef}{Limit\+Map}} ()
+\begin{DoxyCompactList}\small\item\em Gère les limites de la carte. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classGameGestion_a1a45680608e25d71544ce7200dbf3fc1}\label{classGameGestion_a1a45680608e25d71544ce7200dbf3fc1}} 
+void \mbox{\hyperlink{classGameGestion_a1a45680608e25d71544ce7200dbf3fc1}{Limit\+Map\+Boss}} ()
+\begin{DoxyCompactList}\small\item\em Gère les limites de la carte du boss. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classGameGestion_a09999b9200955423d8acef6b83f641ce}\label{classGameGestion_a09999b9200955423d8acef6b83f641ce}} 
+void \mbox{\hyperlink{classGameGestion_a09999b9200955423d8acef6b83f641ce}{music\+Gestion}} ()
+\begin{DoxyCompactList}\small\item\em Gère la musique du jeu. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classGameGestion_a94bd0e7b4f4443e6e595e0d51be654a5}{check\+Life\+Monster}} (std\+::vector$<$ bool $>$ \&control)
+\begin{DoxyCompactList}\small\item\em Vérifie la vie des monstres et contrôle la musique. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classGameGestion_add09e3a2589d7136c478d148f5c5c09f}{music\+Fade}} (sf\+::\+Music $\ast$music)
+\begin{DoxyCompactList}\small\item\em Applique un fondu sur la musique. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classMap}{Map}} \& \mbox{\hyperlink{classGameGestion_a8d56a6ca2303cc23bf0e7258b5a9b3aa}{get\+Map}} () const
+\begin{DoxyCompactList}\small\item\em Récupère la carte du jeu. \end{DoxyCompactList}\item 
+const int \mbox{\hyperlink{classGameGestion_abc65e219e26bc8d59deeb5fb2e061c19}{get\+Object\+Size}} () const
+\begin{DoxyCompactList}\small\item\em Récupère la taille de l\textquotesingle{}objet. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Cette classe gere les evenements du jeu. 
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classGameGestion_a94bd0e7b4f4443e6e595e0d51be654a5}\label{classGameGestion_a94bd0e7b4f4443e6e595e0d51be654a5}} 
+\index{GameGestion@{GameGestion}!checkLifeMonster@{checkLifeMonster}}
+\index{checkLifeMonster@{checkLifeMonster}!GameGestion@{GameGestion}}
+\doxysubsubsection{\texorpdfstring{checkLifeMonster()}{checkLifeMonster()}}
+{\footnotesize\ttfamily void Game\+Gestion\+::check\+Life\+Monster (\begin{DoxyParamCaption}\item[{std\+::vector$<$ bool $>$ \&}]{control }\end{DoxyParamCaption})}
+
+
+
+Vérifie la vie des monstres et contrôle la musique. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em control} & Vecteur de contrôle des monstres. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classGameGestion_a2c6a09bc27c641054bd97b43ac297660}\label{classGameGestion_a2c6a09bc27c641054bd97b43ac297660}} 
+\index{GameGestion@{GameGestion}!collideMonster@{collideMonster}}
+\index{collideMonster@{collideMonster}!GameGestion@{GameGestion}}
+\doxysubsubsection{\texorpdfstring{collideMonster()}{collideMonster()}}
+{\footnotesize\ttfamily void Game\+Gestion\+::collide\+Monster (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classObject}{Object}} \&}]{o,  }\item[{std\+::vector$<$ \mbox{\hyperlink{classMonster}{Monster}} $\ast$ $>$ \&}]{wall\+List,  }\item[{std\+::vector$<$ int $>$ \&}]{info }\end{DoxyParamCaption})}
+
+
+
+Gère la collision avec les monstres. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em o} & Pointeur vers l\textquotesingle{}objet à tester pour la collision. \\
+\hline
+{\em wall\+List} & Liste des objets monstres. \\
+\hline
+{\em info} & Informations sur la collision. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classGameGestion_a94fbd9a021514b17c56631cf5a6ad428}\label{classGameGestion_a94fbd9a021514b17c56631cf5a6ad428}} 
+\index{GameGestion@{GameGestion}!collidePlayer@{collidePlayer}}
+\index{collidePlayer@{collidePlayer}!GameGestion@{GameGestion}}
+\doxysubsubsection{\texorpdfstring{collidePlayer()}{collidePlayer()}}
+{\footnotesize\ttfamily void Game\+Gestion\+::collide\+Player (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classObject}{Object}} \&}]{o,  }\item[{\mbox{\hyperlink{classPlayer}{Player}} \&}]{p,  }\item[{std\+::vector$<$ int $>$ \&}]{info }\end{DoxyParamCaption})}
+
+
+
+Gère la collision avec les Joueurs. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em o} & Pointeur vers l\textquotesingle{}objet à tester pour la collision. \\
+\hline
+{\em p} & Joueur en question. \\
+\hline
+{\em info} & Informations sur la collision. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classGameGestion_a60042112bb86cac0131a5bf7f17cd242}\label{classGameGestion_a60042112bb86cac0131a5bf7f17cd242}} 
+\index{GameGestion@{GameGestion}!collidePosition@{collidePosition}}
+\index{collidePosition@{collidePosition}!GameGestion@{GameGestion}}
+\doxysubsubsection{\texorpdfstring{collidePosition()}{collidePosition()}}
+{\footnotesize\ttfamily int Game\+Gestion\+::collide\+Position (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classObject}{Object}} \&}]{object1,  }\item[{\mbox{\hyperlink{classObject}{Object}} \&}]{object2 }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Détermine la position de collision entre deux objets. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em object1} & Pointeur vers le premier objet. \\
+\hline
+{\em object2} & Pointeur vers le deuxième objet. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Résultat de la collision entre les deux objets. 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{classColisionInterface_ad15a52bf7962934cc9dcb1c2dd17864a}{Colision\+Interface}}.
+
+\mbox{\Hypertarget{classGameGestion_a5768888a477d586da1f1c276ced9d327}\label{classGameGestion_a5768888a477d586da1f1c276ced9d327}} 
+\index{GameGestion@{GameGestion}!collideVisitor@{collideVisitor}}
+\index{collideVisitor@{collideVisitor}!GameGestion@{GameGestion}}
+\doxysubsubsection{\texorpdfstring{collideVisitor()}{collideVisitor()}}
+{\footnotesize\ttfamily void Game\+Gestion\+::collide\+Visitor (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classObject}{Object}} \&}]{player,  }\item[{\mbox{\hyperlink{classObject}{Object}} \&}]{o }\end{DoxyParamCaption})}
+
+
+
+Visiteurs de collision entre le joueur et un objet. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em player} & Pointeur vers l\textquotesingle{}objet joueur. \\
+\hline
+{\em o} & Pointeur vers l\textquotesingle{}objet à tester pour la collision. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classGameGestion_a4fc350c34a71f57a966debc8a6ceee26}\label{classGameGestion_a4fc350c34a71f57a966debc8a6ceee26}} 
+\index{GameGestion@{GameGestion}!collideWall@{collideWall}}
+\index{collideWall@{collideWall}!GameGestion@{GameGestion}}
+\doxysubsubsection{\texorpdfstring{collideWall()}{collideWall()}}
+{\footnotesize\ttfamily void Game\+Gestion\+::collide\+Wall (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classObject}{Object}} \&}]{o,  }\item[{std\+::vector$<$ \mbox{\hyperlink{classObject}{Object}} $\ast$ $>$ \&}]{wall\+List,  }\item[{std\+::vector$<$ int $>$ \&}]{info }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Gère la collision avec les murs. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em o} & Pointeur vers l\textquotesingle{}objet à tester pour la collision. \\
+\hline
+{\em wall\+List} & Liste des objets murs. \\
+\hline
+{\em info} & Informations sur la collision. \\
+\hline
+\end{DoxyParams}
+
+
+Implements \mbox{\hyperlink{classColisionInterface_a26d21e0cdf3c9d55a5cdba29834e3f86}{Colision\+Interface}}.
+
+\mbox{\Hypertarget{classGameGestion_a7d7d6399c5fd2fc0e9c664339e289f90}\label{classGameGestion_a7d7d6399c5fd2fc0e9c664339e289f90}} 
+\index{GameGestion@{GameGestion}!drawFireballs@{drawFireballs}}
+\index{drawFireballs@{drawFireballs}!GameGestion@{GameGestion}}
+\doxysubsubsection{\texorpdfstring{drawFireballs()}{drawFireballs()}}
+{\footnotesize\ttfamily const bool Game\+Gestion\+::draw\+Fireballs (\begin{DoxyParamCaption}\item[{std\+::vector$<$ sf\+::\+Vector2f $>$ \&}]{current\+Window,  }\item[{std\+::vector$<$ \mbox{\hyperlink{classProjectile}{Projectile}} $\ast$ $>$ \&}]{to\+Fill }\end{DoxyParamCaption})}
+
+
+
+Recupere les fireball des monstres a afficher. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em current\+Window} & Dimensions de la carte a afficher \\
+\hline
+{\em to\+Fill} & Tableau des fireball a afficher \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true -\/ Il faut dessiner des fireball 
+
+false -\/ Il n\textquotesingle{}y a pas de fireball a dessiner 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classGameGestion_a688a78c4e3b5ffb74708f9bb78235c92}\label{classGameGestion_a688a78c4e3b5ffb74708f9bb78235c92}} 
+\index{GameGestion@{GameGestion}!drawProjectile1@{drawProjectile1}}
+\index{drawProjectile1@{drawProjectile1}!GameGestion@{GameGestion}}
+\doxysubsubsection{\texorpdfstring{drawProjectile1()}{drawProjectile1()}}
+{\footnotesize\ttfamily const bool Game\+Gestion\+::draw\+Projectile1 (\begin{DoxyParamCaption}\item[{std\+::vector$<$ sf\+::\+Vector2f $>$ \&}]{current\+Window }\end{DoxyParamCaption})}
+
+
+
+Recupere les fleches du premier joueur a dessiner. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em current\+Window} & Dimensions de la carte a afficher \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true -\/ Il faut dessiner une fleche 
+
+false -\/ Il n\textquotesingle{}y a oas de fleche a dessiner 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classGameGestion_a704ef70727f0f94ec08d2173246ef056}\label{classGameGestion_a704ef70727f0f94ec08d2173246ef056}} 
+\index{GameGestion@{GameGestion}!drawProjectile2@{drawProjectile2}}
+\index{drawProjectile2@{drawProjectile2}!GameGestion@{GameGestion}}
+\doxysubsubsection{\texorpdfstring{drawProjectile2()}{drawProjectile2()}}
+{\footnotesize\ttfamily const bool Game\+Gestion\+::draw\+Projectile2 (\begin{DoxyParamCaption}\item[{std\+::vector$<$ sf\+::\+Vector2f $>$ \&}]{current\+Window }\end{DoxyParamCaption})}
+
+
+
+Recupere les fleches du deuxieme joueur a dessiner. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em current\+Window} & Dimensions de la carte a afficher \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true -\/ Il faut dessiner une fleche 
+
+false -\/ Il n\textquotesingle{}y a oas de fleche a dessiner 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classGameGestion_a8d56a6ca2303cc23bf0e7258b5a9b3aa}\label{classGameGestion_a8d56a6ca2303cc23bf0e7258b5a9b3aa}} 
+\index{GameGestion@{GameGestion}!getMap@{getMap}}
+\index{getMap@{getMap}!GameGestion@{GameGestion}}
+\doxysubsubsection{\texorpdfstring{getMap()}{getMap()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classMap}{Map}} \& Game\+Gestion\+::get\+Map (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Récupère la carte du jeu. 
+
+\begin{DoxyReturn}{Returns}
+Pointeur vers la carte du jeu. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classGameGestion_abc65e219e26bc8d59deeb5fb2e061c19}\label{classGameGestion_abc65e219e26bc8d59deeb5fb2e061c19}} 
+\index{GameGestion@{GameGestion}!getObjectSize@{getObjectSize}}
+\index{getObjectSize@{getObjectSize}!GameGestion@{GameGestion}}
+\doxysubsubsection{\texorpdfstring{getObjectSize()}{getObjectSize()}}
+{\footnotesize\ttfamily const int Game\+Gestion\+::get\+Object\+Size (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Récupère la taille de l\textquotesingle{}objet. 
+
+\begin{DoxyReturn}{Returns}
+Taille de l\textquotesingle{}objet. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classGameGestion_abf43114b2cf5b05d882e787fab88447c}\label{classGameGestion_abf43114b2cf5b05d882e787fab88447c}} 
+\index{GameGestion@{GameGestion}!getPlayerVector@{getPlayerVector}}
+\index{getPlayerVector@{getPlayerVector}!GameGestion@{GameGestion}}
+\doxysubsubsection{\texorpdfstring{getPlayerVector()}{getPlayerVector()}}
+{\footnotesize\ttfamily std\+::vector$<$ \mbox{\hyperlink{classPlayer}{Player}} $\ast$ $>$ \& Game\+Gestion\+::get\+Player\+Vector (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Récupère le vecteur de pointeurs vers les joueurs. 
+
+\begin{DoxyReturn}{Returns}
+Vecteur de pointeurs vers les joueurs. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classGameGestion_ad97d781a60e2698054978b1356c901d9}\label{classGameGestion_ad97d781a60e2698054978b1356c901d9}} 
+\index{GameGestion@{GameGestion}!keyEvent@{keyEvent}}
+\index{keyEvent@{keyEvent}!GameGestion@{GameGestion}}
+\doxysubsubsection{\texorpdfstring{keyEvent()}{keyEvent()}}
+{\footnotesize\ttfamily void Game\+Gestion\+::key\+Event (\begin{DoxyParamCaption}\item[{sf\+::\+Event}]{e }\end{DoxyParamCaption})}
+
+
+
+Gère les événements clavier. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em e} & Événement SFML associé à une touche clavier pressée. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classGameGestion_add09e3a2589d7136c478d148f5c5c09f}\label{classGameGestion_add09e3a2589d7136c478d148f5c5c09f}} 
+\index{GameGestion@{GameGestion}!musicFade@{musicFade}}
+\index{musicFade@{musicFade}!GameGestion@{GameGestion}}
+\doxysubsubsection{\texorpdfstring{musicFade()}{musicFade()}}
+{\footnotesize\ttfamily void Game\+Gestion\+::music\+Fade (\begin{DoxyParamCaption}\item[{sf\+::\+Music $\ast$}]{music }\end{DoxyParamCaption})}
+
+
+
+Applique un fondu sur la musique. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em music} & Pointeur vers la musique à appliquer le fondu. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classGameGestion_a05da63c05cae7eafd809b0af80c87940}\label{classGameGestion_a05da63c05cae7eafd809b0af80c87940}} 
+\index{GameGestion@{GameGestion}!operator=@{operator=}}
+\index{operator=@{operator=}!GameGestion@{GameGestion}}
+\doxysubsubsection{\texorpdfstring{operator=()}{operator=()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classGameGestion}{Game\+Gestion}} \& Game\+Gestion\+::operator= (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classGameGestion}{Game\+Gestion}} \&}]{other }\end{DoxyParamCaption})}
+
+
+
+Operateur d\textquotesingle{}assignement. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em other} & Jeu a assigner \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\mbox{\hyperlink{classGameGestion}{Game\+Gestion}}\& -\/ Jeu assigne 
+\end{DoxyReturn}
+$<$ Vecteur de pointeurs vers les joueurs
+
+$<$ Pointeur vers le joueur
+
+$<$ Pointeur vers le deuxième joueur
+
+$<$ Horloge utilisée pour la gestion du temps
+
+$<$ Pointeur vers la carte du jeu\mbox{\Hypertarget{classGameGestion_a3d40e73444c8bccd8a6c66b799728df7}\label{classGameGestion_a3d40e73444c8bccd8a6c66b799728df7}} 
+\index{GameGestion@{GameGestion}!toDrawUpdate@{toDrawUpdate}}
+\index{toDrawUpdate@{toDrawUpdate}!GameGestion@{GameGestion}}
+\doxysubsubsection{\texorpdfstring{toDrawUpdate()}{toDrawUpdate()}}
+{\footnotesize\ttfamily std\+::vector$<$ \mbox{\hyperlink{classObject}{Object}} $\ast$ $>$ \& Game\+Gestion\+::to\+Draw\+Update (\begin{DoxyParamCaption}\item[{std\+::vector$<$ sf\+::\+Vector2f $>$ \&}]{current\+Window }\end{DoxyParamCaption})}
+
+
+
+Recupere les elements a dessiner depuis la carte. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em current\+Window} & Dimensions de la carte a afficher \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+std\+::vector$<$\+Object$\ast$$>$\& -\/ Elements a dessiner 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classGameGestion_aceeb38e06962a76a1e43471c57b3f049}\label{classGameGestion_aceeb38e06962a76a1e43471c57b3f049}} 
+\index{GameGestion@{GameGestion}!updateFireballs@{updateFireballs}}
+\index{updateFireballs@{updateFireballs}!GameGestion@{GameGestion}}
+\doxysubsubsection{\texorpdfstring{updateFireballs()}{updateFireballs()}}
+{\footnotesize\ttfamily void Game\+Gestion\+::update\+Fireballs (\begin{DoxyParamCaption}\item[{std\+::vector$<$ \mbox{\hyperlink{classProjectile}{Projectile}} $\ast$ $>$ \&}]{fireballs,  }\item[{int}]{curr\+\_\+ind,  }\item[{std\+::vector$<$ \mbox{\hyperlink{classObject}{Object}} $\ast$ $>$ \&}]{wall\+List }\end{DoxyParamCaption})}
+
+
+
+Met a jour les fireball. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em fireballs} & \mbox{\hyperlink{classFireball}{Fireball}} a mettre a jour \\
+\hline
+{\em curr\+\_\+ind} & Indice du fireball dans le tableau qu\textquotesingle{}il faut mettre a jour \\
+\hline
+{\em wall\+List} & Liste des murs sur la carte \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classGameGestion_a3c60834eb1e29e20dec035ae725bbe9e}\label{classGameGestion_a3c60834eb1e29e20dec035ae725bbe9e}} 
+\index{GameGestion@{GameGestion}!updateGame@{updateGame}}
+\index{updateGame@{updateGame}!GameGestion@{GameGestion}}
+\doxysubsubsection{\texorpdfstring{updateGame()}{updateGame()}}
+{\footnotesize\ttfamily int Game\+Gestion\+::update\+Game (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Met à jour le jeu. 
+
+\begin{DoxyReturn}{Returns}
+Résultat de la mise à jour du jeu. 
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+Game\+Gestion.\+hpp\item 
+Game\+Gestion.\+cpp\end{DoxyCompactItemize}

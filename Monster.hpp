@@ -11,11 +11,12 @@
 class Player;
 
 
+/**
+ * @brief Cette classe represente un monstre
+ * 
+ */
 class Monster : public Character {
     protected:
-        // Player& _player1; /**< Pointeur vers le joueur */
-        // Player& _player2;
-
         static int _serial; /**< Compteur de sérialisation des monstres */
 
         sf::Music* _crySound; /**< Son de cri du monstre */
@@ -26,26 +27,33 @@ class Monster : public Character {
         float _attack_radius; /**< Rayon d'attaque du monstre */
         float _vision_field; /**< Champ de vision du monstre */
 
-        int _attack_cooldown = 50;
-
-        //sf::Music _crySound; /**< Son de cri du monstre */
+        int _attack_cooldown = 50;  ///< Limite du temps entre les deux attaques
 
         /**
-         * @brief Détermine le comportement du monstre pour se déplacer vers le joueur.
+         * @brief Deplace le monstre vers la cible
+         * 
+         * @param target La cible
          */
         virtual void goToPlayer(Player& target);
 
         /**
-         * @brief Vérifie si le joueur est visible par le monstre.
-         *
-         * @return `true` si le joueur est visible, `false` sinon
+         * @brief Verifie si le joueur est visible
+         * 
+         * @param p1 Premier joueur de la carte
+         * @param p2 Deuxieme joueur de la carte
+         * @param dist1 Distance entre le monstre et le premier joueur
+         * @param dist2 Distance entre le monstre et le deuxieme joueur
+         * @return true - Le joueur est vu
+         * @return false - Le joueur n'est pas vu
          */
         bool playerSeen(Player& p1, Player& p2, float* dist1, float* dist2) const;
 
         /**
-         * @brief Vérifie si le joueur est à portée d'attaque du monstre.
-         *
-         * @return `true` si le joueur est à portée d'attaque, `false` sinon
+         * @brief Verifie si le joueur est atteignable 
+         * 
+         * @param target La cible
+         * @return true - Le joueur est atteignable
+         * @return false - Le joueur est hors portee
          */
         bool playerInRange(Player& target) const;
 
@@ -72,7 +80,7 @@ class Monster : public Character {
          * @param vf Champ de vision du monstre
          * @param speed Vitesse du monstre
          */
-        Monster(string nameObject, sf::Vector2f initPos, /*Player& player1, Player& player2,*/ string name = "meat", int dmg = 1, int ar = 3, int vf = 5, float speed = 1);
+        Monster(string nameObject, sf::Vector2f initPos, string name = "meat", int dmg = 1, int ar = 3, int vf = 5, float speed = 1);
 
         /**
          * @brief Destructeur de la classe `Monster`.
@@ -87,9 +95,10 @@ class Monster : public Character {
         virtual void attack(Player& target);
 
         /**
-         * @brief Met à jour le monstre en fonction du joueur.
-         *
-         * @param pl Pointeur vers le joueur
+         * @brief Met a jour le joueur
+         * 
+         * @param target1 Premier joueur de la carte
+         * @param target2 Deuxieme joueur de la carte
          */
         virtual void update(Player& target1, Player& target2);
 
@@ -126,7 +135,18 @@ class Monster : public Character {
          */
         int getSerial();
 
+        /**
+         * @brief Getteur des projectiles eventuelles
+         * 
+         * @return NULL - fonction pour les monstres qui savent tirer
+         */
         virtual Projectile* getProjectile() { return nullptr; }
+
+        /**
+         * @brief Getteur du tableau projectiles eventuel
+         * 
+         * @return NULL - fonction pour les monstres qui savent tirer
+         */
         virtual std::vector<Projectile*>* getProjectiles() { return nullptr; };
 };
 

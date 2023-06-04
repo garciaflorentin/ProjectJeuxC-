@@ -1,0 +1,92 @@
+\hypertarget{classSoundsLib}{}\doxysection{Sounds\+Lib Class Reference}
+\label{classSoundsLib}\index{SoundsLib@{SoundsLib}}
+
+
+La classe \mbox{\hyperlink{classSoundsLib}{Sounds\+Lib}} gère la bibliothèque de sons utilisées dans le jeu.  
+
+
+
+
+{\ttfamily \#include $<$Sounds\+Lib.\+hpp$>$}
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classSoundsLib_ae98d27815a355ed615859bb3814aef7f}\label{classSoundsLib_ae98d27815a355ed615859bb3814aef7f}} 
+\mbox{\hyperlink{classSoundsLib_ae98d27815a355ed615859bb3814aef7f}{Sounds\+Lib}} ()
+\begin{DoxyCompactList}\small\item\em Constructeur de la classe \mbox{\hyperlink{classSoundsLib}{Sounds\+Lib}}. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classSoundsLib_a6c7d1b58dcf98d21f9f97501203ad3e5}\label{classSoundsLib_a6c7d1b58dcf98d21f9f97501203ad3e5}} 
+\mbox{\hyperlink{classSoundsLib_a6c7d1b58dcf98d21f9f97501203ad3e5}{$\sim$\+Sounds\+Lib}} ()
+\begin{DoxyCompactList}\small\item\em Destructeur de la classe \mbox{\hyperlink{classSoundsLib}{Sounds\+Lib}}. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static map$<$ string, sf\+::\+Music $\ast$ $>$ \& \mbox{\hyperlink{classSoundsLib_a3e39197b9711993e6a9719f30e89e89a}{get\+Sounds}} ()
+\begin{DoxyCompactList}\small\item\em Récupère la collection de sons. \end{DoxyCompactList}\item 
+static int \mbox{\hyperlink{classSoundsLib_a2aae75a10caa28d440d2eb9db9ef3880}{assign\+Sound}} (string filename, sf\+::\+Music $\ast$sound)
+\begin{DoxyCompactList}\small\item\em Assigner un son du nom de fichier spécifié. \end{DoxyCompactList}\item 
+static sf\+::\+Music $\ast$ \mbox{\hyperlink{classSoundsLib_a8262a4ce93c9e86b79de35f3afc011e9}{assign\+Sound}} (string filename)
+\begin{DoxyCompactList}\small\item\em Assigner un son du nom de fichier spécifié. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+La classe \mbox{\hyperlink{classSoundsLib}{Sounds\+Lib}} gère la bibliothèque de sons utilisées dans le jeu. 
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classSoundsLib_a8262a4ce93c9e86b79de35f3afc011e9}\label{classSoundsLib_a8262a4ce93c9e86b79de35f3afc011e9}} 
+\index{SoundsLib@{SoundsLib}!assignSound@{assignSound}}
+\index{assignSound@{assignSound}!SoundsLib@{SoundsLib}}
+\doxysubsubsection{\texorpdfstring{assignSound()}{assignSound()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily sf\+::\+Music $\ast$ Sounds\+Lib\+::assign\+Sound (\begin{DoxyParamCaption}\item[{string}]{filename }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Assigner un son du nom de fichier spécifié. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em filename} & Le nom du fichier du son. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Un pointeur vers le son assigné, ou nullptr si la texture n\textquotesingle{}a pas pu être chargée. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classSoundsLib_a2aae75a10caa28d440d2eb9db9ef3880}\label{classSoundsLib_a2aae75a10caa28d440d2eb9db9ef3880}} 
+\index{SoundsLib@{SoundsLib}!assignSound@{assignSound}}
+\index{assignSound@{assignSound}!SoundsLib@{SoundsLib}}
+\doxysubsubsection{\texorpdfstring{assignSound()}{assignSound()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily int Sounds\+Lib\+::assign\+Sound (\begin{DoxyParamCaption}\item[{string}]{filename,  }\item[{sf\+::\+Music $\ast$}]{sound }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Assigner un son du nom de fichier spécifié. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em filename} & Le nom du fichier du son. \\
+\hline
+{\em sound} & Le son à assigner. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+0 si la texture est assignée avec succès, -\/1 sinon. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classSoundsLib_a3e39197b9711993e6a9719f30e89e89a}\label{classSoundsLib_a3e39197b9711993e6a9719f30e89e89a}} 
+\index{SoundsLib@{SoundsLib}!getSounds@{getSounds}}
+\index{getSounds@{getSounds}!SoundsLib@{SoundsLib}}
+\doxysubsubsection{\texorpdfstring{getSounds()}{getSounds()}}
+{\footnotesize\ttfamily static map$<$string, sf\+::\+Music$\ast$$>$\& Sounds\+Lib\+::get\+Sounds (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+
+
+Récupère la collection de sons. 
+
+\begin{DoxyReturn}{Returns}
+La collection de sons. 
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+Sounds\+Lib.\+hpp\item 
+Sounds\+Lib.\+cpp\end{DoxyCompactItemize}

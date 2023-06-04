@@ -1,0 +1,228 @@
+\hypertarget{classChest}{}\doxysection{Chest Class Reference}
+\label{classChest}\index{Chest@{Chest}}
+
+
+Cette classe representre un coffre.  
+
+
+
+
+{\ttfamily \#include $<$Chest.\+hpp$>$}
+
+
+
+Inheritance diagram for Chest\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=159pt]{classChest__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for Chest\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=174pt]{classChest__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classChest_ae211086937a8c714adf47c5bd930a9e0}{Chest}} (string name\+Object, sf\+::\+Vector2f init\+Pos)
+\begin{DoxyCompactList}\small\item\em Constructeur de la classe {\ttfamily \mbox{\hyperlink{classChest}{Chest}}}. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classChest_a7812197e36be9b1474ec09ca6aaad404}\label{classChest_a7812197e36be9b1474ec09ca6aaad404}} 
+\mbox{\hyperlink{classChest_a7812197e36be9b1474ec09ca6aaad404}{$\sim$\+Chest}} ()
+\begin{DoxyCompactList}\small\item\em Destructeur de la classe {\ttfamily \mbox{\hyperlink{classChest}{Chest}}}. \end{DoxyCompactList}\item 
+const int \mbox{\hyperlink{classChest_ac02f27bed0f682362ef7f97d88dfe751}{open}} ()
+\begin{DoxyCompactList}\small\item\em Ouvre le coffre. \end{DoxyCompactList}\item 
+const sf\+::\+Sprite \& \mbox{\hyperlink{classChest_a904f29dd88e4c072cfaac80765955b23}{get\+Sprite\+Chest}} () const
+\begin{DoxyCompactList}\small\item\em Récupère le sprite du coffre. \end{DoxyCompactList}\item 
+const sf\+::\+Vector2f \mbox{\hyperlink{classChest_a8425891a12c2186ad22866e1d35e2445}{get\+Position}} () const
+\begin{DoxyCompactList}\small\item\em Récupère la position du coffre. \end{DoxyCompactList}\item 
+const bool \mbox{\hyperlink{classChest_aaf93fe53f9eb846e41dc73bc68d2893b}{is\+Open}} () const
+\begin{DoxyCompactList}\small\item\em Vérifie si le coffre est ouvert. \end{DoxyCompactList}\item 
+virtual void \mbox{\hyperlink{classChest_a64e828e6e39baf46939a388fdc345623}{collide}} (\mbox{\hyperlink{classObject}{Object}} \&o)
+\begin{DoxyCompactList}\small\item\em Gère la collision avec un objet. \end{DoxyCompactList}\item 
+const int \mbox{\hyperlink{classChest_add758a55c2852c77198344a0af401474}{get\+Block\+Size}} () const
+\begin{DoxyCompactList}\small\item\em Récupère la taille d\textquotesingle{}un bloc du coffre. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classPrise}{Prise}} \& \mbox{\hyperlink{classChest_a671e7fefbe625f2a48eacbd9133b3109}{get\+Prise}} () const
+\begin{DoxyCompactList}\small\item\em Récupère le gain du coffre. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{classChest_a949ccbc7e39e13d406ff280f7e07ed92}{\+\_\+chest\+\_\+size}} = 35
+\item 
+bool \mbox{\hyperlink{classChest_aec1602c8f61a27c2b265171d6d57340f}{\+\_\+is\+Open}}
+\item 
+\mbox{\hyperlink{classPrise}{Prise}} \& \mbox{\hyperlink{classChest_aea2c488204a8603cbfd9718c301a2b03}{\+\_\+prise}}
+\item 
+sf\+::\+Vector2i \mbox{\hyperlink{classChest_ad936542570baec9f0ee0386d5e9f603b}{\+\_\+chest\+Anim}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Cette classe representre un coffre. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classChest_ae211086937a8c714adf47c5bd930a9e0}\label{classChest_ae211086937a8c714adf47c5bd930a9e0}} 
+\index{Chest@{Chest}!Chest@{Chest}}
+\index{Chest@{Chest}!Chest@{Chest}}
+\doxysubsubsection{\texorpdfstring{Chest()}{Chest()}}
+{\footnotesize\ttfamily Chest\+::\+Chest (\begin{DoxyParamCaption}\item[{string}]{name\+Object,  }\item[{sf\+::\+Vector2f}]{init\+Pos }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Constructeur de la classe {\ttfamily \mbox{\hyperlink{classChest}{Chest}}}. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em name\+Object} & Nom de l\textquotesingle{}objet \\
+\hline
+{\em init\+Pos} & Position initiale \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classChest_a64e828e6e39baf46939a388fdc345623}\label{classChest_a64e828e6e39baf46939a388fdc345623}} 
+\index{Chest@{Chest}!collide@{collide}}
+\index{collide@{collide}!Chest@{Chest}}
+\doxysubsubsection{\texorpdfstring{collide()}{collide()}}
+{\footnotesize\ttfamily void Chest\+::collide (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classObject}{Object}} \&}]{o }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Gère la collision avec un objet. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em o} & Objet avec lequel il y a collision. \\
+\hline
+\end{DoxyParams}
+
+
+Reimplemented from \mbox{\hyperlink{classObject_a62148779acb081bf59c92c24f0695d7d}{Object}}.
+
+
+
+Reimplemented in \mbox{\hyperlink{classGoldenChest_a804b8977e8901f45f83dff54a89837bd}{Golden\+Chest}}.
+
+\mbox{\Hypertarget{classChest_add758a55c2852c77198344a0af401474}\label{classChest_add758a55c2852c77198344a0af401474}} 
+\index{Chest@{Chest}!getBlockSize@{getBlockSize}}
+\index{getBlockSize@{getBlockSize}!Chest@{Chest}}
+\doxysubsubsection{\texorpdfstring{getBlockSize()}{getBlockSize()}}
+{\footnotesize\ttfamily const int Chest\+::get\+Block\+Size (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+
+
+Récupère la taille d\textquotesingle{}un bloc du coffre. 
+
+\begin{DoxyReturn}{Returns}
+La taille d\textquotesingle{}un bloc du coffre. 
+\end{DoxyReturn}
+
+
+Reimplemented from \mbox{\hyperlink{classObject_a57515683a47ff93161e2cd544b391f12}{Object}}.
+
+\mbox{\Hypertarget{classChest_a8425891a12c2186ad22866e1d35e2445}\label{classChest_a8425891a12c2186ad22866e1d35e2445}} 
+\index{Chest@{Chest}!getPosition@{getPosition}}
+\index{getPosition@{getPosition}!Chest@{Chest}}
+\doxysubsubsection{\texorpdfstring{getPosition()}{getPosition()}}
+{\footnotesize\ttfamily const sf\+::\+Vector2f Chest\+::get\+Position (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Récupère la position du coffre. 
+
+\begin{DoxyReturn}{Returns}
+La position du coffre. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classChest_a671e7fefbe625f2a48eacbd9133b3109}\label{classChest_a671e7fefbe625f2a48eacbd9133b3109}} 
+\index{Chest@{Chest}!getPrise@{getPrise}}
+\index{getPrise@{getPrise}!Chest@{Chest}}
+\doxysubsubsection{\texorpdfstring{getPrise()}{getPrise()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classPrise}{Prise}}\& Chest\+::get\+Prise (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Récupère le gain du coffre. 
+
+\begin{DoxyReturn}{Returns}
+Le gain du coffre. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classChest_a904f29dd88e4c072cfaac80765955b23}\label{classChest_a904f29dd88e4c072cfaac80765955b23}} 
+\index{Chest@{Chest}!getSpriteChest@{getSpriteChest}}
+\index{getSpriteChest@{getSpriteChest}!Chest@{Chest}}
+\doxysubsubsection{\texorpdfstring{getSpriteChest()}{getSpriteChest()}}
+{\footnotesize\ttfamily const sf\+::\+Sprite\& Chest\+::get\+Sprite\+Chest (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Récupère le sprite du coffre. 
+
+\begin{DoxyReturn}{Returns}
+Le sprite du coffre. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classChest_aaf93fe53f9eb846e41dc73bc68d2893b}\label{classChest_aaf93fe53f9eb846e41dc73bc68d2893b}} 
+\index{Chest@{Chest}!isOpen@{isOpen}}
+\index{isOpen@{isOpen}!Chest@{Chest}}
+\doxysubsubsection{\texorpdfstring{isOpen()}{isOpen()}}
+{\footnotesize\ttfamily const bool Chest\+::is\+Open (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Vérifie si le coffre est ouvert. 
+
+\begin{DoxyReturn}{Returns}
+{\ttfamily true} si le coffre est ouvert, sinon {\ttfamily false}. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classChest_ac02f27bed0f682362ef7f97d88dfe751}\label{classChest_ac02f27bed0f682362ef7f97d88dfe751}} 
+\index{Chest@{Chest}!open@{open}}
+\index{open@{open}!Chest@{Chest}}
+\doxysubsubsection{\texorpdfstring{open()}{open()}}
+{\footnotesize\ttfamily const int Chest\+::open (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Ouvre le coffre. 
+
+\begin{DoxyReturn}{Returns}
+Le nombre de gains obtenus. 
+\end{DoxyReturn}
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{classChest_a949ccbc7e39e13d406ff280f7e07ed92}\label{classChest_a949ccbc7e39e13d406ff280f7e07ed92}} 
+\index{Chest@{Chest}!\_chest\_size@{\_chest\_size}}
+\index{\_chest\_size@{\_chest\_size}!Chest@{Chest}}
+\doxysubsubsection{\texorpdfstring{\_chest\_size}{\_chest\_size}}
+{\footnotesize\ttfamily int Chest\+::\+\_\+chest\+\_\+size = 35\hspace{0.3cm}{\ttfamily [protected]}}
+
+Taille d\textquotesingle{}un bloc du coffre \mbox{\Hypertarget{classChest_ad936542570baec9f0ee0386d5e9f603b}\label{classChest_ad936542570baec9f0ee0386d5e9f603b}} 
+\index{Chest@{Chest}!\_chestAnim@{\_chestAnim}}
+\index{\_chestAnim@{\_chestAnim}!Chest@{Chest}}
+\doxysubsubsection{\texorpdfstring{\_chestAnim}{\_chestAnim}}
+{\footnotesize\ttfamily sf\+::\+Vector2i Chest\+::\+\_\+chest\+Anim\hspace{0.3cm}{\ttfamily [protected]}}
+
+Animation du coffre \mbox{\Hypertarget{classChest_aec1602c8f61a27c2b265171d6d57340f}\label{classChest_aec1602c8f61a27c2b265171d6d57340f}} 
+\index{Chest@{Chest}!\_isOpen@{\_isOpen}}
+\index{\_isOpen@{\_isOpen}!Chest@{Chest}}
+\doxysubsubsection{\texorpdfstring{\_isOpen}{\_isOpen}}
+{\footnotesize\ttfamily bool Chest\+::\+\_\+is\+Open\hspace{0.3cm}{\ttfamily [protected]}}
+
+Indique si le coffre est ouvert \mbox{\Hypertarget{classChest_aea2c488204a8603cbfd9718c301a2b03}\label{classChest_aea2c488204a8603cbfd9718c301a2b03}} 
+\index{Chest@{Chest}!\_prise@{\_prise}}
+\index{\_prise@{\_prise}!Chest@{Chest}}
+\doxysubsubsection{\texorpdfstring{\_prise}{\_prise}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classPrise}{Prise}}\& Chest\+::\+\_\+prise\hspace{0.3cm}{\ttfamily [protected]}}
+
+Gain contenu dans le coffre 
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+Chest.\+hpp\item 
+Chest.\+cpp\end{DoxyCompactItemize}

@@ -11,32 +11,29 @@
 using namespace std;
 
 
+/**
+ * @brief Cette interface representa la GUI du jeu
+ * 
+ */
 class UserInterface{
-
     private:
+        const float _windowWidth = 1024.f, _windowHeight = 768.f;   ///< Les dimensions de la GUI
 
-        const float _windowWidth = 1024.f, _windowHeight = 768.f;
+        sf::View _UiView;   ///< La vue sur la GUI
 
-        sf::View _UiView;
+        sf::RenderWindow* _window;  ///< Fenetre a afficher
 
-        sf::RenderWindow* _window;
+        sf::Event _event;           ///< Evenement a prendre en compte
+        sf::VideoMode _videoMode;   ///< Le mode video
+        sf::Texture& _UiTexture, _UiTexture1, _UiTexture2;  ///< Les textures de la GUI
 
-        sf::Event _event;
-        sf::VideoMode _videoMode;
-        sf::Texture& _UiTexture;
-        sf::Texture& _UiTexture1;
-        sf::Texture& _UiTexture2;
-        sf::Font _police;
+        sf::Font _police;   ///< La police 
 
-        sf::Music* _StartMusic;
+        sf::Music* _StartMusic; ///< Musique du debut de jeu
 
-        sf::Sprite& _Background;
-        sf::Sprite& _button1;
-        sf::Sprite& _button2;
-        sf::Sprite& _button3;
-        sf::Sprite& _cadre;
+        sf::Sprite& _Background, _button1, _button2, _button3, _cadre;  ///< Sprites de la GUI
 
-        bool _isPaused, _isLaunched, _isDead, _win;
+        bool _isPaused, _isLaunched, _isDead, _win; ///< Control d'affichage
 
     public:
 
@@ -45,6 +42,12 @@ class UserInterface{
          */
         UserInterface();
 
+        /**
+         * @brief Operateur d'assignement
+         * 
+         * @param other GUI a assigner
+         * @return UserInterface& - GUI assignee
+         */
         UserInterface& operator=(const UserInterface& other);
 
         /**
@@ -185,7 +188,6 @@ class UserInterface{
         sf::RenderWindow& getWindow(){
             return *_window;
         }
-
 };
 
 

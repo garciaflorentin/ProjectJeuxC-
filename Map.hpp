@@ -21,45 +21,44 @@
 using namespace std;
 
 
+/**
+ * @brief Cette classe represente une carte
+ * 
+ */
 class Map {
-
     private:
+        vector<Object*> _toDraw;                    ///< Les objets qu'il faut dessiner
+        vector<Object*> _map;                       ///< Liste des objets sur la carte
+        std::vector<Object*> _wallList;             ///< Liste des murs
+        std::vector<Monster*> _monsterList;         ///< Liste des monstres
+        std::vector<GoldenChest*> _goldChestList;   ///< Liste des coffres contenants une cle
 
-        vector<Object*> _toDraw;
-        vector<Object*> _map;
-        std::vector<Object*> _wallList;
-        std::vector<Monster*> _monsterList;
-        std::vector<GoldenChest*> _goldChestList;
+        Door _door;                                 ///< La porte vers le boss final
+        DoorWall _doorWall1, _doorWall2, doorWall3; ///< Les portes incrustees dans les murs entre les zones
 
-        Door _door;
-        DoorWall _doorWall1;
-        DoorWall _doorWall2;
-        DoorWall _doorWall3;
+        float _LIMITE_Xneg = 0, _LIMITE_Y = 4992.f, _LIMITE_X = 9540,_LIMITE_Yneg = -4896.f;    ///< Limites de la carte normale
+        float _LIMITE_XnegBoss = 9472.f, _LIMITE_XBoss = 10456.f, _LIMITE_YBoss = 10328.f;      ///< Limites de la zone du boss
 
-        float _LIMITE_Xneg = 0;
-        float _LIMITE_Y = 4992.f;
-        float _LIMITE_X = 9540;
-        float _LIMITE_Yneg = -4896.f;
-        float _LIMITE_XnegBoss = 9472.f;
-        float _LIMITE_YnegBoss = 9600.f;
-        float _LIMITE_XBoss = 10456.f;
-        float _LIMITE_YBoss = 10328.f;
-        bool _spf = false;
-        bool _spm = false;
-        bool _spb = false;
-        bool _spt = false;
-        int _nbDoorWall;
-        sf::Sprite _playerDead;
+        bool _spf = false, _spm = false, _spb = false, _spt = false;    ///< Gerent les apparitions des monstres des diferentes zones
 
-        bool _gameWon = false;
+        int _nbDoorWall;    ///< Compte le nombres des portes dans les murs
+
+        sf::Sprite _playerDead; ///< Sprite du joueur mort
+
+        bool _gameWon = false;  ///< Compte la victoire
 
     public:
-
         /**
          * @brief Constructeur de la classe `Map`.
          */
         Map();
 
+        /**
+         * @brief Operateur d'assignement
+         * 
+         * @param other Carte a assigner
+         * @return Map& - Carte assignee
+         */
         Map& operator=(const Map& other);
 
         /**
@@ -160,9 +159,10 @@ class Map {
         std::vector<Monster*>& getMonsters();
 
         /**
-         * @brief Met à jour les objets de la carte en fonction du joueur.
-         *
-         * @param player Pointeur vers le joueur
+         * @brief Met a jour la carte
+         * 
+         * @param player1 Premier joueur 
+         * @param player2 Deuxieme joueur
          */
         void updateObjects(Player& player1, Player& player2);
 
@@ -192,11 +192,22 @@ class Map {
          */
         sf::Sprite* getPlayerDead();
 
+        /**
+         * @brief Getteur de _goldChestList
+         * 
+         * @return vector<GoldenChest*>& Liste des coffres a cle
+         */
         vector<GoldenChest*>& getGoldenChestList() { 
             //cout << "there are " << _goldChestList.size() << " golden chests" << endl;
             return _goldChestList; 
         }
 
+        /**
+         * @brief Getteur de _gameWon
+         * 
+         * @return true - Victoire
+         * @return false - Pas de victoire - pour l'instant
+         */
         const bool gameWon() const { return _gameWon; };
 };
 

@@ -1,0 +1,108 @@
+\hypertarget{classMiniOgre}{}\doxysection{Mini\+Ogre Class Reference}
+\label{classMiniOgre}\index{MiniOgre@{MiniOgre}}
+
+
+Cette classe represente un petit ogre.  
+
+
+
+
+{\ttfamily \#include $<$Mini\+Ogre.\+hpp$>$}
+
+
+
+Inheritance diagram for Mini\+Ogre\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=166pt]{classMiniOgre__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for Mini\+Ogre\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=190pt]{classMiniOgre__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classMiniOgre_ab88cb8541035894d2545b3d784246280}{Mini\+Ogre}} (string name\+Object, sf\+::\+Vector2f init\+Pos, string name=\char`\"{}Mini\+Ogre\char`\"{}, int dmg=2.\+5, int ar=1, int vf=30, float speed=2.\+5)
+\begin{DoxyCompactList}\small\item\em Constructeur de la classe {\ttfamily \mbox{\hyperlink{classMiniOgre}{Mini\+Ogre}}}. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classMiniOgre_a858953a7d9dddcad555df67c4bb4864f}\label{classMiniOgre_a858953a7d9dddcad555df67c4bb4864f}} 
+\mbox{\hyperlink{classMiniOgre_a858953a7d9dddcad555df67c4bb4864f}{$\sim$\+Mini\+Ogre}} ()
+\begin{DoxyCompactList}\small\item\em Destructeur de la classe {\ttfamily \mbox{\hyperlink{classMiniOgre}{Mini\+Ogre}}}. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classMiniOgre_aa89c7db1f63a7e588965ff6dd5ff0e5d}\label{classMiniOgre_aa89c7db1f63a7e588965ff6dd5ff0e5d}} 
+void \mbox{\hyperlink{classMiniOgre_aa89c7db1f63a7e588965ff6dd5ff0e5d}{update\+Sprite}} ()
+\begin{DoxyCompactList}\small\item\em Met à jour le sprite du mini ogre. \end{DoxyCompactList}\item 
+virtual void \mbox{\hyperlink{classMiniOgre_ad8f1079611f8f02892d3e800b40ac39c}{update}} (\mbox{\hyperlink{classPlayer}{Player}} \&pl1, \mbox{\hyperlink{classPlayer}{Player}} \&pl2)
+\begin{DoxyCompactList}\small\item\em Met a jour le monstre. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Additional Inherited Members}
+
+
+\doxysubsection{Detailed Description}
+Cette classe represente un petit ogre. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classMiniOgre_ab88cb8541035894d2545b3d784246280}\label{classMiniOgre_ab88cb8541035894d2545b3d784246280}} 
+\index{MiniOgre@{MiniOgre}!MiniOgre@{MiniOgre}}
+\index{MiniOgre@{MiniOgre}!MiniOgre@{MiniOgre}}
+\doxysubsubsection{\texorpdfstring{MiniOgre()}{MiniOgre()}}
+{\footnotesize\ttfamily Mini\+Ogre\+::\+Mini\+Ogre (\begin{DoxyParamCaption}\item[{string}]{name\+Object,  }\item[{sf\+::\+Vector2f}]{init\+Pos,  }\item[{string}]{name = {\ttfamily \char`\"{}MiniOgre\char`\"{}},  }\item[{int}]{dmg = {\ttfamily 2.5},  }\item[{int}]{ar = {\ttfamily 1},  }\item[{int}]{vf = {\ttfamily 30},  }\item[{float}]{speed = {\ttfamily 2.5} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Constructeur de la classe {\ttfamily \mbox{\hyperlink{classMiniOgre}{Mini\+Ogre}}}. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em name\+Object} & Nom de l\textquotesingle{}objet \\
+\hline
+{\em init\+Pos} & Position initiale du mini ogre \\
+\hline
+{\em name} & Nom du mini ogre \\
+\hline
+{\em dmg} & Dommages infligés par le mini ogre \\
+\hline
+{\em ar} & Rayon d\textquotesingle{}attaque du mini ogre \\
+\hline
+{\em vf} & Champ de vision du mini ogre \\
+\hline
+{\em speed} & Vitesse du mini ogre \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classMiniOgre_ad8f1079611f8f02892d3e800b40ac39c}\label{classMiniOgre_ad8f1079611f8f02892d3e800b40ac39c}} 
+\index{MiniOgre@{MiniOgre}!update@{update}}
+\index{update@{update}!MiniOgre@{MiniOgre}}
+\doxysubsubsection{\texorpdfstring{update()}{update()}}
+{\footnotesize\ttfamily void Mini\+Ogre\+::update (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classPlayer}{Player}} \&}]{pl1,  }\item[{\mbox{\hyperlink{classPlayer}{Player}} \&}]{pl2 }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Met a jour le monstre. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em pl1} & Premier joueur de la carte \\
+\hline
+{\em pl2} & Deuxieme joueur de la carte \\
+\hline
+\end{DoxyParams}
+
+
+Reimplemented from \mbox{\hyperlink{classMeleeMonster_a9f86af7ff23b9f1eafdc9dd2bd672d21}{Melee\+Monster}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+Mini\+Ogre.\+hpp\item 
+Mini\+Ogre.\+cpp\end{DoxyCompactItemize}

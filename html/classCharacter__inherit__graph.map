@@ -1,0 +1,14 @@
+<map id="Character" name="Character">
+<area shape="rect" id="node1" title="Cette classe represente un parsonnage." alt="" coords="354,80,439,107"/>
+<area shape="rect" id="node3" href="$classMonster.html" title="Cette classe represente un monstre." alt="" coords="313,155,387,181"/>
+<area shape="rect" id="node12" href="$classPlayer.html" title="Classe représentant le joueur du jeu." alt="" coords="412,155,475,181"/>
+<area shape="rect" id="node2" href="$classObject.html" title="Classe de base pour les objets du jeu." alt="" coords="365,5,429,32"/>
+<area shape="rect" id="node4" href="$classFinalBoss.html" title="Cette classe represente le boss final." alt="" coords="186,229,269,256"/>
+<area shape="rect" id="node5" href="$classMeleeMonster.html" title="Classe représentant un monstre de mêlée, un type spécifique de monstre." alt="" coords="293,229,407,256"/>
+<area shape="rect" id="node11" href="$classRangedMonster.html" title="Cette classe represente un monstre qui peut tirer les projectiles." alt="" coords="432,229,556,256"/>
+<area shape="rect" id="node6" href="$classDemonDogMonster.html" title="Cette classe represente un monstre DemonDog." alt="" coords="5,304,153,331"/>
+<area shape="rect" id="node7" href="$classFlyMonster.html" title="Cette classe represente un monstre volant." alt="" coords="177,304,272,331"/>
+<area shape="rect" id="node8" href="$classGuerrierOgre.html" title="Cette classe represente un ogre en armure." alt="" coords="297,304,403,331"/>
+<area shape="rect" id="node9" href="$classMiniFrogMonster.html" title="Classe représentant un mini monstre grenouille, un type spécifique de monstre." alt="" coords="427,304,558,331"/>
+<area shape="rect" id="node10" href="$classMiniOgre.html" title="Cette classe represente un petit ogre." alt="" coords="583,304,664,331"/>
+</map>

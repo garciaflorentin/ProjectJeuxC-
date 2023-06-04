@@ -4,12 +4,20 @@
 #include "MeleeMonster.hpp"
 
 
+/**
+ * @brief Cette classe represente un ogre en armure
+ * 
+ */
 class GuerrierOgre : public MeleeMonster {
-
     private:
+        /**
+         * @brief Deplace le monstre vers la cible
+         * 
+         * @param target La cible
+         */
         virtual void goToPlayer(Player& target);
 
-        int _attack_cooldown = 40;
+        int _attack_cooldown = 40; ///< LImite du temps entre les deux attaques
 
     public:
         /**
@@ -23,8 +31,8 @@ class GuerrierOgre : public MeleeMonster {
          * @param vf Valeur de vie du monstre
          * @param speed Vitesse du monstre
          */
-        GuerrierOgre(const char* nameObject, sf::Vector2f initPos, /*Player& player1, Player& player2,*/ string name = "GuerrierOgre", int dmg = 4, int ar = 1, int vf = 30, float speed = 1.5) : 
-        MeleeMonster(nameObject, initPos, /*player1, player2,*/ name, dmg, ar, vf, speed) {
+        GuerrierOgre(const char* nameObject, sf::Vector2f initPos, string name = "GuerrierOgre", int dmg = 4, int ar = 1, int vf = 30, float speed = 1.5) : 
+        MeleeMonster(nameObject, initPos, name, dmg, ar, vf, speed) {
             _anim.x = 3;
             _anim.y = 4;
             _object_size = 32;
@@ -47,9 +55,10 @@ class GuerrierOgre : public MeleeMonster {
         void updateSprite();
 
         /**
-         * @brief Met à jour le monstre.
-         *
-         * @param pl Joueur
+         * @brief Met a jourt le monstre
+         * 
+         * @param pl1 Premier joueur de la carte
+         * @param pl2 Deuxieme joueur de la carte
          */
         virtual void update(Player& pl1, Player& pl2);
 };

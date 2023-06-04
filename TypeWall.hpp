@@ -2,6 +2,10 @@
 #define TYPE_WALL_HPP
 
 
+/**
+ * @brief Enumeration des types de mur
+ * 
+ */
 enum class TypeWall {
 	GrandSapin,
 	GrosseBranche,

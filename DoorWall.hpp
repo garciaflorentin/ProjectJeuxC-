@@ -30,6 +30,12 @@ class DoorWall : public Door {
             _resistance=1000000;
         }
 
+        /**
+         * @brief Operateur d'assignement
+         * 
+         * @param other Porte a assigner
+         * @return DoorWall& - Porte assignee
+         */
         DoorWall& operator=(const DoorWall& other) {
             Door::operator=(other);
 

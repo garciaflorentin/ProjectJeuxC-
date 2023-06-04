@@ -2,6 +2,10 @@
 #define TYPE_GROUND_HPP
 
 
+/**
+ * @brief Enumeration des types de sol
+ * 
+ */
 enum class TypeGround {
 	Rock,
 	brick,

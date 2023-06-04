@@ -1,0 +1,7 @@
+<map id="DemonDogMonster" name="DemonDogMonster">
+<area shape="rect" id="node1" title="Cette classe represente un monstre DemonDog." alt="" coords="5,304,153,331"/>
+<area shape="rect" id="node2" href="$classMeleeMonster.html" title="Classe représentant un monstre de mêlée, un type spécifique de monstre." alt="" coords="22,229,137,256"/>
+<area shape="rect" id="node3" href="$classMonster.html" title="Cette classe represente un monstre." alt="" coords="42,155,117,181"/>
+<area shape="rect" id="node4" href="$classCharacter.html" title="Cette classe represente un parsonnage." alt="" coords="37,80,122,107"/>
+<area shape="rect" id="node5" href="$classObject.html" title="Classe de base pour les objets du jeu." alt="" coords="47,5,111,32"/>
+</map>

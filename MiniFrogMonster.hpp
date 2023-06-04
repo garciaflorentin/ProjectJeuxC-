@@ -56,9 +56,10 @@ class MiniFrogMonster : public MeleeMonster {
         virtual void updateSprite();
 
         /**
-         * @brief Met à jour le monstre grenouille en fonction du joueur.
-         *
-         * @param pl Pointeur vers le joueur
+         * @brief Met a jour le monstre
+         * 
+         * @param pl1 Premier joueur de la carte
+         * @param pl2 Deuxieme joueur de la carte
          */
         virtual void update(Player& pl1, Player& pl2);
 };

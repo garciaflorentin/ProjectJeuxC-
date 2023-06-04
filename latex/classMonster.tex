@@ -1,0 +1,402 @@
+\hypertarget{classMonster}{}\doxysection{Monster Class Reference}
+\label{classMonster}\index{Monster@{Monster}}
+
+
+Cette classe represente un monstre.  
+
+
+
+
+{\ttfamily \#include $<$Monster.\+hpp$>$}
+
+
+
+Inheritance diagram for Monster\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classMonster__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for Monster\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=190pt]{classMonster__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classMonster_abd1f3aea11cf623b6022bad68c7a0efa}{Monster}} (string name\+Object, sf\+::\+Vector2f init\+Pos, string name=\char`\"{}meat\char`\"{}, int dmg=1, int ar=3, int vf=5, float speed=1)
+\begin{DoxyCompactList}\small\item\em Constructeur de la classe {\ttfamily \mbox{\hyperlink{classMonster}{Monster}}}. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classMonster_a21619ba1759b910cd2fd50d858aab338}\label{classMonster_a21619ba1759b910cd2fd50d858aab338}} 
+\mbox{\hyperlink{classMonster_a21619ba1759b910cd2fd50d858aab338}{$\sim$\+Monster}} ()
+\begin{DoxyCompactList}\small\item\em Destructeur de la classe {\ttfamily \mbox{\hyperlink{classMonster}{Monster}}}. \end{DoxyCompactList}\item 
+virtual void \mbox{\hyperlink{classMonster_a36bdb7d2c965eb678e41c5c49474c827}{attack}} (\mbox{\hyperlink{classPlayer}{Player}} \&target)
+\begin{DoxyCompactList}\small\item\em Effectue une attaque sur le personnage cible. \end{DoxyCompactList}\item 
+virtual void \mbox{\hyperlink{classMonster_af614ab57b208d1cc518c1c3cf5ff8ec2}{update}} (\mbox{\hyperlink{classPlayer}{Player}} \&target1, \mbox{\hyperlink{classPlayer}{Player}} \&target2)
+\begin{DoxyCompactList}\small\item\em Met a jour le joueur. \end{DoxyCompactList}\item 
+virtual void \mbox{\hyperlink{classMonster_a703f65ba55b23713745707f77a0abc65}{collide}} (\mbox{\hyperlink{classObject}{Object}} \&o)
+\begin{DoxyCompactList}\small\item\em Gère la collision du monstre avec un objet. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classMonster_a8c114f14ba069e672e841bf60ec8aed3}{open\+Chest}} (\mbox{\hyperlink{classChest}{Chest}} \&chest)
+\begin{DoxyCompactList}\small\item\em Ouvre un coffre. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classMonster_a3a4516e58b2cad98a72cfd937e9bc79f}\label{classMonster_a3a4516e58b2cad98a72cfd937e9bc79f}} 
+virtual void \mbox{\hyperlink{classMonster_a3a4516e58b2cad98a72cfd937e9bc79f}{update\+Sprite}} ()
+\begin{DoxyCompactList}\small\item\em Met à jour le sprite du monstre. \end{DoxyCompactList}\item 
+float \mbox{\hyperlink{classMonster_abd964f4f2bb6ed24ed5f75debb3bbe49}{lifetime\+\_\+secs}} ()
+\begin{DoxyCompactList}\small\item\em Calcule la durée de vie du monstre en secondes. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{classMonster_a00152704bb47add3e51f68ac41359dcf}{get\+Serial}} ()
+\begin{DoxyCompactList}\small\item\em Obtient le numéro de sérialisation du monstre. \end{DoxyCompactList}\item 
+virtual \mbox{\hyperlink{classProjectile}{Projectile}} $\ast$ \mbox{\hyperlink{classMonster_ad72af9b04abe771e0aed673dbb02f9bf}{get\+Projectile}} ()
+\begin{DoxyCompactList}\small\item\em Getteur des projectiles eventuelles. \end{DoxyCompactList}\item 
+virtual std\+::vector$<$ \mbox{\hyperlink{classProjectile}{Projectile}} $\ast$ $>$ $\ast$ \mbox{\hyperlink{classMonster_a0873f5b7d345dd0866aa259f4a40facb}{get\+Projectiles}} ()
+\begin{DoxyCompactList}\small\item\em Getteur du tableau projectiles eventuel. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+virtual void \mbox{\hyperlink{classMonster_a98986d203ccf9cc56ae9de8b49ab0a56}{go\+To\+Player}} (\mbox{\hyperlink{classPlayer}{Player}} \&target)
+\begin{DoxyCompactList}\small\item\em Deplace le monstre vers la cible. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classMonster_a50eea41746b2b61430ae60f9e1564b8f}{player\+Seen}} (\mbox{\hyperlink{classPlayer}{Player}} \&p1, \mbox{\hyperlink{classPlayer}{Player}} \&p2, float $\ast$dist1, float $\ast$dist2) const
+\begin{DoxyCompactList}\small\item\em Verifie si le joueur est visible. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classMonster_ab8eeb78462b563e9532068b199863515}{player\+In\+Range}} (\mbox{\hyperlink{classPlayer}{Player}} \&target) const
+\begin{DoxyCompactList}\small\item\em Verifie si le joueur est atteignable. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classMonster_ac0bbacf04b0ea71e353ac303492d9ceb}{make\+Damage}} (\mbox{\hyperlink{classCharacter}{Character}} \&target)
+\begin{DoxyCompactList}\small\item\em Applique les dégâts au personnage cible. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+sf\+::\+Music $\ast$ \mbox{\hyperlink{classMonster_a7e505290c4b897d29a2a24279b0a3b33}{\+\_\+cry\+Sound}}
+\item 
+int \mbox{\hyperlink{classMonster_aa844c49eba5f6bfb42fe17c39642575f}{\+\_\+this\+\_\+serial}}
+\item 
+bool \mbox{\hyperlink{classMonster_acbad3dfd31bb964fd7b2e770a5e86245}{\+\_\+is\+Attacking}}
+\item 
+float \mbox{\hyperlink{classMonster_a9045b3bc202bfbd486902743198ab979}{\+\_\+attack\+\_\+radius}}
+\item 
+float \mbox{\hyperlink{classMonster_a046bda1ac8b27ac96a428e6cc13b470e}{\+\_\+vision\+\_\+field}}
+\item 
+\mbox{\Hypertarget{classMonster_a18d47974b95c786388f99d9f816071e2}\label{classMonster_a18d47974b95c786388f99d9f816071e2}} 
+int \mbox{\hyperlink{classMonster_a18d47974b95c786388f99d9f816071e2}{\+\_\+attack\+\_\+cooldown}} = 50
+\begin{DoxyCompactList}\small\item\em Limite du temps entre les deux attaques. \end{DoxyCompactList}\item 
+sf\+::\+Clock \mbox{\hyperlink{classMonster_a9df654f2f06c45ef5561b0fec9b807c1}{\+\_\+upd}}
+\item 
+bool \mbox{\hyperlink{classMonster_aa3ca1e92f2923375391973cd90724808}{\+\_\+can\+Open\+Chest}} = false
+\end{DoxyCompactItemize}
+\doxysubsection*{Static Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+static int \mbox{\hyperlink{classMonster_afae8d7443a82b6018f85b65def79f6ef}{\+\_\+serial}} = 0
+\end{DoxyCompactItemize}
+\doxysubsection*{Additional Inherited Members}
+
+
+\doxysubsection{Detailed Description}
+Cette classe represente un monstre. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classMonster_abd1f3aea11cf623b6022bad68c7a0efa}\label{classMonster_abd1f3aea11cf623b6022bad68c7a0efa}} 
+\index{Monster@{Monster}!Monster@{Monster}}
+\index{Monster@{Monster}!Monster@{Monster}}
+\doxysubsubsection{\texorpdfstring{Monster()}{Monster()}}
+{\footnotesize\ttfamily Monster\+::\+Monster (\begin{DoxyParamCaption}\item[{string}]{name\+Object,  }\item[{sf\+::\+Vector2f}]{init\+Pos,  }\item[{string}]{name = {\ttfamily \char`\"{}meat\char`\"{}},  }\item[{int}]{dmg = {\ttfamily 1},  }\item[{int}]{ar = {\ttfamily 3},  }\item[{int}]{vf = {\ttfamily 5},  }\item[{float}]{speed = {\ttfamily 1} }\end{DoxyParamCaption})}
+
+
+
+Constructeur de la classe {\ttfamily \mbox{\hyperlink{classMonster}{Monster}}}. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em name\+Object} & Nom de l\textquotesingle{}objet \\
+\hline
+{\em init\+Pos} & Position initiale du monstre \\
+\hline
+{\em name} & Nom du monstre \\
+\hline
+{\em dmg} & Dommages infligés par le monstre \\
+\hline
+{\em ar} & Rayon d\textquotesingle{}attaque du monstre \\
+\hline
+{\em vf} & Champ de vision du monstre \\
+\hline
+{\em speed} & Vitesse du monstre \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classMonster_a36bdb7d2c965eb678e41c5c49474c827}\label{classMonster_a36bdb7d2c965eb678e41c5c49474c827}} 
+\index{Monster@{Monster}!attack@{attack}}
+\index{attack@{attack}!Monster@{Monster}}
+\doxysubsubsection{\texorpdfstring{attack()}{attack()}}
+{\footnotesize\ttfamily void Monster\+::attack (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classPlayer}{Player}} \&}]{target }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Effectue une attaque sur le personnage cible. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em target} & Personnage cible \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classMonster_a703f65ba55b23713745707f77a0abc65}\label{classMonster_a703f65ba55b23713745707f77a0abc65}} 
+\index{Monster@{Monster}!collide@{collide}}
+\index{collide@{collide}!Monster@{Monster}}
+\doxysubsubsection{\texorpdfstring{collide()}{collide()}}
+{\footnotesize\ttfamily void Monster\+::collide (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classObject}{Object}} \&}]{o }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Gère la collision du monstre avec un objet. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em o} & Objet avec lequel le monstre est en collision \\
+\hline
+\end{DoxyParams}
+
+
+Reimplemented from \mbox{\hyperlink{classObject_a62148779acb081bf59c92c24f0695d7d}{Object}}.
+
+
+
+Reimplemented in \mbox{\hyperlink{classFinalBoss_a059108379bc0d83d3f430b7629da9689}{Final\+Boss}}.
+
+\mbox{\Hypertarget{classMonster_ad72af9b04abe771e0aed673dbb02f9bf}\label{classMonster_ad72af9b04abe771e0aed673dbb02f9bf}} 
+\index{Monster@{Monster}!getProjectile@{getProjectile}}
+\index{getProjectile@{getProjectile}!Monster@{Monster}}
+\doxysubsubsection{\texorpdfstring{getProjectile()}{getProjectile()}}
+{\footnotesize\ttfamily virtual \mbox{\hyperlink{classProjectile}{Projectile}}$\ast$ Monster\+::get\+Projectile (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+
+
+Getteur des projectiles eventuelles. 
+
+\begin{DoxyReturn}{Returns}
+NULL -\/ fonction pour les monstres qui savent tirer 
+\end{DoxyReturn}
+
+
+Reimplemented in \mbox{\hyperlink{classRangedMonster_a7c1f7991f05d84fe674c1cef85b39611}{Ranged\+Monster}}.
+
+\mbox{\Hypertarget{classMonster_a0873f5b7d345dd0866aa259f4a40facb}\label{classMonster_a0873f5b7d345dd0866aa259f4a40facb}} 
+\index{Monster@{Monster}!getProjectiles@{getProjectiles}}
+\index{getProjectiles@{getProjectiles}!Monster@{Monster}}
+\doxysubsubsection{\texorpdfstring{getProjectiles()}{getProjectiles()}}
+{\footnotesize\ttfamily virtual std\+::vector$<$\mbox{\hyperlink{classProjectile}{Projectile}}$\ast$$>$$\ast$ Monster\+::get\+Projectiles (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+
+
+Getteur du tableau projectiles eventuel. 
+
+\begin{DoxyReturn}{Returns}
+NULL -\/ fonction pour les monstres qui savent tirer 
+\end{DoxyReturn}
+
+
+Reimplemented in \mbox{\hyperlink{classFinalBoss_a39364649c9a9724e952a27481fe1f24a}{Final\+Boss}}.
+
+\mbox{\Hypertarget{classMonster_a00152704bb47add3e51f68ac41359dcf}\label{classMonster_a00152704bb47add3e51f68ac41359dcf}} 
+\index{Monster@{Monster}!getSerial@{getSerial}}
+\index{getSerial@{getSerial}!Monster@{Monster}}
+\doxysubsubsection{\texorpdfstring{getSerial()}{getSerial()}}
+{\footnotesize\ttfamily int Monster\+::get\+Serial (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Obtient le numéro de sérialisation du monstre. 
+
+\begin{DoxyReturn}{Returns}
+Numéro de sérialisation du monstre 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classMonster_a98986d203ccf9cc56ae9de8b49ab0a56}\label{classMonster_a98986d203ccf9cc56ae9de8b49ab0a56}} 
+\index{Monster@{Monster}!goToPlayer@{goToPlayer}}
+\index{goToPlayer@{goToPlayer}!Monster@{Monster}}
+\doxysubsubsection{\texorpdfstring{goToPlayer()}{goToPlayer()}}
+{\footnotesize\ttfamily void Monster\+::go\+To\+Player (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classPlayer}{Player}} \&}]{target }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}, {\ttfamily [virtual]}}
+
+
+
+Deplace le monstre vers la cible. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em target} & La cible \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classMonster_abd964f4f2bb6ed24ed5f75debb3bbe49}\label{classMonster_abd964f4f2bb6ed24ed5f75debb3bbe49}} 
+\index{Monster@{Monster}!lifetime\_secs@{lifetime\_secs}}
+\index{lifetime\_secs@{lifetime\_secs}!Monster@{Monster}}
+\doxysubsubsection{\texorpdfstring{lifetime\_secs()}{lifetime\_secs()}}
+{\footnotesize\ttfamily float Monster\+::lifetime\+\_\+secs (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Calcule la durée de vie du monstre en secondes. 
+
+\begin{DoxyReturn}{Returns}
+Durée de vie du monstre en secondes 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classMonster_ac0bbacf04b0ea71e353ac303492d9ceb}\label{classMonster_ac0bbacf04b0ea71e353ac303492d9ceb}} 
+\index{Monster@{Monster}!makeDamage@{makeDamage}}
+\index{makeDamage@{makeDamage}!Monster@{Monster}}
+\doxysubsubsection{\texorpdfstring{makeDamage()}{makeDamage()}}
+{\footnotesize\ttfamily void Monster\+::make\+Damage (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classCharacter}{Character}} \&}]{target }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [protected]}}
+
+
+
+Applique les dégâts au personnage cible. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em target} & Personnage cible \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classMonster_a8c114f14ba069e672e841bf60ec8aed3}\label{classMonster_a8c114f14ba069e672e841bf60ec8aed3}} 
+\index{Monster@{Monster}!openChest@{openChest}}
+\index{openChest@{openChest}!Monster@{Monster}}
+\doxysubsubsection{\texorpdfstring{openChest()}{openChest()}}
+{\footnotesize\ttfamily void Monster\+::open\+Chest (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classChest}{Chest}} \&}]{chest }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Ouvre un coffre. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em chest} & Coffre à ouvrir \\
+\hline
+\end{DoxyParams}
+
+
+Reimplemented from \mbox{\hyperlink{classCharacter_ad22ab6b8ae5f2a7aac6400e19d1d3eb0}{Character}}.
+
+\mbox{\Hypertarget{classMonster_ab8eeb78462b563e9532068b199863515}\label{classMonster_ab8eeb78462b563e9532068b199863515}} 
+\index{Monster@{Monster}!playerInRange@{playerInRange}}
+\index{playerInRange@{playerInRange}!Monster@{Monster}}
+\doxysubsubsection{\texorpdfstring{playerInRange()}{playerInRange()}}
+{\footnotesize\ttfamily bool Monster\+::player\+In\+Range (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classPlayer}{Player}} \&}]{target }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Verifie si le joueur est atteignable. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em target} & La cible \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true -\/ Le joueur est atteignable 
+
+false -\/ Le joueur est hors portee 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classMonster_a50eea41746b2b61430ae60f9e1564b8f}\label{classMonster_a50eea41746b2b61430ae60f9e1564b8f}} 
+\index{Monster@{Monster}!playerSeen@{playerSeen}}
+\index{playerSeen@{playerSeen}!Monster@{Monster}}
+\doxysubsubsection{\texorpdfstring{playerSeen()}{playerSeen()}}
+{\footnotesize\ttfamily bool Monster\+::player\+Seen (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classPlayer}{Player}} \&}]{p1,  }\item[{\mbox{\hyperlink{classPlayer}{Player}} \&}]{p2,  }\item[{float $\ast$}]{dist1,  }\item[{float $\ast$}]{dist2 }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Verifie si le joueur est visible. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em p1} & Premier joueur de la carte \\
+\hline
+{\em p2} & Deuxieme joueur de la carte \\
+\hline
+{\em dist1} & Distance entre le monstre et le premier joueur \\
+\hline
+{\em dist2} & Distance entre le monstre et le deuxieme joueur \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true -\/ Le joueur est vu 
+
+false -\/ Le joueur n\textquotesingle{}est pas vu 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classMonster_af614ab57b208d1cc518c1c3cf5ff8ec2}\label{classMonster_af614ab57b208d1cc518c1c3cf5ff8ec2}} 
+\index{Monster@{Monster}!update@{update}}
+\index{update@{update}!Monster@{Monster}}
+\doxysubsubsection{\texorpdfstring{update()}{update()}}
+{\footnotesize\ttfamily void Monster\+::update (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classPlayer}{Player}} \&}]{target1,  }\item[{\mbox{\hyperlink{classPlayer}{Player}} \&}]{target2 }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Met a jour le joueur. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em target1} & Premier joueur de la carte \\
+\hline
+{\em target2} & Deuxieme joueur de la carte \\
+\hline
+\end{DoxyParams}
+
+
+Reimplemented in \mbox{\hyperlink{classRangedMonster_acc42971ada02e522a4f4f34050db6037}{Ranged\+Monster}}, \mbox{\hyperlink{classDemonDogMonster_a573510b58c39db20ddc1095f8a03cc53}{Demon\+Dog\+Monster}}, \mbox{\hyperlink{classMiniOgre_ad8f1079611f8f02892d3e800b40ac39c}{Mini\+Ogre}}, \mbox{\hyperlink{classMiniFrogMonster_a90d9ce6fe88a73eb229487effdcec110}{Mini\+Frog\+Monster}}, \mbox{\hyperlink{classMeleeMonster_a9f86af7ff23b9f1eafdc9dd2bd672d21}{Melee\+Monster}}, \mbox{\hyperlink{classGuerrierOgre_a4f854e7da33a1a593e43598db5bebb28}{Guerrier\+Ogre}}, \mbox{\hyperlink{classFlyMonster_a787557ce904e8387fdd285507a2a9cc4}{Fly\+Monster}}, and \mbox{\hyperlink{classFinalBoss_a9990514730d0f1582b8430a3b0f37fec}{Final\+Boss}}.
+
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{classMonster_a9045b3bc202bfbd486902743198ab979}\label{classMonster_a9045b3bc202bfbd486902743198ab979}} 
+\index{Monster@{Monster}!\_attack\_radius@{\_attack\_radius}}
+\index{\_attack\_radius@{\_attack\_radius}!Monster@{Monster}}
+\doxysubsubsection{\texorpdfstring{\_attack\_radius}{\_attack\_radius}}
+{\footnotesize\ttfamily float Monster\+::\+\_\+attack\+\_\+radius\hspace{0.3cm}{\ttfamily [protected]}}
+
+Rayon d\textquotesingle{}attaque du monstre \mbox{\Hypertarget{classMonster_aa3ca1e92f2923375391973cd90724808}\label{classMonster_aa3ca1e92f2923375391973cd90724808}} 
+\index{Monster@{Monster}!\_canOpenChest@{\_canOpenChest}}
+\index{\_canOpenChest@{\_canOpenChest}!Monster@{Monster}}
+\doxysubsubsection{\texorpdfstring{\_canOpenChest}{\_canOpenChest}}
+{\footnotesize\ttfamily bool Monster\+::\+\_\+can\+Open\+Chest = false\hspace{0.3cm}{\ttfamily [protected]}}
+
+Indique si le monstre peut ouvrir un coffre \mbox{\Hypertarget{classMonster_a7e505290c4b897d29a2a24279b0a3b33}\label{classMonster_a7e505290c4b897d29a2a24279b0a3b33}} 
+\index{Monster@{Monster}!\_crySound@{\_crySound}}
+\index{\_crySound@{\_crySound}!Monster@{Monster}}
+\doxysubsubsection{\texorpdfstring{\_crySound}{\_crySound}}
+{\footnotesize\ttfamily sf\+::\+Music$\ast$ Monster\+::\+\_\+cry\+Sound\hspace{0.3cm}{\ttfamily [protected]}}
+
+Son de cri du monstre \mbox{\Hypertarget{classMonster_acbad3dfd31bb964fd7b2e770a5e86245}\label{classMonster_acbad3dfd31bb964fd7b2e770a5e86245}} 
+\index{Monster@{Monster}!\_isAttacking@{\_isAttacking}}
+\index{\_isAttacking@{\_isAttacking}!Monster@{Monster}}
+\doxysubsubsection{\texorpdfstring{\_isAttacking}{\_isAttacking}}
+{\footnotesize\ttfamily bool Monster\+::\+\_\+is\+Attacking\hspace{0.3cm}{\ttfamily [protected]}}
+
+Indique si le monstre est en train d\textquotesingle{}attaquer \mbox{\Hypertarget{classMonster_afae8d7443a82b6018f85b65def79f6ef}\label{classMonster_afae8d7443a82b6018f85b65def79f6ef}} 
+\index{Monster@{Monster}!\_serial@{\_serial}}
+\index{\_serial@{\_serial}!Monster@{Monster}}
+\doxysubsubsection{\texorpdfstring{\_serial}{\_serial}}
+{\footnotesize\ttfamily int Monster\+::\+\_\+serial = 0\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [protected]}}
+
+Compteur de sérialisation des monstres \mbox{\Hypertarget{classMonster_aa844c49eba5f6bfb42fe17c39642575f}\label{classMonster_aa844c49eba5f6bfb42fe17c39642575f}} 
+\index{Monster@{Monster}!\_this\_serial@{\_this\_serial}}
+\index{\_this\_serial@{\_this\_serial}!Monster@{Monster}}
+\doxysubsubsection{\texorpdfstring{\_this\_serial}{\_this\_serial}}
+{\footnotesize\ttfamily int Monster\+::\+\_\+this\+\_\+serial\hspace{0.3cm}{\ttfamily [protected]}}
+
+Numéro de sérialisation du monstre \mbox{\Hypertarget{classMonster_a9df654f2f06c45ef5561b0fec9b807c1}\label{classMonster_a9df654f2f06c45ef5561b0fec9b807c1}} 
+\index{Monster@{Monster}!\_upd@{\_upd}}
+\index{\_upd@{\_upd}!Monster@{Monster}}
+\doxysubsubsection{\texorpdfstring{\_upd}{\_upd}}
+{\footnotesize\ttfamily sf\+::\+Clock Monster\+::\+\_\+upd\hspace{0.3cm}{\ttfamily [protected]}}
+
+Horloge pour la mise à jour du monstre \mbox{\Hypertarget{classMonster_a046bda1ac8b27ac96a428e6cc13b470e}\label{classMonster_a046bda1ac8b27ac96a428e6cc13b470e}} 
+\index{Monster@{Monster}!\_vision\_field@{\_vision\_field}}
+\index{\_vision\_field@{\_vision\_field}!Monster@{Monster}}
+\doxysubsubsection{\texorpdfstring{\_vision\_field}{\_vision\_field}}
+{\footnotesize\ttfamily float Monster\+::\+\_\+vision\+\_\+field\hspace{0.3cm}{\ttfamily [protected]}}
+
+Champ de vision du monstre 
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+Monster.\+hpp\item 
+Monster.\+cpp\end{DoxyCompactItemize}

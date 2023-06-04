@@ -1,0 +1,7 @@
+<map id="GoldenChest" name="GoldenChest">
+<area shape="rect" id="node1" title="Cette classe represente un coffre contenant une cle." alt="" coords="11,247,117,273"/>
+<area shape="rect" id="node2" href="$classChest.html" title="Cette classe representre un coffre." alt="" coords="35,171,93,197"/>
+<area shape="rect" id="node3" href="$classTile.html" title="Classe de base représentant une tuile." alt="" coords="5,81,51,108"/>
+<area shape="rect" id="node4" href="$classObject.html" title="Classe de base pour les objets du jeu." alt="" coords="32,5,96,32"/>
+<area shape="rect" id="node5" href="$classPrise.html" title="Cette classe represente des coeurs contenus dans un coffre." alt="" coords="75,81,130,108"/>
+</map>

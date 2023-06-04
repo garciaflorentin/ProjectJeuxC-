@@ -1,0 +1,301 @@
+\hypertarget{classObject}{}\doxysection{Object Class Reference}
+\label{classObject}\index{Object@{Object}}
+
+
+Classe de base pour les objets du jeu.  
+
+
+
+
+{\ttfamily \#include $<$Object.\+hpp$>$}
+
+
+
+Inheritance diagram for Object\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classObject__inherit__graph}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classObject_a40860402e64d8008fb42329df7097cdb}\label{classObject_a40860402e64d8008fb42329df7097cdb}} 
+\mbox{\hyperlink{classObject_a40860402e64d8008fb42329df7097cdb}{Object}} ()
+\begin{DoxyCompactList}\small\item\em Constructeur par defaut. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classObject_a0fa751a5b896ccfa6d0f2d1b57478dc7}{Object}} (string name\+Object, sf\+::\+Vector2f init\+Pos)
+\begin{DoxyCompactList}\small\item\em Constructeur de la classe \mbox{\hyperlink{classObject}{Object}} avec un nom et une position initiale. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classObject}{Object}} \& \mbox{\hyperlink{classObject_afcbd10ecc17ea3f0f1951924df41fcc8}{operator=}} (const \mbox{\hyperlink{classObject}{Object}} \&other)
+\begin{DoxyCompactList}\small\item\em Operateur d\textquotesingle{}assignement. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classObject_aa3e791419d84c4c346ef9499513b8e00}\label{classObject_aa3e791419d84c4c346ef9499513b8e00}} 
+virtual \mbox{\hyperlink{classObject_aa3e791419d84c4c346ef9499513b8e00}{$\sim$\+Object}} ()
+\begin{DoxyCompactList}\small\item\em Destructeur de la classe \mbox{\hyperlink{classObject}{Object}}. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classObject_aafbf21b6c37d830fc063cb452c4bb4b2}{load\+Sprite}} (string name\+Sprite, sf\+::\+Vector2f init\+Pos)
+\begin{DoxyCompactList}\small\item\em Charge la texture sur le sprite de l\textquotesingle{}objet. \end{DoxyCompactList}\item 
+virtual const int \mbox{\hyperlink{classObject_a57515683a47ff93161e2cd544b391f12}{get\+Block\+Size}} () const
+\begin{DoxyCompactList}\small\item\em Renvoie la taille du bloc de l\textquotesingle{}objet (méthode virtuelle pure à implémenter dans les classes dérivées). \end{DoxyCompactList}\item 
+virtual void \mbox{\hyperlink{classObject_a62148779acb081bf59c92c24f0695d7d}{collide}} (\mbox{\hyperlink{classObject}{Object}} \&o)
+\begin{DoxyCompactList}\small\item\em Gère la collision entre l\textquotesingle{}objet et un autre objet (méthode virtuelle pure à implémenter dans les classes dérivées). \end{DoxyCompactList}\item 
+virtual const int \mbox{\hyperlink{classObject_ab5fa9cf5dae970be05e57488efe26d72}{get\+Serial}} () const
+\begin{DoxyCompactList}\small\item\em Renvoie le numéro de série de l\textquotesingle{}objet. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classObject_a6adbac7a1be9a56caeb2fa12fe6f0952}{set\+Position}} (sf\+::\+Vector2f \&new\+Pos)
+\begin{DoxyCompactList}\small\item\em Définit la position de l\textquotesingle{}objet. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classObject_a7841ffff2413c765fda1e54ee279c937}{set\+Position\+In\+Box}} (sf\+::\+Vector2f \&new\+Pos)
+\begin{DoxyCompactList}\small\item\em Définit la position de l\textquotesingle{}objet dans une boîte. \end{DoxyCompactList}\item 
+sf\+::\+Sprite \& \mbox{\hyperlink{classObject_a47001d37a2b3175d9ab4be790d636b32}{get\+Sprite}} ()
+\begin{DoxyCompactList}\small\item\em Renvoie le sprite de l\textquotesingle{}objet. \end{DoxyCompactList}\item 
+const sf\+::\+Vector2f \mbox{\hyperlink{classObject_a5a7f272fe3f8e4da2c78bbbd86f3b968}{get\+Position}} () const
+\begin{DoxyCompactList}\small\item\em Renvoie la position de l\textquotesingle{}objet. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classObject_a7c6ba44e628da7ea21b805c171577beb}{set\+Sprite}} (sf\+::\+Sprite \&sprite)
+\begin{DoxyCompactList}\small\item\em Définit le sprite de l\textquotesingle{}objet. \end{DoxyCompactList}\item 
+const string \mbox{\hyperlink{classObject_a666ce2a0ca35f383b3f77357b4405870}{get\+Name}} () const
+\begin{DoxyCompactList}\small\item\em Renvoie le nom de l\textquotesingle{}objet. \end{DoxyCompactList}\item 
+virtual void \mbox{\hyperlink{classObject_a6b88aa123d770a7f4ba24764d9f3dcfc}{update}} (\mbox{\hyperlink{classObject}{Object}} \&player)
+\begin{DoxyCompactList}\small\item\em Met à jour l\textquotesingle{}objet. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+sf\+::\+Texture \& \mbox{\hyperlink{classObject_a37e948ecd91115e2fcf6feb41235a7d9}{\+\_\+texture}}
+\item 
+sf\+::\+Sprite \& \mbox{\hyperlink{classObject_a897a024df7a84f459855843bd90bcff2}{\+\_\+sprite}}
+\item 
+string \mbox{\hyperlink{classObject_a9d6b8220fbb59354d508bfffbc0a47de}{\+\_\+name}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Classe de base pour les objets du jeu. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classObject_a0fa751a5b896ccfa6d0f2d1b57478dc7}\label{classObject_a0fa751a5b896ccfa6d0f2d1b57478dc7}} 
+\index{Object@{Object}!Object@{Object}}
+\index{Object@{Object}!Object@{Object}}
+\doxysubsubsection{\texorpdfstring{Object()}{Object()}}
+{\footnotesize\ttfamily Object\+::\+Object (\begin{DoxyParamCaption}\item[{string}]{name\+Object,  }\item[{sf\+::\+Vector2f}]{init\+Pos }\end{DoxyParamCaption})}
+
+
+
+Constructeur de la classe \mbox{\hyperlink{classObject}{Object}} avec un nom et une position initiale. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em name\+Object} & Nom de l\textquotesingle{}objet. \\
+\hline
+{\em init\+Pos} & Position initiale de l\textquotesingle{}objet. \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classObject_a62148779acb081bf59c92c24f0695d7d}\label{classObject_a62148779acb081bf59c92c24f0695d7d}} 
+\index{Object@{Object}!collide@{collide}}
+\index{collide@{collide}!Object@{Object}}
+\doxysubsubsection{\texorpdfstring{collide()}{collide()}}
+{\footnotesize\ttfamily virtual void Object\+::collide (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classObject}{Object}} \&}]{o }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+
+
+Gère la collision entre l\textquotesingle{}objet et un autre objet (méthode virtuelle pure à implémenter dans les classes dérivées). 
+
+
+\begin{DoxyParams}{Parameters}
+{\em o} & Pointeur vers l\textquotesingle{}objet avec lequel la collision est détectée. \\
+\hline
+\end{DoxyParams}
+
+
+Reimplemented in \mbox{\hyperlink{classWall_aae68a37386f56e928ccdbd55c4464550}{Wall}}, \mbox{\hyperlink{classProjectile_a5dbfa02e6e14a2149240762aa1e50403}{Projectile}}, \mbox{\hyperlink{classPrise_aa2deb1fa36f1dc4065bb6cf9963eeb45}{Prise}}, \mbox{\hyperlink{classPlayer_a2fbe1de84690c50703ee9591ac5128c8}{Player}}, \mbox{\hyperlink{classMonster_a703f65ba55b23713745707f77a0abc65}{Monster}}, \mbox{\hyperlink{classGround_a2af9ef29a657cfeda86ebc0b0562642e}{Ground}}, \mbox{\hyperlink{classGoldenChest_a804b8977e8901f45f83dff54a89837bd}{Golden\+Chest}}, \mbox{\hyperlink{classFireball_a4b9c83d6c801c086b54c48956eb39487}{Fireball}}, \mbox{\hyperlink{classFinalBoss_a059108379bc0d83d3f430b7629da9689}{Final\+Boss}}, \mbox{\hyperlink{classDoorWall_a5ff43a68c64947d0a40a5b50a393b16d}{Door\+Wall}}, \mbox{\hyperlink{classDoor_a1d3fa06284441d17351275d9950ceadb}{Door}}, and \mbox{\hyperlink{classChest_a64e828e6e39baf46939a388fdc345623}{Chest}}.
+
+\mbox{\Hypertarget{classObject_a57515683a47ff93161e2cd544b391f12}\label{classObject_a57515683a47ff93161e2cd544b391f12}} 
+\index{Object@{Object}!getBlockSize@{getBlockSize}}
+\index{getBlockSize@{getBlockSize}!Object@{Object}}
+\doxysubsubsection{\texorpdfstring{getBlockSize()}{getBlockSize()}}
+{\footnotesize\ttfamily virtual const int Object\+::get\+Block\+Size (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+
+
+Renvoie la taille du bloc de l\textquotesingle{}objet (méthode virtuelle pure à implémenter dans les classes dérivées). 
+
+\begin{DoxyReturn}{Returns}
+Taille du bloc de l\textquotesingle{}objet. 
+\end{DoxyReturn}
+
+
+Reimplemented in \mbox{\hyperlink{classChest_add758a55c2852c77198344a0af401474}{Chest}}, and \mbox{\hyperlink{classCharacter_a363118408411ed440ec5e129a7fba5e7}{Character}}.
+
+\mbox{\Hypertarget{classObject_a666ce2a0ca35f383b3f77357b4405870}\label{classObject_a666ce2a0ca35f383b3f77357b4405870}} 
+\index{Object@{Object}!getName@{getName}}
+\index{getName@{getName}!Object@{Object}}
+\doxysubsubsection{\texorpdfstring{getName()}{getName()}}
+{\footnotesize\ttfamily const string Object\+::get\+Name (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Renvoie le nom de l\textquotesingle{}objet. 
+
+\begin{DoxyReturn}{Returns}
+Nom de l\textquotesingle{}objet. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classObject_a5a7f272fe3f8e4da2c78bbbd86f3b968}\label{classObject_a5a7f272fe3f8e4da2c78bbbd86f3b968}} 
+\index{Object@{Object}!getPosition@{getPosition}}
+\index{getPosition@{getPosition}!Object@{Object}}
+\doxysubsubsection{\texorpdfstring{getPosition()}{getPosition()}}
+{\footnotesize\ttfamily const sf\+::\+Vector2f Object\+::get\+Position (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Renvoie la position de l\textquotesingle{}objet. 
+
+\begin{DoxyReturn}{Returns}
+Position de l\textquotesingle{}objet. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classObject_ab5fa9cf5dae970be05e57488efe26d72}\label{classObject_ab5fa9cf5dae970be05e57488efe26d72}} 
+\index{Object@{Object}!getSerial@{getSerial}}
+\index{getSerial@{getSerial}!Object@{Object}}
+\doxysubsubsection{\texorpdfstring{getSerial()}{getSerial()}}
+{\footnotesize\ttfamily const int Object\+::get\+Serial (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Renvoie le numéro de série de l\textquotesingle{}objet. 
+
+\begin{DoxyReturn}{Returns}
+Numéro de série de l\textquotesingle{}objet. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classObject_a47001d37a2b3175d9ab4be790d636b32}\label{classObject_a47001d37a2b3175d9ab4be790d636b32}} 
+\index{Object@{Object}!getSprite@{getSprite}}
+\index{getSprite@{getSprite}!Object@{Object}}
+\doxysubsubsection{\texorpdfstring{getSprite()}{getSprite()}}
+{\footnotesize\ttfamily sf\+::\+Sprite \& Object\+::get\+Sprite (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Renvoie le sprite de l\textquotesingle{}objet. 
+
+\begin{DoxyReturn}{Returns}
+Pointeur vers le sprite de l\textquotesingle{}objet. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classObject_aafbf21b6c37d830fc063cb452c4bb4b2}\label{classObject_aafbf21b6c37d830fc063cb452c4bb4b2}} 
+\index{Object@{Object}!loadSprite@{loadSprite}}
+\index{loadSprite@{loadSprite}!Object@{Object}}
+\doxysubsubsection{\texorpdfstring{loadSprite()}{loadSprite()}}
+{\footnotesize\ttfamily void Object\+::load\+Sprite (\begin{DoxyParamCaption}\item[{string}]{name\+Sprite,  }\item[{sf\+::\+Vector2f}]{init\+Pos }\end{DoxyParamCaption})}
+
+
+
+Charge la texture sur le sprite de l\textquotesingle{}objet. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em name\+Sprite} & Nom de la texture. \\
+\hline
+{\em init\+Pos} & Position initiale du sprite. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classObject_afcbd10ecc17ea3f0f1951924df41fcc8}\label{classObject_afcbd10ecc17ea3f0f1951924df41fcc8}} 
+\index{Object@{Object}!operator=@{operator=}}
+\index{operator=@{operator=}!Object@{Object}}
+\doxysubsubsection{\texorpdfstring{operator=()}{operator=()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classObject}{Object}} \& Object\+::operator= (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classObject}{Object}} \&}]{other }\end{DoxyParamCaption})}
+
+
+
+Operateur d\textquotesingle{}assignement. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em other} & Objet a assigner \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\mbox{\hyperlink{classObject}{Object}}\& -\/ Objet assigne 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classObject_a6adbac7a1be9a56caeb2fa12fe6f0952}\label{classObject_a6adbac7a1be9a56caeb2fa12fe6f0952}} 
+\index{Object@{Object}!setPosition@{setPosition}}
+\index{setPosition@{setPosition}!Object@{Object}}
+\doxysubsubsection{\texorpdfstring{setPosition()}{setPosition()}}
+{\footnotesize\ttfamily void Object\+::set\+Position (\begin{DoxyParamCaption}\item[{sf\+::\+Vector2f \&}]{new\+Pos }\end{DoxyParamCaption})}
+
+
+
+Définit la position de l\textquotesingle{}objet. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em new\+Pos} & Nouvelle position de l\textquotesingle{}objet. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classObject_a7841ffff2413c765fda1e54ee279c937}\label{classObject_a7841ffff2413c765fda1e54ee279c937}} 
+\index{Object@{Object}!setPositionInBox@{setPositionInBox}}
+\index{setPositionInBox@{setPositionInBox}!Object@{Object}}
+\doxysubsubsection{\texorpdfstring{setPositionInBox()}{setPositionInBox()}}
+{\footnotesize\ttfamily void Object\+::set\+Position\+In\+Box (\begin{DoxyParamCaption}\item[{sf\+::\+Vector2f \&}]{new\+Pos }\end{DoxyParamCaption})}
+
+
+
+Définit la position de l\textquotesingle{}objet dans une boîte. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em new\+Pos} & Nouvelle position de l\textquotesingle{}objet. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classObject_a7c6ba44e628da7ea21b805c171577beb}\label{classObject_a7c6ba44e628da7ea21b805c171577beb}} 
+\index{Object@{Object}!setSprite@{setSprite}}
+\index{setSprite@{setSprite}!Object@{Object}}
+\doxysubsubsection{\texorpdfstring{setSprite()}{setSprite()}}
+{\footnotesize\ttfamily void Object\+::set\+Sprite (\begin{DoxyParamCaption}\item[{sf\+::\+Sprite \&}]{sprite }\end{DoxyParamCaption})}
+
+
+
+Définit le sprite de l\textquotesingle{}objet. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em sprite} & Sprite à définir. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classObject_a6b88aa123d770a7f4ba24764d9f3dcfc}\label{classObject_a6b88aa123d770a7f4ba24764d9f3dcfc}} 
+\index{Object@{Object}!update@{update}}
+\index{update@{update}!Object@{Object}}
+\doxysubsubsection{\texorpdfstring{update()}{update()}}
+{\footnotesize\ttfamily virtual void Object\+::update (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classObject}{Object}} \&}]{player }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+
+
+Met à jour l\textquotesingle{}objet. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em player} & Référence vers l\textquotesingle{}objet joueur. \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{classObject_a9d6b8220fbb59354d508bfffbc0a47de}\label{classObject_a9d6b8220fbb59354d508bfffbc0a47de}} 
+\index{Object@{Object}!\_name@{\_name}}
+\index{\_name@{\_name}!Object@{Object}}
+\doxysubsubsection{\texorpdfstring{\_name}{\_name}}
+{\footnotesize\ttfamily string Object\+::\+\_\+name\hspace{0.3cm}{\ttfamily [protected]}}
+
+Nom de l\textquotesingle{}objet \mbox{\Hypertarget{classObject_a897a024df7a84f459855843bd90bcff2}\label{classObject_a897a024df7a84f459855843bd90bcff2}} 
+\index{Object@{Object}!\_sprite@{\_sprite}}
+\index{\_sprite@{\_sprite}!Object@{Object}}
+\doxysubsubsection{\texorpdfstring{\_sprite}{\_sprite}}
+{\footnotesize\ttfamily sf\+::\+Sprite\& Object\+::\+\_\+sprite\hspace{0.3cm}{\ttfamily [protected]}}
+
+Pointeur vers le sprite de l\textquotesingle{}objet \mbox{\Hypertarget{classObject_a37e948ecd91115e2fcf6feb41235a7d9}\label{classObject_a37e948ecd91115e2fcf6feb41235a7d9}} 
+\index{Object@{Object}!\_texture@{\_texture}}
+\index{\_texture@{\_texture}!Object@{Object}}
+\doxysubsubsection{\texorpdfstring{\_texture}{\_texture}}
+{\footnotesize\ttfamily sf\+::\+Texture\& Object\+::\+\_\+texture\hspace{0.3cm}{\ttfamily [protected]}}
+
+Pointeur vers la texture de l\textquotesingle{}objet 
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+Object.\+hpp\item 
+Object.\+cpp\end{DoxyCompactItemize}

@@ -1,0 +1,4 @@
+<map id="Prise" name="Prise">
+<area shape="rect" id="node1" title="Cette classe represente des coeurs contenus dans un coffre." alt="" coords="10,80,65,107"/>
+<area shape="rect" id="node2" href="$classObject.html" title="Classe de base pour les objets du jeu." alt="" coords="5,5,69,32"/>
+</map>

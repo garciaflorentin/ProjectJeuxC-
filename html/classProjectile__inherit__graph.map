@@ -1,0 +1,6 @@
+<map id="Projectile" name="Projectile">
+<area shape="rect" id="node1" title="Cette classe represente un projectile." alt="" coords="38,80,121,107"/>
+<area shape="rect" id="node3" href="$classArrow.html" title="Cette classe represente une fleche qui ne peut etre lancee que par un joueur." alt="" coords="5,155,65,181"/>
+<area shape="rect" id="node4" href="$classFireball.html" title="Cette classe represente une boule de feu." alt="" coords="90,155,159,181"/>
+<area shape="rect" id="node2" href="$classObject.html" title="Classe de base pour les objets du jeu." alt="" coords="47,5,111,32"/>
+</map>

@@ -1,0 +1,8 @@
+<map id="Wall" name="Wall">
+<area shape="rect" id="node1" title="Classe représentant un mur." alt="" coords="68,155,119,181"/>
+<area shape="rect" id="node4" href="$classDoor.html" title="Cette classe represente une porte." alt="" coords="20,229,73,256"/>
+<area shape="rect" id="node6" href="$classWallZone.html" title="Cette classe represente la zone des murs impermeable." alt="" coords="98,229,182,256"/>
+<area shape="rect" id="node2" href="$classTile.html" title="Classe de base représentant une tuile." alt="" coords="71,80,116,107"/>
+<area shape="rect" id="node3" href="$classObject.html" title="Classe de base pour les objets du jeu." alt="" coords="61,5,125,32"/>
+<area shape="rect" id="node5" href="$classDoorWall.html" title=" " alt="" coords="5,304,88,331"/>
+</map>

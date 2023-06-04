@@ -4,6 +4,10 @@
 #include "MeleeMonster.hpp"
 
 
+/**
+ * @brief Cette classe represente un monstre DemonDog
+ * 
+ */
 class DemonDogMonster : public MeleeMonster {
     private:
         int _attack_cooldown = 20;
@@ -20,27 +24,23 @@ class DemonDogMonster : public MeleeMonster {
          * @param vf Valeur de vie du monstre
          * @param speed Vitesse du monstre
          */
-        DemonDogMonster(string nameObject, sf::Vector2f initPos, /*Player& player1, Player& player2,*/ string name = "meat", int dmg = 3, int ar = 2, int vf = 100, float speed = 1) : 
-        MeleeMonster(nameObject, initPos, /*player1, player2,*/ name, dmg, ar, vf, speed) {
+        DemonDogMonster(string nameObject, sf::Vector2f initPos, string name = "meat", int dmg = 3, int ar = 2, int vf = 100, float speed = 1) : 
+        MeleeMonster(nameObject, initPos, name, dmg, ar, vf, speed) {
             _anim.x = 0;
             _anim.y = 0;
             _sprite.scale(1, 1);
 
             updateSprite();
 
-            if (!_footStepSound->openFromFile("Sounds/bigMonsterStep.wav"))
-                throw runtime_error("Could not open bigMonsterStep.wav");
-            if (!_takeDamageMusic->openFromFile("Sounds/die_monster.wav"))
-                throw runtime_error("Could not open die_monster.wav");
-            if (!_crySound->openFromFile("Sounds/roar3_monster.wav")) 
-                throw runtime_error("Could not open roar3_monster.wav");
+            _footStepSound = SoundsLib::assignSound("Sounds/bigMonsterStep.wav");
+            _takeDamageMusic = SoundsLib::assignSound("Sounds/ie_monster.wav");
+            _crySound = SoundsLib::assignSound("Sounds/roar3_monster.wav");
         }
 
         /**
          * @brief Destructeur de la classe `DemonDogMonster`.
          */
         ~DemonDogMonster() {};
-
 
         /**
          * @brief Met à jour le sprite du monstre.
@@ -53,9 +53,10 @@ class DemonDogMonster : public MeleeMonster {
         }
 
         /**
-         * @brief Met à jour le monstre.
-         *
-         * @param pl Joueur
+         * @brief Met a jour le monster
+         * 
+         * @param target1 Premier joueur sur la carte
+         * @param target2 Deuxieme joueur sur la carte
          */
         void update(Player& target1, Player& target2) {
             float dist1, dist2;

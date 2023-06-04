@@ -1,0 +1,149 @@
+\hypertarget{classArrow}{}\doxysection{Arrow Class Reference}
+\label{classArrow}\index{Arrow@{Arrow}}
+
+
+Cette classe represente une fleche qui ne peut etre lancee que par un joueur.  
+
+
+
+
+{\ttfamily \#include $<$Arrow.\+hpp$>$}
+
+
+
+Inheritance diagram for Arrow\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=142pt]{classArrow__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for Arrow\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=142pt]{classArrow__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classArrow_a5672760992b93a647d76440ce89e9b75}{Arrow}} (string name\+Object, sf\+::\+Vector2f init\+Pos, \mbox{\hyperlink{classCharacter}{Character}} \&player)
+\begin{DoxyCompactList}\small\item\em Constructeur. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classArrow_aec5ca17ba11c21ab0e617bd23fe96d0e}{Arrow}} (const \mbox{\hyperlink{classArrow}{Arrow}} \&other)
+\begin{DoxyCompactList}\small\item\em Constreur par copie. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classArrow}{Arrow}} \& \mbox{\hyperlink{classArrow_ab31b1c9c86293e48517b9d03342983bd}{operator=}} (const \mbox{\hyperlink{classArrow}{Arrow}} \&other)
+\begin{DoxyCompactList}\small\item\em Operateur d\textquotesingle{}assignement. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classArrow_a59ac428e67bd3a246138af049a62c0f3}\label{classArrow_a59ac428e67bd3a246138af049a62c0f3}} 
+\mbox{\hyperlink{classArrow_a59ac428e67bd3a246138af049a62c0f3}{$\sim$\+Arrow}} ()
+\begin{DoxyCompactList}\small\item\em Destructeur. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classArrow_a3025784318f8842144f6042deed7346b}\label{classArrow_a3025784318f8842144f6042deed7346b}} 
+void \mbox{\hyperlink{classArrow_a3025784318f8842144f6042deed7346b}{go\+To}} ()
+\begin{DoxyCompactList}\small\item\em Fait deplacer la fleche. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classArrow_ae94af68a1043f6bd4d67cafb830142c5}\label{classArrow_ae94af68a1043f6bd4d67cafb830142c5}} 
+void \mbox{\hyperlink{classArrow_ae94af68a1043f6bd4d67cafb830142c5}{init\+Projectile}} ()
+\begin{DoxyCompactList}\small\item\em Lance le projectile et le dessine. \end{DoxyCompactList}\item 
+const int \mbox{\hyperlink{classArrow_ae430f0f653a45fd2b5ee93f36167012f}{get\+Direction}} () const
+\begin{DoxyCompactList}\small\item\em Getteur de \+\_\+direction. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classArrow_a260650956872e118767056abd8f804a8}{set\+Direction}} (int direction)
+\begin{DoxyCompactList}\small\item\em Donner une nouvelle direction a la fleche. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Additional Inherited Members}
+
+
+\doxysubsection{Detailed Description}
+Cette classe represente une fleche qui ne peut etre lancee que par un joueur. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classArrow_a5672760992b93a647d76440ce89e9b75}\label{classArrow_a5672760992b93a647d76440ce89e9b75}} 
+\index{Arrow@{Arrow}!Arrow@{Arrow}}
+\index{Arrow@{Arrow}!Arrow@{Arrow}}
+\doxysubsubsection{\texorpdfstring{Arrow()}{Arrow()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily Arrow\+::\+Arrow (\begin{DoxyParamCaption}\item[{string}]{name\+Object,  }\item[{sf\+::\+Vector2f}]{init\+Pos,  }\item[{\mbox{\hyperlink{classCharacter}{Character}} \&}]{player }\end{DoxyParamCaption})}
+
+
+
+Constructeur. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em name\+Object} & Nom du fichier texture \\
+\hline
+{\em init\+Pos} & Position initiale \\
+\hline
+{\em player} & Joueur qui lance la fleche \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classArrow_aec5ca17ba11c21ab0e617bd23fe96d0e}\label{classArrow_aec5ca17ba11c21ab0e617bd23fe96d0e}} 
+\index{Arrow@{Arrow}!Arrow@{Arrow}}
+\index{Arrow@{Arrow}!Arrow@{Arrow}}
+\doxysubsubsection{\texorpdfstring{Arrow()}{Arrow()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily Arrow\+::\+Arrow (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classArrow}{Arrow}} \&}]{other }\end{DoxyParamCaption})}
+
+
+
+Constreur par copie. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em other} & Fleche a copier \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classArrow_ae430f0f653a45fd2b5ee93f36167012f}\label{classArrow_ae430f0f653a45fd2b5ee93f36167012f}} 
+\index{Arrow@{Arrow}!getDirection@{getDirection}}
+\index{getDirection@{getDirection}!Arrow@{Arrow}}
+\doxysubsubsection{\texorpdfstring{getDirection()}{getDirection()}}
+{\footnotesize\ttfamily const int Arrow\+::get\+Direction (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Getteur de \+\_\+direction. 
+
+\begin{DoxyReturn}{Returns}
+const int -\/ La direction dans laquelle se deplace la fleche 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classArrow_ab31b1c9c86293e48517b9d03342983bd}\label{classArrow_ab31b1c9c86293e48517b9d03342983bd}} 
+\index{Arrow@{Arrow}!operator=@{operator=}}
+\index{operator=@{operator=}!Arrow@{Arrow}}
+\doxysubsubsection{\texorpdfstring{operator=()}{operator=()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classArrow}{Arrow}} \& Arrow\+::operator= (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classArrow}{Arrow}} \&}]{other }\end{DoxyParamCaption})}
+
+
+
+Operateur d\textquotesingle{}assignement. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em other} & Fleche a assigner \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\mbox{\hyperlink{classArrow}{Arrow}}\& -\/ Fleche assignee 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classArrow_a260650956872e118767056abd8f804a8}\label{classArrow_a260650956872e118767056abd8f804a8}} 
+\index{Arrow@{Arrow}!setDirection@{setDirection}}
+\index{setDirection@{setDirection}!Arrow@{Arrow}}
+\doxysubsubsection{\texorpdfstring{setDirection()}{setDirection()}}
+{\footnotesize\ttfamily void Arrow\+::set\+Direction (\begin{DoxyParamCaption}\item[{int}]{direction }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Donner une nouvelle direction a la fleche. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em direction} & Nouvelle direction \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+Arrow.\+hpp\item 
+Arrow.\+cpp\end{DoxyCompactItemize}

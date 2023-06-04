@@ -1,0 +1,525 @@
+\hypertarget{classCharacter}{}\doxysection{Character Class Reference}
+\label{classCharacter}\index{Character@{Character}}
+
+
+Cette classe represente un parsonnage.  
+
+
+
+
+{\ttfamily \#include $<$Character.\+hpp$>$}
+
+
+
+Inheritance diagram for Character\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classCharacter__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for Character\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=190pt]{classCharacter__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classCharacter_adc27bdd255876169bad2ed0bae0cffb5}\label{classCharacter_adc27bdd255876169bad2ed0bae0cffb5}} 
+\mbox{\hyperlink{classCharacter_adc27bdd255876169bad2ed0bae0cffb5}{Character}} ()
+\begin{DoxyCompactList}\small\item\em Constructeur par defaut. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classCharacter_a82a69b5ea7a769676cc3af0e322296b2}{Character}} (string name\+Object, sf\+::\+Vector2f init\+Pos)
+\begin{DoxyCompactList}\small\item\em Constructeur de la classe {\ttfamily \mbox{\hyperlink{classCharacter}{Character}}}. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classCharacter}{Character}} \& \mbox{\hyperlink{classCharacter_a020a6412390cc5375455a77cd27320ca}{operator=}} (const \mbox{\hyperlink{classCharacter}{Character}} \&other)
+\begin{DoxyCompactList}\small\item\em Operateur d\textquotesingle{}assignement. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classCharacter_a9e9be564d05ded80962b2045aa70b3fc}\label{classCharacter_a9e9be564d05ded80962b2045aa70b3fc}} 
+virtual \mbox{\hyperlink{classCharacter_a9e9be564d05ded80962b2045aa70b3fc}{$\sim$\+Character}} ()
+\begin{DoxyCompactList}\small\item\em Destructeur de la classe {\ttfamily \mbox{\hyperlink{classCharacter}{Character}}}. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classCharacter_aaea29de2f6e70582a5ee1fa359ad5259}{update\+Killedall\+Mobs}} (std\+::vector$<$ bool $>$ \&\mbox{\hyperlink{classCharacter_a3dec8123ff56acca8f5b6545de5e10de}{\+\_\+killedall\+Mobs}})
+\begin{DoxyCompactList}\small\item\em Met à jour l\textquotesingle{}état des monstres tués. \end{DoxyCompactList}\item 
+std\+::vector$<$ bool $>$ \& \mbox{\hyperlink{classCharacter_a5acb2e4f90e8de97d0e07abbf75b8405}{get\+Killedall\+Mobs}} ()
+\begin{DoxyCompactList}\small\item\em Obtient l\textquotesingle{}état des monstres tués. \end{DoxyCompactList}\item 
+const float \mbox{\hyperlink{classCharacter_aeb0dd6993372d4f52ba64b370af31943}{get\+Speed}} () const
+\begin{DoxyCompactList}\small\item\em Obtient la vitesse de déplacement du personnage. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classCharacter_a4227856a262887ecafa87d8ca66a8ab9}{set\+Speed}} (double \mbox{\hyperlink{classCharacter_a80f77c02b66491fd37fe45bdeb8308bb}{\+\_\+speed}})
+\begin{DoxyCompactList}\small\item\em Définit la vitesse de déplacement du personnage. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classCharacter_a999238bbad782a705219621a591bb76a}{move}} (sf\+::\+Vector2f deplacement)
+\begin{DoxyCompactList}\small\item\em Déplace le personnage selon le déplacement spécifié. \end{DoxyCompactList}\item 
+virtual const bool \mbox{\hyperlink{classCharacter_a55445b63e5ed3e8ab0f76f2f77f72c7b}{is\+Alive}} () const
+\begin{DoxyCompactList}\small\item\em Vérifie si le personnage est en vie. \end{DoxyCompactList}\item 
+virtual void \mbox{\hyperlink{classCharacter_a18e5036aa6bb78311c9532257a01f5ae}{take\+Damage}} (int heart\+Quarters)
+\begin{DoxyCompactList}\small\item\em Inflige des dégâts au personnage en fonction du nombre de quarts de vie. \end{DoxyCompactList}\item 
+virtual void \mbox{\hyperlink{classCharacter_a0c6ec1f157cc0413619444745ec155b0}{attack}} (\mbox{\hyperlink{classCharacter}{Character}} $\ast$target)
+\begin{DoxyCompactList}\small\item\em Effectue une attaque sur le personnage cible. \end{DoxyCompactList}\item 
+const int \mbox{\hyperlink{classCharacter_ab764414378d10edebac89e2babc6c17b}{get\+Orientation}} () const
+\begin{DoxyCompactList}\small\item\em Obtient l\textquotesingle{}orientation du personnage. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classCharacter_afd171abb402516fcf9e0205c654cf45d}{set\+Orientation}} (int \mbox{\hyperlink{classCharacter_a7c3d901f70d7e93439ee125706bb8bdc}{\+\_\+orientation}})
+\begin{DoxyCompactList}\small\item\em Définit l\textquotesingle{}orientation du personnage. \end{DoxyCompactList}\item 
+sf\+::\+Vector2i \& \mbox{\hyperlink{classCharacter_ab144ed27c827a1b0838e155a702e488e}{get\+Anim}} ()
+\begin{DoxyCompactList}\small\item\em Obtient l\textquotesingle{}animation du personnage. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classCharacter_ab3a2a87bd03a24519e76a640b1e02f40}{set\+Anim}} (int i, int y)
+\begin{DoxyCompactList}\small\item\em Définit l\textquotesingle{}animation du personnage. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classCharacter_a3d7adfce7b51f911d1bbf491303e321f}\label{classCharacter_a3d7adfce7b51f911d1bbf491303e321f}} 
+void \mbox{\hyperlink{classCharacter_a3d7adfce7b51f911d1bbf491303e321f}{update\+Sprite}} ()
+\begin{DoxyCompactList}\small\item\em Met à jour le sprite du personnage. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classCharacter_a3c7b70398077fc81f6ab100a608cdc22}\label{classCharacter_a3c7b70398077fc81f6ab100a608cdc22}} 
+void \mbox{\hyperlink{classCharacter_a3c7b70398077fc81f6ab100a608cdc22}{set\+Up\+Character}} ()
+\begin{DoxyCompactList}\small\item\em initialise le \textquotesingle{}\mbox{\hyperlink{classCharacter}{Character}}\textquotesingle{}. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classHeart}{Heart}} \& \mbox{\hyperlink{classCharacter_a1b2b49c9d52765757b58780d61c4039f}{getlife}} () const
+\begin{DoxyCompactList}\small\item\em Obtient la vie du personnage. \end{DoxyCompactList}\item 
+const int \mbox{\hyperlink{classCharacter_a363118408411ed440ec5e129a7fba5e7}{get\+Block\+Size}} () const
+\begin{DoxyCompactList}\small\item\em Obtient la taille de bloc. \end{DoxyCompactList}\item 
+const bool \mbox{\hyperlink{classCharacter_a767aaaf9f16b3d1222d7bd96bc97b065}{can\+Open\+Chest}} () const
+\begin{DoxyCompactList}\small\item\em Vérifie si le personnage peut ouvrir un coffre. \end{DoxyCompactList}\item 
+virtual void \mbox{\hyperlink{classCharacter_ad22ab6b8ae5f2a7aac6400e19d1d3eb0}{open\+Chest}} (\mbox{\hyperlink{classChest}{Chest}} \&chest)
+\begin{DoxyCompactList}\small\item\em Ouvre un coffre donné. \end{DoxyCompactList}\item 
+virtual \mbox{\hyperlink{classProjectile}{Projectile}} $\ast$ \mbox{\hyperlink{classCharacter_a6292dfe2172256e5e7a7c1f18307f410}{get\+Projectile}} () const
+\begin{DoxyCompactList}\small\item\em Getteur pour obtenir le projectile du personnage. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Protected Types}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classCharacter_a529aa36312944c49275db51cd68a284d}\label{classCharacter_a529aa36312944c49275db51cd68a284d}} 
+enum {\bfseries Orientation} \{ {\bfseries Up}
+, {\bfseries Left}
+, {\bfseries Down}
+, {\bfseries Right}
+ \}
+\end{DoxyCompactItemize}
+\doxysubsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+virtual void \mbox{\hyperlink{classCharacter_a968143f713a7c841070814827dc58e57}{set\+Damage}} (\mbox{\hyperlink{classCharacter}{Character}} $\ast$target)
+\begin{DoxyCompactList}\small\item\em Applique les dégâts au personnage cible. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{classCharacter_af82272c2a6644af64fe9d1bf635b90a6}{\+\_\+damage\+Attack}}
+\item 
+float \mbox{\hyperlink{classCharacter_a80f77c02b66491fd37fe45bdeb8308bb}{\+\_\+speed}}
+\item 
+Enum\+Orientation \mbox{\hyperlink{classCharacter_a1dae3c991cfaa91a79e945eb26007384}{\+\_\+enum\+Orientation}}
+\item 
+bool \mbox{\hyperlink{classCharacter_a17747ba372db77ca3f62dc65f588d6f0}{\+\_\+is\+Alive}}
+\item 
+int \mbox{\hyperlink{classCharacter_a1a302c117f6dc9c5a08d9950c04bb323}{\+\_\+object\+\_\+size}}
+\item 
+int \mbox{\hyperlink{classCharacter_a7c3d901f70d7e93439ee125706bb8bdc}{\+\_\+orientation}}
+\item 
+vector$<$ bool $>$ \mbox{\hyperlink{classCharacter_a3dec8123ff56acca8f5b6545de5e10de}{\+\_\+killedall\+Mobs}} = \{ false, false, false, false \}
+\item 
+sf\+::\+Music $\ast$ \mbox{\hyperlink{classCharacter_af801d2014bc785b71b9269f680e5847e}{\+\_\+foot\+Step\+Sound}}
+\item 
+sf\+::\+Music $\ast$ \mbox{\hyperlink{classCharacter_abced42369341746eca1be1a26c045e9f}{\+\_\+take\+Damage\+Music}}
+\item 
+sf\+::\+Clock \mbox{\hyperlink{classCharacter_af53d6917c51fe4dfef816dd2771c8b29}{\+\_\+clock}}
+\item 
+sf\+::\+Vector2i \mbox{\hyperlink{classCharacter_a35fd250275013e0865c2ebe860fcb901}{\+\_\+anim}}
+\item 
+\mbox{\hyperlink{classHeart}{Heart}} \& \mbox{\hyperlink{classCharacter_af0489b801322e3164a2e09faef863ac4}{\+\_\+life}}
+\item 
+bool \mbox{\hyperlink{classCharacter_a7ba658812fc6b6628e5dbc80f5094016}{\+\_\+can\+Open\+Chest}} = false
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Cette classe represente un parsonnage. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classCharacter_a82a69b5ea7a769676cc3af0e322296b2}\label{classCharacter_a82a69b5ea7a769676cc3af0e322296b2}} 
+\index{Character@{Character}!Character@{Character}}
+\index{Character@{Character}!Character@{Character}}
+\doxysubsubsection{\texorpdfstring{Character()}{Character()}}
+{\footnotesize\ttfamily Character\+::\+Character (\begin{DoxyParamCaption}\item[{string}]{name\+Object,  }\item[{sf\+::\+Vector2f}]{init\+Pos }\end{DoxyParamCaption})}
+
+
+
+Constructeur de la classe {\ttfamily \mbox{\hyperlink{classCharacter}{Character}}}. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em name\+Object} & Nom de l\textquotesingle{}objet \\
+\hline
+{\em init\+Pos} & Position initiale du personnage \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classCharacter_a0c6ec1f157cc0413619444745ec155b0}\label{classCharacter_a0c6ec1f157cc0413619444745ec155b0}} 
+\index{Character@{Character}!attack@{attack}}
+\index{attack@{attack}!Character@{Character}}
+\doxysubsubsection{\texorpdfstring{attack()}{attack()}}
+{\footnotesize\ttfamily virtual void Character\+::attack (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classCharacter}{Character}} $\ast$}]{target }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+
+
+Effectue une attaque sur le personnage cible. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em target} & Personnage cible \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classCharacter_a767aaaf9f16b3d1222d7bd96bc97b065}\label{classCharacter_a767aaaf9f16b3d1222d7bd96bc97b065}} 
+\index{Character@{Character}!canOpenChest@{canOpenChest}}
+\index{canOpenChest@{canOpenChest}!Character@{Character}}
+\doxysubsubsection{\texorpdfstring{canOpenChest()}{canOpenChest()}}
+{\footnotesize\ttfamily const bool Character\+::can\+Open\+Chest (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Vérifie si le personnage peut ouvrir un coffre. 
+
+\begin{DoxyReturn}{Returns}
+{\ttfamily true} si le personnage peut ouvrir un coffre, {\ttfamily false} sinon 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classCharacter_ab144ed27c827a1b0838e155a702e488e}\label{classCharacter_ab144ed27c827a1b0838e155a702e488e}} 
+\index{Character@{Character}!getAnim@{getAnim}}
+\index{getAnim@{getAnim}!Character@{Character}}
+\doxysubsubsection{\texorpdfstring{getAnim()}{getAnim()}}
+{\footnotesize\ttfamily sf\+::\+Vector2i \& Character\+::get\+Anim (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Obtient l\textquotesingle{}animation du personnage. 
+
+\begin{DoxyReturn}{Returns}
+Animation du personnage 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classCharacter_a363118408411ed440ec5e129a7fba5e7}\label{classCharacter_a363118408411ed440ec5e129a7fba5e7}} 
+\index{Character@{Character}!getBlockSize@{getBlockSize}}
+\index{getBlockSize@{getBlockSize}!Character@{Character}}
+\doxysubsubsection{\texorpdfstring{getBlockSize()}{getBlockSize()}}
+{\footnotesize\ttfamily const int Character\+::get\+Block\+Size (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Obtient la taille de bloc. 
+
+\begin{DoxyReturn}{Returns}
+Taille de bloc 
+\end{DoxyReturn}
+
+
+Reimplemented from \mbox{\hyperlink{classObject_a57515683a47ff93161e2cd544b391f12}{Object}}.
+
+\mbox{\Hypertarget{classCharacter_a5acb2e4f90e8de97d0e07abbf75b8405}\label{classCharacter_a5acb2e4f90e8de97d0e07abbf75b8405}} 
+\index{Character@{Character}!getKilledallMobs@{getKilledallMobs}}
+\index{getKilledallMobs@{getKilledallMobs}!Character@{Character}}
+\doxysubsubsection{\texorpdfstring{getKilledallMobs()}{getKilledallMobs()}}
+{\footnotesize\ttfamily std\+::vector$<$ bool $>$ \& Character\+::get\+Killedall\+Mobs (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Obtient l\textquotesingle{}état des monstres tués. 
+
+\begin{DoxyReturn}{Returns}
+Tableau indiquant si tous les monstres ont été tués 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classCharacter_a1b2b49c9d52765757b58780d61c4039f}\label{classCharacter_a1b2b49c9d52765757b58780d61c4039f}} 
+\index{Character@{Character}!getlife@{getlife}}
+\index{getlife@{getlife}!Character@{Character}}
+\doxysubsubsection{\texorpdfstring{getlife()}{getlife()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classHeart}{Heart}} \& Character\+::getlife (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Obtient la vie du personnage. 
+
+\begin{DoxyReturn}{Returns}
+Vie du personnage 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classCharacter_ab764414378d10edebac89e2babc6c17b}\label{classCharacter_ab764414378d10edebac89e2babc6c17b}} 
+\index{Character@{Character}!getOrientation@{getOrientation}}
+\index{getOrientation@{getOrientation}!Character@{Character}}
+\doxysubsubsection{\texorpdfstring{getOrientation()}{getOrientation()}}
+{\footnotesize\ttfamily const int Character\+::get\+Orientation (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Obtient l\textquotesingle{}orientation du personnage. 
+
+\begin{DoxyReturn}{Returns}
+Orientation du personnage 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classCharacter_a6292dfe2172256e5e7a7c1f18307f410}\label{classCharacter_a6292dfe2172256e5e7a7c1f18307f410}} 
+\index{Character@{Character}!getProjectile@{getProjectile}}
+\index{getProjectile@{getProjectile}!Character@{Character}}
+\doxysubsubsection{\texorpdfstring{getProjectile()}{getProjectile()}}
+{\footnotesize\ttfamily virtual \mbox{\hyperlink{classProjectile}{Projectile}}$\ast$ Character\+::get\+Projectile (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+
+
+Getteur pour obtenir le projectile du personnage. 
+
+\begin{DoxyReturn}{Returns}
+Retourne un pointeur sur le \mbox{\hyperlink{classProjectile}{Projectile}} du personnage. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classCharacter_aeb0dd6993372d4f52ba64b370af31943}\label{classCharacter_aeb0dd6993372d4f52ba64b370af31943}} 
+\index{Character@{Character}!getSpeed@{getSpeed}}
+\index{getSpeed@{getSpeed}!Character@{Character}}
+\doxysubsubsection{\texorpdfstring{getSpeed()}{getSpeed()}}
+{\footnotesize\ttfamily const float Character\+::get\+Speed (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Obtient la vitesse de déplacement du personnage. 
+
+\begin{DoxyReturn}{Returns}
+Vitesse de déplacement 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classCharacter_a55445b63e5ed3e8ab0f76f2f77f72c7b}\label{classCharacter_a55445b63e5ed3e8ab0f76f2f77f72c7b}} 
+\index{Character@{Character}!isAlive@{isAlive}}
+\index{isAlive@{isAlive}!Character@{Character}}
+\doxysubsubsection{\texorpdfstring{isAlive()}{isAlive()}}
+{\footnotesize\ttfamily const bool Character\+::is\+Alive (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Vérifie si le personnage est en vie. 
+
+\begin{DoxyReturn}{Returns}
+{\ttfamily true} si le personnage est en vie, {\ttfamily false} sinon 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classCharacter_a999238bbad782a705219621a591bb76a}\label{classCharacter_a999238bbad782a705219621a591bb76a}} 
+\index{Character@{Character}!move@{move}}
+\index{move@{move}!Character@{Character}}
+\doxysubsubsection{\texorpdfstring{move()}{move()}}
+{\footnotesize\ttfamily void Character\+::move (\begin{DoxyParamCaption}\item[{sf\+::\+Vector2f}]{deplacement }\end{DoxyParamCaption})}
+
+
+
+Déplace le personnage selon le déplacement spécifié. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em deplacement} & Vecteur de déplacement \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classCharacter_ad22ab6b8ae5f2a7aac6400e19d1d3eb0}\label{classCharacter_ad22ab6b8ae5f2a7aac6400e19d1d3eb0}} 
+\index{Character@{Character}!openChest@{openChest}}
+\index{openChest@{openChest}!Character@{Character}}
+\doxysubsubsection{\texorpdfstring{openChest()}{openChest()}}
+{\footnotesize\ttfamily virtual void Character\+::open\+Chest (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classChest}{Chest}} \&}]{chest }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+
+
+Ouvre un coffre donné. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em chest} & Coffre à ouvrir \\
+\hline
+\end{DoxyParams}
+
+
+Reimplemented in \mbox{\hyperlink{classPlayer_a058c0006177425c67434c936c1f3b393}{Player}}, and \mbox{\hyperlink{classMonster_a8c114f14ba069e672e841bf60ec8aed3}{Monster}}.
+
+\mbox{\Hypertarget{classCharacter_a020a6412390cc5375455a77cd27320ca}\label{classCharacter_a020a6412390cc5375455a77cd27320ca}} 
+\index{Character@{Character}!operator=@{operator=}}
+\index{operator=@{operator=}!Character@{Character}}
+\doxysubsubsection{\texorpdfstring{operator=()}{operator=()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classCharacter}{Character}} \& Character\+::operator= (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classCharacter}{Character}} \&}]{other }\end{DoxyParamCaption})}
+
+
+
+Operateur d\textquotesingle{}assignement. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em other} & Personnage a assigner \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\mbox{\hyperlink{classCharacter}{Character}}\& Personnage assigne 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classCharacter_ab3a2a87bd03a24519e76a640b1e02f40}\label{classCharacter_ab3a2a87bd03a24519e76a640b1e02f40}} 
+\index{Character@{Character}!setAnim@{setAnim}}
+\index{setAnim@{setAnim}!Character@{Character}}
+\doxysubsubsection{\texorpdfstring{setAnim()}{setAnim()}}
+{\footnotesize\ttfamily void Character\+::set\+Anim (\begin{DoxyParamCaption}\item[{int}]{i,  }\item[{int}]{y }\end{DoxyParamCaption})}
+
+
+
+Définit l\textquotesingle{}animation du personnage. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em i} & Animation en X \\
+\hline
+{\em y} & Animation en Y \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classCharacter_a968143f713a7c841070814827dc58e57}\label{classCharacter_a968143f713a7c841070814827dc58e57}} 
+\index{Character@{Character}!setDamage@{setDamage}}
+\index{setDamage@{setDamage}!Character@{Character}}
+\doxysubsubsection{\texorpdfstring{setDamage()}{setDamage()}}
+{\footnotesize\ttfamily virtual void Character\+::set\+Damage (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classCharacter}{Character}} $\ast$}]{target }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [protected]}, {\ttfamily [virtual]}}
+
+
+
+Applique les dégâts au personnage cible. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em target} & Personnage cible \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classCharacter_afd171abb402516fcf9e0205c654cf45d}\label{classCharacter_afd171abb402516fcf9e0205c654cf45d}} 
+\index{Character@{Character}!setOrientation@{setOrientation}}
+\index{setOrientation@{setOrientation}!Character@{Character}}
+\doxysubsubsection{\texorpdfstring{setOrientation()}{setOrientation()}}
+{\footnotesize\ttfamily void Character\+::set\+Orientation (\begin{DoxyParamCaption}\item[{int}]{\+\_\+orientation }\end{DoxyParamCaption})}
+
+
+
+Définit l\textquotesingle{}orientation du personnage. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em \+\_\+orientation} & Orientation du personnage \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classCharacter_a4227856a262887ecafa87d8ca66a8ab9}\label{classCharacter_a4227856a262887ecafa87d8ca66a8ab9}} 
+\index{Character@{Character}!setSpeed@{setSpeed}}
+\index{setSpeed@{setSpeed}!Character@{Character}}
+\doxysubsubsection{\texorpdfstring{setSpeed()}{setSpeed()}}
+{\footnotesize\ttfamily void Character\+::set\+Speed (\begin{DoxyParamCaption}\item[{double}]{\+\_\+speed }\end{DoxyParamCaption})}
+
+
+
+Définit la vitesse de déplacement du personnage. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em \+\_\+speed} & Vitesse de déplacement \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classCharacter_a18e5036aa6bb78311c9532257a01f5ae}\label{classCharacter_a18e5036aa6bb78311c9532257a01f5ae}} 
+\index{Character@{Character}!takeDamage@{takeDamage}}
+\index{takeDamage@{takeDamage}!Character@{Character}}
+\doxysubsubsection{\texorpdfstring{takeDamage()}{takeDamage()}}
+{\footnotesize\ttfamily void Character\+::take\+Damage (\begin{DoxyParamCaption}\item[{int}]{heart\+Quarters }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Inflige des dégâts au personnage en fonction du nombre de quarts de vie. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em heart\+Quarters} & Nombre de quarts de vie \\
+\hline
+\end{DoxyParams}
+
+
+Reimplemented in \mbox{\hyperlink{classPlayer_a8e3c264137b3f92678179162fc251349}{Player}}.
+
+\mbox{\Hypertarget{classCharacter_aaea29de2f6e70582a5ee1fa359ad5259}\label{classCharacter_aaea29de2f6e70582a5ee1fa359ad5259}} 
+\index{Character@{Character}!updateKilledallMobs@{updateKilledallMobs}}
+\index{updateKilledallMobs@{updateKilledallMobs}!Character@{Character}}
+\doxysubsubsection{\texorpdfstring{updateKilledallMobs()}{updateKilledallMobs()}}
+{\footnotesize\ttfamily void Character\+::update\+Killedall\+Mobs (\begin{DoxyParamCaption}\item[{std\+::vector$<$ bool $>$ \&}]{\+\_\+killedall\+Mobs }\end{DoxyParamCaption})}
+
+
+
+Met à jour l\textquotesingle{}état des monstres tués. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em \+\_\+killedall\+Mobs} & Tableau indiquant si tous les monstres ont été tués \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{classCharacter_a35fd250275013e0865c2ebe860fcb901}\label{classCharacter_a35fd250275013e0865c2ebe860fcb901}} 
+\index{Character@{Character}!\_anim@{\_anim}}
+\index{\_anim@{\_anim}!Character@{Character}}
+\doxysubsubsection{\texorpdfstring{\_anim}{\_anim}}
+{\footnotesize\ttfamily sf\+::\+Vector2i Character\+::\+\_\+anim\hspace{0.3cm}{\ttfamily [protected]}}
+
+Animation du personnage \mbox{\Hypertarget{classCharacter_a7ba658812fc6b6628e5dbc80f5094016}\label{classCharacter_a7ba658812fc6b6628e5dbc80f5094016}} 
+\index{Character@{Character}!\_canOpenChest@{\_canOpenChest}}
+\index{\_canOpenChest@{\_canOpenChest}!Character@{Character}}
+\doxysubsubsection{\texorpdfstring{\_canOpenChest}{\_canOpenChest}}
+{\footnotesize\ttfamily bool Character\+::\+\_\+can\+Open\+Chest = false\hspace{0.3cm}{\ttfamily [protected]}}
+
+Indique si le personnage peut ouvrir un coffre \mbox{\Hypertarget{classCharacter_af53d6917c51fe4dfef816dd2771c8b29}\label{classCharacter_af53d6917c51fe4dfef816dd2771c8b29}} 
+\index{Character@{Character}!\_clock@{\_clock}}
+\index{\_clock@{\_clock}!Character@{Character}}
+\doxysubsubsection{\texorpdfstring{\_clock}{\_clock}}
+{\footnotesize\ttfamily sf\+::\+Clock Character\+::\+\_\+clock\hspace{0.3cm}{\ttfamily [protected]}}
+
+Horloge pour le chronométrage des actions \mbox{\Hypertarget{classCharacter_af82272c2a6644af64fe9d1bf635b90a6}\label{classCharacter_af82272c2a6644af64fe9d1bf635b90a6}} 
+\index{Character@{Character}!\_damageAttack@{\_damageAttack}}
+\index{\_damageAttack@{\_damageAttack}!Character@{Character}}
+\doxysubsubsection{\texorpdfstring{\_damageAttack}{\_damageAttack}}
+{\footnotesize\ttfamily int Character\+::\+\_\+damage\+Attack\hspace{0.3cm}{\ttfamily [protected]}}
+
+Dégâts de l\textquotesingle{}attaque du personnage \mbox{\Hypertarget{classCharacter_a1dae3c991cfaa91a79e945eb26007384}\label{classCharacter_a1dae3c991cfaa91a79e945eb26007384}} 
+\index{Character@{Character}!\_enumOrientation@{\_enumOrientation}}
+\index{\_enumOrientation@{\_enumOrientation}!Character@{Character}}
+\doxysubsubsection{\texorpdfstring{\_enumOrientation}{\_enumOrientation}}
+{\footnotesize\ttfamily Enum\+Orientation Character\+::\+\_\+enum\+Orientation\hspace{0.3cm}{\ttfamily [protected]}}
+
+Orientation du personnage \mbox{\Hypertarget{classCharacter_af801d2014bc785b71b9269f680e5847e}\label{classCharacter_af801d2014bc785b71b9269f680e5847e}} 
+\index{Character@{Character}!\_footStepSound@{\_footStepSound}}
+\index{\_footStepSound@{\_footStepSound}!Character@{Character}}
+\doxysubsubsection{\texorpdfstring{\_footStepSound}{\_footStepSound}}
+{\footnotesize\ttfamily sf\+::\+Music$\ast$ Character\+::\+\_\+foot\+Step\+Sound\hspace{0.3cm}{\ttfamily [protected]}}
+
+Son des pas du personnage \mbox{\Hypertarget{classCharacter_a17747ba372db77ca3f62dc65f588d6f0}\label{classCharacter_a17747ba372db77ca3f62dc65f588d6f0}} 
+\index{Character@{Character}!\_isAlive@{\_isAlive}}
+\index{\_isAlive@{\_isAlive}!Character@{Character}}
+\doxysubsubsection{\texorpdfstring{\_isAlive}{\_isAlive}}
+{\footnotesize\ttfamily bool Character\+::\+\_\+is\+Alive\hspace{0.3cm}{\ttfamily [protected]}}
+
+Indique si le personnage est en vie \mbox{\Hypertarget{classCharacter_a3dec8123ff56acca8f5b6545de5e10de}\label{classCharacter_a3dec8123ff56acca8f5b6545de5e10de}} 
+\index{Character@{Character}!\_killedallMobs@{\_killedallMobs}}
+\index{\_killedallMobs@{\_killedallMobs}!Character@{Character}}
+\doxysubsubsection{\texorpdfstring{\_killedallMobs}{\_killedallMobs}}
+{\footnotesize\ttfamily vector$<$bool$>$ Character\+::\+\_\+killedall\+Mobs = \{ false, false, false, false \}\hspace{0.3cm}{\ttfamily [protected]}}
+
+Tableau indiquant si tous les monstres ont été tués \mbox{\Hypertarget{classCharacter_af0489b801322e3164a2e09faef863ac4}\label{classCharacter_af0489b801322e3164a2e09faef863ac4}} 
+\index{Character@{Character}!\_life@{\_life}}
+\index{\_life@{\_life}!Character@{Character}}
+\doxysubsubsection{\texorpdfstring{\_life}{\_life}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classHeart}{Heart}}\& Character\+::\+\_\+life\hspace{0.3cm}{\ttfamily [protected]}}
+
+Vie du personnage \mbox{\Hypertarget{classCharacter_a1a302c117f6dc9c5a08d9950c04bb323}\label{classCharacter_a1a302c117f6dc9c5a08d9950c04bb323}} 
+\index{Character@{Character}!\_object\_size@{\_object\_size}}
+\index{\_object\_size@{\_object\_size}!Character@{Character}}
+\doxysubsubsection{\texorpdfstring{\_object\_size}{\_object\_size}}
+{\footnotesize\ttfamily int Character\+::\+\_\+object\+\_\+size\hspace{0.3cm}{\ttfamily [protected]}}
+
+Taille de l\textquotesingle{}objet \mbox{\Hypertarget{classCharacter_a7c3d901f70d7e93439ee125706bb8bdc}\label{classCharacter_a7c3d901f70d7e93439ee125706bb8bdc}} 
+\index{Character@{Character}!\_orientation@{\_orientation}}
+\index{\_orientation@{\_orientation}!Character@{Character}}
+\doxysubsubsection{\texorpdfstring{\_orientation}{\_orientation}}
+{\footnotesize\ttfamily int Character\+::\+\_\+orientation\hspace{0.3cm}{\ttfamily [protected]}}
+
+Orientation actuelle du personnage \mbox{\Hypertarget{classCharacter_a80f77c02b66491fd37fe45bdeb8308bb}\label{classCharacter_a80f77c02b66491fd37fe45bdeb8308bb}} 
+\index{Character@{Character}!\_speed@{\_speed}}
+\index{\_speed@{\_speed}!Character@{Character}}
+\doxysubsubsection{\texorpdfstring{\_speed}{\_speed}}
+{\footnotesize\ttfamily float Character\+::\+\_\+speed\hspace{0.3cm}{\ttfamily [protected]}}
+
+Vitesse de déplacement du personnage \mbox{\Hypertarget{classCharacter_abced42369341746eca1be1a26c045e9f}\label{classCharacter_abced42369341746eca1be1a26c045e9f}} 
+\index{Character@{Character}!\_takeDamageMusic@{\_takeDamageMusic}}
+\index{\_takeDamageMusic@{\_takeDamageMusic}!Character@{Character}}
+\doxysubsubsection{\texorpdfstring{\_takeDamageMusic}{\_takeDamageMusic}}
+{\footnotesize\ttfamily sf\+::\+Music$\ast$ Character\+::\+\_\+take\+Damage\+Music\hspace{0.3cm}{\ttfamily [protected]}}
+
+Son de dégâts subis par le personnage 
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+Character.\+hpp\item 
+Character.\+cpp\end{DoxyCompactItemize}

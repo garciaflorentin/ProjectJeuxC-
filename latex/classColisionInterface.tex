@@ -1,0 +1,124 @@
+\hypertarget{classColisionInterface}{}\doxysection{Colision\+Interface Class Reference}
+\label{classColisionInterface}\index{ColisionInterface@{ColisionInterface}}
+
+
+Special library.  
+
+
+
+
+{\ttfamily \#include $<$Colision\+Interface.\+hpp$>$}
+
+
+
+Inheritance diagram for Colision\+Interface\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=179pt]{classColisionInterface__inherit__graph}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+virtual void \mbox{\hyperlink{classColisionInterface_a26d21e0cdf3c9d55a5cdba29834e3f86}{collide\+Wall}} (\mbox{\hyperlink{classObject}{Object}} \&o, std\+::vector$<$ \mbox{\hyperlink{classObject}{Object}} $\ast$ $>$ \&wall\+List, std\+::vector$<$ int $>$ \&info)=0
+\item 
+virtual void \mbox{\hyperlink{classColisionInterface_a79457eced007a9040135cb6be02ae32f}{Limit\+Map}} ()=0
+\item 
+virtual int \mbox{\hyperlink{classColisionInterface_ad15a52bf7962934cc9dcb1c2dd17864a}{collide\+Position}} (\mbox{\hyperlink{classObject}{Object}} \&object1, \mbox{\hyperlink{classObject}{Object}} \&object2)=0
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Special library. 
+
+STL
+
+Cette interface permet de gerer les collisions 
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classColisionInterface_ad15a52bf7962934cc9dcb1c2dd17864a}\label{classColisionInterface_ad15a52bf7962934cc9dcb1c2dd17864a}} 
+\index{ColisionInterface@{ColisionInterface}!collidePosition@{collidePosition}}
+\index{collidePosition@{collidePosition}!ColisionInterface@{ColisionInterface}}
+\doxysubsubsection{\texorpdfstring{collidePosition()}{collidePosition()}}
+{\footnotesize\ttfamily virtual int Colision\+Interface\+::collide\+Position (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classObject}{Object}} \&}]{object1,  }\item[{\mbox{\hyperlink{classObject}{Object}} \&}]{object2 }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+Check where the sprite if in contact 
+\begin{DoxyParams}{Parameters}
+{\em sprite1} & The sprite who suffered the contact \\
+\hline
+{\em sprite2} & The sprite who afflict the contact \\
+\hline
+\end{DoxyParams}
+
+
+Implemented in \mbox{\hyperlink{classGameGestion_a60042112bb86cac0131a5bf7f17cd242}{Game\+Gestion}}.
+
+\mbox{\Hypertarget{classColisionInterface_a26d21e0cdf3c9d55a5cdba29834e3f86}\label{classColisionInterface_a26d21e0cdf3c9d55a5cdba29834e3f86}} 
+\index{ColisionInterface@{ColisionInterface}!collideWall@{collideWall}}
+\index{collideWall@{collideWall}!ColisionInterface@{ColisionInterface}}
+\doxysubsubsection{\texorpdfstring{collideWall()}{collideWall()}}
+{\footnotesize\ttfamily virtual void Colision\+Interface\+::collide\+Wall (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classObject}{Object}} \&}]{o,  }\item[{std\+::vector$<$ \mbox{\hyperlink{classObject}{Object}} $\ast$ $>$ \&}]{wall\+List,  }\item[{std\+::vector$<$ int $>$ \&}]{info }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+Check if two sprite are in contact 
+\begin{DoxyParams}{Parameters}
+{\em sprite1} & First sprite \\
+\hline
+{\em sprite2} & Second sprite \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+True if the two sprite are in contact Chec if the player\textquotesingle{}s sword is in conctact with the target 
+\end{DoxyReturn}
+
+\begin{DoxyParams}{Parameters}
+{\em target} & the sprite in contact with the sword \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+True if the sprite is in constact with the sword Check if the sprite is in contact with a list of sprite 
+\end{DoxyReturn}
+
+\begin{DoxyParams}{Parameters}
+{\em user} & The sprite Checked \\
+\hline
+{\em wall} & List of sprite \\
+\hline
+{\em info} & est un vecteur indiquant le type de colide (\mbox{[}1\mbox{]}) et l\textquotesingle{}indice du mur concerné (\mbox{[}0\mbox{]}) \\
+\hline
+\end{DoxyParams}
+
+
+Implemented in \mbox{\hyperlink{classGameGestion_a4fc350c34a71f57a966debc8a6ceee26}{Game\+Gestion}}.
+
+\mbox{\Hypertarget{classColisionInterface_a79457eced007a9040135cb6be02ae32f}\label{classColisionInterface_a79457eced007a9040135cb6be02ae32f}} 
+\index{ColisionInterface@{ColisionInterface}!LimitMap@{LimitMap}}
+\index{LimitMap@{LimitMap}!ColisionInterface@{ColisionInterface}}
+\doxysubsubsection{\texorpdfstring{LimitMap()}{LimitMap()}}
+{\footnotesize\ttfamily virtual void Colision\+Interface\+::\+Limit\+Map (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+Check if the next move is possible 
+\begin{DoxyParams}{Parameters}
+{\em user} & The sprite who will move \\
+\hline
+{\em move} & His deplacement \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+True if he can\textquotesingle{}t move Check if the sprite will go out the map 
+\end{DoxyReturn}
+
+\begin{DoxyParams}{Parameters}
+{\em user} & The sprite Check \\
+\hline
+\end{DoxyParams}
+
+
+Implemented in \mbox{\hyperlink{classGameGestion_aa5b9a06a2ab91f116fcd2d1a4836d3ef}{Game\+Gestion}}.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+Colision\+Interface.\+hpp\end{DoxyCompactItemize}

@@ -1,0 +1,110 @@
+\hypertarget{classMiniFrogMonster}{}\doxysection{Mini\+Frog\+Monster Class Reference}
+\label{classMiniFrogMonster}\index{MiniFrogMonster@{MiniFrogMonster}}
+
+
+Classe représentant un mini monstre grenouille, un type spécifique de monstre.  
+
+
+
+
+{\ttfamily \#include $<$Mini\+Frog\+Monster.\+hpp$>$}
+
+
+
+Inheritance diagram for Mini\+Frog\+Monster\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=178pt]{classMiniFrogMonster__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for Mini\+Frog\+Monster\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=190pt]{classMiniFrogMonster__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classMiniFrogMonster_a1246386b351e6ebc910fc45afa8d7d7c}{Mini\+Frog\+Monster}} (string name\+Object, sf\+::\+Vector2f init\+Pos, string name=\char`\"{}Mini\+Frog\+Monster\char`\"{}, int dmg=2, int ar=1, int vf=50, float speed=3)
+\begin{DoxyCompactList}\small\item\em Constructeur de la classe {\ttfamily \mbox{\hyperlink{classMiniFrogMonster}{Mini\+Frog\+Monster}}}. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classMiniFrogMonster_af4f818a707808463e1f75d25070a29d0}\label{classMiniFrogMonster_af4f818a707808463e1f75d25070a29d0}} 
+\mbox{\hyperlink{classMiniFrogMonster_af4f818a707808463e1f75d25070a29d0}{$\sim$\+Mini\+Frog\+Monster}} ()
+\begin{DoxyCompactList}\small\item\em Destructeur de la classe {\ttfamily \mbox{\hyperlink{classMiniFrogMonster}{Mini\+Frog\+Monster}}}. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classMiniFrogMonster_a133c248e0ad4040c43da81936e1baa4e}\label{classMiniFrogMonster_a133c248e0ad4040c43da81936e1baa4e}} 
+virtual void \mbox{\hyperlink{classMiniFrogMonster_a133c248e0ad4040c43da81936e1baa4e}{update\+Sprite}} ()
+\begin{DoxyCompactList}\small\item\em Met à jour le sprite du monstre grenouille. \end{DoxyCompactList}\item 
+virtual void \mbox{\hyperlink{classMiniFrogMonster_a90d9ce6fe88a73eb229487effdcec110}{update}} (\mbox{\hyperlink{classPlayer}{Player}} \&pl1, \mbox{\hyperlink{classPlayer}{Player}} \&pl2)
+\begin{DoxyCompactList}\small\item\em Met a jour le monstre. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Additional Inherited Members}
+
+
+\doxysubsection{Detailed Description}
+Classe représentant un mini monstre grenouille, un type spécifique de monstre. 
+
+La classe {\ttfamily \mbox{\hyperlink{classMiniFrogMonster}{Mini\+Frog\+Monster}}} hérite de la classe {\ttfamily \mbox{\hyperlink{classMeleeMonster}{Melee\+Monster}}} et implémente les fonctionnalités spécifiques à un mini monstre grenouille. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classMiniFrogMonster_a1246386b351e6ebc910fc45afa8d7d7c}\label{classMiniFrogMonster_a1246386b351e6ebc910fc45afa8d7d7c}} 
+\index{MiniFrogMonster@{MiniFrogMonster}!MiniFrogMonster@{MiniFrogMonster}}
+\index{MiniFrogMonster@{MiniFrogMonster}!MiniFrogMonster@{MiniFrogMonster}}
+\doxysubsubsection{\texorpdfstring{MiniFrogMonster()}{MiniFrogMonster()}}
+{\footnotesize\ttfamily Mini\+Frog\+Monster\+::\+Mini\+Frog\+Monster (\begin{DoxyParamCaption}\item[{string}]{name\+Object,  }\item[{sf\+::\+Vector2f}]{init\+Pos,  }\item[{string}]{name = {\ttfamily \char`\"{}MiniFrogMonster\char`\"{}},  }\item[{int}]{dmg = {\ttfamily 2},  }\item[{int}]{ar = {\ttfamily 1},  }\item[{int}]{vf = {\ttfamily 50},  }\item[{float}]{speed = {\ttfamily 3} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Constructeur de la classe {\ttfamily \mbox{\hyperlink{classMiniFrogMonster}{Mini\+Frog\+Monster}}}. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em name\+Object} & Nom de l\textquotesingle{}objet \\
+\hline
+{\em init\+Pos} & Position initiale du monstre grenouille \\
+\hline
+{\em name} & Nom du monstre grenouille \\
+\hline
+{\em dmg} & Dommages infligés par le monstre grenouille \\
+\hline
+{\em ar} & Rayon d\textquotesingle{}attaque du monstre grenouille \\
+\hline
+{\em vf} & Champ de vision du monstre grenouille \\
+\hline
+{\em speed} & Vitesse du monstre grenouille \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classMiniFrogMonster_a90d9ce6fe88a73eb229487effdcec110}\label{classMiniFrogMonster_a90d9ce6fe88a73eb229487effdcec110}} 
+\index{MiniFrogMonster@{MiniFrogMonster}!update@{update}}
+\index{update@{update}!MiniFrogMonster@{MiniFrogMonster}}
+\doxysubsubsection{\texorpdfstring{update()}{update()}}
+{\footnotesize\ttfamily void Mini\+Frog\+Monster\+::update (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classPlayer}{Player}} \&}]{pl1,  }\item[{\mbox{\hyperlink{classPlayer}{Player}} \&}]{pl2 }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Met a jour le monstre. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em pl1} & Premier joueur de la carte \\
+\hline
+{\em pl2} & Deuxieme joueur de la carte \\
+\hline
+\end{DoxyParams}
+
+
+Reimplemented from \mbox{\hyperlink{classMeleeMonster_a9f86af7ff23b9f1eafdc9dd2bd672d21}{Melee\+Monster}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+Mini\+Frog\+Monster.\+hpp\item 
+Mini\+Frog\+Monster.\+cpp\end{DoxyCompactItemize}

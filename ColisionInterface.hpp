@@ -12,6 +12,10 @@
 #include "Object.hpp"
 
 
+/**
+ * @brief Cette interface permet de gerer les collisions
+ * 
+ */
 class ColisionInterface {
 
     public:

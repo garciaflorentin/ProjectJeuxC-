@@ -25,8 +25,8 @@ class MeleeMonster : public Monster {
          * @param vf Champ de vision du monstre de mêlée
          * @param speed Vitesse du monstre de mêlée
          */
-        MeleeMonster(string nameObject, sf::Vector2f initPos, /*Player& player1, Player& player2,*/ string name = "Zombie", int dmg = 1, int ar = 1, int vf = 30, float speed = 3) :
-        Monster(nameObject, initPos, /*player1, player2,*/ name, dmg, ar, vf, speed) {
+        MeleeMonster(string nameObject, sf::Vector2f initPos, string name = "Zombie", int dmg = 1, int ar = 1, int vf = 30, float speed = 3) :
+        Monster(nameObject, initPos, name, dmg, ar, vf, speed) {
             _anim.x = 0;
             _anim.y = 0;
             updateSprite();
@@ -54,9 +54,10 @@ class MeleeMonster : public Monster {
         virtual void updateSprite();
 
         /**
-         * @brief Met à jour le monstre de mêlée en fonction du joueur.
-         *
-         * @param pl Pointeur vers le joueur
+         * @brief Met a jour le monstre
+         * 
+         * @param pl1 Premier joueur de la carte
+         * @param pl2 Deuxieme joueur de la carte
          */
         virtual void update(Player& pl1, Player& pl2);
 };

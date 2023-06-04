@@ -1,0 +1,108 @@
+\hypertarget{classFlyMonster}{}\doxysection{Fly\+Monster Class Reference}
+\label{classFlyMonster}\index{FlyMonster@{FlyMonster}}
+
+
+Cette classe represente un monstre volant.  
+
+
+
+
+{\ttfamily \#include $<$Fly\+Monster.\+hpp$>$}
+
+
+
+Inheritance diagram for Fly\+Monster\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=166pt]{classFlyMonster__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for Fly\+Monster\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=190pt]{classFlyMonster__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classFlyMonster_a3641db6bdc8286ecf0631f9409864759}{Fly\+Monster}} (string name\+Object, sf\+::\+Vector2f init\+Pos, string name=\char`\"{}Fly\+Monster\char`\"{}, int dmg=3, int ar=2, int vf=100, float speed=1.\+5)
+\begin{DoxyCompactList}\small\item\em Constructeur de la classe \mbox{\hyperlink{classFlyMonster}{Fly\+Monster}}. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classFlyMonster_a5f18ff4f350228586f9e7a21f1238b93}\label{classFlyMonster_a5f18ff4f350228586f9e7a21f1238b93}} 
+\mbox{\hyperlink{classFlyMonster_a5f18ff4f350228586f9e7a21f1238b93}{$\sim$\+Fly\+Monster}} ()
+\begin{DoxyCompactList}\small\item\em Destructeur de la classe \mbox{\hyperlink{classFlyMonster}{Fly\+Monster}}. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classFlyMonster_a3548634f5ac2a2330e57a19ffcee5139}\label{classFlyMonster_a3548634f5ac2a2330e57a19ffcee5139}} 
+void \mbox{\hyperlink{classFlyMonster_a3548634f5ac2a2330e57a19ffcee5139}{update\+Sprite}} ()
+\begin{DoxyCompactList}\small\item\em Met à jour le sprite du monstre. \end{DoxyCompactList}\item 
+virtual void \mbox{\hyperlink{classFlyMonster_a787557ce904e8387fdd285507a2a9cc4}{update}} (\mbox{\hyperlink{classPlayer}{Player}} \&pl1, \mbox{\hyperlink{classPlayer}{Player}} \&pl2)
+\begin{DoxyCompactList}\small\item\em Met a jour le monstre. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Additional Inherited Members}
+
+
+\doxysubsection{Detailed Description}
+Cette classe represente un monstre volant. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classFlyMonster_a3641db6bdc8286ecf0631f9409864759}\label{classFlyMonster_a3641db6bdc8286ecf0631f9409864759}} 
+\index{FlyMonster@{FlyMonster}!FlyMonster@{FlyMonster}}
+\index{FlyMonster@{FlyMonster}!FlyMonster@{FlyMonster}}
+\doxysubsubsection{\texorpdfstring{FlyMonster()}{FlyMonster()}}
+{\footnotesize\ttfamily Fly\+Monster\+::\+Fly\+Monster (\begin{DoxyParamCaption}\item[{string}]{name\+Object,  }\item[{sf\+::\+Vector2f}]{init\+Pos,  }\item[{string}]{name = {\ttfamily \char`\"{}FlyMonster\char`\"{}},  }\item[{int}]{dmg = {\ttfamily 3},  }\item[{int}]{ar = {\ttfamily 2},  }\item[{int}]{vf = {\ttfamily 100},  }\item[{float}]{speed = {\ttfamily 1.5} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Constructeur de la classe \mbox{\hyperlink{classFlyMonster}{Fly\+Monster}}. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em name\+Object} & Le nom de l\textquotesingle{}objet. \\
+\hline
+{\em init\+Pos} & La position initiale de l\textquotesingle{}objet. \\
+\hline
+{\em name} & Le nom du monstre. \\
+\hline
+{\em dmg} & Les points de dégâts du monstre. \\
+\hline
+{\em ar} & Les points d\textquotesingle{}armure du monstre. \\
+\hline
+{\em vf} & Les points de vie du monstre. \\
+\hline
+{\em speed} & La vitesse de déplacement du monstre. \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classFlyMonster_a787557ce904e8387fdd285507a2a9cc4}\label{classFlyMonster_a787557ce904e8387fdd285507a2a9cc4}} 
+\index{FlyMonster@{FlyMonster}!update@{update}}
+\index{update@{update}!FlyMonster@{FlyMonster}}
+\doxysubsubsection{\texorpdfstring{update()}{update()}}
+{\footnotesize\ttfamily void Fly\+Monster\+::update (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classPlayer}{Player}} \&}]{pl1,  }\item[{\mbox{\hyperlink{classPlayer}{Player}} \&}]{pl2 }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Met a jour le monstre. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em pl1} & Premier joueur de la carte \\
+\hline
+{\em pl2} & Deuxieme joueur de la carte \\
+\hline
+\end{DoxyParams}
+
+
+Reimplemented from \mbox{\hyperlink{classMeleeMonster_a9f86af7ff23b9f1eafdc9dd2bd672d21}{Melee\+Monster}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+Fly\+Monster.\+hpp\item 
+Fly\+Monster.\+cpp\end{DoxyCompactItemize}

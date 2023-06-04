@@ -15,14 +15,18 @@
 class LifeWindow {
 
     private:
-        const float _windowWidth = 1024.0, _windowHeight = 55;
-        sf::View& _lifeView;
-        sf::RenderTexture* _lifeTexture;
-        sf::Sprite _lifeSprite;
-        Heart& _lifePlayer;
+        const float _windowWidth = 1024.0, _windowHeight = 55;  ///< Dimensions de l'affichage
+        sf::View& _lifeView;                ///< Vue sur les coeurs
+        sf::RenderTexture* _lifeTexture;    ///< Textures a realiser
+        sf::Sprite _lifeSprite; ///< Sprite des coeurs
+        Heart& _lifePlayer; ///< Les coeurs du joueurs
 
     public:
-        LifeWindow() : _lifePlayer(*(new Heart())), _lifeView(*(new sf::View()))/*, _lifeSprite(*(new sf::Sprite()))*/ {};
+        /**
+         * @brief Constructeur par defaut
+         * 
+         */
+        LifeWindow() : _lifePlayer(*(new Heart())), _lifeView(*(new sf::View())) {};
 
         /**
          * @brief Constructeur de la classe `LifeWindow`.
@@ -31,6 +35,12 @@ class LifeWindow {
          */
         LifeWindow(Heart& HeartPlayer);
 
+        /**
+         * @brief Operateur d'assignement
+         * 
+         * @param other L'affichage a assigner
+         * @return LifeWindow& - L'affichage assigne
+         */
         LifeWindow& operator=(const LifeWindow& other);
 
         /**

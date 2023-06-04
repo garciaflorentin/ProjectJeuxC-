@@ -14,14 +14,18 @@
  */
 class KeyWindow {
     private:
-        const float _windowWidth = 1024.0, _windowHeight = 55;
-        sf::View _keyView;
-        sf::RenderTexture _keyTexture;
-        sf::Sprite _keySprite;
-        sf::Texture& _texture;
-        Player& _player;
+        const float _windowWidth = 1024.0, _windowHeight = 55;  ///< Dimensions de l'affichage
+        sf::View _keyView;  ///< Vue sur les cles
+        sf::RenderTexture _keyTexture;  ///< Texture des cles a realiser
+        sf::Sprite _keySprite;  ///< Sprite des cles a afficher
+        sf::Texture& _texture;  ///< Texture des cles
+        Player& _player;    ///< Joueur a qui appartiennent les cles
 
     public:
+        /**
+         * @brief Constructeur par defaut
+         * 
+         */
         KeyWindow() : _player(*(new Player())), _texture(*(new sf::Texture())) {};
 
         /**
@@ -31,7 +35,12 @@ class KeyWindow {
          */
         KeyWindow(Player& p);
 
-
+        /**
+         * @brief Operateur d'assignement
+         * 
+         * @param other Les cles a assigner
+         * @return KeyWindow& - Cles assignees
+         */
         KeyWindow& operator=(const KeyWindow& other);
 
         /**

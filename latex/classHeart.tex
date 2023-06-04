@@ -1,0 +1,182 @@
+\hypertarget{classHeart}{}\doxysection{Heart Class Reference}
+\label{classHeart}\index{Heart@{Heart}}
+
+
+Classe représentant les vies du joueur.  
+
+
+
+
+{\ttfamily \#include $<$Heart.\+hpp$>$}
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classHeart_a11aad67a0567c38ba3141038f97670bf}\label{classHeart_a11aad67a0567c38ba3141038f97670bf}} 
+\mbox{\hyperlink{classHeart_a11aad67a0567c38ba3141038f97670bf}{Heart}} ()
+\begin{DoxyCompactList}\small\item\em Constructeur par défaut de la classe {\ttfamily \mbox{\hyperlink{classHeart}{Heart}}}. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classHeart_a12722ad9c7be44f3db148d3b92ae6ff9}{Heart}} (string owner)
+\begin{DoxyCompactList}\small\item\em Constructeur. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classHeart_a5daeea23a6e203bbb64e660caf2903bd}\label{classHeart_a5daeea23a6e203bbb64e660caf2903bd}} 
+\mbox{\hyperlink{classHeart_a5daeea23a6e203bbb64e660caf2903bd}{$\sim$\+Heart}} ()
+\begin{DoxyCompactList}\small\item\em Destructeur de la classe {\ttfamily \mbox{\hyperlink{classHeart}{Heart}}}. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classHeart_a64f5ced6b7ff27fe0d0593d194805b97}{Heart}} (const \mbox{\hyperlink{classHeart}{Heart}} \&other)
+\begin{DoxyCompactList}\small\item\em Constructeur de copie de la classe {\ttfamily \mbox{\hyperlink{classHeart}{Heart}}}. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classHeart}{Heart}} \& \mbox{\hyperlink{classHeart_af98c5be22c1d7469bbf40ef7fa0cad10}{operator=}} (const \mbox{\hyperlink{classHeart}{Heart}} \&other)
+\begin{DoxyCompactList}\small\item\em Opérateur d\textquotesingle{}assignation de la classe {\ttfamily \mbox{\hyperlink{classHeart}{Heart}}}. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classHeart_adad679378fa018f53185e445fb9d5a41}\label{classHeart_adad679378fa018f53185e445fb9d5a41}} 
+void \mbox{\hyperlink{classHeart_adad679378fa018f53185e445fb9d5a41}{remove\+Life}} ()
+\begin{DoxyCompactList}\small\item\em Retire une vie au joueur. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classHeart_a698a5c230047c19c00f272e0a5884585}\label{classHeart_a698a5c230047c19c00f272e0a5884585}} 
+void \mbox{\hyperlink{classHeart_a698a5c230047c19c00f272e0a5884585}{add\+Life}} ()
+\begin{DoxyCompactList}\small\item\em Ajoute une vie au joueur. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classHeart_a7650d2b8f70c9b16259f21e146fce95b}\label{classHeart_a7650d2b8f70c9b16259f21e146fce95b}} 
+void \mbox{\hyperlink{classHeart_a7650d2b8f70c9b16259f21e146fce95b}{init\+Player\+Life}} ()
+\begin{DoxyCompactList}\small\item\em Initialise les vies du joueur. \end{DoxyCompactList}\item 
+const string \mbox{\hyperlink{classHeart_a2dc3d34986947d398e5825455eb58982}{get\+Belong\+To}} () const
+\begin{DoxyCompactList}\small\item\em Obtient le propriétaire des vies. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classHeart_ade271502d3aefbc5ebb17217dc639272}{set\+Belong\+To}} (string \+\_\+belong\+To)
+\begin{DoxyCompactList}\small\item\em Définit le propriétaire des vies. \end{DoxyCompactList}\item 
+const int \mbox{\hyperlink{classHeart_a6f7b7f6a602eba055ee800d2c8eeb0ae}{get\+Number\+Of\+Quarter}} () const
+\begin{DoxyCompactList}\small\item\em Obtient le nombre de quartiers de vie. \end{DoxyCompactList}\item 
+const sf\+::\+Sprite \mbox{\hyperlink{classHeart_acba1181e8a7860197015d5ea47c757d6}{get\+Heart}} (int NOQ) const
+\begin{DoxyCompactList}\small\item\em Obtient le sprite du quartier de vie spécifié. \end{DoxyCompactList}\item 
+std\+::vector$<$ sf\+::\+Sprite $\ast$ $>$ \& \mbox{\hyperlink{classHeart_a48ce99fae7d7cee6cf6b9fd0b3f9b9cf}{get\+Life}} ()
+\begin{DoxyCompactList}\small\item\em Obtient les vies du joueur. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Classe représentant les vies du joueur. 
+
+La classe {\ttfamily \mbox{\hyperlink{classHeart}{Heart}}} gère les vies du joueur et leur affichage. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classHeart_a12722ad9c7be44f3db148d3b92ae6ff9}\label{classHeart_a12722ad9c7be44f3db148d3b92ae6ff9}} 
+\index{Heart@{Heart}!Heart@{Heart}}
+\index{Heart@{Heart}!Heart@{Heart}}
+\doxysubsubsection{\texorpdfstring{Heart()}{Heart()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily Heart\+::\+Heart (\begin{DoxyParamCaption}\item[{string}]{owner }\end{DoxyParamCaption})}
+
+
+
+Constructeur. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em owner} & Joueur a qui appartient l\textquotesingle{}affichage \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classHeart_a64f5ced6b7ff27fe0d0593d194805b97}\label{classHeart_a64f5ced6b7ff27fe0d0593d194805b97}} 
+\index{Heart@{Heart}!Heart@{Heart}}
+\index{Heart@{Heart}!Heart@{Heart}}
+\doxysubsubsection{\texorpdfstring{Heart()}{Heart()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily Heart\+::\+Heart (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classHeart}{Heart}} \&}]{other }\end{DoxyParamCaption})}
+
+
+
+Constructeur de copie de la classe {\ttfamily \mbox{\hyperlink{classHeart}{Heart}}}. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em other} & Autre instance de {\ttfamily \mbox{\hyperlink{classHeart}{Heart}}} à copier \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classHeart_a2dc3d34986947d398e5825455eb58982}\label{classHeart_a2dc3d34986947d398e5825455eb58982}} 
+\index{Heart@{Heart}!getBelongTo@{getBelongTo}}
+\index{getBelongTo@{getBelongTo}!Heart@{Heart}}
+\doxysubsubsection{\texorpdfstring{getBelongTo()}{getBelongTo()}}
+{\footnotesize\ttfamily const string Heart\+::get\+Belong\+To (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Obtient le propriétaire des vies. 
+
+\begin{DoxyReturn}{Returns}
+Propriétaire des vies 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classHeart_acba1181e8a7860197015d5ea47c757d6}\label{classHeart_acba1181e8a7860197015d5ea47c757d6}} 
+\index{Heart@{Heart}!getHeart@{getHeart}}
+\index{getHeart@{getHeart}!Heart@{Heart}}
+\doxysubsubsection{\texorpdfstring{getHeart()}{getHeart()}}
+{\footnotesize\ttfamily const sf\+::\+Sprite Heart\+::get\+Heart (\begin{DoxyParamCaption}\item[{int}]{NOQ }\end{DoxyParamCaption}) const}
+
+
+
+Obtient le sprite du quartier de vie spécifié. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em NOQ} & Numéro du quartier de vie \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Sprite du quartier de vie 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classHeart_a48ce99fae7d7cee6cf6b9fd0b3f9b9cf}\label{classHeart_a48ce99fae7d7cee6cf6b9fd0b3f9b9cf}} 
+\index{Heart@{Heart}!getLife@{getLife}}
+\index{getLife@{getLife}!Heart@{Heart}}
+\doxysubsubsection{\texorpdfstring{getLife()}{getLife()}}
+{\footnotesize\ttfamily std\+::vector$<$ sf\+::\+Sprite $\ast$ $>$ \& Heart\+::get\+Life (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Obtient les vies du joueur. 
+
+\begin{DoxyReturn}{Returns}
+Vecteur de sprites représentant les vies du joueur 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classHeart_a6f7b7f6a602eba055ee800d2c8eeb0ae}\label{classHeart_a6f7b7f6a602eba055ee800d2c8eeb0ae}} 
+\index{Heart@{Heart}!getNumberOfQuarter@{getNumberOfQuarter}}
+\index{getNumberOfQuarter@{getNumberOfQuarter}!Heart@{Heart}}
+\doxysubsubsection{\texorpdfstring{getNumberOfQuarter()}{getNumberOfQuarter()}}
+{\footnotesize\ttfamily const int Heart\+::get\+Number\+Of\+Quarter (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Obtient le nombre de quartiers de vie. 
+
+\begin{DoxyReturn}{Returns}
+Nombre de quartiers de vie 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classHeart_af98c5be22c1d7469bbf40ef7fa0cad10}\label{classHeart_af98c5be22c1d7469bbf40ef7fa0cad10}} 
+\index{Heart@{Heart}!operator=@{operator=}}
+\index{operator=@{operator=}!Heart@{Heart}}
+\doxysubsubsection{\texorpdfstring{operator=()}{operator=()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classHeart}{Heart}} \& Heart\+::operator= (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classHeart}{Heart}} \&}]{other }\end{DoxyParamCaption})}
+
+
+
+Opérateur d\textquotesingle{}assignation de la classe {\ttfamily \mbox{\hyperlink{classHeart}{Heart}}}. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em other} & Autre instance de {\ttfamily \mbox{\hyperlink{classHeart}{Heart}}} à assigner \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Référence à l\textquotesingle{}instance assignée 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classHeart_ade271502d3aefbc5ebb17217dc639272}\label{classHeart_ade271502d3aefbc5ebb17217dc639272}} 
+\index{Heart@{Heart}!setBelongTo@{setBelongTo}}
+\index{setBelongTo@{setBelongTo}!Heart@{Heart}}
+\doxysubsubsection{\texorpdfstring{setBelongTo()}{setBelongTo()}}
+{\footnotesize\ttfamily void Heart\+::set\+Belong\+To (\begin{DoxyParamCaption}\item[{string}]{\+\_\+belong\+To }\end{DoxyParamCaption})}
+
+
+
+Définit le propriétaire des vies. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em \+\_\+belong\+To} & Propriétaire des vies \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+Heart.\+hpp\item 
+Heart.\+cpp\end{DoxyCompactItemize}

@@ -1,0 +1,109 @@
+\hypertarget{classKeyWindow}{}\doxysection{Key\+Window Class Reference}
+\label{classKeyWindow}\index{KeyWindow@{KeyWindow}}
+
+
+Classe représentant la fenêtre des clés du joueur.  
+
+
+
+
+{\ttfamily \#include $<$Key\+Window.\+hpp$>$}
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classKeyWindow_a51587af6b82090acc63dce9ff2398d01}\label{classKeyWindow_a51587af6b82090acc63dce9ff2398d01}} 
+\mbox{\hyperlink{classKeyWindow_a51587af6b82090acc63dce9ff2398d01}{Key\+Window}} ()
+\begin{DoxyCompactList}\small\item\em Constructeur par defaut. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classKeyWindow_a69c8f3abe53a840f2baa1d252b399d14}{Key\+Window}} (\mbox{\hyperlink{classPlayer}{Player}} \&p)
+\begin{DoxyCompactList}\small\item\em Constructeur de la classe {\ttfamily \mbox{\hyperlink{classKeyWindow}{Key\+Window}}}. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classKeyWindow}{Key\+Window}} \& \mbox{\hyperlink{classKeyWindow_a10267e6f61b7f8f961d0b2bdf580772a}{operator=}} (const \mbox{\hyperlink{classKeyWindow}{Key\+Window}} \&other)
+\begin{DoxyCompactList}\small\item\em Operateur d\textquotesingle{}assignement. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classKeyWindow_a6d5455ee1022530a2c741921acc3f67b}\label{classKeyWindow_a6d5455ee1022530a2c741921acc3f67b}} 
+\mbox{\hyperlink{classKeyWindow_a6d5455ee1022530a2c741921acc3f67b}{$\sim$\+Key\+Window}} ()
+\begin{DoxyCompactList}\small\item\em Destructeur de la classe {\ttfamily \mbox{\hyperlink{classKeyWindow}{Key\+Window}}}. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classKeyWindow_ab9a62e8298222ec3626060352c97af3a}{draw\+To}} (sf\+::\+Render\+Window \&target)
+\begin{DoxyCompactList}\small\item\em Dessine la fenêtre des clés sur la cible spécifiée. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classKeyWindow_a9b8700457fb40d863a64ef29a5fb0c2c}\label{classKeyWindow_a9b8700457fb40d863a64ef29a5fb0c2c}} 
+void \mbox{\hyperlink{classKeyWindow_a9b8700457fb40d863a64ef29a5fb0c2c}{update\+Window}} ()
+\begin{DoxyCompactList}\small\item\em Met à jour la fenêtre des clés. \end{DoxyCompactList}\item 
+const sf\+::\+View \& \mbox{\hyperlink{classKeyWindow_ac9306d31072410ea69d7f1c29581405e}{get\+Key\+View}} () const
+\begin{DoxyCompactList}\small\item\em Obtient la vue de la fenêtre des clés. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Classe représentant la fenêtre des clés du joueur. 
+
+La classe {\ttfamily \mbox{\hyperlink{classKeyWindow}{Key\+Window}}} gère l\textquotesingle{}affichage des clés collectées par le joueur. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classKeyWindow_a69c8f3abe53a840f2baa1d252b399d14}\label{classKeyWindow_a69c8f3abe53a840f2baa1d252b399d14}} 
+\index{KeyWindow@{KeyWindow}!KeyWindow@{KeyWindow}}
+\index{KeyWindow@{KeyWindow}!KeyWindow@{KeyWindow}}
+\doxysubsubsection{\texorpdfstring{KeyWindow()}{KeyWindow()}}
+{\footnotesize\ttfamily Key\+Window\+::\+Key\+Window (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classPlayer}{Player}} \&}]{p }\end{DoxyParamCaption})}
+
+
+
+Constructeur de la classe {\ttfamily \mbox{\hyperlink{classKeyWindow}{Key\+Window}}}. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em p} & Joueur \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classKeyWindow_ab9a62e8298222ec3626060352c97af3a}\label{classKeyWindow_ab9a62e8298222ec3626060352c97af3a}} 
+\index{KeyWindow@{KeyWindow}!drawTo@{drawTo}}
+\index{drawTo@{drawTo}!KeyWindow@{KeyWindow}}
+\doxysubsubsection{\texorpdfstring{drawTo()}{drawTo()}}
+{\footnotesize\ttfamily void Key\+Window\+::draw\+To (\begin{DoxyParamCaption}\item[{sf\+::\+Render\+Window \&}]{target }\end{DoxyParamCaption})}
+
+
+
+Dessine la fenêtre des clés sur la cible spécifiée. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em target} & Fenêtre de rendu cible \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classKeyWindow_ac9306d31072410ea69d7f1c29581405e}\label{classKeyWindow_ac9306d31072410ea69d7f1c29581405e}} 
+\index{KeyWindow@{KeyWindow}!getKeyView@{getKeyView}}
+\index{getKeyView@{getKeyView}!KeyWindow@{KeyWindow}}
+\doxysubsubsection{\texorpdfstring{getKeyView()}{getKeyView()}}
+{\footnotesize\ttfamily const sf\+::\+View \& Key\+Window\+::get\+Key\+View (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Obtient la vue de la fenêtre des clés. 
+
+\begin{DoxyReturn}{Returns}
+Vue de la fenêtre des clés 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classKeyWindow_a10267e6f61b7f8f961d0b2bdf580772a}\label{classKeyWindow_a10267e6f61b7f8f961d0b2bdf580772a}} 
+\index{KeyWindow@{KeyWindow}!operator=@{operator=}}
+\index{operator=@{operator=}!KeyWindow@{KeyWindow}}
+\doxysubsubsection{\texorpdfstring{operator=()}{operator=()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classKeyWindow}{Key\+Window}} \& Key\+Window\+::operator= (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classKeyWindow}{Key\+Window}} \&}]{other }\end{DoxyParamCaption})}
+
+
+
+Operateur d\textquotesingle{}assignement. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em other} & Les cles a assigner \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\mbox{\hyperlink{classKeyWindow}{Key\+Window}}\& -\/ Cles assignees 
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+Key\+Window.\+hpp\item 
+Key\+Window.\+cpp\end{DoxyCompactItemize}

@@ -17,11 +17,10 @@ using namespace std;
  */
 class Heart {
     private:
-        vector<sf::Texture*> _textures;
-        //vector<sf::Sprite*> _sprites;
-        vector<sf::Sprite*> _life;
-        int _numberOfQuarter;
-        string _belongTo;
+        vector<sf::Texture*> _textures; ///< Textures utilisees par une instance
+        vector<sf::Sprite*> _life;  ///< Sprites affiches
+        int _numberOfQuarter;   ///< Nombre des quarts du coeur
+        string _belongTo;   ///< Personnage auquel appartient l'affichage
 
         /**
          * @brief Initialise les sprites de vie.
@@ -42,6 +41,11 @@ class Heart {
          */
         Heart();
 
+        /**
+         * @brief Constructeur
+         * 
+         * @param owner Joueur a qui appartient l'affichage
+         */
         Heart(string owner);
 
         /**

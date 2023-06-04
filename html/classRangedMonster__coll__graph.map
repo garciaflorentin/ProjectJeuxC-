@@ -1,0 +1,7 @@
+<map id="RangedMonster" name="RangedMonster">
+<area shape="rect" id="node1" title="Cette classe represente un monstre qui peut tirer les projectiles." alt="" coords="18,247,142,273"/>
+<area shape="rect" id="node2" href="$classMonster.html" title="Cette classe represente un monstre." alt="" coords="43,171,117,197"/>
+<area shape="rect" id="node3" href="$classCharacter.html" title="Cette classe represente un parsonnage." alt="" coords="37,95,123,121"/>
+<area shape="rect" id="node4" href="$classObject.html" title="Classe de base pour les objets du jeu." alt="" coords="5,5,69,32"/>
+<area shape="rect" id="node5" href="$classHeart.html" title="Classe représentant les vies du joueur." alt="" coords="93,5,152,32"/>
+</map>

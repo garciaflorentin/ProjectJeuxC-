@@ -1,0 +1,217 @@
+\hypertarget{classGameWindow}{}\doxysection{Game\+Window Class Reference}
+\label{classGameWindow}\index{GameWindow@{GameWindow}}
+
+
+Represente l\textquotesingle{}affichage de la fenetre.  
+
+
+
+
+{\ttfamily \#include $<$Game\+Window.\+hpp$>$}
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classGameWindow_a81f2f6fea59b4723569c591756328163}\label{classGameWindow_a81f2f6fea59b4723569c591756328163}} 
+\mbox{\hyperlink{classGameWindow_a81f2f6fea59b4723569c591756328163}{Game\+Window}} ()
+\begin{DoxyCompactList}\small\item\em Default constructor for \mbox{\hyperlink{classGameWindow}{Game\+Window}}. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classGameWindow_a55b071c0390e45c064a160c1e6baaa08}\label{classGameWindow_a55b071c0390e45c064a160c1e6baaa08}} 
+\mbox{\hyperlink{classGameWindow_a55b071c0390e45c064a160c1e6baaa08}{$\sim$\+Game\+Window}} ()
+\begin{DoxyCompactList}\small\item\em Destructor for \mbox{\hyperlink{classGameWindow}{Game\+Window}}. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classGameGestion}{Game\+Gestion}} \& \mbox{\hyperlink{classGameWindow_af0b8dd0513b7678df884a9aedcfdd6c8}{get\+Game}} ()
+\begin{DoxyCompactList}\small\item\em Gets the \mbox{\hyperlink{classGameGestion}{Game\+Gestion}} instance. \end{DoxyCompactList}\item 
+const sf\+::\+Vector2f \& \mbox{\hyperlink{classGameWindow_a943041251ac32fc909d01b6a60ceff26}{get\+Position\+Centre}} () const
+\begin{DoxyCompactList}\small\item\em Gets the position of the window center. \end{DoxyCompactList}\item 
+sf\+::\+Render\+Window \& \mbox{\hyperlink{classGameWindow_afb86431f5ab3fc06b44fd3089a415824}{get\+Window}} () const
+\begin{DoxyCompactList}\small\item\em Gets the SFML render window. \end{DoxyCompactList}\item 
+const \mbox{\hyperlink{classUserInterface}{User\+Interface}} \& \mbox{\hyperlink{classGameWindow_a022d7bf5ae896d025ecfad94fd31c208}{get\+Ui}} () const
+\begin{DoxyCompactList}\small\item\em Gets the \mbox{\hyperlink{classUserInterface}{User\+Interface}} instance. \end{DoxyCompactList}\item 
+const sf\+::\+Vector2f \mbox{\hyperlink{classGameWindow_a3bd3bd7d45e5d6b0406b3338c4fc530c}{get\+Window\+Dim}} () const
+\begin{DoxyCompactList}\small\item\em Gets the dimensions of the window. \end{DoxyCompactList}\item 
+std\+::vector$<$ sf\+::\+Vector2f $>$ \& \mbox{\hyperlink{classGameWindow_a960e13eb7938a72807e4f71c7eed0e04}{get\+Current\+Window\+Pos}} ()
+\begin{DoxyCompactList}\small\item\em Gets the current window position. \end{DoxyCompactList}\item 
+const sf\+::\+View \& \mbox{\hyperlink{classGameWindow_a600c33c76bb3f30b173670cc0efefa9f}{get\+View\+Window}} () const
+\begin{DoxyCompactList}\small\item\em Gets the SFML view of the window. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classGameWindow_a0d5fc2a6775d27afd4d04862cd6d5f99}\label{classGameWindow_a0d5fc2a6775d27afd4d04862cd6d5f99}} 
+void \mbox{\hyperlink{classGameWindow_a0d5fc2a6775d27afd4d04862cd6d5f99}{set\+Life\+View\+Player1}} ()
+\begin{DoxyCompactList}\small\item\em Sets the life view for player 1. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classGameWindow_ad20c5b253411ce14da6d6540a23bf8f4}\label{classGameWindow_ad20c5b253411ce14da6d6540a23bf8f4}} 
+void \mbox{\hyperlink{classGameWindow_ad20c5b253411ce14da6d6540a23bf8f4}{set\+Life\+View\+Player2}} ()
+\begin{DoxyCompactList}\small\item\em Sets the life view for player 2. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classGameWindow_aa9800323a1c6cc26e28525a506242fd0}\label{classGameWindow_aa9800323a1c6cc26e28525a506242fd0}} 
+void \mbox{\hyperlink{classGameWindow_aa9800323a1c6cc26e28525a506242fd0}{set\+Key\+View}} ()
+\begin{DoxyCompactList}\small\item\em Sets the key view. \end{DoxyCompactList}\item 
+const bool \mbox{\hyperlink{classGameWindow_afb88b53f42835f5eefadad0c5e80baee}{is\+Running}} () const
+\begin{DoxyCompactList}\small\item\em Checks if the game window is running. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{classGameWindow_acf20dac5d638c6153b3ce56adcab10b0}{control\+Window}} ()
+\begin{DoxyCompactList}\small\item\em Controls the game window, handling user input and updating the game state. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classGameWindow_a9f250a957881d98c07b5fcdfdd8c6cf8}{limit\+Frame\+Rate}} (int frame)
+\begin{DoxyCompactList}\small\item\em Limits the frame rate of the game window. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classGameWindow_a6a3d88919c63e51f332cdbef18d02eb5}\label{classGameWindow_a6a3d88919c63e51f332cdbef18d02eb5}} 
+void \mbox{\hyperlink{classGameWindow_a6a3d88919c63e51f332cdbef18d02eb5}{clear\+Window}} () const
+\begin{DoxyCompactList}\small\item\em Clears the window. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classGameWindow_a211bf3952bdee3fb35bc92705d3e781e}\label{classGameWindow_a211bf3952bdee3fb35bc92705d3e781e}} 
+void \mbox{\hyperlink{classGameWindow_a211bf3952bdee3fb35bc92705d3e781e}{draw}} ()
+\begin{DoxyCompactList}\small\item\em Draws all sprites to the window. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classGameWindow_a99a0ee2ee85e3fce1d2927971329dded}\label{classGameWindow_a99a0ee2ee85e3fce1d2927971329dded}} 
+void \mbox{\hyperlink{classGameWindow_a99a0ee2ee85e3fce1d2927971329dded}{display}} ()
+\begin{DoxyCompactList}\small\item\em Displays the window. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classGameWindow_ab0951b849d309f2ae190e0a54ff8d297}\label{classGameWindow_ab0951b849d309f2ae190e0a54ff8d297}} 
+void \mbox{\hyperlink{classGameWindow_ab0951b849d309f2ae190e0a54ff8d297}{set\+Scrolling\+View}} ()
+\begin{DoxyCompactList}\small\item\em Sets the scrolling view for the game. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classGameWindow_a3663026e4e6472b986f241e797f786b7}\label{classGameWindow_a3663026e4e6472b986f241e797f786b7}} 
+void \mbox{\hyperlink{classGameWindow_a3663026e4e6472b986f241e797f786b7}{set\+View\+Boss}} ()
+\begin{DoxyCompactList}\small\item\em Sets the view for the boss fight. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classGameWindow_a63a347b6dba37ccf1f55d68981102766}\label{classGameWindow_a63a347b6dba37ccf1f55d68981102766}} 
+void \mbox{\hyperlink{classGameWindow_a63a347b6dba37ccf1f55d68981102766}{display\+Life\+Window}} ()
+\begin{DoxyCompactList}\small\item\em Displays the life window. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classGameWindow_a61e4a800bc95160c481ae989f30ed154}\label{classGameWindow_a61e4a800bc95160c481ae989f30ed154}} 
+void \mbox{\hyperlink{classGameWindow_a61e4a800bc95160c481ae989f30ed154}{display\+Life\+Window\+P2}} ()
+\begin{DoxyCompactList}\small\item\em Displays the second player\textquotesingle{}s life window. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classGameWindow_a19cb3f3d7bb491fdfcbe22b454a493ee}\label{classGameWindow_a19cb3f3d7bb491fdfcbe22b454a493ee}} 
+void \mbox{\hyperlink{classGameWindow_a19cb3f3d7bb491fdfcbe22b454a493ee}{display\+Key\+Window}} ()
+\begin{DoxyCompactList}\small\item\em Displays the key window. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Represente l\textquotesingle{}affichage de la fenetre. 
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classGameWindow_acf20dac5d638c6153b3ce56adcab10b0}\label{classGameWindow_acf20dac5d638c6153b3ce56adcab10b0}} 
+\index{GameWindow@{GameWindow}!controlWindow@{controlWindow}}
+\index{controlWindow@{controlWindow}!GameWindow@{GameWindow}}
+\doxysubsubsection{\texorpdfstring{controlWindow()}{controlWindow()}}
+{\footnotesize\ttfamily int Game\+Window\+::control\+Window (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Controls the game window, handling user input and updating the game state. 
+
+\begin{DoxyReturn}{Returns}
+An integer representing the game state. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classGameWindow_a960e13eb7938a72807e4f71c7eed0e04}\label{classGameWindow_a960e13eb7938a72807e4f71c7eed0e04}} 
+\index{GameWindow@{GameWindow}!getCurrentWindowPos@{getCurrentWindowPos}}
+\index{getCurrentWindowPos@{getCurrentWindowPos}!GameWindow@{GameWindow}}
+\doxysubsubsection{\texorpdfstring{getCurrentWindowPos()}{getCurrentWindowPos()}}
+{\footnotesize\ttfamily std\+::vector$<$ sf\+::\+Vector2f $>$ \& Game\+Window\+::get\+Current\+Window\+Pos (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Gets the current window position. 
+
+\begin{DoxyReturn}{Returns}
+A pointer to the current window position vector. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classGameWindow_af0b8dd0513b7678df884a9aedcfdd6c8}\label{classGameWindow_af0b8dd0513b7678df884a9aedcfdd6c8}} 
+\index{GameWindow@{GameWindow}!getGame@{getGame}}
+\index{getGame@{getGame}!GameWindow@{GameWindow}}
+\doxysubsubsection{\texorpdfstring{getGame()}{getGame()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classGameGestion}{Game\+Gestion}} \& Game\+Window\+::get\+Game (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Gets the \mbox{\hyperlink{classGameGestion}{Game\+Gestion}} instance. 
+
+\begin{DoxyReturn}{Returns}
+A pointer to the \mbox{\hyperlink{classGameGestion}{Game\+Gestion}} instance. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classGameWindow_a943041251ac32fc909d01b6a60ceff26}\label{classGameWindow_a943041251ac32fc909d01b6a60ceff26}} 
+\index{GameWindow@{GameWindow}!getPositionCentre@{getPositionCentre}}
+\index{getPositionCentre@{getPositionCentre}!GameWindow@{GameWindow}}
+\doxysubsubsection{\texorpdfstring{getPositionCentre()}{getPositionCentre()}}
+{\footnotesize\ttfamily const sf\+::\+Vector2f \& Game\+Window\+::get\+Position\+Centre (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Gets the position of the window center. 
+
+\begin{DoxyReturn}{Returns}
+A reference to the position of the window center. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classGameWindow_a022d7bf5ae896d025ecfad94fd31c208}\label{classGameWindow_a022d7bf5ae896d025ecfad94fd31c208}} 
+\index{GameWindow@{GameWindow}!getUi@{getUi}}
+\index{getUi@{getUi}!GameWindow@{GameWindow}}
+\doxysubsubsection{\texorpdfstring{getUi()}{getUi()}}
+{\footnotesize\ttfamily const \mbox{\hyperlink{classUserInterface}{User\+Interface}} \& Game\+Window\+::get\+Ui (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Gets the \mbox{\hyperlink{classUserInterface}{User\+Interface}} instance. 
+
+\begin{DoxyReturn}{Returns}
+A pointer to the \mbox{\hyperlink{classUserInterface}{User\+Interface}} instance. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classGameWindow_a600c33c76bb3f30b173670cc0efefa9f}\label{classGameWindow_a600c33c76bb3f30b173670cc0efefa9f}} 
+\index{GameWindow@{GameWindow}!getViewWindow@{getViewWindow}}
+\index{getViewWindow@{getViewWindow}!GameWindow@{GameWindow}}
+\doxysubsubsection{\texorpdfstring{getViewWindow()}{getViewWindow()}}
+{\footnotesize\ttfamily const sf\+::\+View \& Game\+Window\+::get\+View\+Window (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Gets the SFML view of the window. 
+
+\begin{DoxyReturn}{Returns}
+A pointer to the SFML view. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classGameWindow_afb86431f5ab3fc06b44fd3089a415824}\label{classGameWindow_afb86431f5ab3fc06b44fd3089a415824}} 
+\index{GameWindow@{GameWindow}!getWindow@{getWindow}}
+\index{getWindow@{getWindow}!GameWindow@{GameWindow}}
+\doxysubsubsection{\texorpdfstring{getWindow()}{getWindow()}}
+{\footnotesize\ttfamily sf\+::\+Render\+Window \& Game\+Window\+::get\+Window (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Gets the SFML render window. 
+
+\begin{DoxyReturn}{Returns}
+A pointer to the SFML render window. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classGameWindow_a3bd3bd7d45e5d6b0406b3338c4fc530c}\label{classGameWindow_a3bd3bd7d45e5d6b0406b3338c4fc530c}} 
+\index{GameWindow@{GameWindow}!getWindowDim@{getWindowDim}}
+\index{getWindowDim@{getWindowDim}!GameWindow@{GameWindow}}
+\doxysubsubsection{\texorpdfstring{getWindowDim()}{getWindowDim()}}
+{\footnotesize\ttfamily const sf\+::\+Vector2f Game\+Window\+::get\+Window\+Dim (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Gets the dimensions of the window. 
+
+\begin{DoxyReturn}{Returns}
+The dimensions of the window as a sf\+::\+Vector2f. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classGameWindow_afb88b53f42835f5eefadad0c5e80baee}\label{classGameWindow_afb88b53f42835f5eefadad0c5e80baee}} 
+\index{GameWindow@{GameWindow}!isRunning@{isRunning}}
+\index{isRunning@{isRunning}!GameWindow@{GameWindow}}
+\doxysubsubsection{\texorpdfstring{isRunning()}{isRunning()}}
+{\footnotesize\ttfamily const bool Game\+Window\+::is\+Running (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption}) const}
+
+
+
+Checks if the game window is running. 
+
+\begin{DoxyReturn}{Returns}
+True if the window is open, false otherwise. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classGameWindow_a9f250a957881d98c07b5fcdfdd8c6cf8}\label{classGameWindow_a9f250a957881d98c07b5fcdfdd8c6cf8}} 
+\index{GameWindow@{GameWindow}!limitFrameRate@{limitFrameRate}}
+\index{limitFrameRate@{limitFrameRate}!GameWindow@{GameWindow}}
+\doxysubsubsection{\texorpdfstring{limitFrameRate()}{limitFrameRate()}}
+{\footnotesize\ttfamily void Game\+Window\+::limit\+Frame\+Rate (\begin{DoxyParamCaption}\item[{int}]{frame }\end{DoxyParamCaption})}
+
+
+
+Limits the frame rate of the game window. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em frame} & The desired frame rate. \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+Game\+Window.\+hpp\item 
+Game\+Window.\+cpp\end{DoxyCompactItemize}

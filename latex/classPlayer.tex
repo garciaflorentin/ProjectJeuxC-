@@ -1,0 +1,421 @@
+\hypertarget{classPlayer}{}\doxysection{Player Class Reference}
+\label{classPlayer}\index{Player@{Player}}
+
+
+Classe représentant le joueur du jeu.  
+
+
+
+
+{\ttfamily \#include $<$Player.\+hpp$>$}
+
+
+
+Inheritance diagram for Player\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=144pt]{classPlayer__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for Player\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=190pt]{classPlayer__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classPlayer_affe0cc3cb714f6deb4e62f0c0d3f1fd8}\label{classPlayer_affe0cc3cb714f6deb4e62f0c0d3f1fd8}} 
+\mbox{\hyperlink{classPlayer_affe0cc3cb714f6deb4e62f0c0d3f1fd8}{Player}} ()
+\begin{DoxyCompactList}\small\item\em Constructeur par defaut. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classPlayer_a7efc3aa1329a067972d7d8a841345af1}{Player}} (string name\+Object, sf\+::\+Vector2f init\+Pos, string name\+Projectile)
+\begin{DoxyCompactList}\small\item\em Constructeur. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classPlayer}{Player}} \& \mbox{\hyperlink{classPlayer_a36425d47a907d6fbf6d5b7b58bec5e77}{operator=}} (const \mbox{\hyperlink{classPlayer}{Player}} \&other)
+\begin{DoxyCompactList}\small\item\em Operateur d\textquotesingle{}assignement. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classPlayer_a749d2c00e1fe0f5c2746f7505a58c062}\label{classPlayer_a749d2c00e1fe0f5c2746f7505a58c062}} 
+\mbox{\hyperlink{classPlayer_a749d2c00e1fe0f5c2746f7505a58c062}{$\sim$\+Player}} ()
+\begin{DoxyCompactList}\small\item\em Destructeur de la classe {\ttfamily \mbox{\hyperlink{classPlayer}{Player}}}. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classPlayer_a8e3c264137b3f92678179162fc251349}{take\+Damage}} (int heart\+Quarters)
+\begin{DoxyCompactList}\small\item\em Prendre des degats. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classPlayer_a06e38c0f57e67eb006c9d09779bd8f8f}{is\+Alive}} ()
+\begin{DoxyCompactList}\small\item\em Getteur de \+\_\+is\+Alive. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classPlayer_a7ff913ff69c4e4ebf9422d69f706c6ba}{is\+In\+The\+Cave}} (bool state)
+\begin{DoxyCompactList}\small\item\em Indique si le joueur est dans la grotte. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classPlayer_a3a078e3c081ac21a7189f36363d6cd1b}{get\+Is\+In\+The\+Cave}} ()
+\begin{DoxyCompactList}\small\item\em Vérifie si le joueur est dans la grotte. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{classPlayer_a887798a81e32fae5a683ac0b44b9f50a}{get\+Hit\+Anim}} ()
+\begin{DoxyCompactList}\small\item\em Retourne l\textquotesingle{}etat de l\textquotesingle{}animation , \char`\"{}joeur est frappé par un monstre\char`\"{}. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classPlayer_a0cc9d03e02a0f885442d20295f7dae5b}\label{classPlayer_a0cc9d03e02a0f885442d20295f7dae5b}} 
+void \mbox{\hyperlink{classPlayer_a0cc9d03e02a0f885442d20295f7dae5b}{incr\+Hit\+Anim}} ()
+\begin{DoxyCompactList}\small\item\em Incremente l\textquotesingle{}etat de l\textquotesingle{}animation, \char`\"{}joeur est frappé par un monstre\char`\"{}. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classPlayer_a96d2ad763556479b23bdf8727323e1df}{set\+Hit\+Anim}} (int nb\+Anim)
+\begin{DoxyCompactList}\small\item\em Met l\textquotesingle{}animation \char`\"{}joeur est frappé par un monstre\char`\"{} à un état precis. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classPlayer_a058c0006177425c67434c936c1f3b393}{open\+Chest}} (\mbox{\hyperlink{classChest}{Chest}} \&chest)
+\begin{DoxyCompactList}\small\item\em Ouvre un coffre donné. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classPlayer_a1a012846f82e97d2ed1bb549fc303261}{make\+Damage}} (\mbox{\hyperlink{classCharacter}{Character}} \&target)
+\begin{DoxyCompactList}\small\item\em Applique les dégâts au personnage cible. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classPlayer_a8c7063a737abc1eb75e122553789e959}{attack}} (\mbox{\hyperlink{classCharacter}{Character}} \&target)
+\begin{DoxyCompactList}\small\item\em Effectue une attaque sur le personnage cible. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classPlayer_a2fbe1de84690c50703ee9591ac5128c8}{collide}} (\mbox{\hyperlink{classObject}{Object}} \&o)
+\begin{DoxyCompactList}\small\item\em Gère la collision avec un objet donné. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classPlayer_a6684151debfbc0d454fedd38aaa3e88e}\label{classPlayer_a6684151debfbc0d454fedd38aaa3e88e}} 
+void \mbox{\hyperlink{classPlayer_a6684151debfbc0d454fedd38aaa3e88e}{init\+Weapon}} ()
+\begin{DoxyCompactList}\small\item\em Initialise les armes du joueur. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classPlayer_ad9666b6c2d530b80feb2fea02afb43f1}{Weapon\+Is\+Used}} ()
+\begin{DoxyCompactList}\small\item\em Vérifie si une arme est utilisée. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classPlayer_abe0e16c0794c57cb71e9777331c07ad2}\label{classPlayer_abe0e16c0794c57cb71e9777331c07ad2}} 
+void \mbox{\hyperlink{classPlayer_abe0e16c0794c57cb71e9777331c07ad2}{use\+Bow}} ()
+\begin{DoxyCompactList}\small\item\em Utilise l\textquotesingle{}arc comme arme. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classPlayer_ad2aee139325f8f564441b64d408ba11e}\label{classPlayer_ad2aee139325f8f564441b64d408ba11e}} 
+void \mbox{\hyperlink{classPlayer_ad2aee139325f8f564441b64d408ba11e}{use\+Wand}} ()
+\begin{DoxyCompactList}\small\item\em Utilise la baguette comme arme. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classPlayer_a0e01b1a21c8029b5b7827aca5876e317}{bow\+Is\+Used}} ()
+\begin{DoxyCompactList}\small\item\em Vérifie si l\textquotesingle{}arc est utilisé. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classPlayer_a83c96c030f9df6bf3db4a7c04cec1063}{wand\+Is\+Used}} ()
+\begin{DoxyCompactList}\small\item\em Vérifie si la baguette est utilisée. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classProjectile}{Projectile}} $\ast$ \mbox{\hyperlink{classPlayer_a9ce56b12a9679882f3634e53ac990a74}{get\+Projectile}} ()
+\begin{DoxyCompactList}\small\item\em Obtient le projectile du joueur. \end{DoxyCompactList}\item 
+sf\+::\+Sprite \& \mbox{\hyperlink{classPlayer_a1520c64056895e53ae48cc640a522ce0}{dead\+Gestion}} ()
+\begin{DoxyCompactList}\small\item\em Gère la situation de mort du joueur. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classPlayer_a8db538a2efe06ba157c1b2dd16691507}{target\+In\+Range}} (std\+::vector$<$ \mbox{\hyperlink{classMonster}{Monster}} $\ast$ $>$ \&target\+List, std\+::vector$<$ int $>$ indice\+To\+Kill)
+\begin{DoxyCompactList}\small\item\em Détermine les cibles dans la portée du joueur. \end{DoxyCompactList}\item 
+const int \mbox{\hyperlink{classPlayer_a1420cc3bfc71f1d012f7fd8d2b72f73a}{get\+Key}} () const
+\begin{DoxyCompactList}\small\item\em Obtient le nombre de clés possédées par le personnage. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classPlayer_a2c09dd505964312becdaf8f8b2062a5c}\label{classPlayer_a2c09dd505964312becdaf8f8b2062a5c}} 
+static void \mbox{\hyperlink{classPlayer_a2c09dd505964312becdaf8f8b2062a5c}{add\+Key}} ()
+\begin{DoxyCompactList}\small\item\em Ajoute une clé au personnage. \end{DoxyCompactList}\item 
+static void \mbox{\hyperlink{classPlayer_ab3494221ec3df6ad613ea071d594c959}{set\+Key}} (int nb\+Key)
+\begin{DoxyCompactList}\small\item\em modifie le nombre de clé du personnage. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Additional Inherited Members}
+
+
+\doxysubsection{Detailed Description}
+Classe représentant le joueur du jeu. 
+
+La classe {\ttfamily \mbox{\hyperlink{classPlayer}{Player}}} hérite de la classe {\ttfamily \mbox{\hyperlink{classCharacter}{Character}}} et implémente les fonctionnalités spécifiques au joueur. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classPlayer_a7efc3aa1329a067972d7d8a841345af1}\label{classPlayer_a7efc3aa1329a067972d7d8a841345af1}} 
+\index{Player@{Player}!Player@{Player}}
+\index{Player@{Player}!Player@{Player}}
+\doxysubsubsection{\texorpdfstring{Player()}{Player()}}
+{\footnotesize\ttfamily Player\+::\+Player (\begin{DoxyParamCaption}\item[{string}]{name\+Object,  }\item[{sf\+::\+Vector2f}]{init\+Pos,  }\item[{string}]{name\+Projectile }\end{DoxyParamCaption})}
+
+
+
+Constructeur. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em name\+Object} & Nom de la texture a charger \\
+\hline
+{\em init\+Pos} & Position initiale \\
+\hline
+{\em name\+Projectile} & Nom de la texture de la fleche a charger \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classPlayer_a8c7063a737abc1eb75e122553789e959}\label{classPlayer_a8c7063a737abc1eb75e122553789e959}} 
+\index{Player@{Player}!attack@{attack}}
+\index{attack@{attack}!Player@{Player}}
+\doxysubsubsection{\texorpdfstring{attack()}{attack()}}
+{\footnotesize\ttfamily void Player\+::attack (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classCharacter}{Character}} \&}]{target }\end{DoxyParamCaption})}
+
+
+
+Effectue une attaque sur le personnage cible. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em target} & Personnage cible \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classPlayer_a0e01b1a21c8029b5b7827aca5876e317}\label{classPlayer_a0e01b1a21c8029b5b7827aca5876e317}} 
+\index{Player@{Player}!bowIsUsed@{bowIsUsed}}
+\index{bowIsUsed@{bowIsUsed}!Player@{Player}}
+\doxysubsubsection{\texorpdfstring{bowIsUsed()}{bowIsUsed()}}
+{\footnotesize\ttfamily bool Player\+::bow\+Is\+Used (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Vérifie si l\textquotesingle{}arc est utilisé. 
+
+\begin{DoxyReturn}{Returns}
+{\ttfamily true} si l\textquotesingle{}arc est utilisé, {\ttfamily false} sinon 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classPlayer_a2fbe1de84690c50703ee9591ac5128c8}\label{classPlayer_a2fbe1de84690c50703ee9591ac5128c8}} 
+\index{Player@{Player}!collide@{collide}}
+\index{collide@{collide}!Player@{Player}}
+\doxysubsubsection{\texorpdfstring{collide()}{collide()}}
+{\footnotesize\ttfamily void Player\+::collide (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classObject}{Object}} \&}]{o }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Gère la collision avec un objet donné. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em o} & Objet avec lequel le joueur entre en collision \\
+\hline
+\end{DoxyParams}
+
+
+Reimplemented from \mbox{\hyperlink{classObject_a62148779acb081bf59c92c24f0695d7d}{Object}}.
+
+\mbox{\Hypertarget{classPlayer_a1520c64056895e53ae48cc640a522ce0}\label{classPlayer_a1520c64056895e53ae48cc640a522ce0}} 
+\index{Player@{Player}!deadGestion@{deadGestion}}
+\index{deadGestion@{deadGestion}!Player@{Player}}
+\doxysubsubsection{\texorpdfstring{deadGestion()}{deadGestion()}}
+{\footnotesize\ttfamily sf\+::\+Sprite \& Player\+::dead\+Gestion (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Gère la situation de mort du joueur. 
+
+\begin{DoxyReturn}{Returns}
+Sprite correspondant à la situation de mort du joueur 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classPlayer_a887798a81e32fae5a683ac0b44b9f50a}\label{classPlayer_a887798a81e32fae5a683ac0b44b9f50a}} 
+\index{Player@{Player}!getHitAnim@{getHitAnim}}
+\index{getHitAnim@{getHitAnim}!Player@{Player}}
+\doxysubsubsection{\texorpdfstring{getHitAnim()}{getHitAnim()}}
+{\footnotesize\ttfamily int Player\+::get\+Hit\+Anim (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Retourne l\textquotesingle{}etat de l\textquotesingle{}animation , \char`\"{}joeur est frappé par un monstre\char`\"{}. 
+
+\begin{DoxyReturn}{Returns}
+Retourne l\textquotesingle{}etat de l\textquotesingle{}animation 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classPlayer_a3a078e3c081ac21a7189f36363d6cd1b}\label{classPlayer_a3a078e3c081ac21a7189f36363d6cd1b}} 
+\index{Player@{Player}!getIsInTheCave@{getIsInTheCave}}
+\index{getIsInTheCave@{getIsInTheCave}!Player@{Player}}
+\doxysubsubsection{\texorpdfstring{getIsInTheCave()}{getIsInTheCave()}}
+{\footnotesize\ttfamily bool Player\+::get\+Is\+In\+The\+Cave (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Vérifie si le joueur est dans la grotte. 
+
+\begin{DoxyReturn}{Returns}
+{\ttfamily true} si le joueur est dans la grotte, {\ttfamily false} sinon 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classPlayer_a1420cc3bfc71f1d012f7fd8d2b72f73a}\label{classPlayer_a1420cc3bfc71f1d012f7fd8d2b72f73a}} 
+\index{Player@{Player}!getKey@{getKey}}
+\index{getKey@{getKey}!Player@{Player}}
+\doxysubsubsection{\texorpdfstring{getKey()}{getKey()}}
+{\footnotesize\ttfamily const int Player\+::get\+Key (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Obtient le nombre de clés possédées par le personnage. 
+
+\begin{DoxyReturn}{Returns}
+Nombre de clés possédées 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classPlayer_a9ce56b12a9679882f3634e53ac990a74}\label{classPlayer_a9ce56b12a9679882f3634e53ac990a74}} 
+\index{Player@{Player}!getProjectile@{getProjectile}}
+\index{getProjectile@{getProjectile}!Player@{Player}}
+\doxysubsubsection{\texorpdfstring{getProjectile()}{getProjectile()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classProjectile}{Projectile}} $\ast$ Player\+::get\+Projectile (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Obtient le projectile du joueur. 
+
+\begin{DoxyReturn}{Returns}
+\mbox{\hyperlink{classProjectile}{Projectile}} du joueur 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classPlayer_a06e38c0f57e67eb006c9d09779bd8f8f}\label{classPlayer_a06e38c0f57e67eb006c9d09779bd8f8f}} 
+\index{Player@{Player}!isAlive@{isAlive}}
+\index{isAlive@{isAlive}!Player@{Player}}
+\doxysubsubsection{\texorpdfstring{isAlive()}{isAlive()}}
+{\footnotesize\ttfamily bool Player\+::is\+Alive (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Getteur de \+\_\+is\+Alive. 
+
+\begin{DoxyReturn}{Returns}
+true -\/ Le joueur est vivant 
+
+false -\/ Le joueur est mort 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classPlayer_a7ff913ff69c4e4ebf9422d69f706c6ba}\label{classPlayer_a7ff913ff69c4e4ebf9422d69f706c6ba}} 
+\index{Player@{Player}!isInTheCave@{isInTheCave}}
+\index{isInTheCave@{isInTheCave}!Player@{Player}}
+\doxysubsubsection{\texorpdfstring{isInTheCave()}{isInTheCave()}}
+{\footnotesize\ttfamily void Player\+::is\+In\+The\+Cave (\begin{DoxyParamCaption}\item[{bool}]{state }\end{DoxyParamCaption})}
+
+
+
+Indique si le joueur est dans la grotte. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em state} & État du joueur dans la grotte \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classPlayer_a1a012846f82e97d2ed1bb549fc303261}\label{classPlayer_a1a012846f82e97d2ed1bb549fc303261}} 
+\index{Player@{Player}!makeDamage@{makeDamage}}
+\index{makeDamage@{makeDamage}!Player@{Player}}
+\doxysubsubsection{\texorpdfstring{makeDamage()}{makeDamage()}}
+{\footnotesize\ttfamily void Player\+::make\+Damage (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classCharacter}{Character}} \&}]{target }\end{DoxyParamCaption})}
+
+
+
+Applique les dégâts au personnage cible. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em target} & Personnage cible \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classPlayer_a058c0006177425c67434c936c1f3b393}\label{classPlayer_a058c0006177425c67434c936c1f3b393}} 
+\index{Player@{Player}!openChest@{openChest}}
+\index{openChest@{openChest}!Player@{Player}}
+\doxysubsubsection{\texorpdfstring{openChest()}{openChest()}}
+{\footnotesize\ttfamily void Player\+::open\+Chest (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classChest}{Chest}} \&}]{chest }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Ouvre un coffre donné. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em chest} & Coffre à ouvrir \\
+\hline
+\end{DoxyParams}
+
+
+Reimplemented from \mbox{\hyperlink{classCharacter_ad22ab6b8ae5f2a7aac6400e19d1d3eb0}{Character}}.
+
+\mbox{\Hypertarget{classPlayer_a36425d47a907d6fbf6d5b7b58bec5e77}\label{classPlayer_a36425d47a907d6fbf6d5b7b58bec5e77}} 
+\index{Player@{Player}!operator=@{operator=}}
+\index{operator=@{operator=}!Player@{Player}}
+\doxysubsubsection{\texorpdfstring{operator=()}{operator=()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classPlayer}{Player}} \& Player\+::operator= (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classPlayer}{Player}} \&}]{other }\end{DoxyParamCaption})}
+
+
+
+Operateur d\textquotesingle{}assignement. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em other} & Joueur a assigner \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\mbox{\hyperlink{classPlayer}{Player}}\& -\/ Joueur assigne 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classPlayer_a96d2ad763556479b23bdf8727323e1df}\label{classPlayer_a96d2ad763556479b23bdf8727323e1df}} 
+\index{Player@{Player}!setHitAnim@{setHitAnim}}
+\index{setHitAnim@{setHitAnim}!Player@{Player}}
+\doxysubsubsection{\texorpdfstring{setHitAnim()}{setHitAnim()}}
+{\footnotesize\ttfamily void Player\+::set\+Hit\+Anim (\begin{DoxyParamCaption}\item[{int}]{nb\+Anim }\end{DoxyParamCaption})}
+
+
+
+Met l\textquotesingle{}animation \char`\"{}joeur est frappé par un monstre\char`\"{} à un état precis. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em nb\+Anim} & etat de l\textquotesingle{}animation \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classPlayer_ab3494221ec3df6ad613ea071d594c959}\label{classPlayer_ab3494221ec3df6ad613ea071d594c959}} 
+\index{Player@{Player}!setKey@{setKey}}
+\index{setKey@{setKey}!Player@{Player}}
+\doxysubsubsection{\texorpdfstring{setKey()}{setKey()}}
+{\footnotesize\ttfamily static void Player\+::set\+Key (\begin{DoxyParamCaption}\item[{int}]{nb\+Key }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+
+
+modifie le nombre de clé du personnage. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em nb\+Key} & Nouveau nombre de clé du personnage. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classPlayer_a8e3c264137b3f92678179162fc251349}\label{classPlayer_a8e3c264137b3f92678179162fc251349}} 
+\index{Player@{Player}!takeDamage@{takeDamage}}
+\index{takeDamage@{takeDamage}!Player@{Player}}
+\doxysubsubsection{\texorpdfstring{takeDamage()}{takeDamage()}}
+{\footnotesize\ttfamily void Player\+::take\+Damage (\begin{DoxyParamCaption}\item[{int}]{heart\+Quarters }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Prendre des degats. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em heart\+Quarters} & Le degat \\
+\hline
+\end{DoxyParams}
+
+
+Reimplemented from \mbox{\hyperlink{classCharacter_a18e5036aa6bb78311c9532257a01f5ae}{Character}}.
+
+\mbox{\Hypertarget{classPlayer_a8db538a2efe06ba157c1b2dd16691507}\label{classPlayer_a8db538a2efe06ba157c1b2dd16691507}} 
+\index{Player@{Player}!targetInRange@{targetInRange}}
+\index{targetInRange@{targetInRange}!Player@{Player}}
+\doxysubsubsection{\texorpdfstring{targetInRange()}{targetInRange()}}
+{\footnotesize\ttfamily void Player\+::target\+In\+Range (\begin{DoxyParamCaption}\item[{std\+::vector$<$ \mbox{\hyperlink{classMonster}{Monster}} $\ast$ $>$ \&}]{target\+List,  }\item[{std\+::vector$<$ int $>$}]{indice\+To\+Kill }\end{DoxyParamCaption})}
+
+
+
+Détermine les cibles dans la portée du joueur. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em target\+List} & Liste des monstres \\
+\hline
+{\em indice\+To\+Kill} & Indices des cibles à éliminer \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classPlayer_a83c96c030f9df6bf3db4a7c04cec1063}\label{classPlayer_a83c96c030f9df6bf3db4a7c04cec1063}} 
+\index{Player@{Player}!wandIsUsed@{wandIsUsed}}
+\index{wandIsUsed@{wandIsUsed}!Player@{Player}}
+\doxysubsubsection{\texorpdfstring{wandIsUsed()}{wandIsUsed()}}
+{\footnotesize\ttfamily bool Player\+::wand\+Is\+Used (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Vérifie si la baguette est utilisée. 
+
+\begin{DoxyReturn}{Returns}
+{\ttfamily true} si la baguette est utilisée, {\ttfamily false} sinon 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classPlayer_ad9666b6c2d530b80feb2fea02afb43f1}\label{classPlayer_ad9666b6c2d530b80feb2fea02afb43f1}} 
+\index{Player@{Player}!WeaponIsUsed@{WeaponIsUsed}}
+\index{WeaponIsUsed@{WeaponIsUsed}!Player@{Player}}
+\doxysubsubsection{\texorpdfstring{WeaponIsUsed()}{WeaponIsUsed()}}
+{\footnotesize\ttfamily bool Player\+::\+Weapon\+Is\+Used (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Vérifie si une arme est utilisée. 
+
+\begin{DoxyReturn}{Returns}
+{\ttfamily true} si une arme est utilisée, {\ttfamily false} sinon 
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+Player.\+hpp\item 
+Player.\+cpp\end{DoxyCompactItemize}

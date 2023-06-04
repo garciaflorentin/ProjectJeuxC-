@@ -6,6 +6,10 @@
 #include "Object.hpp"
 
 
+/**
+ * @brief Cette classe represente des coeurs contenus dans un coffre
+ * 
+ */
 class Prise : public Object {
 
     private:

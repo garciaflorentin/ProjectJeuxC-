@@ -1,0 +1,122 @@
+\hypertarget{classPrise}{}\doxysection{Prise Class Reference}
+\label{classPrise}\index{Prise@{Prise}}
+
+
+Cette classe represente des coeurs contenus dans un coffre.  
+
+
+
+
+{\ttfamily \#include $<$Prise.\+hpp$>$}
+
+
+
+Inheritance diagram for Prise\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=128pt]{classPrise__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for Prise\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=128pt]{classPrise__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classPrise_a156e69c75ebaf359c49beccfbedc0cb2}{Prise}} (const char $\ast$name\+Object, sf\+::\+Vector2f init\+Pos)
+\begin{DoxyCompactList}\small\item\em Constructeur de la classe {\ttfamily \mbox{\hyperlink{classPrise}{Prise}}}. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classPrise_aa180cf4fe07ddf8f705f7842564aba15}\label{classPrise_aa180cf4fe07ddf8f705f7842564aba15}} 
+\mbox{\hyperlink{classPrise_aa180cf4fe07ddf8f705f7842564aba15}{$\sim$\+Prise}} ()
+\begin{DoxyCompactList}\small\item\em Destructeur de la classe {\ttfamily \mbox{\hyperlink{classPrise}{Prise}}}. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{classPrise_a5b1b19573128366a13637501e7f4bf65}{get\+Prise}} () const
+\begin{DoxyCompactList}\small\item\em Récupère la valeur du gain. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classPrise_aa2deb1fa36f1dc4065bb6cf9963eeb45}{collide}} (\mbox{\hyperlink{classObject}{Object}} \&o)
+\begin{DoxyCompactList}\small\item\em Gère la collision avec un objet. \end{DoxyCompactList}\item 
+const int \mbox{\hyperlink{classPrise_ab173cbaa2402a436f1ccf97ca3950343}{get\+Block\+Size}} ()
+\begin{DoxyCompactList}\small\item\em Récupère la taille d\textquotesingle{}un bloc de gain. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Additional Inherited Members}
+
+
+\doxysubsection{Detailed Description}
+Cette classe represente des coeurs contenus dans un coffre. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classPrise_a156e69c75ebaf359c49beccfbedc0cb2}\label{classPrise_a156e69c75ebaf359c49beccfbedc0cb2}} 
+\index{Prise@{Prise}!Prise@{Prise}}
+\index{Prise@{Prise}!Prise@{Prise}}
+\doxysubsubsection{\texorpdfstring{Prise()}{Prise()}}
+{\footnotesize\ttfamily Prise\+::\+Prise (\begin{DoxyParamCaption}\item[{const char $\ast$}]{name\+Object,  }\item[{sf\+::\+Vector2f}]{init\+Pos }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Constructeur de la classe {\ttfamily \mbox{\hyperlink{classPrise}{Prise}}}. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em name\+Object} & Nom de l\textquotesingle{}objet \\
+\hline
+{\em init\+Pos} & Position initiale \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classPrise_aa2deb1fa36f1dc4065bb6cf9963eeb45}\label{classPrise_aa2deb1fa36f1dc4065bb6cf9963eeb45}} 
+\index{Prise@{Prise}!collide@{collide}}
+\index{collide@{collide}!Prise@{Prise}}
+\doxysubsubsection{\texorpdfstring{collide()}{collide()}}
+{\footnotesize\ttfamily void Prise\+::collide (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classObject}{Object}} \&}]{o }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+
+
+Gère la collision avec un objet. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em o} & Objet avec lequel il y a collision. \\
+\hline
+\end{DoxyParams}
+
+
+Reimplemented from \mbox{\hyperlink{classObject_a62148779acb081bf59c92c24f0695d7d}{Object}}.
+
+\mbox{\Hypertarget{classPrise_ab173cbaa2402a436f1ccf97ca3950343}\label{classPrise_ab173cbaa2402a436f1ccf97ca3950343}} 
+\index{Prise@{Prise}!getBlockSize@{getBlockSize}}
+\index{getBlockSize@{getBlockSize}!Prise@{Prise}}
+\doxysubsubsection{\texorpdfstring{getBlockSize()}{getBlockSize()}}
+{\footnotesize\ttfamily const int Prise\+::get\+Block\+Size (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Récupère la taille d\textquotesingle{}un bloc de gain. 
+
+\begin{DoxyReturn}{Returns}
+La taille d\textquotesingle{}un bloc de gain. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classPrise_a5b1b19573128366a13637501e7f4bf65}\label{classPrise_a5b1b19573128366a13637501e7f4bf65}} 
+\index{Prise@{Prise}!getPrise@{getPrise}}
+\index{getPrise@{getPrise}!Prise@{Prise}}
+\doxysubsubsection{\texorpdfstring{getPrise()}{getPrise()}}
+{\footnotesize\ttfamily int Prise\+::get\+Prise (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Récupère la valeur du gain. 
+
+\begin{DoxyReturn}{Returns}
+La valeur du gain. 
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+Prise.\+hpp\end{DoxyCompactItemize}
