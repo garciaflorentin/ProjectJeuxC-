@@ -6,7 +6,7 @@ Projectile(nameObject, initPos)/*, _target(player)*/ {
         _isShot = false;
         _distance = 0;
 
-        _sprite.setScale(1.0, 1.0);
+        _sprite.setScale(0.5, 0.5);
 
         this->setPosition(initPos);
 
@@ -23,7 +23,7 @@ Fireball& Fireball::operator=(const Fireball& other) {
     _dirVect = other._dirVect;
 
     _dmg = other._dmg;
-
+ 
     //_target = other._target;
 
     return *this;
@@ -36,13 +36,17 @@ void Fireball::computeTrajectory(Character& player, float angle) {
     float distX = targetPos.x - this->getPosition().x;
     float distY = targetPos.y - this->getPosition().y;
 
-    distX += distX * (1-cos(angle));
+    if (cos(angle) > 0) 
+        distX += distX * (1-cos(angle));
+    else
+        distX += distX * (-1-cos(angle));
+        
     distY += distY * (sin(angle));
 
-    _dirVect.x = -distX / (distX+distY) * PROJECTILE_SPEED;
-    _dirVect.y = -distY / (distX+distY) * PROJECTILE_SPEED;
+    _dirVect.x = distX / (distX+distY) * PROJECTILE_SPEED;
+    _dirVect.y = distY / (distX+distY) * PROJECTILE_SPEED;
 
-    //cout << "_dirVect = " << _dirVect.x << " " << _dirVect.y << endl;
+    cout << "_dirVect = " << _dirVect.x << " " << _dirVect.y << endl;
 }
 
 

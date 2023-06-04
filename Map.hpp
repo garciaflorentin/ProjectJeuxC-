@@ -51,6 +51,8 @@ class Map {
         int _nbDoorWall;
         sf::Sprite _playerDead;
 
+        bool _gameWon = false;
+
     public:
 
         /**
@@ -194,6 +196,8 @@ class Map {
             //cout << "there are " << _goldChestList.size() << " golden chests" << endl;
             return _goldChestList; 
         }
+
+        const bool gameWon() const { return _gameWon; };
 };
 
 

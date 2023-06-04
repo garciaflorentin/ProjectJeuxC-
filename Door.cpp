@@ -33,18 +33,25 @@ void Door::animDoor(){
 
 
 void Door::collide(Object& o){
+
+    cout << "Demon door colision" << endl;
+
     if(typeid(o) == typeid(Player)){
+
+        cout << "Colision with player" << endl;
 
         Player& p = dynamic_cast<Player&>(o);
 
         if(p.getKey()==4){
             if(!_isOpen){
+
+                cout << "Opening the final door" << endl;
+
                 _isOpening=true;
-            } else {
-                sf::Vector2f newpos;
-                newpos={9984,9984};
+                // sf::Vector2f newpos;
+                // newpos={9984,9984};
                 p.isInTheCave(true);
-                p.setPosition(newpos);
+                // p.setPosition(newpos);
                 
             }
         }

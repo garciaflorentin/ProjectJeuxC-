@@ -8,7 +8,7 @@ Object(nameObject, initPos), _life(*(new Heart(nameObject))) {
 	_anim.x = 1;
 	_anim.y = 0;
 	_object_size = 32;
-	_keys = 0;
+	//_keys = 0;
 
 	_isAlive = true;
 
@@ -32,7 +32,7 @@ Character& Character::operator=(const Character& other) {
     _object_size = other._object_size;
     _orientation = other._orientation;
 
-    _keys = 0;
+    //_keys = 0;
     _killedallMobs = { false, false, false, false };
 
 	_footStepSound = other._footStepSound;
@@ -111,7 +111,7 @@ std::vector<bool>& Character::getKilledallMobs(){
 	return _killedallMobs;
 }
 
-const double Character::getSpeed() const {
+const float Character::getSpeed() const {
 	return _speed;
 }
 
@@ -141,14 +141,14 @@ Heart& Character::getlife() const {
 
 const bool Character::canOpenChest() const { return _canOpenChest; };
 
-const int Character::getKey() const {
-	return _keys;
-}
+// const int Character::getKey() const {
+// 	return _keys;
+// }
 
-void Character::addKey(){
-	if(_keys<4)	_keys++;
-}
+// void Character::addKey(){
+// 	if(_keys<4)	_keys++;
+// }
 
-void Character::setKey(int nbKey){
-	_keys = nbKey;
-}
+// void Character::setKey(int nbKey){
+// 	_keys = nbKey;
+// }

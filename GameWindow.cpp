@@ -173,6 +173,11 @@ int GameWindow::controlWindow(void) {
         return 0;
     }
 
+    if ( fin == 4 ) {
+        _ui.setWin(true);
+        return 0;
+    }
+
     return fin;
 }
 
@@ -199,7 +204,7 @@ void GameWindow::draw() {
     std::vector<Projectile*> fireballs;
     if (_game.drawFireballs(getCurrentWindowPos(), fireballs)) {
 
-        cout << "Found " << fireballs.size() << " fireballs" << endl;
+        //cout << "Found " << fireballs.size() << " fireballs" << endl;
         
         for (int i = 0; i < fireballs.size(); i++) 
             _window->draw(fireballs[i]->getSprite());

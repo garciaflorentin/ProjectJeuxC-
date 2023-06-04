@@ -187,8 +187,8 @@ void Map::createMap(){
     //creation des murs
     for (float x = 0; x < 200; x++) {
         for (float y = -100; y < 100; y++) {
-            if (x < 100) {
-                if (y <0) {//foret
+            if (x < 99) {
+                if (y < -1) {//foret
                     if (rand() % 100 == 0) {
                         addObject(new Wall("WorldTextures/World2.png",{x, y}, TypeWall::GrosseBranche)); 
                     }else if(rand()%100==0){
@@ -202,7 +202,7 @@ void Map::createMap(){
                     }else if(rand()%100==0){
                         addObject(new Wall("WorldTextures/World2.png",{x, y}, TypeWall::DeadTree));
                     }
-            } else {
+                } else if (y > 1) {
                     // Monde 2 : montagnes
                     if (rand() % 100 == 0) {
                         addObject(new Wall("WorldTextures/World2.png", {x, y}, TypeWall::SnowTree));
@@ -221,9 +221,12 @@ void Map::createMap(){
                     else if (rand() % 200 == 0) {
                         addObject(new Wall("WorldTextures/World2.png",{x, y}, TypeWall::FrozenScarecrow));
                     }
+                    else if ( rand()%300==0){
+                        addObject(new Chest("OtherTextures/Chests.png",{x,y}));
+                    }
                 }
-            } else {
-                if (y < 0) {
+            } else if (x > 101) {
+                if (y < -1) {
                     // Monde 3 : plage
                     if (rand() % 100 == 0) {
                         addObject(new Wall("WorldTextures/World2.png",{x, y}, TypeWall::RocherBeatch));
@@ -235,7 +238,10 @@ void Map::createMap(){
                     }else if(rand() % 100 == 0) {
                     // addObject(new Wall("WorldTextures/World2.png",{x, y}, TypeWall::lacBeatch));
                     }
-                } else {
+                    else if ( rand()%300==0){
+                        addObject(new Chest("OtherTextures/Chests.png",{x,y}));
+                    }
+                } else if (y > 1) {
                     // Monde 4 : ville
                     if (rand() % 100 == 0) {
                         addObject(new Wall("WorldTextures/World2.png",{x, y}, TypeWall::Well));
@@ -246,6 +252,9 @@ void Map::createMap(){
                         addObject(new Wall("WorldTextures/World2.png",{x, y}, TypeWall::Barrel));
                     }else if(rand() % 200 == 0) {
                         addObject(new Wall("WorldTextures/World2.png",{x, y}, TypeWall::KnightStatue));
+                    }
+                    else if ( rand()%300==0){
+                        addObject(new Chest("OtherTextures/Chests.png",{x,y}));
                     }
                 }
             }
@@ -334,13 +343,16 @@ void Map::createMap(){
         for(float y=-10;y<10;y++) {
 			if (rand() % 50 == 0) {
 					addObject(new Wall("WorldTextures/World2.png",{x+208, y+208}, TypeWall::BrokenBossColone1));
-				} else if (rand() % 70 == 0) {
+				} else if (rand() % 200 == 0) {
 					addObject(new Wall("WorldTextures/World2.png",{x+208, y+208}, TypeWall::BrokenBossColone2));
-				} else if (rand() % 50 == 0) {
+				} else if (rand() % 150 == 0) {
 					addObject(new Wall("WorldTextures/World2.png",{x+208, y+208}, TypeWall::BossColone));
-				} else if(rand() % 200 == 0) {
+				} else if(rand() % 300 == 0) {
 					addObject(new Wall("WorldTextures/World2.png",{x+208, y+208}, TypeWall::BossSqueleton));
 				}
+                else if ( rand()%350==0){
+                    addObject(new Chest("OtherTextures/Chests.png",{x+208,y+208}));
+                }
         }
     }
 
@@ -353,21 +365,21 @@ void Map::createMap(){
     for(float i=152;i<200;i++)
         addObject(new WallZone("WorldTextures/World.png",{i, 0}, TypeWall::WallZoneHorizontal));
 
-    for(float i=-97;i<50;i++)
-        addObject(new WallZone("WorldTextures/World.png",{100, i}, TypeWall::WallZoneVertical));
+    // for(float i=-97;i<50;i++)
+    //     addObject(new WallZone("WorldTextures/World.png",{100, i}, TypeWall::WallZoneVertical));
     
-    for(float i=52;i<100;i++)
-        addObject(new WallZone("WorldTextures/World.png",{100, i}, TypeWall::WallZoneVertical));
+    // for(float i=52;i<100;i++)
+    //     addObject(new WallZone("WorldTextures/World.png",{100, i}, TypeWall::WallZoneVertical));
     
-    addObject(new Wall("WorldTextures/World2.png",{97, -99}, TypeWall::GrandSapin));
-    addObject(new Wall("WorldTextures/World2.png",{97, -100}, TypeWall::GrandSapin));
-    addObject(new Wall("WorldTextures/World2.png",{99, -98}, TypeWall::GrandSapin));
-    addObject(new Wall("WorldTextures/World2.png",{98, -98}, TypeWall::GrandSapin));
-    addObject(new Wall("WorldTextures/World2.png",{97, -98}, TypeWall::GrandSapin));
+    // addObject(new Wall("WorldTextures/World2.png",{97, -99}, TypeWall::GrandSapin));
+    // addObject(new Wall("WorldTextures/World2.png",{97, -100}, TypeWall::GrandSapin));
+    // addObject(new Wall("WorldTextures/World2.png",{99, -98}, TypeWall::GrandSapin));
+    // addObject(new Wall("WorldTextures/World2.png",{98, -98}, TypeWall::GrandSapin));
+    // addObject(new Wall("WorldTextures/World2.png",{97, -98}, TypeWall::GrandSapin));
 
-    addObject(new DoorWall("WorldTextures/Door.png",{49.5, -1}, TypeWall::WallZoneHorizontal,1,0));
-    addObject(new DoorWall("WorldTextures/Door.png",{102, 49.5}, TypeWall::WallZoneHorizontal,2,90));
-    addObject(new DoorWall("WorldTextures/Door.png",{149, -1}, TypeWall::WallZoneHorizontal,3,0));
+    // addObject(new DoorWall("WorldTextures/Door.png",{49.5, -1}, TypeWall::WallZoneHorizontal,1,0));
+    // addObject(new DoorWall("WorldTextures/Door.png",{102, 49.5}, TypeWall::WallZoneHorizontal,2,90));
+    // addObject(new DoorWall("WorldTextures/Door.png",{149, -1}, TypeWall::WallZoneHorizontal,3,0));
 
 	for(float i=-97;i<50;i++)
 		addObject(new WallZone("WorldTextures/World.png",{100, i}, TypeWall::WallZoneVertical));
@@ -430,6 +442,11 @@ void Map::spawnMobs(string area) {
 					if (rand() % 300 == 0)	addObject(new GuerrierOgre("MonsterTextures/MonsterSheet1.png", {x,y}));
                	}
   
+    } else {
+
+        // cout << "Spawning the final boss" << endl;
+
+        // addObject(new FinalBoss());
     }
 }
 
@@ -449,7 +466,7 @@ void Map::updateObjects(Player& player1, Player& player2) {
         _spb=true;
         _monsterList.clear();
         spawnMobs("beach");
-    } else if ((ppose.x > 100*SPR_SIZE)&&(ppose.y>0)&&(!_spt)) {
+    } else if ((ppose.x > 100*SPR_SIZE)&&(ppose.x < 200*SPR_SIZE)&&(ppose.y>0)&&(ppose.y < 100*SPR_SIZE)&&(!_spt)) {
         _spt=true;
         _monsterList.clear();
         spawnMobs("town");
@@ -457,6 +474,10 @@ void Map::updateObjects(Player& player1, Player& player2) {
 
 	for (int i=0;i<_monsterList.size();i++) {
 		if (!_monsterList[i]->isAlive()) {
+            if (typeid(*_monsterList[i]) == typeid(FinalBoss)) 
+                cout << "Game won" << endl;
+                _gameWon = true;
+
          	_monsterList.erase(_monsterList.begin() + i);
 		}
 		else {

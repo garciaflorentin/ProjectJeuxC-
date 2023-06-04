@@ -1,10 +1,17 @@
 #include "FinalBoss.hpp"
 
-#define FIREBALL_NUMBER 3
-
 
 FinalBoss::FinalBoss() : 
-Monster("MonsterTextures/angry_cat.png", {5,5}, /*(*(new Player())), (*(new Player())),*/ "serious meat", 1, 10, 100, 1.5) {}
+Monster("MonsterTextures/dragon_boss.png", {205,190}, /*(*(new Player())), (*(new Player())),*/ "serious meat", 1, 7, 100, 1.5), _fireballs(*(new vector<Projectile*>())) {
+    for (int i = 0; i < FIREBALL_NUMBER; i++)
+        _fireballs.push_back(new Fireball());
+
+    _sprite.setTextureRect({0,64*2,64,64});
+    _sprite.setScale(2.0,2.0);
+
+    // sf::Vector2f pos = {10000,10000};
+    // this->setPosition(pos);
+}
 
 
 const bool FinalBoss::playerInRange(Player& target, int range) const {
@@ -45,17 +52,42 @@ void FinalBoss::update(Player& pl1, Player& pl2) {
 void FinalBoss::attack(Character& target, char type) {
     switch (type) {
         case 'm':
+
+            cout << "Boss melee attack" << endl;
+
             target.takeDamage(_damageAttack);
             break;
 
         case 'r':
+
+            cout << "Boss ranged attack" << endl;
+
             _fireballs.clear();
 
             for (int i = 0; i < FIREBALL_NUMBER; i++) {
-                _fireballs.push_back(new Fireball("OtherTextures/fireball.png", this->getPosition(), target, 360/FIREBALL_NUMBER*i));
+                _fireballs.push_back(new Fireball("OtherTextures/fireball.png", this->getPosition(), target, 2*PI/FIREBALL_NUMBER*i));
                 _fireballs[i]->initProjectile();
                 _fireballs[i]->setIsShot(true);
             }
             break;
+    }
+}
+
+void FinalBoss::updateSprite() {
+    if (_upd.getElapsedTime().asMilliseconds() % 5 == 0) {
+        int anim = (_anim.x+_anim.y)%3;
+        _sprite.setTextureRect({64*anim,64*2,64,64});
+    }
+}
+
+void FinalBoss::collide(Object& o) {
+
+    //cout << "Monster collide" << endl;
+
+    if (typeid(o) == typeid(Projectile) || typeid(o) == typeid(Arrow)) {
+
+        cout << "Monster collide with projectile" << endl;
+
+        takeDamage(1);
     }
 }

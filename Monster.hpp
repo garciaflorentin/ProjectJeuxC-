@@ -98,7 +98,7 @@ class Monster : public Character {
          *
          * @param o Objet avec lequel le monstre est en collision
          */
-        void collide(Object& o);
+        virtual void collide(Object& o);
 
         /**
          * @brief Ouvre un coffre.

@@ -36,6 +36,8 @@ class Player : public Character {
         bool _canOpenChest = true; /**< Indique si le joueur peut ouvrir un coffre */
         int _hitAnim;
 
+        static int _keys;
+
     public:
         Player() : Character(), _projectile(*(new Arrow("OtherTextures/arrow.png",{0,0},*this))) {};
 
@@ -182,6 +184,25 @@ class Player : public Character {
          * @param indiceToKill Indices des cibles à éliminer
          */
         void targetInRange(std::vector<Monster*>& targetList, std::vector<int> indiceToKill);
+
+        /**
+         * @brief Obtient le nombre de clés possédées par le personnage.
+         *
+         * @return Nombre de clés possédées
+         */
+        const int getKey() const { return _keys; };
+
+        /**
+         * @brief Ajoute une clé au personnage.
+         */
+        static void addKey() { _keys++; };
+
+        /**
+         * @brief modifie le nombre de clé du personnage.
+         * 
+         *  @param nbKey Nouveau nombre de clé du personnage.
+         */
+        static void setKey(int nbKey) { _keys = nbKey; };
 };
 
 

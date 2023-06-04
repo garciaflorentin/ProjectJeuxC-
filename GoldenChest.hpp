@@ -2,6 +2,7 @@
 #define GOLDENCHEST_HPP
 
 #include "Chest.hpp"
+#include "Player.hpp"
 
 
 class GoldenChest : public Chest {

@@ -33,7 +33,7 @@ class GuerrierOgre : public MeleeMonster {
 
             _footStepSound = SoundsLib::assignSound("Sounds/littleMonsterStep.wav");
             _takeDamageMusic = SoundsLib::assignSound("Sounds/die_monster.wav");
-            _crySound = SoundsLib::assignSound("Sounds/zombie attack.wav");
+            _crySound = SoundsLib::assignSound("Sounds/zombie attack.wav"); 
         };
 
         /**

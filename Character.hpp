@@ -23,7 +23,9 @@ class Character : public Object {
         bool _isAlive; /**< Indique si le personnage est en vie */
         int _object_size; /**< Taille de l'objet */
         int _orientation; /**< Orientation actuelle du personnage */
-        int _keys; /**< Nombre de clés possédées par le personnage */
+
+        //static int _keys; /**< Nombre de clés possédées par le personnage */
+
         vector<bool> _killedallMobs = { false, false, false, false }; /**< Tableau indiquant si tous les monstres ont été tués */
         sf::Music* _footStepSound; /**< Son des pas du personnage */
         sf::Music* _takeDamageMusic; /**< Son de dégâts subis par le personnage */
@@ -79,7 +81,7 @@ class Character : public Object {
          *
          * @return Vitesse de déplacement
          */
-        const double getSpeed() const;
+        const float getSpeed() const;
 
         /**
          * @brief Définit la vitesse de déplacement du personnage.
@@ -193,23 +195,23 @@ class Character : public Object {
         virtual Projectile* getProjectile() const { return nullptr; };
 
         /**
-         * @brief Obtient le nombre de clés possédées par le personnage.
-         *
-         * @return Nombre de clés possédées
-         */
-        const int getKey() const;
+        //  * @brief Obtient le nombre de clés possédées par le personnage.
+        //  *
+        //  * @return Nombre de clés possédées
+        //  */
+        // virtual const int getKey() const { return 0; };
 
-        /**
-         * @brief Ajoute une clé au personnage.
-         */
-        void addKey();
+        // /**
+        //  * @brief Ajoute une clé au personnage.
+        //  */
+        // virtual void addKey() {};
 
-        /**
-         * @brief modifie le nombre de clé du personnage.
-         * 
-         *  @param nbKey Nouveau nombre de clé du personnage.
-         */
-        void setKey(int nbKey);
+        // /**
+        //  * @brief modifie le nombre de clé du personnage.
+        //  * 
+        //  *  @param nbKey Nouveau nombre de clé du personnage.
+        //  */
+        // virtual void setKey(int nbKey) {};
 };
 
 

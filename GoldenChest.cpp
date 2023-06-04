@@ -23,7 +23,9 @@ void GoldenChest::collide(Object& o){
             
             if (canOpen) {
                 open();
-                p.addKey();
+
+                Player& pl = dynamic_cast<Player&>(o);
+                pl.addKey();
             }
         }
     }

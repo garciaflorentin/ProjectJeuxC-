@@ -2,8 +2,8 @@
 
 
 GameGestion::GameGestion() : 
-_map(*(new Map())), _player(*(new Player("PlayerTextures/player1.png", {2, -1}, "OtherTextures/arrow.png"))), 
-_player2(*(new Player("PlayerTextures/player2.png", {1, -1}, "OtherTextures/fate.png"))) {
+_map(*(new Map())), _player(*(new Player("PlayerTextures/player1.png", {120, -80}, "OtherTextures/arrow.png"))), 
+_player2(*(new Player("PlayerTextures/player2.png", {121, -80}, "OtherTextures/fate.png"))) {
 	_currentZoneMusic= -1;
 
 	_map.createMap();
@@ -98,6 +98,9 @@ const bool GameGestion::drawFireballs(std::vector<sf::Vector2f>& currentWindow, 
 		}
 		
 		else if ((_map.getMonsters())[i]->getProjectiles() != nullptr) {
+
+			//cout << "Found several projectiles" << endl;
+
 			for (int j = 0; j < (_map.getMonsters())[i]->getProjectiles()->size(); j++) {
 				if ((*(_map.getMonsters()[i]->getProjectiles()))[j] != nullptr) {
 					toFill.push_back((*(_map.getMonsters()[i]->getProjectiles()))[j]);
@@ -113,52 +116,54 @@ const bool GameGestion::drawFireballs(std::vector<sf::Vector2f>& currentWindow, 
 		}
 	}
 
+	//cout << "found " << toFill.size() << " fireballs" << endl;
+
 	return (indice > 0);
 }
 
 
 
 void GameGestion::keyEvent(sf::Event e) {
-	_player.setSpeed(_map.getMonsters().size() / 5);
-	float vitesse = _player.getSpeed();
-	if (vitesse <= 3) {
-		_player.setSpeed(4);
-		vitesse = 4;
-	}
+	// _player.setSpeed(_map.getMonsters().size() / 5);
+	// float vitesse = _player.getSpeed();
+	// if (vitesse <= 3) {
+	// 	_player.setSpeed(4);
+	// 	vitesse = 4;
+	// }
 
-	_player2.setSpeed(_map.getMonsters().size() / 5);
-	vitesse = _player2.getSpeed();
-	if (vitesse <= 3) {
-		_player2.setSpeed(4);
-		vitesse = 4;
-	}
+	// _player2.setSpeed(_map.getMonsters().size() / 5);
+	// vitesse = _player2.getSpeed();
+	// if (vitesse <= 3) {
+	// 	_player2.setSpeed(4);
+	// 	vitesse = 4;
+	// }
 
     if(!_player.WeaponIsUsed()){
         if (sf::Keyboard::isKeyPressed(sf::Keyboard::Down)) {
             _player.getAnim().x++;
             _player.getAnim().y = 0;
             _player.setOrientation(2);
-            _player.move({0, vitesse});
+            _player.move({0, _player.getSpeed()});
         }
         else if (sf::Keyboard::isKeyPressed(sf::Keyboard::Up)) {
             _player.getAnim().x++;
             _player.getAnim().y = 4;
             _player.setOrientation(0);
-            _player.move({0, -vitesse});
+            _player.move({0, -_player.getSpeed()});
         }
         else if (sf::Keyboard::isKeyPressed(sf::Keyboard::Right)) {
             // std::cout << " R " << std::endl;
             _player.getAnim().x++;
             _player.getAnim().y = 2;
             _player.setOrientation(3);
-            _player.move({vitesse, 0});
+            _player.move({_player.getSpeed(), 0});
         }
         else if (sf::Keyboard::isKeyPressed(sf::Keyboard::Left)) {
             // std::cout << " L " << std::endl;
             _player.getAnim().x++;
             _player.getAnim().y = 6;
             _player.setOrientation(1);
-            _player.move({-vitesse, 0});
+            _player.move({-_player.getSpeed(), 0});
         }
 
         _player.updateSprite();
@@ -169,28 +174,31 @@ void GameGestion::keyEvent(sf::Event e) {
             _player2.getAnim().x++;
             _player2.getAnim().y = 0;
             _player2.setOrientation(2);
-            _player2.move({0, vitesse});
+            _player2.move({0, _player2.getSpeed()});
         }
         else if (sf::Keyboard::isKeyPressed(sf::Keyboard::Z) || sf::Keyboard::isKeyPressed(sf::Keyboard::W)){
             _player2.getAnim().x++;
             _player2.getAnim().y = 4;
             _player2.setOrientation(0);
-            _player2.move({0, -vitesse});
+            _player2.move({0, -_player2.getSpeed()});
         }
         else if (sf::Keyboard::isKeyPressed(sf::Keyboard::D) || sf::Keyboard::isKeyPressed(sf::Keyboard::D)){
             _player2.getAnim().x++;
             _player2.getAnim().y = 2;
             _player2.setOrientation(3);
-            _player2.move({vitesse, 0});
+            _player2.move({_player2.getSpeed(), 0});
         }
         else if (sf::Keyboard::isKeyPressed(sf::Keyboard::Q) || sf::Keyboard::isKeyPressed(sf::Keyboard::A)){
             _player2.getAnim().x++;
             _player2.getAnim().y = 6;
             _player2.setOrientation(1);
-            _player2.move({-vitesse, 0});
+            _player2.move({-_player2.getSpeed(), 0});
         }
             
         _player2.updateSprite();
+
+		// cout << "player1 position : " << _player.getPosition().x << " "  << _player.getPosition().y << endl;
+		// cout << "player2 position : " << _player2.getPosition().x << " " << _player2.getPosition().y << endl;
     }
         
     if (sf::Keyboard::isKeyPressed(sf::Keyboard::E))
@@ -272,6 +280,10 @@ int GameGestion::updateGame() {
 		}
 	}
 
+	if (_map.gameWon()) {
+		return 4;
+	}
+
 	return 0;
 }
 
@@ -317,6 +329,9 @@ void GameGestion::collideWall(Object& o, std::vector<Object*>& wallList, std::ve
 		int colision = collidePosition(o, *(wallList[x]));
 
 		if (colision != -1) {
+
+			//cout << "Colision type : " << colision << endl;
+
 			info.push_back(x);
 			info.push_back(colision);
 			collide = true;
@@ -326,6 +341,33 @@ void GameGestion::collideWall(Object& o, std::vector<Object*>& wallList, std::ve
 	if (!collide) {
 		info.push_back(-1);
 		info.push_back(-1);
+	}
+
+	if (_player.getIsInTheCave()) {
+		if (!_player2.getIsInTheCave()) {
+			sf::Vector2f newpos1 = {9984,9984};
+			sf::Vector2f newpos2 = {9984 + 48, 9984};
+
+			_player2.isInTheCave(true);
+
+			_player.setPosition(newpos1);
+			_player2.setPosition(newpos2);
+
+			_map.addObject(new FinalBoss());
+		}
+	}
+	if (_player2.getIsInTheCave()) {
+		if (!_player.getIsInTheCave()) {
+			sf::Vector2f newpos1 = {9984,9984};
+			sf::Vector2f newpos2 = {9984 + 48, 9984};
+
+			_player.isInTheCave(true);
+
+			_player.setPosition(newpos1);
+			_player2.setPosition(newpos2);
+
+			_map.addObject(new FinalBoss());
+		}
 	}
 }
 
@@ -455,18 +497,30 @@ void GameGestion::LimitMapBoss()
 		_player.setPosition(newpos);
 	}
 	if (_player2.getPosition().x < limit[0]) {
+
+		cout << "player2 outside of bounds" << endl;
+
 		newpos = {limit[0], _player2.getPosition().y};
 		_player2.setPosition(newpos);
 	}
 	if (_player2.getPosition().x >= limit[2]) {
+
+		cout << "player2 outside of bounds" << endl;
+
 		newpos = {limit[2], _player2.getPosition().y};
 		_player2.setPosition(newpos);
 	}
 	if (_player2.getPosition().y > limit[3]) {
+
+		cout << "player2 outside of bounds" << endl;
+
 		newpos = {_player2.getPosition().x, limit[3]};
 		_player2.setPosition(newpos);
 	}
 	if (_player2.getPosition().y < limit[1]) {
+
+		cout << "player2 outside of bounds" << endl;
+
 		newpos = {_player2.getPosition().x, limit[1]};
 		_player2.setPosition(newpos);
 	}
@@ -490,26 +544,30 @@ void GameGestion::collideWallGestion() {
 
 	if (indice != -1 && typeCollide != -1) {
 		switch (typeCollide) { // orientation de la colision
-		case -1:
-			break;
+			case -1:
+				break;
 
-		case 1: // colision du joueur allant vers le bas
-			// on empeche le joueur de traverser le Wall
-			newpos = {_player.getPosition().x, wallList[indice]->getPosition().y - 48};
-			_player.setPosition(newpos);
-			break;
-		case 2: // colision du joueur allant vers la haut
-			newpos = {_player.getPosition().x, wallList[indice]->getPosition().y + wallList[indice]->getSprite().getGlobalBounds().height};
-			_player.setPosition(newpos);
-			break;
-		case 3: // colision du joueur allant vers la droite
-			newpos = {wallList[indice]->getPosition().x - 48, _player.getPosition().y};
-			_player.setPosition(newpos);
-			break;
-		case 4: // colision du joueur allant vers le gauche
-			newpos = {wallList[indice]->getPosition().x + 48, _player.getPosition().y};
-			_player.setPosition(newpos);
-			break;
+			case 1: // colision du joueur allant vers le bas
+				// on empeche le joueur de traverser le Wall
+				// newpos = {_player.getPosition().x, wallList[indice]->getSprite().getGlobalBounds().top - 48};
+				// _player.setPosition(newpos);
+				_player.getSprite().move(0, -_player.getSpeed());
+				break;
+			case 2: // colision du joueur allant vers la haut
+				// newpos = {_player.getPosition().x, wallList[indice]->getSprite().getGlobalBounds().top + wallList[indice]->getSprite().getGlobalBounds().height};
+				// _player.setPosition(newpos);
+				_player.getSprite().move(0, +_player.getSpeed());
+				break;
+			case 3: // colision du joueur allant vers la droite
+				// newpos = {wallList[indice]->getSprite().getGlobalBounds().left - 48, _player.getPosition().y};
+				// _player.setPosition(newpos);
+				_player.getSprite().move(-_player.getSpeed(), 0);
+				break;
+			case 4: // colision du joueur allant vers le gauche
+				// newpos = {wallList[indice]->getSprite().getGlobalBounds().left + wallList[indice]->getSprite().getGlobalBounds().width, _player.getPosition().y};
+				// _player.setPosition(newpos);
+				_player.getSprite().move(_player.getSpeed(), 0);
+				break;
 		}
 
 		collideVisitor(_player, *wallList[indice]);
@@ -517,26 +575,34 @@ void GameGestion::collideWallGestion() {
 
 	if (indice2 != -1 && typeCollide2 != -1) {
 		switch (typeCollide2) { // orientation de la colision
-		case -1:
-			break;
+			case -1:
+				break;
 
-		case 1: // colision du joueur allant vers le bas
-			// on empeche le joueur de traverser le Wall
-			newpos = {_player2.getPosition().x, wallList[indice2]->getPosition().y - 48};
-			_player2.setPosition(newpos);
-			break;
-		case 2: // colision du joueur allant vers la haut
-			newpos = {_player2.getPosition().x, wallList[indice2]->getPosition().y + wallList[indice2]->getSprite().getGlobalBounds().height};
-			_player2.setPosition(newpos);
-			break;
-		case 3: // colision du joueur allant vers la droite
-			newpos = {wallList[indice2]->getPosition().x - 48, _player2.getPosition().y};
-			_player2.setPosition(newpos);
-			break;
-		case 4: // colision du joueur allant vers le gauche
-			newpos = {wallList[indice2]->getPosition().x + 48, _player2.getPosition().y};
-			_player2.setPosition(newpos);
-			break;
+			case 1: // colision du joueur allant vers le bas
+				// on empeche le joueur de traverser le Wall
+
+				cout << "player2 colision" << endl;
+
+				_player2.getSprite().move(0, -_player2.getSpeed());
+				break;
+			case 2: // colision du joueur allant vers la haut
+
+				cout << "player2 colision" << endl;
+
+				_player2.getSprite().move(0, +_player2.getSpeed());
+				break;
+			case 3: // colision du joueur allant vers la droite
+
+				cout << "player2 colision" << endl;
+
+				_player2.getSprite().move(-_player2.getSpeed(), 0);
+				break;
+			case 4: // colision du joueur allant vers le gauche
+
+				cout << "player2 colision" << endl;
+				
+				_player2.getSprite().move(_player2.getSpeed(), 0);
+				break;
 		}
 
 		collideVisitor(_player2, *wallList[indice2]);

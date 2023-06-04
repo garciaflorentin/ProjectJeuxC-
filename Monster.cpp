@@ -187,7 +187,7 @@ void Monster::update(Player& target1, Player& target2) {
 
 void Monster::collide(Object& o) {
 
-    cout << "Monster collide" << endl;
+    //cout << "Monster collide" << endl;
 
     if (typeid(o) == typeid(Projectile) || typeid(o) == typeid(Arrow)) {
 

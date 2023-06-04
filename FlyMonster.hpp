@@ -35,12 +35,9 @@ class FlyMonster : public MeleeMonster {
 
             updateSprite();
 
-            if (!_footStepSound->openFromFile("wingSound.wav"))
-                throw runtime_error("Failed to open wingSound.wav");
-            if (!_takeDamageMusic->openFromFile("die_monster.wav"))
-                throw runtime_error("Failed to open die_monster.wav");
-            if (!_crySound->openFromFile("hurt3_monster.wav")) 
-                throw runtime_error("Failed to open hurt3_monster.wav");
+            _footStepSound = SoundsLib::assignSound("Sounds/wingSound.wav");
+            _takeDamageMusic = SoundsLib::assignSound("Sounds/die_monster.wav");
+            _crySound = SoundsLib::assignSound("Sounds/hurt3_monster.wav");
         }
 
         /**
