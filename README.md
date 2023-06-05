@@ -1,6 +1,6 @@
 # Projet jeu C++
 
-Ceci est le projet créé dans les meilleurs esprits des pionniers du jeu vidéo sur PC des années 90, qui non seulement ne servait pas au divertissement de leur publique, mais provoquaient une frustration intense, suivi, de fois, des conséquences irréversibles sur l'Intégrité mentale.
+Ceci est le projet créé dans les meilleurs esprits des pionniers du jeu vidéo sur PC des années 90, qui non seulement ne servait pas au divertissement de leur publique, mais provoquaient une frustration intense, suivi, de fois, des conséquences irréversibles sur l'intégrité mentale.
 
 Dans notre jeu, *Tales of a monster hunter*, vous allez prendre le rôle des deux chasseurs de monstres qui ont pour leur quête principale de tuer le grand dragon méchant, ainsi que tout ce qui bouge sur leur chemin, dans le seul but de démontrer notre capacité de programmer en langage objet C++.
 
