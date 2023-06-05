@@ -18,9 +18,11 @@ Tout d'abord, choisissez le dossier dans lequel vous voulez installer le jeu. Da
   `make all`
   
 Une fois le jeu installe, vous pouvez le lancer avec :
+
   `./the_game`
   
 Pour acceder la documentation concernante le projet (`firefox` a remplacer par votre navigateur de preference):
+
   `firefox /html/annotated.html`
 
 
