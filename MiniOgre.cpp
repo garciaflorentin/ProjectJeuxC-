@@ -12,9 +12,9 @@ void MiniOgre::update(Player& target1, Player& target2) {
     
     if (target1.isAlive() || target2.isAlive()) {
         if (playerSeen(target1, target2, &dist1, &dist2)) {
-            if (dist1 < dist2 && !playerInRange(target1))
+            if ((dist1 < dist2 && !playerInRange(target1) && target1.isAlive()) || (!target2.isAlive() && !playerInRange(target1)))
                 goToPlayer(target1);
-            else if (dist1 > dist2 && !playerInRange(target2))
+            else if ((dist1 > dist2 && !playerInRange(target2) && target2.isAlive()) || (!target1.isAlive() && !playerInRange(target2)))
                 goToPlayer(target2);
         }
         

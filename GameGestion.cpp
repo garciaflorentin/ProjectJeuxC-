@@ -124,87 +124,78 @@ const bool GameGestion::drawFireballs(std::vector<sf::Vector2f>& currentWindow, 
 
 
 void GameGestion::keyEvent(sf::Event e) {
-	// _player.setSpeed(_map.getMonsters().size() / 5);
-	// float vitesse = _player.getSpeed();
-	// if (vitesse <= 3) {
-	// 	_player.setSpeed(4);
-	// 	vitesse = 4;
-	// }
+	if(_player.isAlive()) {
+		if(!_player.WeaponIsUsed()){
+			if (sf::Keyboard::isKeyPressed(sf::Keyboard::Down)) {
+				_player.getAnim().x++;
+				_player.getAnim().y = 0;
+				_player.setOrientation(2);
+				_player.move({0, _player.getSpeed()});
+			}
+			else if (sf::Keyboard::isKeyPressed(sf::Keyboard::Up)) {
+				_player.getAnim().x++;
+				_player.getAnim().y = 4;
+				_player.setOrientation(0);
+				_player.move({0, -_player.getSpeed()});
+			}
+			else if (sf::Keyboard::isKeyPressed(sf::Keyboard::Right)) {
+				// std::cout << " R " << std::endl;
+				_player.getAnim().x++;
+				_player.getAnim().y = 2;
+				_player.setOrientation(3);
+				_player.move({_player.getSpeed(), 0});
+			}
+			else if (sf::Keyboard::isKeyPressed(sf::Keyboard::Left)) {
+				// std::cout << " L " << std::endl;
+				_player.getAnim().x++;
+				_player.getAnim().y = 6;
+				_player.setOrientation(1);
+				_player.move({-_player.getSpeed(), 0});
+			}
 
-	// _player2.setSpeed(_map.getMonsters().size() / 5);
-	// vitesse = _player2.getSpeed();
-	// if (vitesse <= 3) {
-	// 	_player2.setSpeed(4);
-	// 	vitesse = 4;
-	// }
+			_player.updateSprite();
+		}
+	}
 
-    if(!_player.WeaponIsUsed()){
-        if (sf::Keyboard::isKeyPressed(sf::Keyboard::Down)) {
-            _player.getAnim().x++;
-            _player.getAnim().y = 0;
-            _player.setOrientation(2);
-            _player.move({0, _player.getSpeed()});
-        }
-        else if (sf::Keyboard::isKeyPressed(sf::Keyboard::Up)) {
-            _player.getAnim().x++;
-            _player.getAnim().y = 4;
-            _player.setOrientation(0);
-            _player.move({0, -_player.getSpeed()});
-        }
-        else if (sf::Keyboard::isKeyPressed(sf::Keyboard::Right)) {
-            // std::cout << " R " << std::endl;
-            _player.getAnim().x++;
-            _player.getAnim().y = 2;
-            _player.setOrientation(3);
-            _player.move({_player.getSpeed(), 0});
-        }
-        else if (sf::Keyboard::isKeyPressed(sf::Keyboard::Left)) {
-            // std::cout << " L " << std::endl;
-            _player.getAnim().x++;
-            _player.getAnim().y = 6;
-            _player.setOrientation(1);
-            _player.move({-_player.getSpeed(), 0});
-        }
-
-        _player.updateSprite();
-    }
-
-    if(!_player2.WeaponIsUsed()){
-        if (sf::Keyboard::isKeyPressed(sf::Keyboard::S) || sf::Keyboard::isKeyPressed(sf::Keyboard::S)){
-            _player2.getAnim().x++;
-            _player2.getAnim().y = 0;
-            _player2.setOrientation(2);
-            _player2.move({0, _player2.getSpeed()});
-        }
-        else if (sf::Keyboard::isKeyPressed(sf::Keyboard::Z) || sf::Keyboard::isKeyPressed(sf::Keyboard::W)){
-            _player2.getAnim().x++;
-            _player2.getAnim().y = 4;
-            _player2.setOrientation(0);
-            _player2.move({0, -_player2.getSpeed()});
-        }
-        else if (sf::Keyboard::isKeyPressed(sf::Keyboard::D) || sf::Keyboard::isKeyPressed(sf::Keyboard::D)){
-            _player2.getAnim().x++;
-            _player2.getAnim().y = 2;
-            _player2.setOrientation(3);
-            _player2.move({_player2.getSpeed(), 0});
-        }
-        else if (sf::Keyboard::isKeyPressed(sf::Keyboard::Q) || sf::Keyboard::isKeyPressed(sf::Keyboard::A)){
-            _player2.getAnim().x++;
-            _player2.getAnim().y = 6;
-            _player2.setOrientation(1);
-            _player2.move({-_player2.getSpeed(), 0});
-        }
+	if (_player2.isAlive()) {
+		if(!_player2.WeaponIsUsed()){
+			if (sf::Keyboard::isKeyPressed(sf::Keyboard::S) || sf::Keyboard::isKeyPressed(sf::Keyboard::S)){
+				_player2.getAnim().x++;
+				_player2.getAnim().y = 0;
+				_player2.setOrientation(2);
+				_player2.move({0, _player2.getSpeed()});
+			}
+			else if (sf::Keyboard::isKeyPressed(sf::Keyboard::Z) || sf::Keyboard::isKeyPressed(sf::Keyboard::W)){
+				_player2.getAnim().x++;
+				_player2.getAnim().y = 4;
+				_player2.setOrientation(0);
+				_player2.move({0, -_player2.getSpeed()});
+			}
+			else if (sf::Keyboard::isKeyPressed(sf::Keyboard::D) || sf::Keyboard::isKeyPressed(sf::Keyboard::D)){
+				_player2.getAnim().x++;
+				_player2.getAnim().y = 2;
+				_player2.setOrientation(3);
+				_player2.move({_player2.getSpeed(), 0});
+			}
+			else if (sf::Keyboard::isKeyPressed(sf::Keyboard::Q) || sf::Keyboard::isKeyPressed(sf::Keyboard::A)){
+				_player2.getAnim().x++;
+				_player2.getAnim().y = 6;
+				_player2.setOrientation(1);
+				_player2.move({-_player2.getSpeed(), 0});
+			}
             
-        _player2.updateSprite();
+        	_player2.updateSprite();
+
+		}
 
 		// cout << "player1 position : " << _player.getPosition().x << " "  << _player.getPosition().y << endl;
 		// cout << "player2 position : " << _player2.getPosition().x << " " << _player2.getPosition().y << endl;
     }
         
-    if (sf::Keyboard::isKeyPressed(sf::Keyboard::E))
+    if (sf::Keyboard::isKeyPressed(sf::Keyboard::E) && _player2.isAlive())
         if(_player2.isAlive())	_player2.useWand();
 
-    if (sf::Keyboard::isKeyPressed(sf::Keyboard::M))
+    if (sf::Keyboard::isKeyPressed(sf::Keyboard::M) && _player.isAlive())
         if(_player.isAlive()) 	_player.useBow();
 
 

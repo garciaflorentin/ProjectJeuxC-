@@ -452,7 +452,11 @@ void Map::spawnMobs(string area) {
 
 
 void Map::updateObjects(Player& player1, Player& player2) {
-    sf::Vector2f ppose = player1.getPosition();
+    sf::Vector2f ppose;
+    if (player1.isAlive())
+        ppose = player1.getPosition();
+    else
+        ppose = player2.getPosition();
 
     if ((ppose.x < 100*SPR_SIZE)&&(ppose.y < 0)&&(!_spf)) {
         _spf=true;
@@ -474,9 +478,10 @@ void Map::updateObjects(Player& player1, Player& player2) {
 
 	for (int i=0;i<_monsterList.size();i++) {
 		if (!_monsterList[i]->isAlive()) {
-            if (typeid(*_monsterList[i]) == typeid(FinalBoss)) 
+            if (typeid(*_monsterList[i]) == typeid(FinalBoss)) {
                 cout << "Game won" << endl;
                 _gameWon = true;
+            }
 
          	_monsterList.erase(_monsterList.begin() + i);
 		}

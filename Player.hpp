@@ -79,7 +79,10 @@ class Player : public Character {
          * @return true - Le joueur est vivant
          * @return false - Le joueur est mort
          */
-        bool isAlive() { return _isAlive; }
+        bool isAlive() { 
+            //cout << _name << " is alive : " << _isAlive << endl;
+            return _isAlive; 
+        }
 
         /**
          * @brief Indique si le joueur est dans la grotte.

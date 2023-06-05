@@ -31,9 +31,9 @@ void FinalBoss::update(Player& pl1, Player& pl2) {
     float dist1, dist2;
 
     if (playerSeen(pl1, pl2, &dist1, &dist2)) {
-        if (dist1 < dist2 && !playerInRange(pl1, _attack_radius))
+        if ((dist1 < dist2 && !playerInRange(pl1, _attack_radius) && pl1.isAlive()) || (!pl2.isAlive() && !playerInRange(pl1, _attack_radius)))
             goToPlayer(pl1);
-        else if (dist1 > dist2 && !playerInRange(pl2, _attack_radius))
+        else if ((dist1 > dist2 && !playerInRange(pl2, _attack_radius) && pl2.isAlive()) || (!pl1.isAlive() && !playerInRange(pl2, _attack_radius)))
             goToPlayer(pl2);
     }
 

@@ -160,6 +160,8 @@ void UserInterface::runLaunchedWindow() {
     text.setFillColor(sf::Color::White);
     text.setString("Start");
 
+    _StartMusic->play();
+
     while(_window->isOpen()){
         text.setPosition(sprite2Position.x-50,sprite2Position.y-165);
 

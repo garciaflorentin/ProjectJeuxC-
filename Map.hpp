@@ -33,11 +33,11 @@ class Map {
         std::vector<Monster*> _monsterList;         ///< Liste des monstres
         std::vector<GoldenChest*> _goldChestList;   ///< Liste des coffres contenants une cle
 
-        Door _door;                                 ///< La porte vers le boss final
-        DoorWall _doorWall1, _doorWall2, doorWall3; ///< Les portes incrustees dans les murs entre les zones
+        Door _door;                                     ///< La porte vers le boss final
+        DoorWall _doorWall1, _doorWall2, _doorWall3;    ///< Les portes incrustees dans les murs entre les zones
 
-        float _LIMITE_Xneg = 0, _LIMITE_Y = 4992.f, _LIMITE_X = 9540,_LIMITE_Yneg = -4896.f;    ///< Limites de la carte normale
-        float _LIMITE_XnegBoss = 9472.f, _LIMITE_XBoss = 10456.f, _LIMITE_YBoss = 10328.f;      ///< Limites de la zone du boss
+        float _LIMITE_Xneg = 0, _LIMITE_Y = 4992.f, _LIMITE_X = 9540,_LIMITE_Yneg = -4896.f;                            ///< Limites de la carte normale
+        float _LIMITE_XnegBoss = 9472.f, _LIMITE_XBoss = 10456.f, _LIMITE_YBoss = 10328.f, _LIMITE_YnegBoss = 9600.f;   ///< Limites de la zone du boss
 
         bool _spf = false, _spm = false, _spb = false, _spt = false;    ///< Gerent les apparitions des monstres des diferentes zones
 
