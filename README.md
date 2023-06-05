@@ -32,6 +32,8 @@ Pour deplacer le guerrier utilisez les fleches du clavier. Pour lances une flech
 
 Le but du jeu est de tuer le boss fianl. Pour faire ceci, il faut traverser les quatres portes ![door](/WorldTextures/Door_singlesprite.png) qui delimitent les quatres zones de la carte. Les cles qui ouvrent ces portes se trouvent dans les grands coffres a leur opposes sur la carte d'une zone. Attention, vous ne pouvez par ouvrir ces coffres que si tous les monstres de la zone ont ete tues.
 
+![the map](/OtherTextures/game_map.PNG)
+
 Nous etions totalement conscients des concequences sur la perception du gameplay lorsque nous avons pris cette decision, suivie du choix de la tailles des zones que les joueurs vont devoir couvrir, ce que allait rendre l'experience totalement inedite. Mais, si cette experience n'est pas vraiment ce que vous cherchez, vous pouvez appuiyer sur **1** pour tuer instantanement tous les monstres de la zone.
 
 Vous pouvez aussi appuiyer sur **2** pour obtenir une cle directrement.
