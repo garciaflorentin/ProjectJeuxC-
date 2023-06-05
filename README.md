@@ -1,4 +1,4 @@
-# Projet jeu C++
+# Projet jeu C++ - Florentin Garcia et Olga Shlykova
 
 Ceci est le projet créé dans les meilleurs esprits des pionniers du jeu vidéo sur PC des années 90, qui non seulement ne servait pas au divertissement de leur publique, mais provoquaient une frustration intense, suivi, de fois, des conséquences irréversibles sur l'intégrité mentale.
 
