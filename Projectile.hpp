@@ -3,7 +3,7 @@
 
 #include "Object.hpp"
 
-#define PROJECTILE_SPEED 10.0
+#define PROJECTILE_SPEED 30.0
 
 
 /**

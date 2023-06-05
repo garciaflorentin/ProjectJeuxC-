@@ -2,7 +2,7 @@
 
 
 FinalBoss::FinalBoss() : 
-Monster("MonsterTextures/dragon_boss.png", {205,190}, /*(*(new Player())), (*(new Player())),*/ "serious meat", 1, 7, 100, 1.5), _fireballs(*(new vector<Projectile*>())) {
+Monster("MonsterTextures/dragon_boss.png", {205,190}, /*(*(new Player())), (*(new Player())),*/ "serious meat", 1, 8, 100, 6), _fireballs(*(new vector<Projectile*>())) {
     for (int i = 0; i < FIREBALL_NUMBER; i++)
         _fireballs.push_back(new Fireball());
 
@@ -37,12 +37,12 @@ void FinalBoss::update(Player& pl1, Player& pl2) {
             goToPlayer(pl2);
     }
 
-    if (_upd.getElapsedTime().asMilliseconds()%100 == 0) {
+    if (_upd.getElapsedTime().asMilliseconds()%50 == 0) {
         if (playerInRange(pl1, _meleeRange))   attack(pl1, 'm');
         if (playerInRange(pl2, _meleeRange))   attack(pl2, 'm');
     }
 
-    if (_upd.getElapsedTime().asMilliseconds()%150 == 0) {
+    if (_upd.getElapsedTime().asMilliseconds()%100 == 0) {
         if (playerInRange(pl1, _attack_radius))    attack(pl1, 'r');
         if (playerInRange(pl2, _attack_radius))    attack(pl2, 'r');
     }

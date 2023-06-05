@@ -27,7 +27,7 @@ class Monster : public Character {
         float _attack_radius; /**< Rayon d'attaque du monstre */
         float _vision_field; /**< Champ de vision du monstre */
 
-        int _attack_cooldown = 50;  ///< Limite du temps entre les deux attaques
+        int _attack_cooldown = 20;  ///< Limite du temps entre les deux attaques
 
         /**
          * @brief Deplace le monstre vers la cible

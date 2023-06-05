@@ -24,7 +24,7 @@ class DemonDogMonster : public MeleeMonster {
          * @param vf Valeur de vie du monstre
          * @param speed Vitesse du monstre
          */
-        DemonDogMonster(string nameObject, sf::Vector2f initPos, string name = "meat", int dmg = 3, int ar = 2, int vf = 100, float speed = 1) : 
+        DemonDogMonster(string nameObject, sf::Vector2f initPos, string name = "meat", int dmg = 3, int ar = 2, int vf = 100, float speed = 4) : 
         MeleeMonster(nameObject, initPos, name, dmg, ar, vf, speed) {
             _anim.x = 0;
             _anim.y = 0;

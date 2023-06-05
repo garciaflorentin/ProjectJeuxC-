@@ -31,7 +31,7 @@ class GuerrierOgre : public MeleeMonster {
          * @param vf Valeur de vie du monstre
          * @param speed Vitesse du monstre
          */
-        GuerrierOgre(const char* nameObject, sf::Vector2f initPos, string name = "GuerrierOgre", int dmg = 4, int ar = 1, int vf = 30, float speed = 1.5) : 
+        GuerrierOgre(const char* nameObject, sf::Vector2f initPos, string name = "GuerrierOgre", int dmg = 4, int ar = 1, int vf = 30, float speed = 5) : 
         MeleeMonster(nameObject, initPos, name, dmg, ar, vf, speed) {
             _anim.x = 3;
             _anim.y = 4;

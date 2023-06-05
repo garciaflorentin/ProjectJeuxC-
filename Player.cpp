@@ -6,7 +6,7 @@ int Player::_keys = 0;
 
 Player::Player(string nameObject, sf::Vector2f initPos, string nameProjectile): 
 Character(nameObject,initPos), _projectile(*(new Arrow(nameProjectile,initPos,*this))) {
-	_speed = 5;
+	_speed = 10;
 	_hitAnim = 0;
 	_damageAttack = 3;
 	_isInTheCave = false;

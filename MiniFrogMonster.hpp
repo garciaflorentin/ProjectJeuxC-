@@ -32,7 +32,7 @@ class MiniFrogMonster : public MeleeMonster {
          * @param vf Champ de vision du monstre grenouille
          * @param speed Vitesse du monstre grenouille
          */
-        MiniFrogMonster(string nameObject, sf::Vector2f initPos, /*Player& player1, Player& player2,*/ string name = "MiniFrogMonster", int dmg = 2, int ar = 1, int vf = 50, float speed = 3) :
+        MiniFrogMonster(string nameObject, sf::Vector2f initPos, /*Player& player1, Player& player2,*/ string name = "MiniFrogMonster", int dmg = 2, int ar = 1, int vf = 50, float speed =10) :
         MeleeMonster(nameObject, initPos, /*player1, player2,*/ name, dmg, ar, vf, speed) {
             _anim.x = 15;
             _anim.y = 34;

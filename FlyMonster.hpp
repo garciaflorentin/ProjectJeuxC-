@@ -31,7 +31,7 @@ class FlyMonster : public MeleeMonster {
          * @param vf Les points de vie du monstre.
          * @param speed La vitesse de déplacement du monstre.
          */
-        FlyMonster(string nameObject, sf::Vector2f initPos, string name = "FlyMonster", int dmg = 3, int ar = 2, int vf = 100, float speed = 1.5) : 
+        FlyMonster(string nameObject, sf::Vector2f initPos, string name = "FlyMonster", int dmg = 3, int ar = 2, int vf = 100, float speed = 5) : 
         MeleeMonster(nameObject, initPos, name, dmg, ar, vf, speed) {
             _anim.x = 12;
             _anim.y = 34;

@@ -25,7 +25,7 @@ class MeleeMonster : public Monster {
          * @param vf Champ de vision du monstre de mêlée
          * @param speed Vitesse du monstre de mêlée
          */
-        MeleeMonster(string nameObject, sf::Vector2f initPos, string name = "Zombie", int dmg = 1, int ar = 1, int vf = 30, float speed = 3) :
+        MeleeMonster(string nameObject, sf::Vector2f initPos, string name = "Zombie", int dmg = 1, int ar = 1, int vf = 30, float speed = 8) :
         Monster(nameObject, initPos, name, dmg, ar, vf, speed) {
             _anim.x = 0;
             _anim.y = 0;

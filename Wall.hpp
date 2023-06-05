@@ -7,6 +7,7 @@
 #include "TypeWall.hpp"
 #include "Projectile.hpp"
 #include "SoundsLib.hpp"
+#include "Arrow.hpp"
 
 
 /**
@@ -199,7 +200,7 @@ class Wall: public Tile {
          * @param o Objet en collision avec le mur.
          */
         void collide(Object& o){
-            if(typeid(o) == typeid(Projectile)){
+            if(typeid(o) == typeid(Arrow)){
                 if(_resistance==0){
                     _sprite.scale(0,0);     
                     return;  

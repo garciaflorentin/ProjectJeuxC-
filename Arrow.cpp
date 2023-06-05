@@ -10,6 +10,7 @@ Projectile(nameObject,initPos), _player(player) {
 
 
 void Arrow::goTo(){
+    
     switch(_direction){
         case 0:
             this->getSprite().move(0,-PROJECTILE_SPEED);

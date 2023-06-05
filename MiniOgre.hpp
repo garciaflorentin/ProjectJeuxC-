@@ -25,7 +25,7 @@ class MiniOgre : public MeleeMonster {
          * @param vf Champ de vision du mini ogre
          * @param speed Vitesse du mini ogre
          */
-        MiniOgre(string nameObject, sf::Vector2f initPos, string name = "MiniOgre", int dmg = 2.5, int ar = 1, int vf = 30, float speed = 2.5) :
+        MiniOgre(string nameObject, sf::Vector2f initPos, string name = "MiniOgre", int dmg = 2.5, int ar = 1, int vf = 30, float speed = 8) :
         MeleeMonster(nameObject, initPos, name, dmg, ar, vf, speed) {
             _anim.x = 3;
             _anim.y = 0;
