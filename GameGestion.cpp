@@ -207,7 +207,7 @@ void GameGestion::keyEvent(sf::Event e) {
 		_map.getMonsters().clear();
 	}
 
-	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Num2)){// && !_tmp_var) {	//ajouter une cle a l'inventaire
+	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Num2) && !_tmp_var) {	//ajouter une cle a l'inventaire
 		_tmp_var = true;
 
 		if (_player.getKey() < 4) 
