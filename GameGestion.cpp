@@ -223,8 +223,8 @@ void GameGestion::keyEvent(sf::Event e) {
 		//_player.addKey();
 	}
 
-	//if (e.type == sf::Event::KeyReleased) 
-	//	_tmp_var = false;
+	if (e.type == sf::Event::KeyReleased) 
+	_tmp_var = false;
 	
 }
 
