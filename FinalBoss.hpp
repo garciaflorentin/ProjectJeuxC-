@@ -9,7 +9,7 @@
 
 #define PI 3.14159
 
-#define FIREBALL_NUMBER 3
+#define FIREBALL_NUMBER 6
 
 
 /**
@@ -18,7 +18,7 @@
  */
 class FinalBoss : public Monster {
     private :
-        int _meleeRange = 2;                ///< Distance a laquelle le personnage peut attacker sans tirer
+        int _meleeRange = 4;                ///< Distance a laquelle le personnage peut attacker sans tirer
         vector<Projectile*>& _fireballs;    ///< Tableau des fireball que peut tirer le personnage
 
         /**

@@ -801,6 +801,8 @@ void GameGestion::updateMobs() {
 void GameGestion::updateFireballs(std::vector<Projectile*>& fireballs, int curr_ind, std::vector<Object*>& wallList) {
 	std::vector<int> infoWall;
 	std::vector<int> infoPlayer;
+	std::vector<int> infoPlayer2;
+
 
 	if (fireballs[curr_ind] != nullptr) {
 		fireballs[curr_ind]->arrowOutOfBounds();
@@ -808,11 +810,15 @@ void GameGestion::updateFireballs(std::vector<Projectile*>& fireballs, int curr_
 		if(fireballs[curr_ind]->isShot()) {
 			collideWall(*fireballs[curr_ind],wallList,infoWall);
 			collidePlayer(*fireballs[curr_ind],_player,infoPlayer);
+			collidePlayer(*fireballs[curr_ind],_player2,infoPlayer2);
+
 
 			int indice =infoWall[0];
 			int typeCollide=infoWall[1];
 			int indicePlayer=infoPlayer[0];
 			int TypeCollidePlayer=infoPlayer[1];
+			int indicePlayer2=infoPlayer2[0];
+			int TypeCollidePlayer2=infoPlayer2[1];
 
 			if(indice!= -1 && typeCollide!= -1){
 				collideVisitor(*fireballs[curr_ind],*wallList[indice]);
@@ -820,6 +826,9 @@ void GameGestion::updateFireballs(std::vector<Projectile*>& fireballs, int curr_
 
 			if(indicePlayer!= -1 && TypeCollidePlayer!= -1){
 				collideVisitor(*fireballs[curr_ind],_player);
+			}
+			if(indicePlayer2!= -1 && TypeCollidePlayer2!= -1){
+				collideVisitor(*fireballs[curr_ind],_player2);
 			}
 		}
 	}

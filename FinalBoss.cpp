@@ -2,7 +2,7 @@
 
 
 FinalBoss::FinalBoss() : 
-Monster("MonsterTextures/dragon_boss.png", {205,190}, /*(*(new Player())), (*(new Player())),*/ "serious meat", 1, 8, 100, 6), _fireballs(*(new vector<Projectile*>())) {
+Monster("MonsterTextures/dragon_boss.png", {205,190}, /*(*(new Player())), (*(new Player())),*/ "serious meat", 5, 5, 100, 15), _fireballs(*(new vector<Projectile*>())) {
     for (int i = 0; i < FIREBALL_NUMBER; i++)
         _fireballs.push_back(new Fireball());
 
@@ -18,10 +18,13 @@ const bool FinalBoss::playerInRange(Player& target, int range) const {
     sf::Vector2f player_pos = target.getPosition();
     sf::Vector2f this_pos = this->getPosition();
 
+    if(target.isAlive()){
+
     float dist = sqrt((player_pos.x-this_pos.x)*(player_pos.x-this_pos.x) + 
         (player_pos.y-this_pos.y)*(player_pos.y-this_pos.y));
     
     if (dist < range)  return true;
+    }
     
     return false;
 }
@@ -37,12 +40,12 @@ void FinalBoss::update(Player& pl1, Player& pl2) {
             goToPlayer(pl2);
     }
 
-    if (_upd.getElapsedTime().asMilliseconds()%50 == 0) {
+    if (_upd.getElapsedTime().asMilliseconds()%10 == 0) {
         if (playerInRange(pl1, _meleeRange))   attack(pl1, 'm');
         if (playerInRange(pl2, _meleeRange))   attack(pl2, 'm');
     }
 
-    if (_upd.getElapsedTime().asMilliseconds()%100 == 0) {
+    if (_upd.getElapsedTime().asMilliseconds()%15 == 0) {
         if (playerInRange(pl1, _attack_radius))    attack(pl1, 'r');
         if (playerInRange(pl2, _attack_radius))    attack(pl2, 'r');
     }
