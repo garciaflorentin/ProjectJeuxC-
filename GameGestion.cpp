@@ -2,8 +2,8 @@
 
 
 GameGestion::GameGestion() : 
-_map(*(new Map())), _player(*(new Player("PlayerTextures/player1.png", {120, -80}, "OtherTextures/arrow.png"))), 
-_player2(*(new Player("PlayerTextures/player2.png", {121, -80}, "OtherTextures/fate.png"))) {
+_map(*(new Map())), _player(*(new Player("PlayerTextures/player1.png", {5, -50}, "OtherTextures/arrow.png"))), 
+_player2(*(new Player("PlayerTextures/player2.png", {6, -50}, "OtherTextures/fate.png"))) {
 	_currentZoneMusic= -1;
 
 	_map.createMap();
@@ -185,7 +185,6 @@ void GameGestion::keyEvent(sf::Event e) {
 			}
             
         	_player2.updateSprite();
-
 		}
 
 		// cout << "player1 position : " << _player.getPosition().x << " "  << _player.getPosition().y << endl;
@@ -251,7 +250,7 @@ int GameGestion::updateGame() {
 	collideMonsterGestion();
 	collideWallGestion();
 
-	if (_player.getIsInTheCave())
+	if (_player.getIsInTheCave() || _player2.getIsInTheCave())
 		LimitMapBoss();
 	else
 		LimitMap();
@@ -406,6 +405,9 @@ void GameGestion::collidePlayer(Object& o, Player& p ,std::vector<int>& info) {
 
 
 void GameGestion::LimitMap() {
+
+	//cout << "Limiting normal map" << endl;
+
 	std::vector<float> limit;
 	_map.getLimitMap(limit);
 	sf::Vector2f newpos;
@@ -465,8 +467,10 @@ void GameGestion::LimitMap() {
 }
 
 
-void GameGestion::LimitMapBoss()
-{
+void GameGestion::LimitMapBoss() {
+
+	//cout << "Limiting boss map" << endl;
+
 	std::vector<float> limit;
 	_map.getLimitMapBoss(limit);
 	sf::Vector2f newpos;

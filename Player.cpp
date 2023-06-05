@@ -153,7 +153,9 @@ void Player::initWeapon(){
 }
 
 
-void Player::collide(Object& o) {}
+void Player::collide(Object& o) {
+	cout << "Player collide" << endl;
+}
 
 
 void Player::targetInRange(std::vector<Monster*>& targetList,std::vector<int> indiceToKill){

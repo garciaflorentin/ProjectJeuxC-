@@ -223,10 +223,10 @@ void GameWindow::display() {
     setScrollingView();
 
     if(_game.getPlayerVector()[0]->getIsInTheCave() || _game.getPlayerVector()[1]->getIsInTheCave()){
-        if(_game.getPlayerVector()[0]->getIsInTheCave())
-            _game.getPlayerVector()[1]->getSprite().setPosition({9984,9984});
-        else
-            _game.getPlayerVector()[0]->getSprite().setPosition({9984,9984});
+        // if(_game.getPlayerVector()[0]->getIsInTheCave())
+        //     _game.getPlayerVector()[1]->getSprite().setPosition({9984,9984});
+        // else
+        //     _game.getPlayerVector()[0]->getSprite().setPosition({9984,9984});
 
         setViewBoss();
     }

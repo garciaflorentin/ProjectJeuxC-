@@ -33,7 +33,7 @@ class DemonDogMonster : public MeleeMonster {
             updateSprite();
 
             _footStepSound = SoundsLib::assignSound("Sounds/bigMonsterStep.wav");
-            _takeDamageMusic = SoundsLib::assignSound("Sounds/ie_monster.wav");
+            _takeDamageMusic = SoundsLib::assignSound("Sounds/die_monster.wav");
             _crySound = SoundsLib::assignSound("Sounds/roar3_monster.wav");
         }
 

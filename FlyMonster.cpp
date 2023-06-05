@@ -10,17 +10,17 @@ void FlyMonster::updateSprite(){
 
 void FlyMonster::update(Player& target1, Player& target2) {
 
-    cout << "Updating monster" << endl;
+    //cout << "Updating monster" << endl;
 
     float dist1, dist2;
     
     if (target1.isAlive() || target2.isAlive()) {
 
-        cout << "At least one of the players is alive" << endl;
+        //cout << "At least one of the players is alive" << endl;
 
         if (playerSeen(target1, target2, &dist1, &dist2)) {
 
-            cout << "A player is seen" << endl;
+            //cout << "A player is seen" << endl;
 
             if ((dist1 < dist2 && !playerInRange(target1) && target1.isAlive()) || (!target2.isAlive() && !playerInRange(target1)))
                 goToPlayer(target1);
@@ -41,7 +41,7 @@ void FlyMonster::update(Player& target1, Player& target2) {
 
 void FlyMonster::goToPlayer(Player& target) {
 
-    cout << "Going towards the player : " << target.getName() << endl;
+    //cout << "Going towards the player : " << target.getName() << endl;
 
     if(target.isAlive()) {
         sf::Vector2f player_pos = target.getPosition();
